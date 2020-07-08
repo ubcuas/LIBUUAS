@@ -15,6 +15,6 @@ clean-rust:
 	rm -rf bindings/rust/target/
 
 clean-py :
-	rm -rf bindings/python/build/ bindings/python/dist/ bindings/python/pylibuuas.egg-info/
+	rm -rf bindings/python/build/ bindings/python/dist/ bindings/python/pylibuuas.egg-info/ bindings/python/pylibuuas/_libuuas*
 
 clean : clean-cpp clean-rust clean-py

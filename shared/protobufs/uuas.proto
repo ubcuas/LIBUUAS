@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package uuas;
+
+message GeoTagRequest {
+    string filename = 1;
+    uint64 latitude = 2;
+    uint64 longitude = 3;
+    uint32 altitude = 4;
+}

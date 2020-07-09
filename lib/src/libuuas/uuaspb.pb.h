@@ -360,6 +360,7 @@ class Telemetry PROTOBUF_FINAL :
     kLongitudeFieldNumber = 2,
     kAltitudeAglMetersFieldNumber = 3,
     kAltitudeMslMetersFieldNumber = 4,
+    kHeadingDegreesFieldNumber = 5,
     kVelocityXCmSFieldNumber = 6,
     kVelocityYCmSFieldNumber = 7,
     kVelocityZCmSFieldNumber = 8,
@@ -371,69 +372,77 @@ class Telemetry PROTOBUF_FINAL :
     kYawspeedRadSFieldNumber = 14,
     kTimestampTelemMsFieldNumber = 15,
     kTimestampMsgMsFieldNumber = 16,
-    kHeadingDegreesFieldNumber = 5,
   };
-  // sint64 latitude = 1;
+  // sint32 latitude = 1;
   void clear_latitude();
-  ::PROTOBUF_NAMESPACE_ID::int64 latitude() const;
-  void set_latitude(::PROTOBUF_NAMESPACE_ID::int64 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 latitude() const;
+  void set_latitude(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int64 _internal_latitude() const;
-  void _internal_set_latitude(::PROTOBUF_NAMESPACE_ID::int64 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_latitude() const;
+  void _internal_set_latitude(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // sint64 longitude = 2;
+  // sint32 longitude = 2;
   void clear_longitude();
-  ::PROTOBUF_NAMESPACE_ID::int64 longitude() const;
-  void set_longitude(::PROTOBUF_NAMESPACE_ID::int64 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 longitude() const;
+  void set_longitude(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int64 _internal_longitude() const;
-  void _internal_set_longitude(::PROTOBUF_NAMESPACE_ID::int64 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_longitude() const;
+  void _internal_set_longitude(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // uint32 altitude_agl_meters = 3;
+  // sint32 altitude_agl_meters = 3;
   void clear_altitude_agl_meters();
-  ::PROTOBUF_NAMESPACE_ID::uint32 altitude_agl_meters() const;
-  void set_altitude_agl_meters(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 altitude_agl_meters() const;
+  void set_altitude_agl_meters(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_altitude_agl_meters() const;
-  void _internal_set_altitude_agl_meters(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_altitude_agl_meters() const;
+  void _internal_set_altitude_agl_meters(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // uint32 altitude_msl_meters = 4;
+  // sint32 altitude_msl_meters = 4;
   void clear_altitude_msl_meters();
-  ::PROTOBUF_NAMESPACE_ID::uint32 altitude_msl_meters() const;
-  void set_altitude_msl_meters(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 altitude_msl_meters() const;
+  void set_altitude_msl_meters(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_altitude_msl_meters() const;
-  void _internal_set_altitude_msl_meters(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_altitude_msl_meters() const;
+  void _internal_set_altitude_msl_meters(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // double velocity_x_cm_s = 6;
+  // uint32 heading_degrees = 5;
+  void clear_heading_degrees();
+  ::PROTOBUF_NAMESPACE_ID::uint32 heading_degrees() const;
+  void set_heading_degrees(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_heading_degrees() const;
+  void _internal_set_heading_degrees(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // sint32 velocity_x_cm_s = 6;
   void clear_velocity_x_cm_s();
-  double velocity_x_cm_s() const;
-  void set_velocity_x_cm_s(double value);
+  ::PROTOBUF_NAMESPACE_ID::int32 velocity_x_cm_s() const;
+  void set_velocity_x_cm_s(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  double _internal_velocity_x_cm_s() const;
-  void _internal_set_velocity_x_cm_s(double value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_velocity_x_cm_s() const;
+  void _internal_set_velocity_x_cm_s(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // double velocity_y_cm_s = 7;
+  // sint32 velocity_y_cm_s = 7;
   void clear_velocity_y_cm_s();
-  double velocity_y_cm_s() const;
-  void set_velocity_y_cm_s(double value);
+  ::PROTOBUF_NAMESPACE_ID::int32 velocity_y_cm_s() const;
+  void set_velocity_y_cm_s(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  double _internal_velocity_y_cm_s() const;
-  void _internal_set_velocity_y_cm_s(double value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_velocity_y_cm_s() const;
+  void _internal_set_velocity_y_cm_s(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // double velocity_z_cm_s = 8;
+  // sint32 velocity_z_cm_s = 8;
   void clear_velocity_z_cm_s();
-  double velocity_z_cm_s() const;
-  void set_velocity_z_cm_s(double value);
+  ::PROTOBUF_NAMESPACE_ID::int32 velocity_z_cm_s() const;
+  void set_velocity_z_cm_s(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  double _internal_velocity_z_cm_s() const;
-  void _internal_set_velocity_z_cm_s(double value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_velocity_z_cm_s() const;
+  void _internal_set_velocity_z_cm_s(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // double roll_rad = 9;
@@ -508,15 +517,6 @@ class Telemetry PROTOBUF_FINAL :
   void _internal_set_timestamp_msg_ms(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // uint32 heading_degrees = 5;
-  void clear_heading_degrees();
-  ::PROTOBUF_NAMESPACE_ID::uint32 heading_degrees() const;
-  void set_heading_degrees(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_heading_degrees() const;
-  void _internal_set_heading_degrees(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
   // @@protoc_insertion_point(class_scope:uuas.Telemetry)
  private:
   class _Internal;
@@ -524,13 +524,14 @@ class Telemetry PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::int64 latitude_;
-  ::PROTOBUF_NAMESPACE_ID::int64 longitude_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 altitude_agl_meters_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 altitude_msl_meters_;
-  double velocity_x_cm_s_;
-  double velocity_y_cm_s_;
-  double velocity_z_cm_s_;
+  ::PROTOBUF_NAMESPACE_ID::int32 latitude_;
+  ::PROTOBUF_NAMESPACE_ID::int32 longitude_;
+  ::PROTOBUF_NAMESPACE_ID::int32 altitude_agl_meters_;
+  ::PROTOBUF_NAMESPACE_ID::int32 altitude_msl_meters_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 heading_degrees_;
+  ::PROTOBUF_NAMESPACE_ID::int32 velocity_x_cm_s_;
+  ::PROTOBUF_NAMESPACE_ID::int32 velocity_y_cm_s_;
+  ::PROTOBUF_NAMESPACE_ID::int32 velocity_z_cm_s_;
   double roll_rad_;
   double pitch_rad_;
   double yaw_rad_;
@@ -539,7 +540,6 @@ class Telemetry PROTOBUF_FINAL :
   double yawspeed_rad_s_;
   ::PROTOBUF_NAMESPACE_ID::uint64 timestamp_telem_ms_;
   ::PROTOBUF_NAMESPACE_ID::uint64 timestamp_msg_ms_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 heading_degrees_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_uuaspb_2eproto;
 };
@@ -720,82 +720,82 @@ inline void GeoTagRequest::set_allocated_telemetry(::uuas::Telemetry* telemetry)
 
 // Telemetry
 
-// sint64 latitude = 1;
+// sint32 latitude = 1;
 inline void Telemetry::clear_latitude() {
-  latitude_ = PROTOBUF_LONGLONG(0);
+  latitude_ = 0;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int64 Telemetry::_internal_latitude() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 Telemetry::_internal_latitude() const {
   return latitude_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int64 Telemetry::latitude() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 Telemetry::latitude() const {
   // @@protoc_insertion_point(field_get:uuas.Telemetry.latitude)
   return _internal_latitude();
 }
-inline void Telemetry::_internal_set_latitude(::PROTOBUF_NAMESPACE_ID::int64 value) {
+inline void Telemetry::_internal_set_latitude(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
   latitude_ = value;
 }
-inline void Telemetry::set_latitude(::PROTOBUF_NAMESPACE_ID::int64 value) {
+inline void Telemetry::set_latitude(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_latitude(value);
   // @@protoc_insertion_point(field_set:uuas.Telemetry.latitude)
 }
 
-// sint64 longitude = 2;
+// sint32 longitude = 2;
 inline void Telemetry::clear_longitude() {
-  longitude_ = PROTOBUF_LONGLONG(0);
+  longitude_ = 0;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int64 Telemetry::_internal_longitude() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 Telemetry::_internal_longitude() const {
   return longitude_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int64 Telemetry::longitude() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 Telemetry::longitude() const {
   // @@protoc_insertion_point(field_get:uuas.Telemetry.longitude)
   return _internal_longitude();
 }
-inline void Telemetry::_internal_set_longitude(::PROTOBUF_NAMESPACE_ID::int64 value) {
+inline void Telemetry::_internal_set_longitude(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
   longitude_ = value;
 }
-inline void Telemetry::set_longitude(::PROTOBUF_NAMESPACE_ID::int64 value) {
+inline void Telemetry::set_longitude(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_longitude(value);
   // @@protoc_insertion_point(field_set:uuas.Telemetry.longitude)
 }
 
-// uint32 altitude_agl_meters = 3;
+// sint32 altitude_agl_meters = 3;
 inline void Telemetry::clear_altitude_agl_meters() {
-  altitude_agl_meters_ = 0u;
+  altitude_agl_meters_ = 0;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 Telemetry::_internal_altitude_agl_meters() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 Telemetry::_internal_altitude_agl_meters() const {
   return altitude_agl_meters_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 Telemetry::altitude_agl_meters() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 Telemetry::altitude_agl_meters() const {
   // @@protoc_insertion_point(field_get:uuas.Telemetry.altitude_agl_meters)
   return _internal_altitude_agl_meters();
 }
-inline void Telemetry::_internal_set_altitude_agl_meters(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void Telemetry::_internal_set_altitude_agl_meters(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
   altitude_agl_meters_ = value;
 }
-inline void Telemetry::set_altitude_agl_meters(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void Telemetry::set_altitude_agl_meters(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_altitude_agl_meters(value);
   // @@protoc_insertion_point(field_set:uuas.Telemetry.altitude_agl_meters)
 }
 
-// uint32 altitude_msl_meters = 4;
+// sint32 altitude_msl_meters = 4;
 inline void Telemetry::clear_altitude_msl_meters() {
-  altitude_msl_meters_ = 0u;
+  altitude_msl_meters_ = 0;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 Telemetry::_internal_altitude_msl_meters() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 Telemetry::_internal_altitude_msl_meters() const {
   return altitude_msl_meters_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 Telemetry::altitude_msl_meters() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 Telemetry::altitude_msl_meters() const {
   // @@protoc_insertion_point(field_get:uuas.Telemetry.altitude_msl_meters)
   return _internal_altitude_msl_meters();
 }
-inline void Telemetry::_internal_set_altitude_msl_meters(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void Telemetry::_internal_set_altitude_msl_meters(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
   altitude_msl_meters_ = value;
 }
-inline void Telemetry::set_altitude_msl_meters(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void Telemetry::set_altitude_msl_meters(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_altitude_msl_meters(value);
   // @@protoc_insertion_point(field_set:uuas.Telemetry.altitude_msl_meters)
 }
@@ -820,62 +820,62 @@ inline void Telemetry::set_heading_degrees(::PROTOBUF_NAMESPACE_ID::uint32 value
   // @@protoc_insertion_point(field_set:uuas.Telemetry.heading_degrees)
 }
 
-// double velocity_x_cm_s = 6;
+// sint32 velocity_x_cm_s = 6;
 inline void Telemetry::clear_velocity_x_cm_s() {
   velocity_x_cm_s_ = 0;
 }
-inline double Telemetry::_internal_velocity_x_cm_s() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 Telemetry::_internal_velocity_x_cm_s() const {
   return velocity_x_cm_s_;
 }
-inline double Telemetry::velocity_x_cm_s() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 Telemetry::velocity_x_cm_s() const {
   // @@protoc_insertion_point(field_get:uuas.Telemetry.velocity_x_cm_s)
   return _internal_velocity_x_cm_s();
 }
-inline void Telemetry::_internal_set_velocity_x_cm_s(double value) {
+inline void Telemetry::_internal_set_velocity_x_cm_s(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
   velocity_x_cm_s_ = value;
 }
-inline void Telemetry::set_velocity_x_cm_s(double value) {
+inline void Telemetry::set_velocity_x_cm_s(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_velocity_x_cm_s(value);
   // @@protoc_insertion_point(field_set:uuas.Telemetry.velocity_x_cm_s)
 }
 
-// double velocity_y_cm_s = 7;
+// sint32 velocity_y_cm_s = 7;
 inline void Telemetry::clear_velocity_y_cm_s() {
   velocity_y_cm_s_ = 0;
 }
-inline double Telemetry::_internal_velocity_y_cm_s() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 Telemetry::_internal_velocity_y_cm_s() const {
   return velocity_y_cm_s_;
 }
-inline double Telemetry::velocity_y_cm_s() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 Telemetry::velocity_y_cm_s() const {
   // @@protoc_insertion_point(field_get:uuas.Telemetry.velocity_y_cm_s)
   return _internal_velocity_y_cm_s();
 }
-inline void Telemetry::_internal_set_velocity_y_cm_s(double value) {
+inline void Telemetry::_internal_set_velocity_y_cm_s(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
   velocity_y_cm_s_ = value;
 }
-inline void Telemetry::set_velocity_y_cm_s(double value) {
+inline void Telemetry::set_velocity_y_cm_s(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_velocity_y_cm_s(value);
   // @@protoc_insertion_point(field_set:uuas.Telemetry.velocity_y_cm_s)
 }
 
-// double velocity_z_cm_s = 8;
+// sint32 velocity_z_cm_s = 8;
 inline void Telemetry::clear_velocity_z_cm_s() {
   velocity_z_cm_s_ = 0;
 }
-inline double Telemetry::_internal_velocity_z_cm_s() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 Telemetry::_internal_velocity_z_cm_s() const {
   return velocity_z_cm_s_;
 }
-inline double Telemetry::velocity_z_cm_s() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 Telemetry::velocity_z_cm_s() const {
   // @@protoc_insertion_point(field_get:uuas.Telemetry.velocity_z_cm_s)
   return _internal_velocity_z_cm_s();
 }
-inline void Telemetry::_internal_set_velocity_z_cm_s(double value) {
+inline void Telemetry::_internal_set_velocity_z_cm_s(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
   velocity_z_cm_s_ = value;
 }
-inline void Telemetry::set_velocity_z_cm_s(double value) {
+inline void Telemetry::set_velocity_z_cm_s(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_velocity_z_cm_s(value);
   // @@protoc_insertion_point(field_set:uuas.Telemetry.velocity_z_cm_s)
 }

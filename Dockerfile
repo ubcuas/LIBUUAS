@@ -43,12 +43,15 @@ RUN cargo build --release
 #### Rust runtime image ####
 FROM rust:latest AS rustrun
 RUN mkdir -p /libuuas/
+RUN mkdir -p /opt/ruuas/
+
+RUN apt-get update -y && apt-get install -y llvm clang
 
 COPY --from=libbuild /usr/local/lib/ /usr/local/lib/
 COPY --from=libbuild /usr/local/include/ /usr/local/include/
 RUN ldconfig /usr/local/lib/
 
-COPY bindings/rust/ /libuuas/
+COPY bindings/rust/ /opt/ruuas/
 
 
 #### Python bindings build image ####

@@ -25,6 +25,19 @@ clean-py :
 
 clean : clean-cpp clean-rust clean-py
 
+## Install ##
+install-cpp : build-cpp
+	cd build/; sudo $(MAKE) install
+
+install-rust : build-rust
+	sudo mkdir -p /opt/ruuas/
+	sudo cp -r bindings/rust/* /opt/ruuas/
+
+install-py : build-py
+	pip3 install bindings/python/dist/*.whl
+
+install : install-cpp install-rust install-py
+
 ## Protobuf ##
 protobuf-cpp :
 	cd shared/protobufs/; protoc uuaspb.proto --cpp_out=$(CURDIR)/lib/src/libuuas

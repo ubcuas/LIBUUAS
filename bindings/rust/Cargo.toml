@@ -1,5 +1,5 @@
 [package]
-name = "uuas"
+name = "ruuas"
 version = "0.1.0"
 authors = ["Eric Mikulin <ericm99@gmail.com>"]
 edition = "2018"

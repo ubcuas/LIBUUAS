@@ -4,14 +4,14 @@ use std::boxed::Box;
 use super::uuaspb;
 
 pub struct TelemetryArgs {
-    pub latitude: i64,
-    pub longitude: i64,
-    pub altitude_agl_meters: u32,
-    pub altitude_msl_meters: u32,
+    pub latitude: i32,
+    pub longitude: i32,
+    pub altitude_agl_meters: i32,
+    pub altitude_msl_meters: i32,
     pub heading_degrees: u32,
-    pub velocity_x_cm_s: f64,
-    pub velocity_y_cm_s: f64,
-    pub velocity_z_cm_s: f64,
+    pub velocity_x_cm_s: i32,
+    pub velocity_y_cm_s: i32,
+    pub velocity_z_cm_s: i32,
     pub roll_rad: f64,
     pub pitch_rad: f64,
     pub yaw_rad: f64,
@@ -22,7 +22,7 @@ pub struct TelemetryArgs {
     pub timestamp_msg_ms: u64,
 }
 
-fn new_telem_msg(args: TelemetryArgs) -> uuaspb::Telemetry {
+pub fn new_telem_msg(args: TelemetryArgs) -> uuaspb::Telemetry {
     let mut msg = uuaspb::Telemetry::new();
     msg.latitude = args.latitude;
     msg.longitude = args.longitude;
@@ -43,13 +43,15 @@ fn new_telem_msg(args: TelemetryArgs) -> uuaspb::Telemetry {
     return msg;
 }
 
-fn serialize_telem_msg(msg: uuaspb::Telemetry) -> Vec<u8> {
+pub fn serialize_telem_msg(msg: uuaspb::Telemetry) -> Vec<u8> {
     let boxedmsg: Box<dyn protobuf::Message> = Box::new(msg);
     let buffer: Vec<u8> = boxedmsg.write_to_bytes().unwrap();
     return buffer;
 }
 
-fn deserialize_telem_msg(buffer: &[u8]) -> Result<uuaspb::Telemetry, Box<dyn std::error::Error>> {
+pub fn deserialize_telem_msg(
+    buffer: &[u8],
+) -> Result<uuaspb::Telemetry, Box<dyn std::error::Error>> {
     let msg = protobuf::parse_from_bytes(buffer)?;
     return Ok(msg);
 }

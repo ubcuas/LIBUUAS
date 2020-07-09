@@ -16,6 +16,14 @@ RUN make -j$(nproc)
 RUN make install
 
 
+#### C++ runtime image ####
+FROM debian:latest AS cpprun
+
+COPY --from=libbuild /usr/local/lib/ /usr/local/lib/
+COPY --from=libbuild /usr/local/include/ /usr/local/include/
+RUN ldconfig /usr/local/lib/
+
+
 #### Rust bindings build image ####
 FROM rust:latest AS rustbuild
 RUN mkdir -p /libuuas/
@@ -32,6 +40,10 @@ WORKDIR /libuuas/build/
 RUN cargo build --release
 
 
+#### Rust runtime image ####
+FROM rust:latest AS rustrun
+
+
 #### Python bindings build image ####
 FROM python:latest AS pybuild
 RUN mkdir -p /libuuas/
@@ -41,9 +53,18 @@ COPY --from=libbuild /usr/local/lib/ /usr/local/lib/
 COPY --from=libbuild /usr/local/include/ /usr/local/include/
 RUN ldconfig /usr/local/lib/
 
-COPY bindings/python/requirements.txt ./
-RUN pip install -r requirements.txt
+COPY bindings/python/build_requirements.txt ./
+RUN pip install -r build_requirements.txt
 
 COPY bindings/python/ ./build
 WORKDIR /libuuas/build/
 RUN python3 setup.py bdist_wheel
+
+
+#### Python runtime image ####
+FROM python:latest AS pyrun
+
+COPY --from=pybuild /libuuas/build/dist/*.whl ./
+RUN pip install *.whl
+RUN rm -rf *.whl
+

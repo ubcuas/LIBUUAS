@@ -29,8 +29,14 @@ clean : clean-cpp clean-rust clean-py
 protobuf-cpp :
 	cd shared/protobufs/; protoc uuaspb.proto --cpp_out=$(CURDIR)/lib/src/libuuas
 
+protobuf-rust :
+	cargo install protobuf-codegen --version="2.16.2";
+	cd shared/protobufs/; PATH="$(HOME)/.cargo/bin:$(PATH)" protoc uuaspb.proto --rust_out=$(CURDIR)/bindings/rust/src
+
 protobuf-py :
 	cd shared/protobufs/; protoc uuaspb.proto --python_out=$(CURDIR)/bindings/python/pylibuuas
+
+protobuf : protobuf-cpp protobuf-rust protobuf-py
 
 ## Docker ##
 docker-cpp :

@@ -4,6 +4,7 @@ use std::env;
 use std::path::PathBuf;
 
 fn main() {
+    // Generate Rust/C++ ffi
     println!("cargo:rustc-link-lib=uuas");
     println!("cargo:rerun-if-changed=src/wrapper.hpp");
 

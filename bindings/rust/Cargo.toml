@@ -6,6 +6,7 @@ edition = "2018"
 build = "build.rs"
 
 [dependencies]
+protobuf = "2.16.2"
 
 [build-dependencies]
 bindgen = "0.53.1"

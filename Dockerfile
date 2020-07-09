@@ -35,13 +35,20 @@ COPY --from=libbuild /usr/local/lib/ /usr/local/lib/
 COPY --from=libbuild /usr/local/include/ /usr/local/include/
 RUN ldconfig /usr/local/lib/
 
-COPY bindings/rust/ ./build
+COPY bindings/rust/ /libuuas/build
 WORKDIR /libuuas/build/
 RUN cargo build --release
 
 
 #### Rust runtime image ####
 FROM rust:latest AS rustrun
+RUN mkdir -p /libuuas/
+
+COPY --from=libbuild /usr/local/lib/ /usr/local/lib/
+COPY --from=libbuild /usr/local/include/ /usr/local/include/
+RUN ldconfig /usr/local/lib/
+
+COPY bindings/rust/ /libuuas/
 
 
 #### Python bindings build image ####
@@ -67,4 +74,3 @@ FROM python:latest AS pyrun
 COPY --from=pybuild /libuuas/build/dist/*.whl ./
 RUN pip install *.whl
 RUN rm -rf *.whl
-

@@ -212,6 +212,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "protobuf"
+version = "2.16.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d883f78645c21b7281d21305181aa1f4dd9e9363e7cf2566c93121552cff003e"
+
+[[package]]
 name = "quick-error"
 version = "1.2.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -306,6 +312,7 @@ name = "uuas"
 version = "0.1.0"
 dependencies = [
  "bindgen",
+ "protobuf",
 ]
 
 [[package]]

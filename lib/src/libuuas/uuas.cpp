@@ -2,9 +2,10 @@
 #include "uuaspb.pb.h"
 #include <iostream>
 
-void geotagImageRequest(char* pbbuffer, int length) {
+int32_t geotagImageRequest(const unsigned char* pbbuffer, int32_t length) {
+    return (length > 0) ? 0 : 1;
 }
 
-int double_nums(int a, int b) {
+int32_t double_nums(int32_t a, int32_t b) {
     return a + b;
 }

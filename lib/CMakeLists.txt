@@ -24,7 +24,7 @@ option( protobuf_BUILD_PROTOC_BINARIES "" OFF )
 add_subdirectory( ${protobufcmake_SOURCE_DIR}/cmake ${protobufcmake_BINARY_DIR} )
 
 # Main libuuas so
-add_library( uuas SHARED ${CMAKE_SOURCE_DIR}/src/libuuas/uuas.cpp )
+add_library( uuas SHARED ${CMAKE_SOURCE_DIR}/src/libuuas/uuas.cpp ${CMAKE_SOURCE_DIR}/src/libuuas/uuaspb.pb.cc )
 target_include_directories( uuas PUBLIC ${CMAKE_SOURCE_DIR}/include/ )
 target_link_libraries( uuas PUBLIC exiv2lib protobuf::libprotobuf )
 target_compile_options( uuas PUBLIC "-Wall" )

@@ -1,5 +1,4 @@
 ## Util ##
-.PHONY: list
 list:
 	@$(MAKE) -pRrq -f $(lastword $(MAKEFILE_LIST)) : 2>/dev/null | awk -v RS= -F: '/^# File/,/^# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' | sort | egrep -v -e '^[^[:alnum:]]' -e '^$@$$'
 
@@ -12,7 +11,7 @@ build-rust :
 	cd bindings/rust/; cargo build --release
 
 build-py :
-	cd bindings/python/; python3 setup.py bdist_wheel
+	cd bindings/python/; python3 pylibuuas/libuuas_build.py; python3 setup.py bdist_wheel
 
 ## Cleanup ##
 clean-cpp :
@@ -25,6 +24,10 @@ clean-py :
 	rm -rf bindings/python/build/ bindings/python/dist/ bindings/python/pylibuuas.egg-info/ bindings/python/pylibuuas/_libuuas*
 
 clean : clean-cpp clean-rust clean-py
+
+## Protobuf ##
+protobuf-cpp :
+	cd shared/protobufs/; protoc uuaspb.proto --cpp_out=$(CURDIR)/lib/src/libuuas
 
 ## Docker ##
 docker-cpp :

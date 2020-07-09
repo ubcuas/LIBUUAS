@@ -4,7 +4,29 @@ package uuas;
 
 message GeoTagRequest {
     string filename = 1;
-    uint64 latitude = 2;
-    uint64 longitude = 3;
-    uint32 altitude = 4;
+    Telemetry telemetry = 2;
+}
+
+message Telemetry {
+    sint64 latitude = 1;
+    sint64 longitude = 2;
+
+    uint32 altitude_agl_meters = 3;
+    uint32 altitude_msl_meters = 4;
+    uint32 heading_degrees = 5;
+
+    double velocity_x_cm_s = 6;
+    double velocity_y_cm_s = 7;
+    double velocity_z_cm_s = 8;
+
+    double roll_rad = 9;
+    double pitch_rad = 10;
+    double yaw_rad = 11;
+
+    double rollspeed_rad_s = 12;
+    double pitchspeed_rad_s = 13;
+    double yawspeed_rad_s = 14;
+
+    uint64 timestamp_telem_ms = 15;
+    uint64 timestamp_msg_ms = 16;
 }

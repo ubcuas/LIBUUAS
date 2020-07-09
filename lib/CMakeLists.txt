@@ -1,10 +1,10 @@
 cmake_minimum_required( VERSION 3.14 )
-set( CMAKE_CXX_STANDARD 17 )
+set( CMAKE_CXX_STANDARD 14 )
 project( libuuas )
 
 # Libexiv2 dependency
 include(FetchContent)
-FetchContent_Declare( exiv2cmake URL https://www.exiv2.org/builds/exiv2-0.27.3-Source.tar.gz )
+FetchContent_Declare( exiv2cmake URL https://www.exiv2.org/releases/exiv2-0.27.3-Source.tar.gz )
 FetchContent_GetProperties( exiv2cmake )
 if ( NOT exiv2cmake_POPULATED )
    FetchContent_Populate( exiv2cmake )

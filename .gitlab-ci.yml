@@ -27,3 +27,5 @@ Publish x64:
     - docker login -u "$DOCKER_HUB_USER" -p "$DOCKER_HUB_PASSWORD"
     - make docker-publish
   when: on_success
+  only:
+    - master

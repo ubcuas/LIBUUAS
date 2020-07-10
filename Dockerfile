@@ -77,3 +77,11 @@ FROM python:latest AS pyrun
 COPY --from=pybuild /libuuas/build/dist/*.whl ./
 RUN pip install *.whl
 RUN rm -rf *.whl
+
+
+#### Pypy runtime image ####
+FROM pypy:latest AS pypyrun
+
+COPY --from=pybuild /libuuas/build/dist/*.whl ./
+RUN pip install *.whl
+RUN rm -rf *.whl

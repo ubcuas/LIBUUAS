@@ -68,9 +68,11 @@ docker-rust-publish: docker-rust
 
 docker-py:
 	docker build . --target pyrun -t ubcuas/pyuuas:latest
+	docker build . --target pypyrun -t ubcuas/pypyuuas:latest
 
 docker-py-publish: docker-py
 	docker push ubcuas/pyuuas:latest
+	docker push ubcuas/pypyuuas:latest
 
 docker-publish: docker-cpp-publish docker-rust-publish docker-py-publish
 docker: docker-cpp docker-rust docker-py

@@ -1,0 +1,11 @@
+# cpp
+build/
+
+# python
+bindings/python/**/__pycache__/*
+bindings/python/pylibuuas/_libuuas*
+bindings/python/pylibuuas.egg-info/
+bindings/python/dist/
+
+# rust
+bindings/rust/target/

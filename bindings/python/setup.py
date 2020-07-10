@@ -6,5 +6,5 @@ setuptools.setup(
     author="Eric Mikulin",
     packages=setuptools.find_packages(),
     install_requires=["cppyy>=1.7.1", "protobuf>=3.12.2"],
-    python_requires='>=3.7',
+    python_requires='>=3.6',
 )

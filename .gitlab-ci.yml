@@ -21,8 +21,9 @@ Build x64:
   script:
     - make docker
 
-Final:
+Publish x64:
   stage: deploy
   script:
-  - echo "Done!"
+    - docker login -u "$DOCKER_HUB_USER" -p "$DOCKER_HUB_PASSWORD"
+    - make docker-publish
   when: on_success

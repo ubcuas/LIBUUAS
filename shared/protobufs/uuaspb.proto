@@ -8,16 +8,16 @@ message GeoTagRequest {
 }
 
 message Telemetry {
-    sint32 latitude = 1;
-    sint32 longitude = 2;
+    double latitude = 1;
+    double longitude = 2;
 
-    sint32 altitude_agl_meters = 3;
-    sint32 altitude_msl_meters = 4;
-    uint32 heading_degrees = 5;
+    double altitude_agl_m = 3;
+    double altitude_msl_m = 4;
+    double heading_deg = 5;
 
-    sint32 velocity_x_cm_s = 6;
-    sint32 velocity_y_cm_s = 7;
-    sint32 velocity_z_cm_s = 8;
+    double velocityx_m_s = 6;
+    double velocityy_m_s = 7;
+    double velocityz_m_s = 8;
 
     double roll_rad = 9;
     double pitch_rad = 10;
@@ -27,6 +27,6 @@ message Telemetry {
     double pitchspeed_rad_s = 13;
     double yawspeed_rad_s = 14;
 
-    uint64 timestamp_telem_ms = 15;
+    uint64 timestamp_pixhawk_ms = 15;
     uint64 timestamp_msg_ms = 16;
 }

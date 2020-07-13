@@ -242,21 +242,21 @@ impl ::protobuf::reflect::ProtobufValue for GeoTagRequest {
 #[derive(PartialEq,Clone,Default)]
 pub struct Telemetry {
     // message fields
-    pub latitude: i32,
-    pub longitude: i32,
-    pub altitude_agl_meters: i32,
-    pub altitude_msl_meters: i32,
-    pub heading_degrees: u32,
-    pub velocity_x_cm_s: i32,
-    pub velocity_y_cm_s: i32,
-    pub velocity_z_cm_s: i32,
+    pub latitude: f64,
+    pub longitude: f64,
+    pub altitude_agl_m: f64,
+    pub altitude_msl_m: f64,
+    pub heading_deg: f64,
+    pub velocityx_m_s: f64,
+    pub velocityy_m_s: f64,
+    pub velocityz_m_s: f64,
     pub roll_rad: f64,
     pub pitch_rad: f64,
     pub yaw_rad: f64,
     pub rollspeed_rad_s: f64,
     pub pitchspeed_rad_s: f64,
     pub yawspeed_rad_s: f64,
-    pub timestamp_telem_ms: u64,
+    pub timestamp_pixhawk_ms: u64,
     pub timestamp_msg_ms: u64,
     // special fields
     pub unknown_fields: ::protobuf::UnknownFields,
@@ -274,124 +274,124 @@ impl Telemetry {
         ::std::default::Default::default()
     }
 
-    // sint32 latitude = 1;
+    // double latitude = 1;
 
 
-    pub fn get_latitude(&self) -> i32 {
+    pub fn get_latitude(&self) -> f64 {
         self.latitude
     }
     pub fn clear_latitude(&mut self) {
-        self.latitude = 0;
+        self.latitude = 0.;
     }
 
     // Param is passed by value, moved
-    pub fn set_latitude(&mut self, v: i32) {
+    pub fn set_latitude(&mut self, v: f64) {
         self.latitude = v;
     }
 
-    // sint32 longitude = 2;
+    // double longitude = 2;
 
 
-    pub fn get_longitude(&self) -> i32 {
+    pub fn get_longitude(&self) -> f64 {
         self.longitude
     }
     pub fn clear_longitude(&mut self) {
-        self.longitude = 0;
+        self.longitude = 0.;
     }
 
     // Param is passed by value, moved
-    pub fn set_longitude(&mut self, v: i32) {
+    pub fn set_longitude(&mut self, v: f64) {
         self.longitude = v;
     }
 
-    // sint32 altitude_agl_meters = 3;
+    // double altitude_agl_m = 3;
 
 
-    pub fn get_altitude_agl_meters(&self) -> i32 {
-        self.altitude_agl_meters
+    pub fn get_altitude_agl_m(&self) -> f64 {
+        self.altitude_agl_m
     }
-    pub fn clear_altitude_agl_meters(&mut self) {
-        self.altitude_agl_meters = 0;
-    }
-
-    // Param is passed by value, moved
-    pub fn set_altitude_agl_meters(&mut self, v: i32) {
-        self.altitude_agl_meters = v;
-    }
-
-    // sint32 altitude_msl_meters = 4;
-
-
-    pub fn get_altitude_msl_meters(&self) -> i32 {
-        self.altitude_msl_meters
-    }
-    pub fn clear_altitude_msl_meters(&mut self) {
-        self.altitude_msl_meters = 0;
+    pub fn clear_altitude_agl_m(&mut self) {
+        self.altitude_agl_m = 0.;
     }
 
     // Param is passed by value, moved
-    pub fn set_altitude_msl_meters(&mut self, v: i32) {
-        self.altitude_msl_meters = v;
+    pub fn set_altitude_agl_m(&mut self, v: f64) {
+        self.altitude_agl_m = v;
     }
 
-    // uint32 heading_degrees = 5;
+    // double altitude_msl_m = 4;
 
 
-    pub fn get_heading_degrees(&self) -> u32 {
-        self.heading_degrees
+    pub fn get_altitude_msl_m(&self) -> f64 {
+        self.altitude_msl_m
     }
-    pub fn clear_heading_degrees(&mut self) {
-        self.heading_degrees = 0;
-    }
-
-    // Param is passed by value, moved
-    pub fn set_heading_degrees(&mut self, v: u32) {
-        self.heading_degrees = v;
-    }
-
-    // sint32 velocity_x_cm_s = 6;
-
-
-    pub fn get_velocity_x_cm_s(&self) -> i32 {
-        self.velocity_x_cm_s
-    }
-    pub fn clear_velocity_x_cm_s(&mut self) {
-        self.velocity_x_cm_s = 0;
+    pub fn clear_altitude_msl_m(&mut self) {
+        self.altitude_msl_m = 0.;
     }
 
     // Param is passed by value, moved
-    pub fn set_velocity_x_cm_s(&mut self, v: i32) {
-        self.velocity_x_cm_s = v;
+    pub fn set_altitude_msl_m(&mut self, v: f64) {
+        self.altitude_msl_m = v;
     }
 
-    // sint32 velocity_y_cm_s = 7;
+    // double heading_deg = 5;
 
 
-    pub fn get_velocity_y_cm_s(&self) -> i32 {
-        self.velocity_y_cm_s
+    pub fn get_heading_deg(&self) -> f64 {
+        self.heading_deg
     }
-    pub fn clear_velocity_y_cm_s(&mut self) {
-        self.velocity_y_cm_s = 0;
-    }
-
-    // Param is passed by value, moved
-    pub fn set_velocity_y_cm_s(&mut self, v: i32) {
-        self.velocity_y_cm_s = v;
-    }
-
-    // sint32 velocity_z_cm_s = 8;
-
-
-    pub fn get_velocity_z_cm_s(&self) -> i32 {
-        self.velocity_z_cm_s
-    }
-    pub fn clear_velocity_z_cm_s(&mut self) {
-        self.velocity_z_cm_s = 0;
+    pub fn clear_heading_deg(&mut self) {
+        self.heading_deg = 0.;
     }
 
     // Param is passed by value, moved
-    pub fn set_velocity_z_cm_s(&mut self, v: i32) {
-        self.velocity_z_cm_s = v;
+    pub fn set_heading_deg(&mut self, v: f64) {
+        self.heading_deg = v;
+    }
+
+    // double velocityx_m_s = 6;
+
+
+    pub fn get_velocityx_m_s(&self) -> f64 {
+        self.velocityx_m_s
+    }
+    pub fn clear_velocityx_m_s(&mut self) {
+        self.velocityx_m_s = 0.;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_velocityx_m_s(&mut self, v: f64) {
+        self.velocityx_m_s = v;
+    }
+
+    // double velocityy_m_s = 7;
+
+
+    pub fn get_velocityy_m_s(&self) -> f64 {
+        self.velocityy_m_s
+    }
+    pub fn clear_velocityy_m_s(&mut self) {
+        self.velocityy_m_s = 0.;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_velocityy_m_s(&mut self, v: f64) {
+        self.velocityy_m_s = v;
+    }
+
+    // double velocityz_m_s = 8;
+
+
+    pub fn get_velocityz_m_s(&self) -> f64 {
+        self.velocityz_m_s
+    }
+    pub fn clear_velocityz_m_s(&mut self) {
+        self.velocityz_m_s = 0.;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_velocityz_m_s(&mut self, v: f64) {
+        self.velocityz_m_s = v;
     }
 
     // double roll_rad = 9;
@@ -484,19 +484,19 @@ impl Telemetry {
         self.yawspeed_rad_s = v;
     }
 
-    // uint64 timestamp_telem_ms = 15;
+    // uint64 timestamp_pixhawk_ms = 15;
 
 
-    pub fn get_timestamp_telem_ms(&self) -> u64 {
-        self.timestamp_telem_ms
+    pub fn get_timestamp_pixhawk_ms(&self) -> u64 {
+        self.timestamp_pixhawk_ms
     }
-    pub fn clear_timestamp_telem_ms(&mut self) {
-        self.timestamp_telem_ms = 0;
+    pub fn clear_timestamp_pixhawk_ms(&mut self) {
+        self.timestamp_pixhawk_ms = 0;
     }
 
     // Param is passed by value, moved
-    pub fn set_timestamp_telem_ms(&mut self, v: u64) {
-        self.timestamp_telem_ms = v;
+    pub fn set_timestamp_pixhawk_ms(&mut self, v: u64) {
+        self.timestamp_pixhawk_ms = v;
     }
 
     // uint64 timestamp_msg_ms = 16;
@@ -525,60 +525,60 @@ impl ::protobuf::Message for Telemetry {
             let (field_number, wire_type) = is.read_tag_unpack()?;
             match field_number {
                 1 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                    if wire_type != ::protobuf::wire_format::WireTypeFixed64 {
                         return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
                     }
-                    let tmp = is.read_sint32()?;
+                    let tmp = is.read_double()?;
                     self.latitude = tmp;
                 },
                 2 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                    if wire_type != ::protobuf::wire_format::WireTypeFixed64 {
                         return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
                     }
-                    let tmp = is.read_sint32()?;
+                    let tmp = is.read_double()?;
                     self.longitude = tmp;
                 },
                 3 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                    if wire_type != ::protobuf::wire_format::WireTypeFixed64 {
                         return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
                     }
-                    let tmp = is.read_sint32()?;
-                    self.altitude_agl_meters = tmp;
+                    let tmp = is.read_double()?;
+                    self.altitude_agl_m = tmp;
                 },
                 4 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                    if wire_type != ::protobuf::wire_format::WireTypeFixed64 {
                         return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
                     }
-                    let tmp = is.read_sint32()?;
-                    self.altitude_msl_meters = tmp;
+                    let tmp = is.read_double()?;
+                    self.altitude_msl_m = tmp;
                 },
                 5 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                    if wire_type != ::protobuf::wire_format::WireTypeFixed64 {
                         return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
                     }
-                    let tmp = is.read_uint32()?;
-                    self.heading_degrees = tmp;
+                    let tmp = is.read_double()?;
+                    self.heading_deg = tmp;
                 },
                 6 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                    if wire_type != ::protobuf::wire_format::WireTypeFixed64 {
                         return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
                     }
-                    let tmp = is.read_sint32()?;
-                    self.velocity_x_cm_s = tmp;
+                    let tmp = is.read_double()?;
+                    self.velocityx_m_s = tmp;
                 },
                 7 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                    if wire_type != ::protobuf::wire_format::WireTypeFixed64 {
                         return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
                     }
-                    let tmp = is.read_sint32()?;
-                    self.velocity_y_cm_s = tmp;
+                    let tmp = is.read_double()?;
+                    self.velocityy_m_s = tmp;
                 },
                 8 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                    if wire_type != ::protobuf::wire_format::WireTypeFixed64 {
                         return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
                     }
-                    let tmp = is.read_sint32()?;
-                    self.velocity_z_cm_s = tmp;
+                    let tmp = is.read_double()?;
+                    self.velocityz_m_s = tmp;
                 },
                 9 => {
                     if wire_type != ::protobuf::wire_format::WireTypeFixed64 {
@@ -627,7 +627,7 @@ impl ::protobuf::Message for Telemetry {
                         return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
                     }
                     let tmp = is.read_uint64()?;
-                    self.timestamp_telem_ms = tmp;
+                    self.timestamp_pixhawk_ms = tmp;
                 },
                 16 => {
                     if wire_type != ::protobuf::wire_format::WireTypeVarint {
@@ -648,29 +648,29 @@ impl ::protobuf::Message for Telemetry {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
-        if self.latitude != 0 {
-            my_size += ::protobuf::rt::value_varint_zigzag_size(1, self.latitude);
+        if self.latitude != 0. {
+            my_size += 9;
         }
-        if self.longitude != 0 {
-            my_size += ::protobuf::rt::value_varint_zigzag_size(2, self.longitude);
+        if self.longitude != 0. {
+            my_size += 9;
         }
-        if self.altitude_agl_meters != 0 {
-            my_size += ::protobuf::rt::value_varint_zigzag_size(3, self.altitude_agl_meters);
+        if self.altitude_agl_m != 0. {
+            my_size += 9;
         }
-        if self.altitude_msl_meters != 0 {
-            my_size += ::protobuf::rt::value_varint_zigzag_size(4, self.altitude_msl_meters);
+        if self.altitude_msl_m != 0. {
+            my_size += 9;
         }
-        if self.heading_degrees != 0 {
-            my_size += ::protobuf::rt::value_size(5, self.heading_degrees, ::protobuf::wire_format::WireTypeVarint);
+        if self.heading_deg != 0. {
+            my_size += 9;
         }
-        if self.velocity_x_cm_s != 0 {
-            my_size += ::protobuf::rt::value_varint_zigzag_size(6, self.velocity_x_cm_s);
+        if self.velocityx_m_s != 0. {
+            my_size += 9;
         }
-        if self.velocity_y_cm_s != 0 {
-            my_size += ::protobuf::rt::value_varint_zigzag_size(7, self.velocity_y_cm_s);
+        if self.velocityy_m_s != 0. {
+            my_size += 9;
         }
-        if self.velocity_z_cm_s != 0 {
-            my_size += ::protobuf::rt::value_varint_zigzag_size(8, self.velocity_z_cm_s);
+        if self.velocityz_m_s != 0. {
+            my_size += 9;
         }
         if self.roll_rad != 0. {
             my_size += 9;
@@ -690,8 +690,8 @@ impl ::protobuf::Message for Telemetry {
         if self.yawspeed_rad_s != 0. {
             my_size += 9;
         }
-        if self.timestamp_telem_ms != 0 {
-            my_size += ::protobuf::rt::value_size(15, self.timestamp_telem_ms, ::protobuf::wire_format::WireTypeVarint);
+        if self.timestamp_pixhawk_ms != 0 {
+            my_size += ::protobuf::rt::value_size(15, self.timestamp_pixhawk_ms, ::protobuf::wire_format::WireTypeVarint);
         }
         if self.timestamp_msg_ms != 0 {
             my_size += ::protobuf::rt::value_size(16, self.timestamp_msg_ms, ::protobuf::wire_format::WireTypeVarint);
@@ -702,29 +702,29 @@ impl ::protobuf::Message for Telemetry {
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::ProtobufResult<()> {
-        if self.latitude != 0 {
-            os.write_sint32(1, self.latitude)?;
+        if self.latitude != 0. {
+            os.write_double(1, self.latitude)?;
         }
-        if self.longitude != 0 {
-            os.write_sint32(2, self.longitude)?;
+        if self.longitude != 0. {
+            os.write_double(2, self.longitude)?;
         }
-        if self.altitude_agl_meters != 0 {
-            os.write_sint32(3, self.altitude_agl_meters)?;
+        if self.altitude_agl_m != 0. {
+            os.write_double(3, self.altitude_agl_m)?;
         }
-        if self.altitude_msl_meters != 0 {
-            os.write_sint32(4, self.altitude_msl_meters)?;
+        if self.altitude_msl_m != 0. {
+            os.write_double(4, self.altitude_msl_m)?;
         }
-        if self.heading_degrees != 0 {
-            os.write_uint32(5, self.heading_degrees)?;
+        if self.heading_deg != 0. {
+            os.write_double(5, self.heading_deg)?;
         }
-        if self.velocity_x_cm_s != 0 {
-            os.write_sint32(6, self.velocity_x_cm_s)?;
+        if self.velocityx_m_s != 0. {
+            os.write_double(6, self.velocityx_m_s)?;
         }
-        if self.velocity_y_cm_s != 0 {
-            os.write_sint32(7, self.velocity_y_cm_s)?;
+        if self.velocityy_m_s != 0. {
+            os.write_double(7, self.velocityy_m_s)?;
         }
-        if self.velocity_z_cm_s != 0 {
-            os.write_sint32(8, self.velocity_z_cm_s)?;
+        if self.velocityz_m_s != 0. {
+            os.write_double(8, self.velocityz_m_s)?;
         }
         if self.roll_rad != 0. {
             os.write_double(9, self.roll_rad)?;
@@ -744,8 +744,8 @@ impl ::protobuf::Message for Telemetry {
         if self.yawspeed_rad_s != 0. {
             os.write_double(14, self.yawspeed_rad_s)?;
         }
-        if self.timestamp_telem_ms != 0 {
-            os.write_uint64(15, self.timestamp_telem_ms)?;
+        if self.timestamp_pixhawk_ms != 0 {
+            os.write_uint64(15, self.timestamp_pixhawk_ms)?;
         }
         if self.timestamp_msg_ms != 0 {
             os.write_uint64(16, self.timestamp_msg_ms)?;
@@ -788,45 +788,45 @@ impl ::protobuf::Message for Telemetry {
         static descriptor: ::protobuf::rt::LazyV2<::protobuf::reflect::MessageDescriptor> = ::protobuf::rt::LazyV2::INIT;
         descriptor.get(|| {
             let mut fields = ::std::vec::Vec::new();
-            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeSint32>(
+            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeDouble>(
                 "latitude",
                 |m: &Telemetry| { &m.latitude },
                 |m: &mut Telemetry| { &mut m.latitude },
             ));
-            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeSint32>(
+            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeDouble>(
                 "longitude",
                 |m: &Telemetry| { &m.longitude },
                 |m: &mut Telemetry| { &mut m.longitude },
             ));
-            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeSint32>(
-                "altitude_agl_meters",
-                |m: &Telemetry| { &m.altitude_agl_meters },
-                |m: &mut Telemetry| { &mut m.altitude_agl_meters },
+            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeDouble>(
+                "altitude_agl_m",
+                |m: &Telemetry| { &m.altitude_agl_m },
+                |m: &mut Telemetry| { &mut m.altitude_agl_m },
             ));
-            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeSint32>(
-                "altitude_msl_meters",
-                |m: &Telemetry| { &m.altitude_msl_meters },
-                |m: &mut Telemetry| { &mut m.altitude_msl_meters },
+            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeDouble>(
+                "altitude_msl_m",
+                |m: &Telemetry| { &m.altitude_msl_m },
+                |m: &mut Telemetry| { &mut m.altitude_msl_m },
             ));
-            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
-                "heading_degrees",
-                |m: &Telemetry| { &m.heading_degrees },
-                |m: &mut Telemetry| { &mut m.heading_degrees },
+            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeDouble>(
+                "heading_deg",
+                |m: &Telemetry| { &m.heading_deg },
+                |m: &mut Telemetry| { &mut m.heading_deg },
             ));
-            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeSint32>(
-                "velocity_x_cm_s",
-                |m: &Telemetry| { &m.velocity_x_cm_s },
-                |m: &mut Telemetry| { &mut m.velocity_x_cm_s },
+            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeDouble>(
+                "velocityx_m_s",
+                |m: &Telemetry| { &m.velocityx_m_s },
+                |m: &mut Telemetry| { &mut m.velocityx_m_s },
             ));
-            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeSint32>(
-                "velocity_y_cm_s",
-                |m: &Telemetry| { &m.velocity_y_cm_s },
-                |m: &mut Telemetry| { &mut m.velocity_y_cm_s },
+            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeDouble>(
+                "velocityy_m_s",
+                |m: &Telemetry| { &m.velocityy_m_s },
+                |m: &mut Telemetry| { &mut m.velocityy_m_s },
             ));
-            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeSint32>(
-                "velocity_z_cm_s",
-                |m: &Telemetry| { &m.velocity_z_cm_s },
-                |m: &mut Telemetry| { &mut m.velocity_z_cm_s },
+            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeDouble>(
+                "velocityz_m_s",
+                |m: &Telemetry| { &m.velocityz_m_s },
+                |m: &mut Telemetry| { &mut m.velocityz_m_s },
             ));
             fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeDouble>(
                 "roll_rad",
@@ -859,9 +859,9 @@ impl ::protobuf::Message for Telemetry {
                 |m: &mut Telemetry| { &mut m.yawspeed_rad_s },
             ));
             fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint64>(
-                "timestamp_telem_ms",
-                |m: &Telemetry| { &m.timestamp_telem_ms },
-                |m: &mut Telemetry| { &mut m.timestamp_telem_ms },
+                "timestamp_pixhawk_ms",
+                |m: &Telemetry| { &m.timestamp_pixhawk_ms },
+                |m: &mut Telemetry| { &mut m.timestamp_pixhawk_ms },
             ));
             fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint64>(
                 "timestamp_msg_ms",
@@ -884,21 +884,21 @@ impl ::protobuf::Message for Telemetry {
 
 impl ::protobuf::Clear for Telemetry {
     fn clear(&mut self) {
-        self.latitude = 0;
-        self.longitude = 0;
-        self.altitude_agl_meters = 0;
-        self.altitude_msl_meters = 0;
-        self.heading_degrees = 0;
-        self.velocity_x_cm_s = 0;
-        self.velocity_y_cm_s = 0;
-        self.velocity_z_cm_s = 0;
+        self.latitude = 0.;
+        self.longitude = 0.;
+        self.altitude_agl_m = 0.;
+        self.altitude_msl_m = 0.;
+        self.heading_deg = 0.;
+        self.velocityx_m_s = 0.;
+        self.velocityy_m_s = 0.;
+        self.velocityz_m_s = 0.;
         self.roll_rad = 0.;
         self.pitch_rad = 0.;
         self.yaw_rad = 0.;
         self.rollspeed_rad_s = 0.;
         self.pitchspeed_rad_s = 0.;
         self.yawspeed_rad_s = 0.;
-        self.timestamp_telem_ms = 0;
+        self.timestamp_pixhawk_ms = 0;
         self.timestamp_msg_ms = 0;
         self.unknown_fields.clear();
     }
@@ -919,75 +919,75 @@ impl ::protobuf::reflect::ProtobufValue for Telemetry {
 static file_descriptor_proto_data: &'static [u8] = b"\
     \n\x0cuuaspb.proto\x12\x04uuas\"Z\n\rGeoTagRequest\x12\x1a\n\x08filename\
     \x18\x01\x20\x01(\tR\x08filename\x12-\n\ttelemetry\x18\x02\x20\x01(\x0b2\
-    \x0f.uuas.TelemetryR\ttelemetry\"\xe4\x04\n\tTelemetry\x12\x1a\n\x08lati\
-    tude\x18\x01\x20\x01(\x11R\x08latitude\x12\x1c\n\tlongitude\x18\x02\x20\
-    \x01(\x11R\tlongitude\x12.\n\x13altitude_agl_meters\x18\x03\x20\x01(\x11\
-    R\x11altitudeAglMeters\x12.\n\x13altitude_msl_meters\x18\x04\x20\x01(\
-    \x11R\x11altitudeMslMeters\x12'\n\x0fheading_degrees\x18\x05\x20\x01(\rR\
-    \x0eheadingDegrees\x12%\n\x0fvelocity_x_cm_s\x18\x06\x20\x01(\x11R\x0cve\
-    locityXCmS\x12%\n\x0fvelocity_y_cm_s\x18\x07\x20\x01(\x11R\x0cvelocityYC\
-    mS\x12%\n\x0fvelocity_z_cm_s\x18\x08\x20\x01(\x11R\x0cvelocityZCmS\x12\
-    \x19\n\x08roll_rad\x18\t\x20\x01(\x01R\x07rollRad\x12\x1b\n\tpitch_rad\
-    \x18\n\x20\x01(\x01R\x08pitchRad\x12\x17\n\x07yaw_rad\x18\x0b\x20\x01(\
-    \x01R\x06yawRad\x12&\n\x0frollspeed_rad_s\x18\x0c\x20\x01(\x01R\rrollspe\
-    edRadS\x12(\n\x10pitchspeed_rad_s\x18\r\x20\x01(\x01R\x0epitchspeedRadS\
-    \x12$\n\x0eyawspeed_rad_s\x18\x0e\x20\x01(\x01R\x0cyawspeedRadS\x12,\n\
-    \x12timestamp_telem_ms\x18\x0f\x20\x01(\x04R\x10timestampTelemMs\x12(\n\
-    \x10timestamp_msg_ms\x18\x10\x20\x01(\x04R\x0etimestampMsgMsJ\xaa\x08\n\
-    \x06\x12\x04\0\0\x1f\x01\n\x08\n\x01\x0c\x12\x03\0\0\x12\n\x08\n\x01\x02\
-    \x12\x03\x02\0\r\n\n\n\x02\x04\0\x12\x04\x04\0\x07\x01\n\n\n\x03\x04\0\
-    \x01\x12\x03\x04\x08\x15\n\x0b\n\x04\x04\0\x02\0\x12\x03\x05\x04\x18\n\
-    \x0c\n\x05\x04\0\x02\0\x05\x12\x03\x05\x04\n\n\x0c\n\x05\x04\0\x02\0\x01\
-    \x12\x03\x05\x0b\x13\n\x0c\n\x05\x04\0\x02\0\x03\x12\x03\x05\x16\x17\n\
-    \x0b\n\x04\x04\0\x02\x01\x12\x03\x06\x04\x1c\n\x0c\n\x05\x04\0\x02\x01\
-    \x06\x12\x03\x06\x04\r\n\x0c\n\x05\x04\0\x02\x01\x01\x12\x03\x06\x0e\x17\
-    \n\x0c\n\x05\x04\0\x02\x01\x03\x12\x03\x06\x1a\x1b\n\n\n\x02\x04\x01\x12\
-    \x04\t\0\x1f\x01\n\n\n\x03\x04\x01\x01\x12\x03\t\x08\x11\n\x0b\n\x04\x04\
-    \x01\x02\0\x12\x03\n\x04\x18\n\x0c\n\x05\x04\x01\x02\0\x05\x12\x03\n\x04\
-    \n\n\x0c\n\x05\x04\x01\x02\0\x01\x12\x03\n\x0b\x13\n\x0c\n\x05\x04\x01\
-    \x02\0\x03\x12\x03\n\x16\x17\n\x0b\n\x04\x04\x01\x02\x01\x12\x03\x0b\x04\
-    \x19\n\x0c\n\x05\x04\x01\x02\x01\x05\x12\x03\x0b\x04\n\n\x0c\n\x05\x04\
-    \x01\x02\x01\x01\x12\x03\x0b\x0b\x14\n\x0c\n\x05\x04\x01\x02\x01\x03\x12\
-    \x03\x0b\x17\x18\n\x0b\n\x04\x04\x01\x02\x02\x12\x03\r\x04#\n\x0c\n\x05\
-    \x04\x01\x02\x02\x05\x12\x03\r\x04\n\n\x0c\n\x05\x04\x01\x02\x02\x01\x12\
-    \x03\r\x0b\x1e\n\x0c\n\x05\x04\x01\x02\x02\x03\x12\x03\r!\"\n\x0b\n\x04\
-    \x04\x01\x02\x03\x12\x03\x0e\x04#\n\x0c\n\x05\x04\x01\x02\x03\x05\x12\
-    \x03\x0e\x04\n\n\x0c\n\x05\x04\x01\x02\x03\x01\x12\x03\x0e\x0b\x1e\n\x0c\
-    \n\x05\x04\x01\x02\x03\x03\x12\x03\x0e!\"\n\x0b\n\x04\x04\x01\x02\x04\
-    \x12\x03\x0f\x04\x1f\n\x0c\n\x05\x04\x01\x02\x04\x05\x12\x03\x0f\x04\n\n\
-    \x0c\n\x05\x04\x01\x02\x04\x01\x12\x03\x0f\x0b\x1a\n\x0c\n\x05\x04\x01\
-    \x02\x04\x03\x12\x03\x0f\x1d\x1e\n\x0b\n\x04\x04\x01\x02\x05\x12\x03\x11\
-    \x04\x1f\n\x0c\n\x05\x04\x01\x02\x05\x05\x12\x03\x11\x04\n\n\x0c\n\x05\
-    \x04\x01\x02\x05\x01\x12\x03\x11\x0b\x1a\n\x0c\n\x05\x04\x01\x02\x05\x03\
-    \x12\x03\x11\x1d\x1e\n\x0b\n\x04\x04\x01\x02\x06\x12\x03\x12\x04\x1f\n\
-    \x0c\n\x05\x04\x01\x02\x06\x05\x12\x03\x12\x04\n\n\x0c\n\x05\x04\x01\x02\
-    \x06\x01\x12\x03\x12\x0b\x1a\n\x0c\n\x05\x04\x01\x02\x06\x03\x12\x03\x12\
-    \x1d\x1e\n\x0b\n\x04\x04\x01\x02\x07\x12\x03\x13\x04\x1f\n\x0c\n\x05\x04\
-    \x01\x02\x07\x05\x12\x03\x13\x04\n\n\x0c\n\x05\x04\x01\x02\x07\x01\x12\
-    \x03\x13\x0b\x1a\n\x0c\n\x05\x04\x01\x02\x07\x03\x12\x03\x13\x1d\x1e\n\
-    \x0b\n\x04\x04\x01\x02\x08\x12\x03\x15\x04\x18\n\x0c\n\x05\x04\x01\x02\
-    \x08\x05\x12\x03\x15\x04\n\n\x0c\n\x05\x04\x01\x02\x08\x01\x12\x03\x15\
-    \x0b\x13\n\x0c\n\x05\x04\x01\x02\x08\x03\x12\x03\x15\x16\x17\n\x0b\n\x04\
-    \x04\x01\x02\t\x12\x03\x16\x04\x1a\n\x0c\n\x05\x04\x01\x02\t\x05\x12\x03\
-    \x16\x04\n\n\x0c\n\x05\x04\x01\x02\t\x01\x12\x03\x16\x0b\x14\n\x0c\n\x05\
-    \x04\x01\x02\t\x03\x12\x03\x16\x17\x19\n\x0b\n\x04\x04\x01\x02\n\x12\x03\
-    \x17\x04\x18\n\x0c\n\x05\x04\x01\x02\n\x05\x12\x03\x17\x04\n\n\x0c\n\x05\
-    \x04\x01\x02\n\x01\x12\x03\x17\x0b\x12\n\x0c\n\x05\x04\x01\x02\n\x03\x12\
-    \x03\x17\x15\x17\n\x0b\n\x04\x04\x01\x02\x0b\x12\x03\x19\x04\x20\n\x0c\n\
-    \x05\x04\x01\x02\x0b\x05\x12\x03\x19\x04\n\n\x0c\n\x05\x04\x01\x02\x0b\
-    \x01\x12\x03\x19\x0b\x1a\n\x0c\n\x05\x04\x01\x02\x0b\x03\x12\x03\x19\x1d\
-    \x1f\n\x0b\n\x04\x04\x01\x02\x0c\x12\x03\x1a\x04!\n\x0c\n\x05\x04\x01\
-    \x02\x0c\x05\x12\x03\x1a\x04\n\n\x0c\n\x05\x04\x01\x02\x0c\x01\x12\x03\
-    \x1a\x0b\x1b\n\x0c\n\x05\x04\x01\x02\x0c\x03\x12\x03\x1a\x1e\x20\n\x0b\n\
-    \x04\x04\x01\x02\r\x12\x03\x1b\x04\x1f\n\x0c\n\x05\x04\x01\x02\r\x05\x12\
-    \x03\x1b\x04\n\n\x0c\n\x05\x04\x01\x02\r\x01\x12\x03\x1b\x0b\x19\n\x0c\n\
-    \x05\x04\x01\x02\r\x03\x12\x03\x1b\x1c\x1e\n\x0b\n\x04\x04\x01\x02\x0e\
-    \x12\x03\x1d\x04#\n\x0c\n\x05\x04\x01\x02\x0e\x05\x12\x03\x1d\x04\n\n\
-    \x0c\n\x05\x04\x01\x02\x0e\x01\x12\x03\x1d\x0b\x1d\n\x0c\n\x05\x04\x01\
-    \x02\x0e\x03\x12\x03\x1d\x20\"\n\x0b\n\x04\x04\x01\x02\x0f\x12\x03\x1e\
-    \x04!\n\x0c\n\x05\x04\x01\x02\x0f\x05\x12\x03\x1e\x04\n\n\x0c\n\x05\x04\
-    \x01\x02\x0f\x01\x12\x03\x1e\x0b\x1b\n\x0c\n\x05\x04\x01\x02\x0f\x03\x12\
-    \x03\x1e\x1e\x20b\x06proto3\
+    \x0f.uuas.TelemetryR\ttelemetry\"\xc3\x04\n\tTelemetry\x12\x1a\n\x08lati\
+    tude\x18\x01\x20\x01(\x01R\x08latitude\x12\x1c\n\tlongitude\x18\x02\x20\
+    \x01(\x01R\tlongitude\x12$\n\x0ealtitude_agl_m\x18\x03\x20\x01(\x01R\x0c\
+    altitudeAglM\x12$\n\x0ealtitude_msl_m\x18\x04\x20\x01(\x01R\x0caltitudeM\
+    slM\x12\x1f\n\x0bheading_deg\x18\x05\x20\x01(\x01R\nheadingDeg\x12\"\n\r\
+    velocityx_m_s\x18\x06\x20\x01(\x01R\x0bvelocityxMS\x12\"\n\rvelocityy_m_\
+    s\x18\x07\x20\x01(\x01R\x0bvelocityyMS\x12\"\n\rvelocityz_m_s\x18\x08\
+    \x20\x01(\x01R\x0bvelocityzMS\x12\x19\n\x08roll_rad\x18\t\x20\x01(\x01R\
+    \x07rollRad\x12\x1b\n\tpitch_rad\x18\n\x20\x01(\x01R\x08pitchRad\x12\x17\
+    \n\x07yaw_rad\x18\x0b\x20\x01(\x01R\x06yawRad\x12&\n\x0frollspeed_rad_s\
+    \x18\x0c\x20\x01(\x01R\rrollspeedRadS\x12(\n\x10pitchspeed_rad_s\x18\r\
+    \x20\x01(\x01R\x0epitchspeedRadS\x12$\n\x0eyawspeed_rad_s\x18\x0e\x20\
+    \x01(\x01R\x0cyawspeedRadS\x120\n\x14timestamp_pixhawk_ms\x18\x0f\x20\
+    \x01(\x04R\x12timestampPixhawkMs\x12(\n\x10timestamp_msg_ms\x18\x10\x20\
+    \x01(\x04R\x0etimestampMsgMsJ\xaa\x08\n\x06\x12\x04\0\0\x1f\x01\n\x08\n\
+    \x01\x0c\x12\x03\0\0\x12\n\x08\n\x01\x02\x12\x03\x02\0\r\n\n\n\x02\x04\0\
+    \x12\x04\x04\0\x07\x01\n\n\n\x03\x04\0\x01\x12\x03\x04\x08\x15\n\x0b\n\
+    \x04\x04\0\x02\0\x12\x03\x05\x04\x18\n\x0c\n\x05\x04\0\x02\0\x05\x12\x03\
+    \x05\x04\n\n\x0c\n\x05\x04\0\x02\0\x01\x12\x03\x05\x0b\x13\n\x0c\n\x05\
+    \x04\0\x02\0\x03\x12\x03\x05\x16\x17\n\x0b\n\x04\x04\0\x02\x01\x12\x03\
+    \x06\x04\x1c\n\x0c\n\x05\x04\0\x02\x01\x06\x12\x03\x06\x04\r\n\x0c\n\x05\
+    \x04\0\x02\x01\x01\x12\x03\x06\x0e\x17\n\x0c\n\x05\x04\0\x02\x01\x03\x12\
+    \x03\x06\x1a\x1b\n\n\n\x02\x04\x01\x12\x04\t\0\x1f\x01\n\n\n\x03\x04\x01\
+    \x01\x12\x03\t\x08\x11\n\x0b\n\x04\x04\x01\x02\0\x12\x03\n\x04\x18\n\x0c\
+    \n\x05\x04\x01\x02\0\x05\x12\x03\n\x04\n\n\x0c\n\x05\x04\x01\x02\0\x01\
+    \x12\x03\n\x0b\x13\n\x0c\n\x05\x04\x01\x02\0\x03\x12\x03\n\x16\x17\n\x0b\
+    \n\x04\x04\x01\x02\x01\x12\x03\x0b\x04\x19\n\x0c\n\x05\x04\x01\x02\x01\
+    \x05\x12\x03\x0b\x04\n\n\x0c\n\x05\x04\x01\x02\x01\x01\x12\x03\x0b\x0b\
+    \x14\n\x0c\n\x05\x04\x01\x02\x01\x03\x12\x03\x0b\x17\x18\n\x0b\n\x04\x04\
+    \x01\x02\x02\x12\x03\r\x04\x1e\n\x0c\n\x05\x04\x01\x02\x02\x05\x12\x03\r\
+    \x04\n\n\x0c\n\x05\x04\x01\x02\x02\x01\x12\x03\r\x0b\x19\n\x0c\n\x05\x04\
+    \x01\x02\x02\x03\x12\x03\r\x1c\x1d\n\x0b\n\x04\x04\x01\x02\x03\x12\x03\
+    \x0e\x04\x1e\n\x0c\n\x05\x04\x01\x02\x03\x05\x12\x03\x0e\x04\n\n\x0c\n\
+    \x05\x04\x01\x02\x03\x01\x12\x03\x0e\x0b\x19\n\x0c\n\x05\x04\x01\x02\x03\
+    \x03\x12\x03\x0e\x1c\x1d\n\x0b\n\x04\x04\x01\x02\x04\x12\x03\x0f\x04\x1b\
+    \n\x0c\n\x05\x04\x01\x02\x04\x05\x12\x03\x0f\x04\n\n\x0c\n\x05\x04\x01\
+    \x02\x04\x01\x12\x03\x0f\x0b\x16\n\x0c\n\x05\x04\x01\x02\x04\x03\x12\x03\
+    \x0f\x19\x1a\n\x0b\n\x04\x04\x01\x02\x05\x12\x03\x11\x04\x1d\n\x0c\n\x05\
+    \x04\x01\x02\x05\x05\x12\x03\x11\x04\n\n\x0c\n\x05\x04\x01\x02\x05\x01\
+    \x12\x03\x11\x0b\x18\n\x0c\n\x05\x04\x01\x02\x05\x03\x12\x03\x11\x1b\x1c\
+    \n\x0b\n\x04\x04\x01\x02\x06\x12\x03\x12\x04\x1d\n\x0c\n\x05\x04\x01\x02\
+    \x06\x05\x12\x03\x12\x04\n\n\x0c\n\x05\x04\x01\x02\x06\x01\x12\x03\x12\
+    \x0b\x18\n\x0c\n\x05\x04\x01\x02\x06\x03\x12\x03\x12\x1b\x1c\n\x0b\n\x04\
+    \x04\x01\x02\x07\x12\x03\x13\x04\x1d\n\x0c\n\x05\x04\x01\x02\x07\x05\x12\
+    \x03\x13\x04\n\n\x0c\n\x05\x04\x01\x02\x07\x01\x12\x03\x13\x0b\x18\n\x0c\
+    \n\x05\x04\x01\x02\x07\x03\x12\x03\x13\x1b\x1c\n\x0b\n\x04\x04\x01\x02\
+    \x08\x12\x03\x15\x04\x18\n\x0c\n\x05\x04\x01\x02\x08\x05\x12\x03\x15\x04\
+    \n\n\x0c\n\x05\x04\x01\x02\x08\x01\x12\x03\x15\x0b\x13\n\x0c\n\x05\x04\
+    \x01\x02\x08\x03\x12\x03\x15\x16\x17\n\x0b\n\x04\x04\x01\x02\t\x12\x03\
+    \x16\x04\x1a\n\x0c\n\x05\x04\x01\x02\t\x05\x12\x03\x16\x04\n\n\x0c\n\x05\
+    \x04\x01\x02\t\x01\x12\x03\x16\x0b\x14\n\x0c\n\x05\x04\x01\x02\t\x03\x12\
+    \x03\x16\x17\x19\n\x0b\n\x04\x04\x01\x02\n\x12\x03\x17\x04\x18\n\x0c\n\
+    \x05\x04\x01\x02\n\x05\x12\x03\x17\x04\n\n\x0c\n\x05\x04\x01\x02\n\x01\
+    \x12\x03\x17\x0b\x12\n\x0c\n\x05\x04\x01\x02\n\x03\x12\x03\x17\x15\x17\n\
+    \x0b\n\x04\x04\x01\x02\x0b\x12\x03\x19\x04\x20\n\x0c\n\x05\x04\x01\x02\
+    \x0b\x05\x12\x03\x19\x04\n\n\x0c\n\x05\x04\x01\x02\x0b\x01\x12\x03\x19\
+    \x0b\x1a\n\x0c\n\x05\x04\x01\x02\x0b\x03\x12\x03\x19\x1d\x1f\n\x0b\n\x04\
+    \x04\x01\x02\x0c\x12\x03\x1a\x04!\n\x0c\n\x05\x04\x01\x02\x0c\x05\x12\
+    \x03\x1a\x04\n\n\x0c\n\x05\x04\x01\x02\x0c\x01\x12\x03\x1a\x0b\x1b\n\x0c\
+    \n\x05\x04\x01\x02\x0c\x03\x12\x03\x1a\x1e\x20\n\x0b\n\x04\x04\x01\x02\r\
+    \x12\x03\x1b\x04\x1f\n\x0c\n\x05\x04\x01\x02\r\x05\x12\x03\x1b\x04\n\n\
+    \x0c\n\x05\x04\x01\x02\r\x01\x12\x03\x1b\x0b\x19\n\x0c\n\x05\x04\x01\x02\
+    \r\x03\x12\x03\x1b\x1c\x1e\n\x0b\n\x04\x04\x01\x02\x0e\x12\x03\x1d\x04%\
+    \n\x0c\n\x05\x04\x01\x02\x0e\x05\x12\x03\x1d\x04\n\n\x0c\n\x05\x04\x01\
+    \x02\x0e\x01\x12\x03\x1d\x0b\x1f\n\x0c\n\x05\x04\x01\x02\x0e\x03\x12\x03\
+    \x1d\"$\n\x0b\n\x04\x04\x01\x02\x0f\x12\x03\x1e\x04!\n\x0c\n\x05\x04\x01\
+    \x02\x0f\x05\x12\x03\x1e\x04\n\n\x0c\n\x05\x04\x01\x02\x0f\x01\x12\x03\
+    \x1e\x0b\x1b\n\x0c\n\x05\x04\x01\x02\x0f\x03\x12\x03\x1e\x1e\x20b\x06pro\
+    to3\
 ";
 
 static file_descriptor_proto_lazy: ::protobuf::rt::LazyV2<::protobuf::descriptor::FileDescriptorProto> = ::protobuf::rt::LazyV2::INIT;

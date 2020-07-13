@@ -73,19 +73,19 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_uuaspb_2eproto::offsets[] PROT
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::uuas::Telemetry, latitude_),
   PROTOBUF_FIELD_OFFSET(::uuas::Telemetry, longitude_),
-  PROTOBUF_FIELD_OFFSET(::uuas::Telemetry, altitude_agl_meters_),
-  PROTOBUF_FIELD_OFFSET(::uuas::Telemetry, altitude_msl_meters_),
-  PROTOBUF_FIELD_OFFSET(::uuas::Telemetry, heading_degrees_),
-  PROTOBUF_FIELD_OFFSET(::uuas::Telemetry, velocity_x_cm_s_),
-  PROTOBUF_FIELD_OFFSET(::uuas::Telemetry, velocity_y_cm_s_),
-  PROTOBUF_FIELD_OFFSET(::uuas::Telemetry, velocity_z_cm_s_),
+  PROTOBUF_FIELD_OFFSET(::uuas::Telemetry, altitude_agl_m_),
+  PROTOBUF_FIELD_OFFSET(::uuas::Telemetry, altitude_msl_m_),
+  PROTOBUF_FIELD_OFFSET(::uuas::Telemetry, heading_deg_),
+  PROTOBUF_FIELD_OFFSET(::uuas::Telemetry, velocityx_m_s_),
+  PROTOBUF_FIELD_OFFSET(::uuas::Telemetry, velocityy_m_s_),
+  PROTOBUF_FIELD_OFFSET(::uuas::Telemetry, velocityz_m_s_),
   PROTOBUF_FIELD_OFFSET(::uuas::Telemetry, roll_rad_),
   PROTOBUF_FIELD_OFFSET(::uuas::Telemetry, pitch_rad_),
   PROTOBUF_FIELD_OFFSET(::uuas::Telemetry, yaw_rad_),
   PROTOBUF_FIELD_OFFSET(::uuas::Telemetry, rollspeed_rad_s_),
   PROTOBUF_FIELD_OFFSET(::uuas::Telemetry, pitchspeed_rad_s_),
   PROTOBUF_FIELD_OFFSET(::uuas::Telemetry, yawspeed_rad_s_),
-  PROTOBUF_FIELD_OFFSET(::uuas::Telemetry, timestamp_telem_ms_),
+  PROTOBUF_FIELD_OFFSET(::uuas::Telemetry, timestamp_pixhawk_ms_),
   PROTOBUF_FIELD_OFFSET(::uuas::Telemetry, timestamp_msg_ms_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -101,17 +101,16 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 const char descriptor_table_protodef_uuaspb_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\014uuaspb.proto\022\004uuas\"E\n\rGeoTagRequest\022\020\n"
   "\010filename\030\001 \001(\t\022\"\n\ttelemetry\030\002 \001(\0132\017.uua"
-  "s.Telemetry\"\205\003\n\tTelemetry\022\020\n\010latitude\030\001 "
-  "\001(\021\022\021\n\tlongitude\030\002 \001(\021\022\033\n\023altitude_agl_m"
-  "eters\030\003 \001(\021\022\033\n\023altitude_msl_meters\030\004 \001(\021"
-  "\022\027\n\017heading_degrees\030\005 \001(\r\022\027\n\017velocity_x_"
-  "cm_s\030\006 \001(\021\022\027\n\017velocity_y_cm_s\030\007 \001(\021\022\027\n\017v"
-  "elocity_z_cm_s\030\010 \001(\021\022\020\n\010roll_rad\030\t \001(\001\022\021"
-  "\n\tpitch_rad\030\n \001(\001\022\017\n\007yaw_rad\030\013 \001(\001\022\027\n\017ro"
-  "llspeed_rad_s\030\014 \001(\001\022\030\n\020pitchspeed_rad_s\030"
-  "\r \001(\001\022\026\n\016yawspeed_rad_s\030\016 \001(\001\022\032\n\022timesta"
-  "mp_telem_ms\030\017 \001(\004\022\030\n\020timestamp_msg_ms\030\020 "
-  "\001(\004b\006proto3"
+  "s.Telemetry\"\363\002\n\tTelemetry\022\020\n\010latitude\030\001 "
+  "\001(\001\022\021\n\tlongitude\030\002 \001(\001\022\026\n\016altitude_agl_m"
+  "\030\003 \001(\001\022\026\n\016altitude_msl_m\030\004 \001(\001\022\023\n\013headin"
+  "g_deg\030\005 \001(\001\022\025\n\rvelocityx_m_s\030\006 \001(\001\022\025\n\rve"
+  "locityy_m_s\030\007 \001(\001\022\025\n\rvelocityz_m_s\030\010 \001(\001"
+  "\022\020\n\010roll_rad\030\t \001(\001\022\021\n\tpitch_rad\030\n \001(\001\022\017\n"
+  "\007yaw_rad\030\013 \001(\001\022\027\n\017rollspeed_rad_s\030\014 \001(\001\022"
+  "\030\n\020pitchspeed_rad_s\030\r \001(\001\022\026\n\016yawspeed_ra"
+  "d_s\030\016 \001(\001\022\034\n\024timestamp_pixhawk_ms\030\017 \001(\004\022"
+  "\030\n\020timestamp_msg_ms\030\020 \001(\004b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_uuaspb_2eproto_deps[1] = {
 };
@@ -121,7 +120,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_uua
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_uuaspb_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_uuaspb_2eproto = {
-  false, false, descriptor_table_protodef_uuaspb_2eproto, "uuaspb.proto", 491,
+  false, false, descriptor_table_protodef_uuaspb_2eproto, "uuaspb.proto", 473,
   &descriptor_table_uuaspb_2eproto_once, descriptor_table_uuaspb_2eproto_sccs, descriptor_table_uuaspb_2eproto_deps, 2, 0,
   schemas, file_default_instances, TableStruct_uuaspb_2eproto::offsets,
   file_level_metadata_uuaspb_2eproto, 2, file_level_enum_descriptors_uuaspb_2eproto, file_level_service_descriptors_uuaspb_2eproto,
@@ -458,60 +457,60 @@ const char* Telemetry::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // sint32 latitude = 1;
+      // double latitude = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          latitude_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
-          CHK_(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
+          latitude_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
         } else goto handle_unusual;
         continue;
-      // sint32 longitude = 2;
+      // double longitude = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          longitude_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
-          CHK_(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
+          longitude_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
         } else goto handle_unusual;
         continue;
-      // sint32 altitude_agl_meters = 3;
+      // double altitude_agl_m = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          altitude_agl_meters_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
-          CHK_(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 25)) {
+          altitude_agl_m_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
         } else goto handle_unusual;
         continue;
-      // sint32 altitude_msl_meters = 4;
+      // double altitude_msl_m = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
-          altitude_msl_meters_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
-          CHK_(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 33)) {
+          altitude_msl_m_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
         } else goto handle_unusual;
         continue;
-      // uint32 heading_degrees = 5;
+      // double heading_deg = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
-          heading_degrees_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 41)) {
+          heading_deg_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
         } else goto handle_unusual;
         continue;
-      // sint32 velocity_x_cm_s = 6;
+      // double velocityx_m_s = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
-          velocity_x_cm_s_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
-          CHK_(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 49)) {
+          velocityx_m_s_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
         } else goto handle_unusual;
         continue;
-      // sint32 velocity_y_cm_s = 7;
+      // double velocityy_m_s = 7;
       case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
-          velocity_y_cm_s_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
-          CHK_(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 57)) {
+          velocityy_m_s_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
         } else goto handle_unusual;
         continue;
-      // sint32 velocity_z_cm_s = 8;
+      // double velocityz_m_s = 8;
       case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
-          velocity_z_cm_s_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
-          CHK_(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 65)) {
+          velocityz_m_s_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
         } else goto handle_unusual;
         continue;
       // double roll_rad = 9;
@@ -556,10 +555,10 @@ const char* Telemetry::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
           ptr += sizeof(double);
         } else goto handle_unusual;
         continue;
-      // uint64 timestamp_telem_ms = 15;
+      // uint64 timestamp_pixhawk_ms = 15;
       case 15:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 120)) {
-          timestamp_telem_ms_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          timestamp_pixhawk_ms_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -598,52 +597,52 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // sint32 latitude = 1;
-  if (this->latitude() != 0) {
+  // double latitude = 1;
+  if (!(this->latitude() <= 0 && this->latitude() >= 0)) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(1, this->_internal_latitude(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(1, this->_internal_latitude(), target);
   }
 
-  // sint32 longitude = 2;
-  if (this->longitude() != 0) {
+  // double longitude = 2;
+  if (!(this->longitude() <= 0 && this->longitude() >= 0)) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(2, this->_internal_longitude(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(2, this->_internal_longitude(), target);
   }
 
-  // sint32 altitude_agl_meters = 3;
-  if (this->altitude_agl_meters() != 0) {
+  // double altitude_agl_m = 3;
+  if (!(this->altitude_agl_m() <= 0 && this->altitude_agl_m() >= 0)) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(3, this->_internal_altitude_agl_meters(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(3, this->_internal_altitude_agl_m(), target);
   }
 
-  // sint32 altitude_msl_meters = 4;
-  if (this->altitude_msl_meters() != 0) {
+  // double altitude_msl_m = 4;
+  if (!(this->altitude_msl_m() <= 0 && this->altitude_msl_m() >= 0)) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(4, this->_internal_altitude_msl_meters(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(4, this->_internal_altitude_msl_m(), target);
   }
 
-  // uint32 heading_degrees = 5;
-  if (this->heading_degrees() != 0) {
+  // double heading_deg = 5;
+  if (!(this->heading_deg() <= 0 && this->heading_deg() >= 0)) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_heading_degrees(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(5, this->_internal_heading_deg(), target);
   }
 
-  // sint32 velocity_x_cm_s = 6;
-  if (this->velocity_x_cm_s() != 0) {
+  // double velocityx_m_s = 6;
+  if (!(this->velocityx_m_s() <= 0 && this->velocityx_m_s() >= 0)) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(6, this->_internal_velocity_x_cm_s(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(6, this->_internal_velocityx_m_s(), target);
   }
 
-  // sint32 velocity_y_cm_s = 7;
-  if (this->velocity_y_cm_s() != 0) {
+  // double velocityy_m_s = 7;
+  if (!(this->velocityy_m_s() <= 0 && this->velocityy_m_s() >= 0)) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(7, this->_internal_velocity_y_cm_s(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(7, this->_internal_velocityy_m_s(), target);
   }
 
-  // sint32 velocity_z_cm_s = 8;
-  if (this->velocity_z_cm_s() != 0) {
+  // double velocityz_m_s = 8;
+  if (!(this->velocityz_m_s() <= 0 && this->velocityz_m_s() >= 0)) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(8, this->_internal_velocity_z_cm_s(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(8, this->_internal_velocityz_m_s(), target);
   }
 
   // double roll_rad = 9;
@@ -682,10 +681,10 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(14, this->_internal_yawspeed_rad_s(), target);
   }
 
-  // uint64 timestamp_telem_ms = 15;
-  if (this->timestamp_telem_ms() != 0) {
+  // uint64 timestamp_pixhawk_ms = 15;
+  if (this->timestamp_pixhawk_ms() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(15, this->_internal_timestamp_telem_ms(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(15, this->_internal_timestamp_pixhawk_ms(), target);
   }
 
   // uint64 timestamp_msg_ms = 16;
@@ -710,60 +709,44 @@ size_t Telemetry::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // sint32 latitude = 1;
-  if (this->latitude() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
-        this->_internal_latitude());
+  // double latitude = 1;
+  if (!(this->latitude() <= 0 && this->latitude() >= 0)) {
+    total_size += 1 + 8;
   }
 
-  // sint32 longitude = 2;
-  if (this->longitude() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
-        this->_internal_longitude());
+  // double longitude = 2;
+  if (!(this->longitude() <= 0 && this->longitude() >= 0)) {
+    total_size += 1 + 8;
   }
 
-  // sint32 altitude_agl_meters = 3;
-  if (this->altitude_agl_meters() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
-        this->_internal_altitude_agl_meters());
+  // double altitude_agl_m = 3;
+  if (!(this->altitude_agl_m() <= 0 && this->altitude_agl_m() >= 0)) {
+    total_size += 1 + 8;
   }
 
-  // sint32 altitude_msl_meters = 4;
-  if (this->altitude_msl_meters() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
-        this->_internal_altitude_msl_meters());
+  // double altitude_msl_m = 4;
+  if (!(this->altitude_msl_m() <= 0 && this->altitude_msl_m() >= 0)) {
+    total_size += 1 + 8;
   }
 
-  // uint32 heading_degrees = 5;
-  if (this->heading_degrees() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_heading_degrees());
+  // double heading_deg = 5;
+  if (!(this->heading_deg() <= 0 && this->heading_deg() >= 0)) {
+    total_size += 1 + 8;
   }
 
-  // sint32 velocity_x_cm_s = 6;
-  if (this->velocity_x_cm_s() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
-        this->_internal_velocity_x_cm_s());
+  // double velocityx_m_s = 6;
+  if (!(this->velocityx_m_s() <= 0 && this->velocityx_m_s() >= 0)) {
+    total_size += 1 + 8;
   }
 
-  // sint32 velocity_y_cm_s = 7;
-  if (this->velocity_y_cm_s() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
-        this->_internal_velocity_y_cm_s());
+  // double velocityy_m_s = 7;
+  if (!(this->velocityy_m_s() <= 0 && this->velocityy_m_s() >= 0)) {
+    total_size += 1 + 8;
   }
 
-  // sint32 velocity_z_cm_s = 8;
-  if (this->velocity_z_cm_s() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
-        this->_internal_velocity_z_cm_s());
+  // double velocityz_m_s = 8;
+  if (!(this->velocityz_m_s() <= 0 && this->velocityz_m_s() >= 0)) {
+    total_size += 1 + 8;
   }
 
   // double roll_rad = 9;
@@ -796,11 +779,11 @@ size_t Telemetry::ByteSizeLong() const {
     total_size += 1 + 8;
   }
 
-  // uint64 timestamp_telem_ms = 15;
-  if (this->timestamp_telem_ms() != 0) {
+  // uint64 timestamp_pixhawk_ms = 15;
+  if (this->timestamp_pixhawk_ms() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_timestamp_telem_ms());
+        this->_internal_timestamp_pixhawk_ms());
   }
 
   // uint64 timestamp_msg_ms = 16;
@@ -841,29 +824,29 @@ void Telemetry::MergeFrom(const Telemetry& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.latitude() != 0) {
+  if (!(from.latitude() <= 0 && from.latitude() >= 0)) {
     _internal_set_latitude(from._internal_latitude());
   }
-  if (from.longitude() != 0) {
+  if (!(from.longitude() <= 0 && from.longitude() >= 0)) {
     _internal_set_longitude(from._internal_longitude());
   }
-  if (from.altitude_agl_meters() != 0) {
-    _internal_set_altitude_agl_meters(from._internal_altitude_agl_meters());
+  if (!(from.altitude_agl_m() <= 0 && from.altitude_agl_m() >= 0)) {
+    _internal_set_altitude_agl_m(from._internal_altitude_agl_m());
   }
-  if (from.altitude_msl_meters() != 0) {
-    _internal_set_altitude_msl_meters(from._internal_altitude_msl_meters());
+  if (!(from.altitude_msl_m() <= 0 && from.altitude_msl_m() >= 0)) {
+    _internal_set_altitude_msl_m(from._internal_altitude_msl_m());
   }
-  if (from.heading_degrees() != 0) {
-    _internal_set_heading_degrees(from._internal_heading_degrees());
+  if (!(from.heading_deg() <= 0 && from.heading_deg() >= 0)) {
+    _internal_set_heading_deg(from._internal_heading_deg());
   }
-  if (from.velocity_x_cm_s() != 0) {
-    _internal_set_velocity_x_cm_s(from._internal_velocity_x_cm_s());
+  if (!(from.velocityx_m_s() <= 0 && from.velocityx_m_s() >= 0)) {
+    _internal_set_velocityx_m_s(from._internal_velocityx_m_s());
   }
-  if (from.velocity_y_cm_s() != 0) {
-    _internal_set_velocity_y_cm_s(from._internal_velocity_y_cm_s());
+  if (!(from.velocityy_m_s() <= 0 && from.velocityy_m_s() >= 0)) {
+    _internal_set_velocityy_m_s(from._internal_velocityy_m_s());
   }
-  if (from.velocity_z_cm_s() != 0) {
-    _internal_set_velocity_z_cm_s(from._internal_velocity_z_cm_s());
+  if (!(from.velocityz_m_s() <= 0 && from.velocityz_m_s() >= 0)) {
+    _internal_set_velocityz_m_s(from._internal_velocityz_m_s());
   }
   if (!(from.roll_rad() <= 0 && from.roll_rad() >= 0)) {
     _internal_set_roll_rad(from._internal_roll_rad());
@@ -883,8 +866,8 @@ void Telemetry::MergeFrom(const Telemetry& from) {
   if (!(from.yawspeed_rad_s() <= 0 && from.yawspeed_rad_s() >= 0)) {
     _internal_set_yawspeed_rad_s(from._internal_yawspeed_rad_s());
   }
-  if (from.timestamp_telem_ms() != 0) {
-    _internal_set_timestamp_telem_ms(from._internal_timestamp_telem_ms());
+  if (from.timestamp_pixhawk_ms() != 0) {
+    _internal_set_timestamp_pixhawk_ms(from._internal_timestamp_pixhawk_ms());
   }
   if (from.timestamp_msg_ms() != 0) {
     _internal_set_timestamp_msg_ms(from._internal_timestamp_msg_ms());

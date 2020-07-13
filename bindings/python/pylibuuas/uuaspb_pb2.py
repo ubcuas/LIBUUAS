@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0cuuaspb.proto\x12\x04uuas\"E\n\rGeoTagRequest\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t\x12\"\n\ttelemetry\x18\x02 \x01(\x0b\x32\x0f.uuas.Telemetry\"\x85\x03\n\tTelemetry\x12\x10\n\x08latitude\x18\x01 \x01(\x11\x12\x11\n\tlongitude\x18\x02 \x01(\x11\x12\x1b\n\x13\x61ltitude_agl_meters\x18\x03 \x01(\x11\x12\x1b\n\x13\x61ltitude_msl_meters\x18\x04 \x01(\x11\x12\x17\n\x0fheading_degrees\x18\x05 \x01(\r\x12\x17\n\x0fvelocity_x_cm_s\x18\x06 \x01(\x11\x12\x17\n\x0fvelocity_y_cm_s\x18\x07 \x01(\x11\x12\x17\n\x0fvelocity_z_cm_s\x18\x08 \x01(\x11\x12\x10\n\x08roll_rad\x18\t \x01(\x01\x12\x11\n\tpitch_rad\x18\n \x01(\x01\x12\x0f\n\x07yaw_rad\x18\x0b \x01(\x01\x12\x17\n\x0frollspeed_rad_s\x18\x0c \x01(\x01\x12\x18\n\x10pitchspeed_rad_s\x18\r \x01(\x01\x12\x16\n\x0eyawspeed_rad_s\x18\x0e \x01(\x01\x12\x1a\n\x12timestamp_telem_ms\x18\x0f \x01(\x04\x12\x18\n\x10timestamp_msg_ms\x18\x10 \x01(\x04\x62\x06proto3'
+  serialized_pb=b'\n\x0cuuaspb.proto\x12\x04uuas\"E\n\rGeoTagRequest\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t\x12\"\n\ttelemetry\x18\x02 \x01(\x0b\x32\x0f.uuas.Telemetry\"\xf3\x02\n\tTelemetry\x12\x10\n\x08latitude\x18\x01 \x01(\x01\x12\x11\n\tlongitude\x18\x02 \x01(\x01\x12\x16\n\x0e\x61ltitude_agl_m\x18\x03 \x01(\x01\x12\x16\n\x0e\x61ltitude_msl_m\x18\x04 \x01(\x01\x12\x13\n\x0bheading_deg\x18\x05 \x01(\x01\x12\x15\n\rvelocityx_m_s\x18\x06 \x01(\x01\x12\x15\n\rvelocityy_m_s\x18\x07 \x01(\x01\x12\x15\n\rvelocityz_m_s\x18\x08 \x01(\x01\x12\x10\n\x08roll_rad\x18\t \x01(\x01\x12\x11\n\tpitch_rad\x18\n \x01(\x01\x12\x0f\n\x07yaw_rad\x18\x0b \x01(\x01\x12\x17\n\x0frollspeed_rad_s\x18\x0c \x01(\x01\x12\x18\n\x10pitchspeed_rad_s\x18\r \x01(\x01\x12\x16\n\x0eyawspeed_rad_s\x18\x0e \x01(\x01\x12\x1c\n\x14timestamp_pixhawk_ms\x18\x0f \x01(\x04\x12\x18\n\x10timestamp_msg_ms\x18\x10 \x01(\x04\x62\x06proto3'
 )
 
 
@@ -74,57 +74,57 @@ _TELEMETRY = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='latitude', full_name='uuas.Telemetry.latitude', index=0,
-      number=1, type=17, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      number=1, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='longitude', full_name='uuas.Telemetry.longitude', index=1,
-      number=2, type=17, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      number=2, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='altitude_agl_meters', full_name='uuas.Telemetry.altitude_agl_meters', index=2,
-      number=3, type=17, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      name='altitude_agl_m', full_name='uuas.Telemetry.altitude_agl_m', index=2,
+      number=3, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='altitude_msl_meters', full_name='uuas.Telemetry.altitude_msl_meters', index=3,
-      number=4, type=17, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      name='altitude_msl_m', full_name='uuas.Telemetry.altitude_msl_m', index=3,
+      number=4, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='heading_degrees', full_name='uuas.Telemetry.heading_degrees', index=4,
-      number=5, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
+      name='heading_deg', full_name='uuas.Telemetry.heading_deg', index=4,
+      number=5, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='velocity_x_cm_s', full_name='uuas.Telemetry.velocity_x_cm_s', index=5,
-      number=6, type=17, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      name='velocityx_m_s', full_name='uuas.Telemetry.velocityx_m_s', index=5,
+      number=6, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='velocity_y_cm_s', full_name='uuas.Telemetry.velocity_y_cm_s', index=6,
-      number=7, type=17, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      name='velocityy_m_s', full_name='uuas.Telemetry.velocityy_m_s', index=6,
+      number=7, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='velocity_z_cm_s', full_name='uuas.Telemetry.velocity_z_cm_s', index=7,
-      number=8, type=17, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      name='velocityz_m_s', full_name='uuas.Telemetry.velocityz_m_s', index=7,
+      number=8, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -171,7 +171,7 @@ _TELEMETRY = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='timestamp_telem_ms', full_name='uuas.Telemetry.timestamp_telem_ms', index=14,
+      name='timestamp_pixhawk_ms', full_name='uuas.Telemetry.timestamp_pixhawk_ms', index=14,
       number=15, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -197,7 +197,7 @@ _TELEMETRY = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=94,
-  serialized_end=483,
+  serialized_end=465,
 )
 
 _GEOTAGREQUEST.fields_by_name['telemetry'].message_type = _TELEMETRY

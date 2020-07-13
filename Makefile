@@ -36,7 +36,7 @@ install-rust: build-rust
 	sudo cp -r bindings/rust/* /opt/ruuas/
 
 install-py: build-py
-	pip3 install --user bindings/python/dist/*.whl
+	pip3 install --user --force-reinstall bindings/python/dist/*.whl
 
 install: install-cpp install-rust install-py
 

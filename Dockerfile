@@ -60,8 +60,8 @@ RUN mkdir -p /libuuas/
 WORKDIR /libuuas/
 
 RUN apt-get update -y && apt-get install -y cmake
+RUN pip install --verbose cppyy
 
-RUN pip install cppyy
 COPY bindings/python/build_requirements.txt ./
 RUN pip install -r build_requirements.txt
 
@@ -77,7 +77,9 @@ RUN python3 setup.py bdist_wheel
 #### Python runtime image ####
 FROM python:latest AS pyrun
 
-RUN pip install cppyy
+RUN apt-get update -y && apt-get install -y cmake
+RUN pip install --verbose cppyy
+
 COPY --from=pybuild /libuuas/build/dist/*.whl ./
 RUN pip install *.whl
 RUN rm -rf *.whl
@@ -86,7 +88,9 @@ RUN rm -rf *.whl
 #### Pypy runtime image ####
 FROM pypy:latest AS pypyrun
 
-RUN pip install cppyy
+RUN apt-get update -y && apt-get install -y cmake
+RUN pip install --verbose cppyy
+
 COPY --from=pybuild /libuuas/build/dist/*.whl ./
 RUN pip install *.whl
 RUN rm -rf *.whl

@@ -2,8 +2,26 @@ syntax = "proto3";
 
 package uuas;
 
+enum ResultStatus {
+    OK = 0;
+    ERR = 1;
+}
+
 message GeoTagRequest {
     string filename = 1;
+    Telemetry telemetry = 2;
+}
+
+message GeoTagResponse {
+    ResultStatus result = 1;
+}
+
+message UnGeoTagRequest {
+    string filename = 1;
+}
+
+message UnGeoTagResponse {
+    ResultStatus result = 1;
     Telemetry telemetry = 2;
 }
 

@@ -20,6 +20,18 @@ class GeoTagRequestDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<GeoTagRequest> _instance;
 } _GeoTagRequest_default_instance_;
+class GeoTagResponseDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<GeoTagResponse> _instance;
+} _GeoTagResponse_default_instance_;
+class UnGeoTagRequestDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<UnGeoTagRequest> _instance;
+} _UnGeoTagRequest_default_instance_;
+class UnGeoTagResponseDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<UnGeoTagResponse> _instance;
+} _UnGeoTagResponse_default_instance_;
 class TelemetryDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Telemetry> _instance;
@@ -40,6 +52,20 @@ static void InitDefaultsscc_info_GeoTagRequest_uuaspb_2eproto() {
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_GeoTagRequest_uuaspb_2eproto}, {
       &scc_info_Telemetry_uuaspb_2eproto.base,}};
 
+static void InitDefaultsscc_info_GeoTagResponse_uuaspb_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::uuas::_GeoTagResponse_default_instance_;
+    new (ptr) ::uuas::GeoTagResponse();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::uuas::GeoTagResponse::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GeoTagResponse_uuaspb_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_GeoTagResponse_uuaspb_2eproto}, {}};
+
 static void InitDefaultsscc_info_Telemetry_uuaspb_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -54,8 +80,37 @@ static void InitDefaultsscc_info_Telemetry_uuaspb_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Telemetry_uuaspb_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Telemetry_uuaspb_2eproto}, {}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_uuaspb_2eproto[2];
-static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_uuaspb_2eproto = nullptr;
+static void InitDefaultsscc_info_UnGeoTagRequest_uuaspb_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::uuas::_UnGeoTagRequest_default_instance_;
+    new (ptr) ::uuas::UnGeoTagRequest();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::uuas::UnGeoTagRequest::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_UnGeoTagRequest_uuaspb_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_UnGeoTagRequest_uuaspb_2eproto}, {}};
+
+static void InitDefaultsscc_info_UnGeoTagResponse_uuaspb_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::uuas::_UnGeoTagResponse_default_instance_;
+    new (ptr) ::uuas::UnGeoTagResponse();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::uuas::UnGeoTagResponse::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_UnGeoTagResponse_uuaspb_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_UnGeoTagResponse_uuaspb_2eproto}, {
+      &scc_info_Telemetry_uuaspb_2eproto.base,}};
+
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_uuaspb_2eproto[5];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_uuaspb_2eproto[1];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_uuaspb_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_uuaspb_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -66,6 +121,25 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_uuaspb_2eproto::offsets[] PROT
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::uuas::GeoTagRequest, filename_),
   PROTOBUF_FIELD_OFFSET(::uuas::GeoTagRequest, telemetry_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::uuas::GeoTagResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::uuas::GeoTagResponse, result_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::uuas::UnGeoTagRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::uuas::UnGeoTagRequest, filename_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::uuas::UnGeoTagResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::uuas::UnGeoTagResponse, result_),
+  PROTOBUF_FIELD_OFFSET(::uuas::UnGeoTagResponse, telemetry_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::uuas::Telemetry, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -90,45 +164,74 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_uuaspb_2eproto::offsets[] PROT
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::uuas::GeoTagRequest)},
-  { 7, -1, sizeof(::uuas::Telemetry)},
+  { 7, -1, sizeof(::uuas::GeoTagResponse)},
+  { 13, -1, sizeof(::uuas::UnGeoTagRequest)},
+  { 19, -1, sizeof(::uuas::UnGeoTagResponse)},
+  { 26, -1, sizeof(::uuas::Telemetry)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::uuas::_GeoTagRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::uuas::_GeoTagResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::uuas::_UnGeoTagRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::uuas::_UnGeoTagResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::uuas::_Telemetry_default_instance_),
 };
 
 const char descriptor_table_protodef_uuaspb_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\014uuaspb.proto\022\004uuas\"E\n\rGeoTagRequest\022\020\n"
   "\010filename\030\001 \001(\t\022\"\n\ttelemetry\030\002 \001(\0132\017.uua"
-  "s.Telemetry\"\363\002\n\tTelemetry\022\020\n\010latitude\030\001 "
-  "\001(\001\022\021\n\tlongitude\030\002 \001(\001\022\026\n\016altitude_agl_m"
-  "\030\003 \001(\001\022\026\n\016altitude_msl_m\030\004 \001(\001\022\023\n\013headin"
-  "g_deg\030\005 \001(\001\022\025\n\rvelocityx_m_s\030\006 \001(\001\022\025\n\rve"
-  "locityy_m_s\030\007 \001(\001\022\025\n\rvelocityz_m_s\030\010 \001(\001"
-  "\022\020\n\010roll_rad\030\t \001(\001\022\021\n\tpitch_rad\030\n \001(\001\022\017\n"
-  "\007yaw_rad\030\013 \001(\001\022\027\n\017rollspeed_rad_s\030\014 \001(\001\022"
-  "\030\n\020pitchspeed_rad_s\030\r \001(\001\022\026\n\016yawspeed_ra"
-  "d_s\030\016 \001(\001\022\034\n\024timestamp_pixhawk_ms\030\017 \001(\004\022"
-  "\030\n\020timestamp_msg_ms\030\020 \001(\004b\006proto3"
+  "s.Telemetry\"4\n\016GeoTagResponse\022\"\n\006result\030"
+  "\001 \001(\0162\022.uuas.ResultStatus\"#\n\017UnGeoTagReq"
+  "uest\022\020\n\010filename\030\001 \001(\t\"Z\n\020UnGeoTagRespon"
+  "se\022\"\n\006result\030\001 \001(\0162\022.uuas.ResultStatus\022\""
+  "\n\ttelemetry\030\002 \001(\0132\017.uuas.Telemetry\"\363\002\n\tT"
+  "elemetry\022\020\n\010latitude\030\001 \001(\001\022\021\n\tlongitude\030"
+  "\002 \001(\001\022\026\n\016altitude_agl_m\030\003 \001(\001\022\026\n\016altitud"
+  "e_msl_m\030\004 \001(\001\022\023\n\013heading_deg\030\005 \001(\001\022\025\n\rve"
+  "locityx_m_s\030\006 \001(\001\022\025\n\rvelocityy_m_s\030\007 \001(\001"
+  "\022\025\n\rvelocityz_m_s\030\010 \001(\001\022\020\n\010roll_rad\030\t \001("
+  "\001\022\021\n\tpitch_rad\030\n \001(\001\022\017\n\007yaw_rad\030\013 \001(\001\022\027\n"
+  "\017rollspeed_rad_s\030\014 \001(\001\022\030\n\020pitchspeed_rad"
+  "_s\030\r \001(\001\022\026\n\016yawspeed_rad_s\030\016 \001(\001\022\034\n\024time"
+  "stamp_pixhawk_ms\030\017 \001(\004\022\030\n\020timestamp_msg_"
+  "ms\030\020 \001(\004*\037\n\014ResultStatus\022\006\n\002OK\020\000\022\007\n\003ERR\020"
+  "\001b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_uuaspb_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_uuaspb_2eproto_sccs[2] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_uuaspb_2eproto_sccs[5] = {
   &scc_info_GeoTagRequest_uuaspb_2eproto.base,
+  &scc_info_GeoTagResponse_uuaspb_2eproto.base,
   &scc_info_Telemetry_uuaspb_2eproto.base,
+  &scc_info_UnGeoTagRequest_uuaspb_2eproto.base,
+  &scc_info_UnGeoTagResponse_uuaspb_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_uuaspb_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_uuaspb_2eproto = {
-  false, false, descriptor_table_protodef_uuaspb_2eproto, "uuaspb.proto", 473,
-  &descriptor_table_uuaspb_2eproto_once, descriptor_table_uuaspb_2eproto_sccs, descriptor_table_uuaspb_2eproto_deps, 2, 0,
+  false, false, descriptor_table_protodef_uuaspb_2eproto, "uuaspb.proto", 689,
+  &descriptor_table_uuaspb_2eproto_once, descriptor_table_uuaspb_2eproto_sccs, descriptor_table_uuaspb_2eproto_deps, 5, 0,
   schemas, file_default_instances, TableStruct_uuaspb_2eproto::offsets,
-  file_level_metadata_uuaspb_2eproto, 2, file_level_enum_descriptors_uuaspb_2eproto, file_level_service_descriptors_uuaspb_2eproto,
+  file_level_metadata_uuaspb_2eproto, 5, file_level_enum_descriptors_uuaspb_2eproto, file_level_service_descriptors_uuaspb_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
 static bool dynamic_init_dummy_uuaspb_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_uuaspb_2eproto)), true);
 namespace uuas {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ResultStatus_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_uuaspb_2eproto);
+  return file_level_enum_descriptors_uuaspb_2eproto[0];
+}
+bool ResultStatus_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 // ===================================================================
 
@@ -379,6 +482,661 @@ void GeoTagRequest::InternalSwap(GeoTagRequest* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata GeoTagRequest::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void GeoTagResponse::InitAsDefaultInstance() {
+}
+class GeoTagResponse::_Internal {
+ public:
+};
+
+GeoTagResponse::GeoTagResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:uuas.GeoTagResponse)
+}
+GeoTagResponse::GeoTagResponse(const GeoTagResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  result_ = from.result_;
+  // @@protoc_insertion_point(copy_constructor:uuas.GeoTagResponse)
+}
+
+void GeoTagResponse::SharedCtor() {
+  result_ = 0;
+}
+
+GeoTagResponse::~GeoTagResponse() {
+  // @@protoc_insertion_point(destructor:uuas.GeoTagResponse)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void GeoTagResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void GeoTagResponse::ArenaDtor(void* object) {
+  GeoTagResponse* _this = reinterpret_cast< GeoTagResponse* >(object);
+  (void)_this;
+}
+void GeoTagResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void GeoTagResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const GeoTagResponse& GeoTagResponse::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_GeoTagResponse_uuaspb_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void GeoTagResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:uuas.GeoTagResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  result_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* GeoTagResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .uuas.ResultStatus result = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_result(static_cast<::uuas::ResultStatus>(val));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* GeoTagResponse::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:uuas.GeoTagResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .uuas.ResultStatus result = 1;
+  if (this->result() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      1, this->_internal_result(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:uuas.GeoTagResponse)
+  return target;
+}
+
+size_t GeoTagResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:uuas.GeoTagResponse)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .uuas.ResultStatus result = 1;
+  if (this->result() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_result());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void GeoTagResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:uuas.GeoTagResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const GeoTagResponse* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<GeoTagResponse>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:uuas.GeoTagResponse)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:uuas.GeoTagResponse)
+    MergeFrom(*source);
+  }
+}
+
+void GeoTagResponse::MergeFrom(const GeoTagResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:uuas.GeoTagResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.result() != 0) {
+    _internal_set_result(from._internal_result());
+  }
+}
+
+void GeoTagResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:uuas.GeoTagResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void GeoTagResponse::CopyFrom(const GeoTagResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:uuas.GeoTagResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GeoTagResponse::IsInitialized() const {
+  return true;
+}
+
+void GeoTagResponse::InternalSwap(GeoTagResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(result_, other->result_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata GeoTagResponse::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void UnGeoTagRequest::InitAsDefaultInstance() {
+}
+class UnGeoTagRequest::_Internal {
+ public:
+};
+
+UnGeoTagRequest::UnGeoTagRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:uuas.UnGeoTagRequest)
+}
+UnGeoTagRequest::UnGeoTagRequest(const UnGeoTagRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  filename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_filename().empty()) {
+    filename_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_filename(),
+      GetArena());
+  }
+  // @@protoc_insertion_point(copy_constructor:uuas.UnGeoTagRequest)
+}
+
+void UnGeoTagRequest::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_UnGeoTagRequest_uuaspb_2eproto.base);
+  filename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+UnGeoTagRequest::~UnGeoTagRequest() {
+  // @@protoc_insertion_point(destructor:uuas.UnGeoTagRequest)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void UnGeoTagRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  filename_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void UnGeoTagRequest::ArenaDtor(void* object) {
+  UnGeoTagRequest* _this = reinterpret_cast< UnGeoTagRequest* >(object);
+  (void)_this;
+}
+void UnGeoTagRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void UnGeoTagRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const UnGeoTagRequest& UnGeoTagRequest::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_UnGeoTagRequest_uuaspb_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void UnGeoTagRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:uuas.UnGeoTagRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  filename_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* UnGeoTagRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string filename = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_filename();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "uuas.UnGeoTagRequest.filename"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* UnGeoTagRequest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:uuas.UnGeoTagRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string filename = 1;
+  if (this->filename().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_filename().data(), static_cast<int>(this->_internal_filename().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "uuas.UnGeoTagRequest.filename");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_filename(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:uuas.UnGeoTagRequest)
+  return target;
+}
+
+size_t UnGeoTagRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:uuas.UnGeoTagRequest)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string filename = 1;
+  if (this->filename().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_filename());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void UnGeoTagRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:uuas.UnGeoTagRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const UnGeoTagRequest* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<UnGeoTagRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:uuas.UnGeoTagRequest)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:uuas.UnGeoTagRequest)
+    MergeFrom(*source);
+  }
+}
+
+void UnGeoTagRequest::MergeFrom(const UnGeoTagRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:uuas.UnGeoTagRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.filename().size() > 0) {
+    _internal_set_filename(from._internal_filename());
+  }
+}
+
+void UnGeoTagRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:uuas.UnGeoTagRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void UnGeoTagRequest::CopyFrom(const UnGeoTagRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:uuas.UnGeoTagRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool UnGeoTagRequest::IsInitialized() const {
+  return true;
+}
+
+void UnGeoTagRequest::InternalSwap(UnGeoTagRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  filename_.Swap(&other->filename_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata UnGeoTagRequest::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void UnGeoTagResponse::InitAsDefaultInstance() {
+  ::uuas::_UnGeoTagResponse_default_instance_._instance.get_mutable()->telemetry_ = const_cast< ::uuas::Telemetry*>(
+      ::uuas::Telemetry::internal_default_instance());
+}
+class UnGeoTagResponse::_Internal {
+ public:
+  static const ::uuas::Telemetry& telemetry(const UnGeoTagResponse* msg);
+};
+
+const ::uuas::Telemetry&
+UnGeoTagResponse::_Internal::telemetry(const UnGeoTagResponse* msg) {
+  return *msg->telemetry_;
+}
+UnGeoTagResponse::UnGeoTagResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:uuas.UnGeoTagResponse)
+}
+UnGeoTagResponse::UnGeoTagResponse(const UnGeoTagResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_telemetry()) {
+    telemetry_ = new ::uuas::Telemetry(*from.telemetry_);
+  } else {
+    telemetry_ = nullptr;
+  }
+  result_ = from.result_;
+  // @@protoc_insertion_point(copy_constructor:uuas.UnGeoTagResponse)
+}
+
+void UnGeoTagResponse::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_UnGeoTagResponse_uuaspb_2eproto.base);
+  ::memset(&telemetry_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&result_) -
+      reinterpret_cast<char*>(&telemetry_)) + sizeof(result_));
+}
+
+UnGeoTagResponse::~UnGeoTagResponse() {
+  // @@protoc_insertion_point(destructor:uuas.UnGeoTagResponse)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void UnGeoTagResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete telemetry_;
+}
+
+void UnGeoTagResponse::ArenaDtor(void* object) {
+  UnGeoTagResponse* _this = reinterpret_cast< UnGeoTagResponse* >(object);
+  (void)_this;
+}
+void UnGeoTagResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void UnGeoTagResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const UnGeoTagResponse& UnGeoTagResponse::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_UnGeoTagResponse_uuaspb_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void UnGeoTagResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:uuas.UnGeoTagResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArena() == nullptr && telemetry_ != nullptr) {
+    delete telemetry_;
+  }
+  telemetry_ = nullptr;
+  result_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* UnGeoTagResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .uuas.ResultStatus result = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_result(static_cast<::uuas::ResultStatus>(val));
+        } else goto handle_unusual;
+        continue;
+      // .uuas.Telemetry telemetry = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_telemetry(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* UnGeoTagResponse::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:uuas.UnGeoTagResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .uuas.ResultStatus result = 1;
+  if (this->result() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      1, this->_internal_result(), target);
+  }
+
+  // .uuas.Telemetry telemetry = 2;
+  if (this->has_telemetry()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::telemetry(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:uuas.UnGeoTagResponse)
+  return target;
+}
+
+size_t UnGeoTagResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:uuas.UnGeoTagResponse)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .uuas.Telemetry telemetry = 2;
+  if (this->has_telemetry()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *telemetry_);
+  }
+
+  // .uuas.ResultStatus result = 1;
+  if (this->result() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_result());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void UnGeoTagResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:uuas.UnGeoTagResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const UnGeoTagResponse* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<UnGeoTagResponse>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:uuas.UnGeoTagResponse)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:uuas.UnGeoTagResponse)
+    MergeFrom(*source);
+  }
+}
+
+void UnGeoTagResponse::MergeFrom(const UnGeoTagResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:uuas.UnGeoTagResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_telemetry()) {
+    _internal_mutable_telemetry()->::uuas::Telemetry::MergeFrom(from._internal_telemetry());
+  }
+  if (from.result() != 0) {
+    _internal_set_result(from._internal_result());
+  }
+}
+
+void UnGeoTagResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:uuas.UnGeoTagResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void UnGeoTagResponse::CopyFrom(const UnGeoTagResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:uuas.UnGeoTagResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool UnGeoTagResponse::IsInitialized() const {
+  return true;
+}
+
+void UnGeoTagResponse::InternalSwap(UnGeoTagResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(UnGeoTagResponse, result_)
+      + sizeof(UnGeoTagResponse::result_)
+      - PROTOBUF_FIELD_OFFSET(UnGeoTagResponse, telemetry_)>(
+          reinterpret_cast<char*>(&telemetry_),
+          reinterpret_cast<char*>(&other->telemetry_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata UnGeoTagResponse::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -913,6 +1671,15 @@ void Telemetry::InternalSwap(Telemetry* other) {
 PROTOBUF_NAMESPACE_OPEN
 template<> PROTOBUF_NOINLINE ::uuas::GeoTagRequest* Arena::CreateMaybeMessage< ::uuas::GeoTagRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::uuas::GeoTagRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::uuas::GeoTagResponse* Arena::CreateMaybeMessage< ::uuas::GeoTagResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::uuas::GeoTagResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::uuas::UnGeoTagRequest* Arena::CreateMaybeMessage< ::uuas::UnGeoTagRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::uuas::UnGeoTagRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::uuas::UnGeoTagResponse* Arena::CreateMaybeMessage< ::uuas::UnGeoTagResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::uuas::UnGeoTagResponse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::uuas::Telemetry* Arena::CreateMaybeMessage< ::uuas::Telemetry >(Arena* arena) {
   return Arena::CreateMessageInternal< ::uuas::Telemetry >(arena);

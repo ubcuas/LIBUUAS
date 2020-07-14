@@ -45,7 +45,7 @@ protobuf-cpp:
 	cd shared/protobufs/; protoc uuaspb.proto --cpp_out=$(CURDIR)/lib/src/libuuas
 
 protobuf-rust:
-	cargo install protobuf-codegen --version="2.16.2";
+	cargo install protobuf-codegen --version="2.16.2"
 	cd shared/protobufs/; PATH="$(HOME)/.cargo/bin:$(PATH)" protoc uuaspb.proto --rust_out=$(CURDIR)/bindings/rust/src
 
 protobuf-py:
@@ -54,17 +54,33 @@ protobuf-py:
 protobuf: protobuf-cpp protobuf-rust protobuf-py
 
 ## Docker ##
+docker-multiarch-deps:
+	DOCKER_CLI_EXPERIMENTAL=enabled DOCKER_BUILDKIT=enabled docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+	DOCKER_CLI_EXPERIMENTAL=enabled DOCKER_BUILDKIT=enabled docker buildx create --name mubuilder | echo "ok"
+	DOCKER_CLI_EXPERIMENTAL=enabled DOCKER_BUILDKIT=enabled docker buildx use mubuilder
+	DOCKER_CLI_EXPERIMENTAL=enabled DOCKER_BUILDKIT=enabled docker buildx inspect --bootstrap
+
 docker-cpp:
 	docker build . --target cpprun -t ubcuas/cppuuas:latest
 
 docker-cpp-publish: docker-cpp
 	docker push ubcuas/cppuuas:latest
 
+docker-cpp-multiarch-publish: docker-multiarch-deps
+	DOCKER_CLI_EXPERIMENTAL=enabled \
+	DOCKER_BUILDKIT=enabled \
+	docker buildx build . --target cpprun -t ubcuas/cppuuas:multiarch --push --platform "linux/amd64,linux/arm64,linux/arm/v7"
+
 docker-rust:
 	docker build . --target rustrun -t ubcuas/rustuuas:latest
 
 docker-rust-publish: docker-rust
 	docker push ubcuas/rustuuas:latest
+
+docker-rust-multiarch-publish: docker-multiarch-deps
+	DOCKER_CLI_EXPERIMENTAL=enabled \
+	DOCKER_BUILDKIT=enabled \
+	docker buildx build . --target rustrun -t ubcuas/rustuuas:multiarch --push --platform "linux/amd64,linux/arm64,linux/arm/v7"
 
 docker-py:
 	docker build . --target pyrun -t ubcuas/pyuuas:latest
@@ -74,5 +90,14 @@ docker-py-publish: docker-py
 	docker push ubcuas/pyuuas:latest
 	docker push ubcuas/pypyuuas:latest
 
+docker-py-multiarch-publish: docker-multiarch-deps
+	DOCKER_CLI_EXPERIMENTAL=enabled \
+	DOCKER_BUILDKIT=enabled \
+	docker buildx build . --target pyrun -t ubcuas/pyuuas:multiarch --push --platform "linux/amd64,linux/arm64,linux/arm/v7"
+	DOCKER_CLI_EXPERIMENTAL=enabled \
+	DOCKER_BUILDKIT=enabled \
+	docker buildx build . --target pypyrun -t ubcuas/pypyuuas:multiarch --push --platform "linux/amd64,linux/arm64,linux/arm/v7"
+
+docker-multiarch-publish: docker-cpp-multiarch-publish docker-rust-multiarch-publish docker-py-multiarch-publish
 docker-publish: docker-cpp-publish docker-rust-publish docker-py-publish
 docker: docker-cpp docker-rust docker-py

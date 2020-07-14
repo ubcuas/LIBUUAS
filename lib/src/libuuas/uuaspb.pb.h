@@ -31,6 +31,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
@@ -47,7 +48,7 @@ struct TableStruct_uuaspb_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[2]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[5]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -58,16 +59,53 @@ namespace uuas {
 class GeoTagRequest;
 class GeoTagRequestDefaultTypeInternal;
 extern GeoTagRequestDefaultTypeInternal _GeoTagRequest_default_instance_;
+class GeoTagResponse;
+class GeoTagResponseDefaultTypeInternal;
+extern GeoTagResponseDefaultTypeInternal _GeoTagResponse_default_instance_;
 class Telemetry;
 class TelemetryDefaultTypeInternal;
 extern TelemetryDefaultTypeInternal _Telemetry_default_instance_;
+class UnGeoTagRequest;
+class UnGeoTagRequestDefaultTypeInternal;
+extern UnGeoTagRequestDefaultTypeInternal _UnGeoTagRequest_default_instance_;
+class UnGeoTagResponse;
+class UnGeoTagResponseDefaultTypeInternal;
+extern UnGeoTagResponseDefaultTypeInternal _UnGeoTagResponse_default_instance_;
 }  // namespace uuas
 PROTOBUF_NAMESPACE_OPEN
 template<> ::uuas::GeoTagRequest* Arena::CreateMaybeMessage<::uuas::GeoTagRequest>(Arena*);
+template<> ::uuas::GeoTagResponse* Arena::CreateMaybeMessage<::uuas::GeoTagResponse>(Arena*);
 template<> ::uuas::Telemetry* Arena::CreateMaybeMessage<::uuas::Telemetry>(Arena*);
+template<> ::uuas::UnGeoTagRequest* Arena::CreateMaybeMessage<::uuas::UnGeoTagRequest>(Arena*);
+template<> ::uuas::UnGeoTagResponse* Arena::CreateMaybeMessage<::uuas::UnGeoTagResponse>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace uuas {
 
+enum ResultStatus : int {
+  OK = 0,
+  ERR = 1,
+  ResultStatus_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  ResultStatus_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool ResultStatus_IsValid(int value);
+constexpr ResultStatus ResultStatus_MIN = OK;
+constexpr ResultStatus ResultStatus_MAX = ERR;
+constexpr int ResultStatus_ARRAYSIZE = ResultStatus_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ResultStatus_descriptor();
+template<typename T>
+inline const std::string& ResultStatus_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, ResultStatus>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function ResultStatus_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    ResultStatus_descriptor(), enum_t_value);
+}
+inline bool ResultStatus_Parse(
+    const std::string& name, ResultStatus* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ResultStatus>(
+    ResultStatus_descriptor(), name, value);
+}
 // ===================================================================
 
 class GeoTagRequest PROTOBUF_FINAL :
@@ -243,6 +281,453 @@ class GeoTagRequest PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class GeoTagResponse PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:uuas.GeoTagResponse) */ {
+ public:
+  inline GeoTagResponse() : GeoTagResponse(nullptr) {};
+  virtual ~GeoTagResponse();
+
+  GeoTagResponse(const GeoTagResponse& from);
+  GeoTagResponse(GeoTagResponse&& from) noexcept
+    : GeoTagResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline GeoTagResponse& operator=(const GeoTagResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GeoTagResponse& operator=(GeoTagResponse&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const GeoTagResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GeoTagResponse* internal_default_instance() {
+    return reinterpret_cast<const GeoTagResponse*>(
+               &_GeoTagResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(GeoTagResponse& a, GeoTagResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GeoTagResponse* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GeoTagResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline GeoTagResponse* New() const final {
+    return CreateMaybeMessage<GeoTagResponse>(nullptr);
+  }
+
+  GeoTagResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<GeoTagResponse>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const GeoTagResponse& from);
+  void MergeFrom(const GeoTagResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GeoTagResponse* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "uuas.GeoTagResponse";
+  }
+  protected:
+  explicit GeoTagResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_uuaspb_2eproto);
+    return ::descriptor_table_uuaspb_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kResultFieldNumber = 1,
+  };
+  // .uuas.ResultStatus result = 1;
+  void clear_result();
+  ::uuas::ResultStatus result() const;
+  void set_result(::uuas::ResultStatus value);
+  private:
+  ::uuas::ResultStatus _internal_result() const;
+  void _internal_set_result(::uuas::ResultStatus value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:uuas.GeoTagResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  int result_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_uuaspb_2eproto;
+};
+// -------------------------------------------------------------------
+
+class UnGeoTagRequest PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:uuas.UnGeoTagRequest) */ {
+ public:
+  inline UnGeoTagRequest() : UnGeoTagRequest(nullptr) {};
+  virtual ~UnGeoTagRequest();
+
+  UnGeoTagRequest(const UnGeoTagRequest& from);
+  UnGeoTagRequest(UnGeoTagRequest&& from) noexcept
+    : UnGeoTagRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline UnGeoTagRequest& operator=(const UnGeoTagRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline UnGeoTagRequest& operator=(UnGeoTagRequest&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const UnGeoTagRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const UnGeoTagRequest* internal_default_instance() {
+    return reinterpret_cast<const UnGeoTagRequest*>(
+               &_UnGeoTagRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(UnGeoTagRequest& a, UnGeoTagRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(UnGeoTagRequest* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(UnGeoTagRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline UnGeoTagRequest* New() const final {
+    return CreateMaybeMessage<UnGeoTagRequest>(nullptr);
+  }
+
+  UnGeoTagRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<UnGeoTagRequest>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const UnGeoTagRequest& from);
+  void MergeFrom(const UnGeoTagRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(UnGeoTagRequest* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "uuas.UnGeoTagRequest";
+  }
+  protected:
+  explicit UnGeoTagRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_uuaspb_2eproto);
+    return ::descriptor_table_uuaspb_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kFilenameFieldNumber = 1,
+  };
+  // string filename = 1;
+  void clear_filename();
+  const std::string& filename() const;
+  void set_filename(const std::string& value);
+  void set_filename(std::string&& value);
+  void set_filename(const char* value);
+  void set_filename(const char* value, size_t size);
+  std::string* mutable_filename();
+  std::string* release_filename();
+  void set_allocated_filename(std::string* filename);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  std::string* unsafe_arena_release_filename();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_filename(
+      std::string* filename);
+  private:
+  const std::string& _internal_filename() const;
+  void _internal_set_filename(const std::string& value);
+  std::string* _internal_mutable_filename();
+  public:
+
+  // @@protoc_insertion_point(class_scope:uuas.UnGeoTagRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr filename_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_uuaspb_2eproto;
+};
+// -------------------------------------------------------------------
+
+class UnGeoTagResponse PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:uuas.UnGeoTagResponse) */ {
+ public:
+  inline UnGeoTagResponse() : UnGeoTagResponse(nullptr) {};
+  virtual ~UnGeoTagResponse();
+
+  UnGeoTagResponse(const UnGeoTagResponse& from);
+  UnGeoTagResponse(UnGeoTagResponse&& from) noexcept
+    : UnGeoTagResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline UnGeoTagResponse& operator=(const UnGeoTagResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline UnGeoTagResponse& operator=(UnGeoTagResponse&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const UnGeoTagResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const UnGeoTagResponse* internal_default_instance() {
+    return reinterpret_cast<const UnGeoTagResponse*>(
+               &_UnGeoTagResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(UnGeoTagResponse& a, UnGeoTagResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(UnGeoTagResponse* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(UnGeoTagResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline UnGeoTagResponse* New() const final {
+    return CreateMaybeMessage<UnGeoTagResponse>(nullptr);
+  }
+
+  UnGeoTagResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<UnGeoTagResponse>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const UnGeoTagResponse& from);
+  void MergeFrom(const UnGeoTagResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(UnGeoTagResponse* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "uuas.UnGeoTagResponse";
+  }
+  protected:
+  explicit UnGeoTagResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_uuaspb_2eproto);
+    return ::descriptor_table_uuaspb_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTelemetryFieldNumber = 2,
+    kResultFieldNumber = 1,
+  };
+  // .uuas.Telemetry telemetry = 2;
+  bool has_telemetry() const;
+  private:
+  bool _internal_has_telemetry() const;
+  public:
+  void clear_telemetry();
+  const ::uuas::Telemetry& telemetry() const;
+  ::uuas::Telemetry* release_telemetry();
+  ::uuas::Telemetry* mutable_telemetry();
+  void set_allocated_telemetry(::uuas::Telemetry* telemetry);
+  private:
+  const ::uuas::Telemetry& _internal_telemetry() const;
+  ::uuas::Telemetry* _internal_mutable_telemetry();
+  public:
+  void unsafe_arena_set_allocated_telemetry(
+      ::uuas::Telemetry* telemetry);
+  ::uuas::Telemetry* unsafe_arena_release_telemetry();
+
+  // .uuas.ResultStatus result = 1;
+  void clear_result();
+  ::uuas::ResultStatus result() const;
+  void set_result(::uuas::ResultStatus value);
+  private:
+  ::uuas::ResultStatus _internal_result() const;
+  void _internal_set_result(::uuas::ResultStatus value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:uuas.UnGeoTagResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::uuas::Telemetry* telemetry_;
+  int result_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_uuaspb_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Telemetry PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:uuas.Telemetry) */ {
  public:
@@ -285,7 +770,7 @@ class Telemetry PROTOBUF_FINAL :
                &_Telemetry_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    4;
 
   friend void swap(Telemetry& a, Telemetry& b) {
     a.Swap(&b);
@@ -718,6 +1203,220 @@ inline void GeoTagRequest::set_allocated_telemetry(::uuas::Telemetry* telemetry)
 
 // -------------------------------------------------------------------
 
+// GeoTagResponse
+
+// .uuas.ResultStatus result = 1;
+inline void GeoTagResponse::clear_result() {
+  result_ = 0;
+}
+inline ::uuas::ResultStatus GeoTagResponse::_internal_result() const {
+  return static_cast< ::uuas::ResultStatus >(result_);
+}
+inline ::uuas::ResultStatus GeoTagResponse::result() const {
+  // @@protoc_insertion_point(field_get:uuas.GeoTagResponse.result)
+  return _internal_result();
+}
+inline void GeoTagResponse::_internal_set_result(::uuas::ResultStatus value) {
+  
+  result_ = value;
+}
+inline void GeoTagResponse::set_result(::uuas::ResultStatus value) {
+  _internal_set_result(value);
+  // @@protoc_insertion_point(field_set:uuas.GeoTagResponse.result)
+}
+
+// -------------------------------------------------------------------
+
+// UnGeoTagRequest
+
+// string filename = 1;
+inline void UnGeoTagRequest::clear_filename() {
+  filename_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& UnGeoTagRequest::filename() const {
+  // @@protoc_insertion_point(field_get:uuas.UnGeoTagRequest.filename)
+  return _internal_filename();
+}
+inline void UnGeoTagRequest::set_filename(const std::string& value) {
+  _internal_set_filename(value);
+  // @@protoc_insertion_point(field_set:uuas.UnGeoTagRequest.filename)
+}
+inline std::string* UnGeoTagRequest::mutable_filename() {
+  // @@protoc_insertion_point(field_mutable:uuas.UnGeoTagRequest.filename)
+  return _internal_mutable_filename();
+}
+inline const std::string& UnGeoTagRequest::_internal_filename() const {
+  return filename_.Get();
+}
+inline void UnGeoTagRequest::_internal_set_filename(const std::string& value) {
+  
+  filename_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void UnGeoTagRequest::set_filename(std::string&& value) {
+  
+  filename_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:uuas.UnGeoTagRequest.filename)
+}
+inline void UnGeoTagRequest::set_filename(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  filename_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:uuas.UnGeoTagRequest.filename)
+}
+inline void UnGeoTagRequest::set_filename(const char* value,
+    size_t size) {
+  
+  filename_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:uuas.UnGeoTagRequest.filename)
+}
+inline std::string* UnGeoTagRequest::_internal_mutable_filename() {
+  
+  return filename_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* UnGeoTagRequest::release_filename() {
+  // @@protoc_insertion_point(field_release:uuas.UnGeoTagRequest.filename)
+  return filename_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void UnGeoTagRequest::set_allocated_filename(std::string* filename) {
+  if (filename != nullptr) {
+    
+  } else {
+    
+  }
+  filename_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), filename,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:uuas.UnGeoTagRequest.filename)
+}
+inline std::string* UnGeoTagRequest::unsafe_arena_release_filename() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:uuas.UnGeoTagRequest.filename)
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  
+  return filename_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      GetArena());
+}
+inline void UnGeoTagRequest::unsafe_arena_set_allocated_filename(
+    std::string* filename) {
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (filename != nullptr) {
+    
+  } else {
+    
+  }
+  filename_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      filename, GetArena());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:uuas.UnGeoTagRequest.filename)
+}
+
+// -------------------------------------------------------------------
+
+// UnGeoTagResponse
+
+// .uuas.ResultStatus result = 1;
+inline void UnGeoTagResponse::clear_result() {
+  result_ = 0;
+}
+inline ::uuas::ResultStatus UnGeoTagResponse::_internal_result() const {
+  return static_cast< ::uuas::ResultStatus >(result_);
+}
+inline ::uuas::ResultStatus UnGeoTagResponse::result() const {
+  // @@protoc_insertion_point(field_get:uuas.UnGeoTagResponse.result)
+  return _internal_result();
+}
+inline void UnGeoTagResponse::_internal_set_result(::uuas::ResultStatus value) {
+  
+  result_ = value;
+}
+inline void UnGeoTagResponse::set_result(::uuas::ResultStatus value) {
+  _internal_set_result(value);
+  // @@protoc_insertion_point(field_set:uuas.UnGeoTagResponse.result)
+}
+
+// .uuas.Telemetry telemetry = 2;
+inline bool UnGeoTagResponse::_internal_has_telemetry() const {
+  return this != internal_default_instance() && telemetry_ != nullptr;
+}
+inline bool UnGeoTagResponse::has_telemetry() const {
+  return _internal_has_telemetry();
+}
+inline void UnGeoTagResponse::clear_telemetry() {
+  if (GetArena() == nullptr && telemetry_ != nullptr) {
+    delete telemetry_;
+  }
+  telemetry_ = nullptr;
+}
+inline const ::uuas::Telemetry& UnGeoTagResponse::_internal_telemetry() const {
+  const ::uuas::Telemetry* p = telemetry_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::uuas::Telemetry*>(
+      &::uuas::_Telemetry_default_instance_);
+}
+inline const ::uuas::Telemetry& UnGeoTagResponse::telemetry() const {
+  // @@protoc_insertion_point(field_get:uuas.UnGeoTagResponse.telemetry)
+  return _internal_telemetry();
+}
+inline void UnGeoTagResponse::unsafe_arena_set_allocated_telemetry(
+    ::uuas::Telemetry* telemetry) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(telemetry_);
+  }
+  telemetry_ = telemetry;
+  if (telemetry) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:uuas.UnGeoTagResponse.telemetry)
+}
+inline ::uuas::Telemetry* UnGeoTagResponse::release_telemetry() {
+  auto temp = unsafe_arena_release_telemetry();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::uuas::Telemetry* UnGeoTagResponse::unsafe_arena_release_telemetry() {
+  // @@protoc_insertion_point(field_release:uuas.UnGeoTagResponse.telemetry)
+  
+  ::uuas::Telemetry* temp = telemetry_;
+  telemetry_ = nullptr;
+  return temp;
+}
+inline ::uuas::Telemetry* UnGeoTagResponse::_internal_mutable_telemetry() {
+  
+  if (telemetry_ == nullptr) {
+    auto* p = CreateMaybeMessage<::uuas::Telemetry>(GetArena());
+    telemetry_ = p;
+  }
+  return telemetry_;
+}
+inline ::uuas::Telemetry* UnGeoTagResponse::mutable_telemetry() {
+  // @@protoc_insertion_point(field_mutable:uuas.UnGeoTagResponse.telemetry)
+  return _internal_mutable_telemetry();
+}
+inline void UnGeoTagResponse::set_allocated_telemetry(::uuas::Telemetry* telemetry) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete telemetry_;
+  }
+  if (telemetry) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(telemetry);
+    if (message_arena != submessage_arena) {
+      telemetry = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, telemetry, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  telemetry_ = telemetry;
+  // @@protoc_insertion_point(field_set_allocated:uuas.UnGeoTagResponse.telemetry)
+}
+
+// -------------------------------------------------------------------
+
 // Telemetry
 
 // double latitude = 1;
@@ -1045,10 +1744,26 @@ inline void Telemetry::set_timestamp_msg_ms(::PROTOBUF_NAMESPACE_ID::uint64 valu
 #endif  // __GNUC__
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
 }  // namespace uuas
+
+PROTOBUF_NAMESPACE_OPEN
+
+template <> struct is_proto_enum< ::uuas::ResultStatus> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::uuas::ResultStatus>() {
+  return ::uuas::ResultStatus_descriptor();
+}
+
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 

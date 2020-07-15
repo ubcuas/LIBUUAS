@@ -2,6 +2,11 @@ cmake_minimum_required( VERSION 3.14 )
 set( CMAKE_CXX_STANDARD 14 )
 project( libuuas )
 
+# Set compile flags
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
+endif()
+
 # Libexiv2 dependency
 include(FetchContent)
 FetchContent_Declare( exiv2cmake URL https://www.exiv2.org/releases/exiv2-0.27.3-Source.tar.gz )
@@ -24,10 +29,10 @@ option( protobuf_BUILD_PROTOC_BINARIES "" OFF )
 add_subdirectory( ${protobufcmake_SOURCE_DIR}/cmake ${protobufcmake_BINARY_DIR} )
 
 # Main libuuas so
-add_library( uuas SHARED ${CMAKE_SOURCE_DIR}/src/libuuas/uuas.cpp ${CMAKE_SOURCE_DIR}/src/libuuas/uuaspb.pb.cc )
-target_include_directories( uuas PUBLIC ${CMAKE_SOURCE_DIR}/include/ )
+add_library( uuas SHARED ${CMAKE_SOURCE_DIR}/src/libuuas/uuas.cpp ${CMAKE_SOURCE_DIR}/src/libuuas/waypoint.cpp ${CMAKE_SOURCE_DIR}/src/libuuas/uuaspb.pb.cc )
+target_include_directories( uuas PUBLIC ${CMAKE_SOURCE_DIR}/include/ ${CMAKE_SOURCE_DIR}/src/ )
 target_link_libraries( uuas PUBLIC exiv2lib protobuf::libprotobuf )
-target_compile_options( uuas PUBLIC "-Wall" )
+target_compile_options( uuas PUBLIC "-Wall" "-Wextra" )
 
 # Install directives
 include(GNUInstallDirs)
@@ -39,6 +44,7 @@ install(
 )
 install (
     DIRECTORY ${CMAKE_SOURCE_DIR}/include/
+    DIRECTORY ${CMAKE_SOURCE_DIR}/src/
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
     FILES_MATCHING PATTERN "*.h*"
 )

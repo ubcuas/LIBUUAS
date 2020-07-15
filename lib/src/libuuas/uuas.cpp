@@ -1,6 +1,6 @@
 #include "libuuas/bindings.hpp"
 #include "libuuas/uuas.hpp"
-#include "uuaspb.pb.h"
+#include "libuuas/uuaspb.pb.h"
 #include <iostream>
 
 int32_t geotagImageRequest(const unsigned char* pbbuffer, uint32_t length, unsigned char* resppbbuffer, uint32_t resplength) {

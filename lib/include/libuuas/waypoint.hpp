@@ -27,18 +27,37 @@ private:
 
 enum class WaypointType {
     NONE,
+    GENERATED,
     AUTO_FLIGHT,
     AIRDROP,
-    SEARCH_GRID,
     OFF_AXIS,
+    SEARCH_GRID,
 };
 
 class Waypoint: public Coordinate {
 public:
-    Waypoint(double latitude, double longitude, double altitude_msl_m, bool generated, WaypointType waypoint_type);
+    Waypoint(double latitude, double longitude, double altitude_msl_m, WaypointType waypoint_type);
+
+    WaypointType waypoint_type();
 };
 
 class Flyzone {
 public:
-    Flyzone(std::std::vector<Coordinate> bounds, double max_altitude_msl_m, double min_altitude_msl_m);
+    Flyzone(std::vector<Coordinate> bounds, double max_altitude_msl_m, double min_altitude_msl_m);
+}
+
+class SearchGrid {
+public:
+    SearchGrid(std::vector<Coordinate> bounds, Flyzone flyzone);
+}
+
+class Map {
+public:
+    Map(std::vector<Waypoint> ordered_wps, std::Vector<CylinderObstacle> obstacles, Flyzone flyzone);
+    std::vector<Waypoint> generateOrderedRoute();
+
+private:
+    std::vector<Waypoint> _ordered_wps;
+    std::vector<CylinderObstacle> _obstacles;
+    Flyzone _flyzone;
 }

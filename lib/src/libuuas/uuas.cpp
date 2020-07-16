@@ -1,5 +1,5 @@
-#include "libuuas/bindings.hpp"
 #include "libuuas/uuas.hpp"
+#include "libuuas/bindings.hpp"
 #include "libuuas/uuaspb.pb.h"
 #include <iostream>
 

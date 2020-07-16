@@ -15,6 +15,15 @@ build-py:
 
 build: build-cpp build-rust build-py
 
+## Lint ##
+lint-cpp:
+	cd lib/; find . -regex '.*\.\(cpp\|hpp\)' -exec clang-format -style=file -i {} \;
+
+lint-rust:
+	cd bindings/rust/; cargo fmt
+
+lint: lint-cpp lint-rust
+
 ## Cleanup ##
 clean-cpp:
 	rm -rf build/

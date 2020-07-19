@@ -27,7 +27,6 @@ public:
     std::vector<UasCoordinate> pointsOfInterest();
 
     double radius_m();
-    double radius_m_unsafe();
     double height_m();
 
 private:

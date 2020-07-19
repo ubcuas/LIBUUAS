@@ -19,12 +19,16 @@ else()
   set( DO_CLANG_TIDY "${CLANG_TIDY_EXE}" "-checks=*,-fuchsia-default-arguments,-fuchsia-default-arguments-calls,-modernize-use-trailing-return-type,-*-vararg" )
 endif()
 
-# Boost dependency
-set( Boost_USE_STATIC_LIBS OFF )
-set( Boost_USE_MULTITHREADED ON )
-set( Boost_USE_STATIC_RUNTIME OFF )
-find_package( Boost 1.50 REQUIRED COMPONENTS graph )
-message( STATUS "Boost version: ${Boost_VERSION}" )
+# Catch2 dependency
+include(FetchContent)
+FetchContent_Declare( catch2cmake URL https://github.com/catchorg/Catch2/archive/v2.13.0.tar.gz )
+FetchContent_GetProperties( catch2cmake )
+if ( NOT catch2cmake_POPULATED )
+  FetchContent_Populate( catch2cmake )
+endif()
+option( CATCH_BUILD_TESTING "" OFF )
+option( CATCH_INSTALL_DOCS "" OFF )
+add_subdirectory( ${catch2cmake_SOURCE_DIR} ${catch2cmake_BINARY_DIR} )
 
 # Geos dependency
 include(FetchContent)
@@ -65,9 +69,17 @@ target_compile_options( uuas_pb PUBLIC "-fPIC" )
 
 # Main libuuas so
 add_library( uuas SHARED ${CMAKE_SOURCE_DIR}/src/libuuas/uuas.cpp ${CMAKE_SOURCE_DIR}/src/libuuas/waypoint.cpp )
-target_include_directories( uuas PUBLIC ${CMAKE_SOURCE_DIR}/include/ ${CMAKE_SOURCE_DIR}/src/ ${geoscmake_SOURCE_DIR}/include/ ${geoscmake_BINARY_DIR}/include/ )
-target_link_libraries( uuas PUBLIC uuas_pb exiv2lib geos Boost::graph )
+target_include_directories( uuas PUBLIC ${CMAKE_SOURCE_DIR}/include/ ${CMAKE_SOURCE_DIR}/src/ )
+target_include_directories( uuas SYSTEM PUBLIC ${geoscmake_SOURCE_DIR}/include/ ${geoscmake_BINARY_DIR}/include/ )
+target_link_libraries( uuas PUBLIC uuas_pb exiv2lib geos )
 target_compile_options( uuas PUBLIC "-Wall" "-Wextra" )
+
+# Libuuas tests
+add_executable( uuastest ${CMAKE_SOURCE_DIR}/test/test_main.cpp ${CMAKE_SOURCE_DIR}/test/test_waypoint.cpp )
+target_include_directories( uuas SYSTEM PUBLIC ${catch2cmake_SOURCE_DIR}/single_include/ )
+target_link_libraries( uuastest PUBLIC uuas Catch2::Catch2 )
+enable_testing()
+add_test( NAME uuastest COMMAND uuastest )
 
 # Use clang-tidy as a sanity checker for libuuas
 if ( UUAS_ENABLE_CLANG_TIDY AND CLANG_TIDY_EXE )

@@ -15,6 +15,18 @@ build-py:
 
 build: build-cpp build-rust build-py
 
+## Test ##
+test-cpp: build-cpp
+	cd build; make test
+
+test-rust:
+	cd bindings/rust/; cargo test --release
+
+test-py:
+	cd bindings/python/;
+
+test: test-cpp test-rust test-py
+
 ## Lint ##
 lint-cpp:
 	cd lib/; find . -regex '.*\.\(cpp\|hpp\)' -exec clang-format -style=file -i {} \;

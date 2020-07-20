@@ -71,7 +71,7 @@ target_compile_options( uuas_pb PUBLIC "-fPIC" )
 add_library( uuas SHARED ${CMAKE_SOURCE_DIR}/src/libuuas/uuas.cpp ${CMAKE_SOURCE_DIR}/src/libuuas/waypoint.cpp )
 target_include_directories( uuas PUBLIC ${CMAKE_SOURCE_DIR}/include/ ${CMAKE_SOURCE_DIR}/src/ )
 target_include_directories( uuas SYSTEM PUBLIC ${geoscmake_SOURCE_DIR}/include/ ${geoscmake_BINARY_DIR}/include/ )
-target_link_libraries( uuas PUBLIC uuas_pb exiv2lib geos )
+target_link_libraries( uuas PUBLIC uuas_pb exiv2lib geos_c )
 target_compile_options( uuas PUBLIC "-Wall" "-Wextra" )
 
 # Libuuas tests

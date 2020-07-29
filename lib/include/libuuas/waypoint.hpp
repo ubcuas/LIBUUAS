@@ -1,3 +1,5 @@
+#pragma once
+
 #include <geos/geom/Coordinate.h>
 #include <geos/geom/CoordinateArraySequence.h>
 #include <geos/geom/GeometryFactory.h>
@@ -34,6 +36,7 @@ namespace waypointing {
         UasCoordinate();
         UasCoordinate(double latitude, double longitude);
         UasCoordinate(geos::geom::Coordinate geosCoord);
+        UasCoordinate(geos::geom::Coordinate geosCoord, int zoneNumber, char zoneLetter);
 
         geos::geom::Coordinate asGeosCoordinate();
         std::unique_ptr<geos::geom::Point> asGeosPoint();
@@ -46,6 +49,10 @@ namespace waypointing {
     private:
         double _latitude;
         double _longitude;
+        double _easting_m;
+        double _northing_m;
+        int _zone_number;
+        int _zone_letter;
     };
 
     class CylinderObstacle : public UasCoordinate {

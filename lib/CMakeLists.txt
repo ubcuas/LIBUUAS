@@ -68,14 +68,23 @@ target_link_libraries( uuas_pb PUBLIC protobuf::libprotobuf )
 target_compile_options( uuas_pb PUBLIC "-fPIC" )
 
 # Main libuuas so
-add_library( uuas SHARED ${CMAKE_SOURCE_DIR}/src/libuuas/uuas.cpp ${CMAKE_SOURCE_DIR}/src/libuuas/waypoint.cpp )
+add_library( uuas SHARED
+  ${CMAKE_SOURCE_DIR}/src/libuuas/uuas.cpp
+  ${CMAKE_SOURCE_DIR}/src/libuuas/waypoint.cpp
+  ${CMAKE_SOURCE_DIR}/src/libuuas/utm.cpp
+)
 target_include_directories( uuas PUBLIC ${CMAKE_SOURCE_DIR}/include/ ${CMAKE_SOURCE_DIR}/src/ )
 target_include_directories( uuas SYSTEM PUBLIC ${geoscmake_SOURCE_DIR}/include/ ${geoscmake_BINARY_DIR}/include/ )
 target_link_libraries( uuas PUBLIC uuas_pb exiv2lib geos_c )
 target_compile_options( uuas PUBLIC "-Wall" "-Wextra" )
 
 # Libuuas tests
-add_executable( uuastest ${CMAKE_SOURCE_DIR}/test/test_main.cpp ${CMAKE_SOURCE_DIR}/test/test_waypoint.cpp )
+add_executable( uuastest
+  ${CMAKE_SOURCE_DIR}/test/test_main.cpp
+  ${CMAKE_SOURCE_DIR}/test/test_waypoint.cpp
+  ${CMAKE_SOURCE_DIR}/test/test_utm.cpp
+  ${CMAKE_SOURCE_DIR}/test/test_utils.cpp
+)
 target_include_directories( uuas SYSTEM PUBLIC ${catch2cmake_SOURCE_DIR}/single_include/ )
 target_link_libraries( uuastest PUBLIC uuas Catch2::Catch2 )
 enable_testing()

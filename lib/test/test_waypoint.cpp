@@ -1,4 +1,5 @@
 #define private public
+#include "test_utils.hpp"
 #include <catch2/catch.hpp>
 #include <libuuas/waypoint.hpp>
 
@@ -17,8 +18,8 @@ TEST_CASE("UASCoordinates convert to geost::coordinates losslessly", "[waypoint]
 
     REQUIRE(original_uascoord.latitude() == latitude_value);
     REQUIRE(original_uascoord.longitude() == longitude_value);
-    REQUIRE(original_uascoord.latitude() == converted_uascoord.latitude());
-    REQUIRE(original_uascoord.longitude() == converted_uascoord.longitude());
+    REQUIRE(comparePrecisionTrunc(original_uascoord.latitude(), converted_uascoord.latitude(), 7));
+    REQUIRE(comparePrecisionTrunc(original_uascoord.longitude(), converted_uascoord.longitude(), 7));
 }
 
 TEST_CASE("Obstacles points of interest generate at a low resolution", "[waypoint]") {

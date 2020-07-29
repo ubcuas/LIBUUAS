@@ -1,9 +1,11 @@
 #include "libuuas/waypoint.hpp"
-
-// ( long , Lat ) = ( x , y ) = ( 0 , 1 )
+#include "libuuas/utm.hpp"
+#include <geos/geos.h>
 
 namespace libuuas {
 namespace waypointing {
+
+    static geos::geom::PrecisionModel precisionModel(geos::geom::PrecisionModel::Type::FLOATING);
 
     std::vector<Waypoint> draw_full_route(std::vector<Waypoint> input_waypoints, std::vector<CylinderObstacle> input_obstacles, SearchGrid input_search_grid, Flyzone input_flyzone) {
         std::vector<Waypoint> auto_flight_wps;
@@ -31,23 +33,40 @@ namespace waypointing {
     }
 
     UasCoordinate::UasCoordinate() :
-        _latitude(0), _longitude(0) { }
+        _latitude(0), _longitude(0) {
+    }
 
     UasCoordinate::UasCoordinate(double latitude, double longitude) :
-        _latitude(latitude), _longitude(longitude) { }
+        _latitude(latitude), _longitude(longitude) {
+        utm::UTMData utmData = utm::from_latlon(latitude, longitude);
+        this->_easting_m = utmData.easting_m;
+        this->_northing_m = utmData.northing_m;
+        this->_zone_number = utmData.zone_number;
+        this->_zone_letter = utmData.zone_letter;
+    }
+
+    UasCoordinate::UasCoordinate(geos::geom::Coordinate geosCoord, int zoneNumber, char zoneLetter) :
+        _easting_m(geosCoord.x), _northing_m(geosCoord.y), _zone_number(zoneNumber), _zone_letter(zoneLetter) {
+        utm::LatLonData latlonData = utm::to_latlon(geosCoord.x, geosCoord.y, zoneNumber, zoneLetter);
+        this->_latitude = latlonData.latitude;
+        this->_longitude = latlonData.longitude;
+    }
 
     UasCoordinate::UasCoordinate(geos::geom::Coordinate geosCoord) :
-        // TODO: should convert from UTM
-        _latitude(geosCoord.y),
-        _longitude(geosCoord.x) { }
+        _easting_m(geosCoord.x), _northing_m(geosCoord.y) {
+        this->_zone_number = utm::cache::zone_number;
+        this->_zone_letter = utm::cache::zone_letter;
+        utm::LatLonData latlonData = utm::to_latlon(geosCoord.x, geosCoord.y);
+        this->_latitude = latlonData.latitude;
+        this->_longitude = latlonData.longitude;
+    }
 
     geos::geom::Coordinate UasCoordinate::asGeosCoordinate() {
-        // TODO: Should be easting/northing
-        return {this->longitude(), this->latitude(), 0};
+        return {this->_easting_m, this->_northing_m, 0};
     }
 
     std::unique_ptr<geos::geom::Point> UasCoordinate::asGeosPoint() {
-        geost::geomFactoryUPtr geoFactory = geos::geom::GeometryFactory::create();
+        geost::geomFactoryUPtr geoFactory = geos::geom::GeometryFactory::create(&precisionModel);
         geost::point* geoPoint = geoFactory->createPoint(this->asGeosCoordinate());
         geost::pointUPtr geoPointPtr = std::unique_ptr<geos::geom::Point>(geoPoint);
         return geoPointPtr;
@@ -74,7 +93,7 @@ namespace waypointing {
     }
 
     std::vector<UasCoordinate> CylinderObstacle::pointsOfInterest() {
-        geost::geomFactoryUPtr geoFactory = geos::geom::GeometryFactory::create();
+        geost::geomFactoryUPtr geoFactory = geos::geom::GeometryFactory::create(&precisionModel);
         geost::coord obsCoord = this->asGeosCoordinate();
         geost::point* obsPoint = geoFactory->createPoint(obsCoord);
 
@@ -90,7 +109,7 @@ namespace waypointing {
     }
 
     std::unique_ptr<geos::geom::Geometry> CylinderObstacle::asGeosGeom() {
-        geost::geomFactoryUPtr geoFactory = geos::geom::GeometryFactory::create();
+        geost::geomFactoryUPtr geoFactory = geos::geom::GeometryFactory::create(&precisionModel);
         geost::coord obsCoord = this->asGeosCoordinate();
         geost::point* obsPoint = geoFactory->createPoint(obsCoord);
         geost::geom* obsCircle = obsPoint->buffer(this->radius_m());
@@ -145,7 +164,7 @@ namespace waypointing {
             coordArray.add(coord.asGeosCoordinate());
         }
 
-        geost::geomFactoryUPtr geoFactory = geos::geom::GeometryFactory::create();
+        geost::geomFactoryUPtr geoFactory = geos::geom::GeometryFactory::create(&precisionModel);
         geost::linearRing* boundsLinearRing = geoFactory->createLinearRing(coordArray);
 
         geost::linearRingUPtr boundsLinearRingPtr = std::unique_ptr<geos::geom::LinearRing>(boundsLinearRing);
@@ -182,7 +201,7 @@ namespace waypointing {
     }
 
     bool Map::validRoute(UasCoordinate* start, UasCoordinate* end) {
-        geost::geomFactoryUPtr geoFactory = geos::geom::GeometryFactory::create();
+        geost::geomFactoryUPtr geoFactory = geos::geom::GeometryFactory::create(&precisionModel);
 
         geost::coordArray coordArray;
         coordArray.add(start->asGeosCoordinate());

@@ -1,4 +1,5 @@
 #define private public
+
 #include "test_utils.hpp"
 #include <catch2/catch.hpp>
 #include <libuuas/waypoint.hpp>
@@ -36,25 +37,12 @@ TEST_CASE("Obstacles points of interest generate at a low resolution", "[waypoin
 }
 
 TEST_CASE("Map should generate bi-directional routes", "[waypoint]") {
-    constexpr double start_latitude = 43.1561681;
-    constexpr double start_longitude = -75.8449946;
-
-    constexpr double end_latitude = 43.1561681;
-    constexpr double end_longitude = -75.8449946;
-
-    constexpr double alt = 30;
-
-    std::vector<Waypoint> ordered_wps = {
-        {start_latitude, start_longitude, alt, WaypointType::AUTO_FLIGHT},
-        {end_latitude, end_longitude, alt, WaypointType::AUTO_FLIGHT},
-    };
-
-    Map testMap(ordered_wps, {}, testFlyzone);
+    Map testMap({}, {}, testFlyzone);
     testMap.generatePointsOfInterests();
 
-    REQUIRE(testMap._wpoi_connections.size() == 2);
+    REQUIRE(testMap._wpoi_connections.size() == 5);
     REQUIRE(testMap._wpoi_connections[0][0] == 1);
-    REQUIRE(testMap._wpoi_connections[0].size() == 1);
-    REQUIRE(testMap._wpoi_connections[0][1] == 0);
-    REQUIRE(testMap._wpoi_connections[0].size() == 1);
+    REQUIRE(testMap._wpoi_connections[0].size() == 3);
+    REQUIRE(testMap._wpoi_connections[1][0] == 0);
+    REQUIRE(testMap._wpoi_connections[1].size() == 4);
 }

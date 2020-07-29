@@ -5,6 +5,7 @@
 #include <geos/geom/GeometryFactory.h>
 #include <geos/geom/LinearRing.h>
 #include <geos/geom/Point.h>
+#include <geos/geom/Polygon.h>
 #include <iostream>
 #include <memory>
 #include <unordered_map>
@@ -23,6 +24,8 @@ namespace geost {
     using lineString = geos::geom::LineString;
     using point = geos::geom::Point;
     using pointUPtr = std::unique_ptr<geos::geom::Point>;
+    using poly = geos::geom::Polygon;
+    using polyUPtr = std::unique_ptr<geos::geom::Polygon>;
 } // namespace geost
 } // namespace libuuas
 
@@ -99,6 +102,7 @@ namespace waypointing {
 
         std::vector<UasCoordinate> pointsOfInterest();
         std::unique_ptr<geos::geom::LinearRing> asGeosLinearRing();
+        std::unique_ptr<geos::geom::Polygon> asGeosPoly();
         bool isCoordWithinFlyzone(UasCoordinate uasCoord);
         bool isCoordWithinFlyzone(std::unique_ptr<geos::geom::Point> point);
 

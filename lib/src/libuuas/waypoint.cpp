@@ -1,6 +1,7 @@
 #include "libuuas/waypoint.hpp"
 #include "libuuas/utm.hpp"
 #include <geos/geos.h>
+#include <unordered_set>
 
 namespace libuuas {
 namespace waypointing {
@@ -81,11 +82,11 @@ namespace waypointing {
     }
 
     double UasCoordinate::easting_m() {
-        return this->_longitude; // TODO: Should be fixed
+        return this->_easting_m;
     }
 
     double UasCoordinate::northing_m() {
-        return this->_latitude; // TODO: Should be fixed
+        return this->_northing_m;
     }
 
     CylinderObstacle::CylinderObstacle(double latitude, double longitude, double radius_m, double height_m) :
@@ -145,9 +146,8 @@ namespace waypointing {
         _min_altitude_msl_m(min_altitude_msl_m) { }
 
     std::vector<UasCoordinate> Flyzone::pointsOfInterest() {
-        geost::linearRingUPtr boundsLinearRing = this->asGeosLinearRing();
-
-        geost::geom* safeBounds = boundsLinearRing->buffer(safetyMargin_m * -2);
+        geost::polyUPtr boundsPoly = this->asGeosPoly();
+        geost::geom* safeBounds = boundsPoly->buffer(safetyMargin_m * -2);
         geost::coordSeq* safeBoundsCoords = safeBounds->getCoordinates();
 
         std::vector<UasCoordinate> safeBoundUasCoords;
@@ -171,12 +171,21 @@ namespace waypointing {
         return boundsLinearRingPtr;
     }
 
+    std::unique_ptr<geos::geom::Polygon> Flyzone::asGeosPoly() {
+        geost::geomFactoryUPtr geoFactory = geos::geom::GeometryFactory::create(&precisionModel);
+        geost::linearRingUPtr boundsLinearRing = this->asGeosLinearRing();
+        geost::poly* flyzonePoly = geoFactory->createPolygon(*boundsLinearRing, {});
+
+        geost::polyUPtr flyzonePolyPtr = std::unique_ptr<geos::geom::Polygon>(flyzonePoly);
+        return flyzonePolyPtr;
+    }
+
     bool Flyzone::isCoordWithinFlyzone(UasCoordinate uasCoord) {
         return this->isCoordWithinFlyzone(uasCoord.asGeosPoint());
     }
 
     bool Flyzone::isCoordWithinFlyzone(std::unique_ptr<geos::geom::Point> point) {
-        geost::linearRingUPtr flyzoneGeom = this->asGeosLinearRing();
+        geost::polyUPtr flyzoneGeom = this->asGeosPoly();
         geost::geom* pointGeom = static_cast<geos::geom::Geometry*>(point.get());
         return flyzoneGeom->contains(pointGeom);
     }
@@ -209,11 +218,11 @@ namespace waypointing {
 
         bool isValid = true;
         geost::lineString* routeLineString = geoFactory->createLineString(&coordArray);
-        if (!this->_flyzone.asGeosLinearRing()->contains(routeLineString)) {
+        if (!this->_flyzone.asGeosPoly()->contains(routeLineString) && isValid) {
             isValid = false;
         }
         for (auto obs : this->_obstacles) {
-            if (routeLineString->intersects(obs.asGeosGeom().get())) {
+            if (routeLineString->intersects(obs.asGeosGeom().get()) && isValid) {
                 isValid = false;
                 break;
             }
@@ -227,7 +236,7 @@ namespace waypointing {
         for (auto coord : this->_flyzone.pointsOfInterest()) {
             _potential_wpoi.push_back(coord);
         }
-        std::cout << "potential wpoi size " << _potential_wpoi.size() << std::endl;
+
         for (auto obstacle : this->_obstacles) {
             for (auto coord : obstacle.pointsOfInterest()) {
                 _potential_wpoi.push_back(coord);

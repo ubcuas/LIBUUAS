@@ -23,8 +23,9 @@ TelemetryArgs = collections.namedtuple(
     ]
 )
 
+
 def new_telem_msg(args: TelemetryArgs) -> pylibuuaspb.Telemetry:
-    msg = pylibuuaspb.Telemetry
+    msg = pylibuuaspb.Telemetry()
     msg.latitude = args.latitude
     msg.longitude = args.longitude
     msg.altitude_agl_meters = args.altitude_agl_meters
@@ -43,8 +44,10 @@ def new_telem_msg(args: TelemetryArgs) -> pylibuuaspb.Telemetry:
     msg.timestamp_msg_ms = args.timestamp_msg_ms
     return msg
 
+
 def serialize_telem_msg(msg: pylibuuaspb.Telemetry) -> str:
     return pylibuuaspb.Telemetry.SerializeToString(msg)
+
 
 def deserialize_telem_msg(buffer: str) -> pylibuuaspb.Telemetry:
     message = pylibuuaspb.Telemetry()

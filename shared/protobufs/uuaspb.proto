@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package uuas;
+package uuaspb;
 
 enum ResultStatus {
     OK = 0;

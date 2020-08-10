@@ -2,6 +2,7 @@
 #include "libuuas/utm.hpp"
 #include <geos/geos.h>
 #include <unordered_set>
+#include <queue>
 
 namespace libuuas {
 namespace waypointing {
@@ -32,6 +33,7 @@ namespace waypointing {
         Map auto_flight_map = Map(auto_flight_wps, input_obstacles, input_flyzone);
         std::vector<Waypoint> auto_flight_route = auto_flight_map.generateOrderedRoute();
     }
+
 
     UasCoordinate::UasCoordinate() :
         _latitude(0), _longitude(0) {
@@ -89,6 +91,7 @@ namespace waypointing {
         return this->_northing_m;
     }
 
+
     CylinderObstacle::CylinderObstacle(double latitude, double longitude, double radius_m, double height_m) :
         UasCoordinate(latitude, longitude), _radius_m(radius_m), _height_m(height_m) {
     }
@@ -126,6 +129,7 @@ namespace waypointing {
         return this->_height_m;
     }
 
+
     Waypoint::Waypoint() :
         UasCoordinate(0.0, 0.0), _altitude_msl_m(0.0), _waypoint_type(WaypointType::NONE) { }
 
@@ -139,6 +143,7 @@ namespace waypointing {
     WaypointType Waypoint::waypoint_type() {
         return this->_waypoint_type;
     }
+
 
     Flyzone::Flyzone(std::vector<UasCoordinate> bounds, double max_altitude_msl_m, double min_altitude_msl_m) :
         _bounds(bounds),
@@ -190,6 +195,7 @@ namespace waypointing {
         return flyzoneGeom->contains(pointGeom);
     }
 
+
     Map::Map(std::vector<Waypoint> ordered_wps, std::vector<CylinderObstacle> obstacles, Flyzone flyzone) :
         _ordered_wps(ordered_wps), _obstacles(obstacles), _flyzone(flyzone) { }
 
@@ -197,12 +203,89 @@ namespace waypointing {
         this->generatePointsOfInterests();
     }
 
+    double a_star_heuristic(UasCoordinate a, UasCoordinate b) {
+        double dx = a.easting_m() - b.easting_m();
+        double dy = a.northing_m() - b.northing_m();
+        return sqrt(pow(dx, 2) + pow(dy, 2));
+    }
+
+    // std::vector<Waypoint> Map::shortestRoute(Waypoint start, Waypoint end) {
+    //     using PriorityWP = std::pair<int, Waypoint>;
+    //     std::priority_queue<PriorityWP, std::vector<PriorityWP>, std::greater<PriorityWP>> frontier;
+    //     frontier.push(std::make_pair(0, start));
+
+    //     bool goal_reached = false;
+
+    //     auto flyable_wpoi = this->_flyable_wpoi;
+    //     flyable_wpoi.push_back(end.asUasCoordinate());
+    //     for (auto coord : this->_flyable_wpoi) {
+
+    //     }
+
+    //     while(!frontier.empty()) {
+    //         Waypoint current_wp = frontier.pop();
+
+    //         if(current_wp.latitude() == end.latitude() && current_wp.longitude() == end.longitude()) {
+    //             std::cout << "A* section done" << std::endl;
+    //             goal_reached = true;
+    //             break;
+    //         }
+
+
+
+    //     }
+    // }
+
+// def a_star_search(graph, start, goal):
+//     # logger.debug("A* Pathfinding start for %s to %s", start, goal)
+//     frontier = PriorityQueue()
+//     frontier.put(start, 0)
+//     came_from = {}
+//     cost_so_far = {}
+//     came_from[start] = None
+//     cost_so_far[start] = 0
+//     goal_reached = None
+
+//     while not frontier.is_empty():
+//         current = frontier.get()
+
+//         if all(current[dimension] == goal[dimension] for dimension in ['latitude', 'longitude']):
+//             # logger.debug("A* Pathfinding complete for %s to %s", start, goal)
+//             goal_reached = True
+//             break
+
+//         for next in graph.neighbors(current):
+//             new_cost = cost_so_far[current] + graph.cost(current, next)
+//             if next not in cost_so_far or new_cost < cost_so_far[next]:
+//                 cost_so_far[next] = new_cost
+//                 priority = new_cost + heuristic(goal, next)
+//                 frontier.put(next, priority)
+//                 came_from[next] = current
+
+//     if goal_reached:
+//         output = []
+//         prev = current
+//         while prev is not None:
+//             output.append(prev)
+//             prev = came_from[prev]
+//         output.reverse()
+//     else:
+//         logger.error("No valid path found for %s to %s", start, goal)
+//         output = [start, goal]
+
+//     return output
+
+
     bool Map::isCoordWithinFlyzone(UasCoordinate uasCoord) {
         return this->_flyzone.isCoordWithinFlyzone(uasCoord);
     }
 
     bool Map::validRoute(Waypoint start, Waypoint end) {
         return this->validRoute(static_cast<UasCoordinate*>(&start), static_cast<UasCoordinate*>(&end));
+    }
+
+    bool Map::validRoute(Waypoint start, UasCoordinate end) {
+        return this->validRoute(static_cast<UasCoordinate*>(&start), &end);
     }
 
     bool Map::validRoute(UasCoordinate start, UasCoordinate end) {

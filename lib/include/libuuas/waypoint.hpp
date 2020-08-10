@@ -75,6 +75,7 @@ namespace waypointing {
 
     enum class WaypointType {
         NONE,
+        COORDINATE,
         GENERATED,
         AUTO_FLIGHT,
         AIRDROP,
@@ -86,6 +87,8 @@ namespace waypointing {
     public:
         Waypoint();
         Waypoint(double latitude, double longitude, double altitude_msl_m, WaypointType waypoint_type);
+
+        UasCoordinate asUasCoordinate();
 
         double altitude_msl_m();
         WaypointType waypoint_type();
@@ -129,10 +132,13 @@ namespace waypointing {
         Map(std::vector<Waypoint> ordered_wps, std::vector<CylinderObstacle> obstacles, Flyzone flyzone);
 
         std::vector<Waypoint> generateOrderedRoute();
+        std::vector<Waypoint> shortestRoute(Waypoint start, Waypoint end);
+        std::vector<Waypoint> shortestRoute(std::vector<Waypoint> waypoints);
+
         bool isCoordWithinFlyzone(UasCoordinate uasCoord);
 
-        std::vector<Waypoint> shortestRoute(Waypoint start, Waypoint end);
         bool validRoute(Waypoint start, Waypoint end);
+        bool validRoute(Waypoint start, UasCoordinate end);
         bool validRoute(UasCoordinate start, UasCoordinate end);
         bool validRoute(UasCoordinate* start, UasCoordinate* end);
 

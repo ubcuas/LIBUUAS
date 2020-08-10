@@ -1,4 +1,6 @@
-*/__pycache__/*
+*/__pycache__
 pylibuuas/_libuuas*
 pylibuuas.egg-info/
 dist/
+.mypy_cache
+.pytest_cache

@@ -19,9 +19,8 @@ namespace geotag {
         Exiv2::XmpProperties::registerNs("UAS/", "UAS");
 
         Exiv2::Image::AutoPtr image = Exiv2::ImageFactory::open(geotagRequest.filename());
+        image->readMetadata();
         Exiv2::XmpData& XMPData = image->xmpData();
-
-        image->writeXmpFromPacket(true);
 
         XMPData["Xmp.UAS.latitude"] = dtos(geotagRequest.telemetry().latitude());
         XMPData["Xmp.UAS.longitude"] = dtos(geotagRequest.telemetry().longitude());
@@ -94,6 +93,7 @@ namespace geotag {
         const Exiv2::Value& timestamp_msg_ms = XMPData["Xmp.UAS.timestamp_msg_ms"].value();
         unGeotag_response.mutable_telemetry()->set_timestamp_msg_ms(std::stoi(timestamp_msg_ms.toString()));
 
+        image->writeMetadata(); // Apparently not writing the metadata back means Exiv2 will clear it from the image
         image.release();
 
         unGeotag_response.set_result(uuaspb::ResultStatus::OK);

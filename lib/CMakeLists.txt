@@ -69,9 +69,9 @@ target_compile_options( uuas_pb PUBLIC "-fPIC" )
 
 # Main libuuas so
 add_library( uuas SHARED
+  ${CMAKE_SOURCE_DIR}/src/libuuas/bindings.cpp
   ${CMAKE_SOURCE_DIR}/src/libuuas/geotag.cpp
   ${CMAKE_SOURCE_DIR}/src/libuuas/utm.cpp
-  ${CMAKE_SOURCE_DIR}/src/libuuas/uuas.cpp
   ${CMAKE_SOURCE_DIR}/src/libuuas/waypoint.cpp
 )
 target_include_directories( uuas PUBLIC ${CMAKE_SOURCE_DIR}/include/ ${CMAKE_SOURCE_DIR}/src/ )

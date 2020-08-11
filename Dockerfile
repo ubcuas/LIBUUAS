@@ -80,6 +80,10 @@ FROM python:latest AS pyrun
 RUN apt-get update -y && apt-get install -y cmake
 RUN pip install --verbose cppyy
 
+COPY --from=libbuild /usr/local/lib/ /usr/local/lib/
+COPY --from=libbuild /usr/local/include/ /usr/local/include/
+RUN ldconfig /usr/local/lib/
+
 COPY --from=pybuild /libuuas/build/dist/*.whl ./
 RUN pip install *.whl
 RUN rm -rf *.whl
@@ -90,6 +94,10 @@ FROM pypy:latest AS pypyrun
 
 RUN apt-get update -y && apt-get install -y cmake
 RUN pip install --verbose cppyy
+
+COPY --from=libbuild /usr/local/lib/ /usr/local/lib/
+COPY --from=libbuild /usr/local/include/ /usr/local/include/
+RUN ldconfig /usr/local/lib/
 
 COPY --from=pybuild /libuuas/build/dist/*.whl ./
 RUN pip install *.whl

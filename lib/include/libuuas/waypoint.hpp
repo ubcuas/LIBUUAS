@@ -41,13 +41,13 @@ namespace waypointing {
         UasCoordinate(geos::geom::Coordinate geosCoord);
         UasCoordinate(geos::geom::Coordinate geosCoord, int zoneNumber, char zoneLetter);
 
-        geos::geom::Coordinate asGeosCoordinate();
-        std::unique_ptr<geos::geom::Point> asGeosPoint();
+        geos::geom::Coordinate asGeosCoordinate() const;
+        std::unique_ptr<geos::geom::Point> asGeosPoint() const;
 
-        double latitude();
-        double longitude();
-        double easting_m();
-        double northing_m();
+        double latitude() const;
+        double longitude() const;
+        double easting_m() const;
+        double northing_m() const;
 
     private:
         double _latitude;
@@ -86,17 +86,21 @@ namespace waypointing {
     class Waypoint : public UasCoordinate {
     public:
         Waypoint();
+        Waypoint(UasCoordinate coord, double altitude_msl_m, WaypointType waypoint_type);
         Waypoint(double latitude, double longitude, double altitude_msl_m, WaypointType waypoint_type);
 
-        UasCoordinate asUasCoordinate();
+        UasCoordinate asUasCoordinate() const;
 
-        double altitude_msl_m();
-        WaypointType waypoint_type();
+        double altitude_msl_m() const;
+        WaypointType waypoint_type() const;
 
     private:
         double _altitude_msl_m;
         WaypointType _waypoint_type;
     };
+
+    bool operator==(const Waypoint& a, const Waypoint& b);
+    bool operator!=(const Waypoint& a, const Waypoint& b);
 
     class Flyzone {
     public:
@@ -136,6 +140,8 @@ namespace waypointing {
         std::vector<Waypoint> shortestRoute(std::vector<Waypoint> waypoints);
 
         bool isCoordWithinFlyzone(UasCoordinate uasCoord);
+
+        int distance(UasCoordinate start, UasCoordinate end);
 
         bool validRoute(Waypoint start, Waypoint end);
         bool validRoute(Waypoint start, UasCoordinate end);

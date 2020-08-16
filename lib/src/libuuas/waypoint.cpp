@@ -63,30 +63,30 @@ namespace waypointing {
         this->_longitude = latlonData.longitude;
     }
 
-    geos::geom::Coordinate UasCoordinate::asGeosCoordinate() {
+    geos::geom::Coordinate UasCoordinate::asGeosCoordinate() const {
         return {this->_easting_m, this->_northing_m, 0};
     }
 
-    std::unique_ptr<geos::geom::Point> UasCoordinate::asGeosPoint() {
+    std::unique_ptr<geos::geom::Point> UasCoordinate::asGeosPoint() const {
         geost::geomFactoryUPtr geoFactory = geos::geom::GeometryFactory::create(&precisionModel);
         geost::point* geoPoint = geoFactory->createPoint(this->asGeosCoordinate());
         geost::pointUPtr geoPointPtr = std::unique_ptr<geos::geom::Point>(geoPoint);
         return geoPointPtr;
     }
 
-    double UasCoordinate::latitude() {
+    double UasCoordinate::latitude() const {
         return this->_latitude;
     }
 
-    double UasCoordinate::longitude() {
+    double UasCoordinate::longitude() const {
         return this->_longitude;
     }
 
-    double UasCoordinate::easting_m() {
+    double UasCoordinate::easting_m() const {
         return this->_easting_m;
     }
 
-    double UasCoordinate::northing_m() {
+    double UasCoordinate::northing_m() const {
         return this->_northing_m;
     }
 
@@ -130,15 +130,30 @@ namespace waypointing {
     Waypoint::Waypoint() :
         UasCoordinate(0.0, 0.0), _altitude_msl_m(0.0), _waypoint_type(WaypointType::NONE) { }
 
+    Waypoint::Waypoint(UasCoordinate coord, double altitude_msl_m, WaypointType waypoint_type) :
+        UasCoordinate(coord.latitude(), coord.longitude()), _altitude_msl_m(altitude_msl_m), _waypoint_type(waypoint_type) { }
+
     Waypoint::Waypoint(double latitude, double longitude, double altitude_msl_m, WaypointType waypoint_type) :
         UasCoordinate(latitude, longitude), _altitude_msl_m(altitude_msl_m), _waypoint_type(waypoint_type) { }
 
-    double Waypoint::altitude_msl_m() {
+    UasCoordinate Waypoint::asUasCoordinate() const {
+        return {this->latitude(), this->longitude()};
+    }
+
+    double Waypoint::altitude_msl_m() const {
         return this->_altitude_msl_m;
     }
 
-    WaypointType Waypoint::waypoint_type() {
+    WaypointType Waypoint::waypoint_type() const {
         return this->_waypoint_type;
+    }
+
+    bool operator==(const Waypoint& a, const Waypoint& b) {
+        return a.latitude() == b.latitude() && a.longitude() == a.longitude() && a.altitude_msl_m() == b.altitude_msl_m() && a.waypoint_type() == b.waypoint_type();
+    }
+
+    bool operator!=(const Waypoint& a, const Waypoint& b) {
+        return a.latitude() != b.latitude() || a.longitude() != a.longitude() || a.altitude_msl_m() != b.altitude_msl_m() || a.waypoint_type() != b.waypoint_type();
     }
 
     Flyzone::Flyzone(std::vector<UasCoordinate> bounds, double max_altitude_msl_m, double min_altitude_msl_m) :
@@ -204,72 +219,104 @@ namespace waypointing {
         return sqrt(pow(dx, 2) + pow(dy, 2));
     }
 
-    // std::vector<Waypoint> Map::shortestRoute(Waypoint start, Waypoint end) {
-    //     using PriorityWP = std::pair<int, Waypoint>;
-    //     std::priority_queue<PriorityWP, std::vector<PriorityWP>, std::greater<PriorityWP>> frontier;
-    //     frontier.push(std::make_pair(0, start));
+    std::vector<Waypoint> Map::shortestRoute(Waypoint start, Waypoint end) {
+        auto wpoi_connections = this->_wpoi_connections;
+        auto flyable_wpoi = this->_flyable_wpoi;
+        flyable_wpoi.push_back(start.asUasCoordinate());
+        flyable_wpoi.push_back(end.asUasCoordinate());
+        const size_t startIdx = flyable_wpoi.size() - 2;
+        const size_t endIdx = flyable_wpoi.size() - 1;
 
-    //     bool goal_reached = false;
+        using PriorityWP = std::pair<int, size_t>; // <distance to goal, waypoint index>
+        std::priority_queue<PriorityWP, std::vector<PriorityWP>, std::greater<PriorityWP>> frontier;
+        frontier.push(std::make_pair(0, startIdx));
+        std::unordered_map<size_t, int> cost_so_far;
+        std::unordered_map<size_t, size_t> came_from;
+        cost_so_far[startIdx] = 0;
 
-    //     auto flyable_wpoi = this->_flyable_wpoi;
-    //     flyable_wpoi.push_back(end.asUasCoordinate());
-    //     for (auto coord : this->_flyable_wpoi) {
+        bool goal_reached = false;
 
-    //     }
+        if (this->validRoute(flyable_wpoi[startIdx], flyable_wpoi[endIdx])) {
+            std::cout << "Easy path found!" << std::endl;
+            std::vector<Waypoint> output;
+            output.push_back(start);
+            output.push_back(end);
+            return output;
+        }
+        for (size_t i = 0; i < flyable_wpoi.size() - 2; ++i) {
+            if (this->validRoute(flyable_wpoi[startIdx], flyable_wpoi[i])) {
+                wpoi_connections[i].push_back(startIdx);
+                wpoi_connections[startIdx].push_back(i);
+            }
+            if (this->validRoute(flyable_wpoi[endIdx], flyable_wpoi[i])) {
+                wpoi_connections[i].push_back(endIdx);
+                wpoi_connections[endIdx].push_back(i);
+            }
+        }
 
-    //     while(!frontier.empty()) {
-    //         Waypoint current_wp = frontier.pop();
+        size_t current_wp_idx = startIdx;
+        while (!frontier.empty()) {
+            PriorityWP current_wp_pair = frontier.top();
+            frontier.pop();
 
-    //         if(current_wp.latitude() == end.latitude() && current_wp.longitude() == end.longitude()) {
-    //             std::cout << "A* section done" << std::endl;
-    //             goal_reached = true;
-    //             break;
-    //         }
+            current_wp_idx = std::get<1>(current_wp_pair);
+            UasCoordinate current_wp = flyable_wpoi[current_wp_idx];
 
-    //     }
-    // }
+            if (current_wp.latitude() == end.latitude() && current_wp.longitude() == end.longitude()) {
+                std::cout << "A* section done" << std::endl;
+                goal_reached = true;
+                break;
+            }
 
-    // def a_star_search(graph, start, goal):
-    //     # logger.debug("A* Pathfinding start for %s to %s", start, goal)
-    //     frontier = PriorityQueue()
-    //     frontier.put(start, 0)
-    //     came_from = {}
-    //     cost_so_far = {}
-    //     came_from[start] = None
-    //     cost_so_far[start] = 0
-    //     goal_reached = None
+            for (auto next_idx : wpoi_connections[current_wp_idx]) {
+                int new_cost = cost_so_far[current_wp_idx] + this->distance(flyable_wpoi[current_wp_idx], flyable_wpoi[next_idx]);
+                if (cost_so_far.count(next_idx) == 0 || new_cost < cost_so_far[next_idx]) {
+                    cost_so_far[next_idx] = new_cost;
+                    int priority = new_cost + a_star_heuristic(flyable_wpoi[next_idx], end.asUasCoordinate());
+                    frontier.push(std::make_pair(priority, next_idx));
+                    came_from[next_idx] = current_wp_idx;
+                }
+            }
+        }
 
-    //     while not frontier.is_empty():
-    //         current = frontier.get()
+        std::vector<Waypoint> output;
+        if (goal_reached) {
+            std::vector<int> output_idxs;
+            size_t prev_idx = current_wp_idx;
+            while (prev_idx != startIdx) {
+                output_idxs.push_back(prev_idx);
+                prev_idx = came_from[prev_idx];
+            }
 
-    //         if all(current[dimension] == goal[dimension] for dimension in ['latitude', 'longitude']):
-    //             # logger.debug("A* Pathfinding complete for %s to %s", start, goal)
-    //             goal_reached = True
-    //             break
+            output.push_back(start);
+            const double alt_diff = end.altitude_msl_m() - start.altitude_msl_m();
+            const double delta_alt = alt_diff / (output_idxs.size() - 1);
+            double alt = start.altitude_msl_m();
+            // Don't iterate through the start and the end since we already have those waypoints
+            for (auto rit = output_idxs.rbegin() + 1; rit != output_idxs.rend() - 1; ++rit) {
+                alt += delta_alt;
+                output.emplace_back(flyable_wpoi[*rit], alt, WaypointType::GENERATED);
+            }
+            output.push_back(end);
 
-    //         for next in graph.neighbors(current):
-    //             new_cost = cost_so_far[current] + graph.cost(current, next)
-    //             if next not in cost_so_far or new_cost < cost_so_far[next]:
-    //                 cost_so_far[next] = new_cost
-    //                 priority = new_cost + heuristic(goal, next)
-    //                 frontier.put(next, priority)
-    //                 came_from[next] = current
+        } else {
+            std::cout << "No valid path found" << std::endl;
+            output.push_back(start);
+            output.push_back(end);
+        }
 
-    //     if goal_reached:
-    //         output = []
-    //         prev = current
-    //         while prev is not None:
-    //             output.append(prev)
-    //             prev = came_from[prev]
-    //         output.reverse()
-    //     else:
-    //         logger.error("No valid path found for %s to %s", start, goal)
-    //         output = [start, goal]
-
-    //     return output
+        return output;
+    }
 
     bool Map::isCoordWithinFlyzone(UasCoordinate uasCoord) {
         return this->_flyzone.isCoordWithinFlyzone(uasCoord);
+    }
+
+    int Map::distance(UasCoordinate a, UasCoordinate b) {
+        double dx = a.easting_m() - b.easting_m();
+        double dy = a.northing_m() - b.northing_m();
+
+        return sqrt(pow(dx, 2) + pow(dy, 2));
     }
 
     bool Map::validRoute(Waypoint start, Waypoint end) {
@@ -328,9 +375,9 @@ namespace waypointing {
         // Generate available connections between maps
         for (size_t i = 0; i < this->_flyable_wpoi.size(); ++i) {
             for (size_t j = i + 1; j < this->_flyable_wpoi.size(); ++j) {
-                if (this->validRoute(_flyable_wpoi[i], _flyable_wpoi[j])) {
-                    _wpoi_connections[i].push_back(j);
-                    _wpoi_connections[j].push_back(i);
+                if (this->validRoute(this->_flyable_wpoi[i], this->_flyable_wpoi[j])) {
+                    this->_wpoi_connections[i].push_back(j);
+                    this->_wpoi_connections[j].push_back(i);
                 }
             }
         }

@@ -14,7 +14,11 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
+extern PROTOBUF_INTERNAL_EXPORT_uuaspb_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CylinderObstacle_uuaspb_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_uuaspb_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Flyzone_uuaspb_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_uuaspb_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Telemetry_uuaspb_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_uuaspb_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_UasCoordinate_uuaspb_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_uuaspb_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Waypoint_uuaspb_2eproto;
 namespace uuaspb {
 class GeoTagRequestDefaultTypeInternal {
  public:
@@ -36,7 +40,61 @@ class TelemetryDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Telemetry> _instance;
 } _Telemetry_default_instance_;
+class OrderedRouteRequestDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<OrderedRouteRequest> _instance;
+} _OrderedRouteRequest_default_instance_;
+class OrderedRouteResponseDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<OrderedRouteResponse> _instance;
+} _OrderedRouteResponse_default_instance_;
+class FlyzoneDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Flyzone> _instance;
+} _Flyzone_default_instance_;
+class UasCoordinateDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<UasCoordinate> _instance;
+} _UasCoordinate_default_instance_;
+class WaypointDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Waypoint> _instance;
+} _Waypoint_default_instance_;
+class CylinderObstacleDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<CylinderObstacle> _instance;
+} _CylinderObstacle_default_instance_;
 }  // namespace uuaspb
+static void InitDefaultsscc_info_CylinderObstacle_uuaspb_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::uuaspb::_CylinderObstacle_default_instance_;
+    new (ptr) ::uuaspb::CylinderObstacle();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::uuaspb::CylinderObstacle::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CylinderObstacle_uuaspb_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_CylinderObstacle_uuaspb_2eproto}, {
+      &scc_info_UasCoordinate_uuaspb_2eproto.base,}};
+
+static void InitDefaultsscc_info_Flyzone_uuaspb_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::uuaspb::_Flyzone_default_instance_;
+    new (ptr) ::uuaspb::Flyzone();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::uuaspb::Flyzone::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Flyzone_uuaspb_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_Flyzone_uuaspb_2eproto}, {
+      &scc_info_UasCoordinate_uuaspb_2eproto.base,}};
+
 static void InitDefaultsscc_info_GeoTagRequest_uuaspb_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -66,6 +124,38 @@ static void InitDefaultsscc_info_GeoTagResponse_uuaspb_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GeoTagResponse_uuaspb_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_GeoTagResponse_uuaspb_2eproto}, {}};
 
+static void InitDefaultsscc_info_OrderedRouteRequest_uuaspb_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::uuaspb::_OrderedRouteRequest_default_instance_;
+    new (ptr) ::uuaspb::OrderedRouteRequest();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::uuaspb::OrderedRouteRequest::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_OrderedRouteRequest_uuaspb_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 3, 0, InitDefaultsscc_info_OrderedRouteRequest_uuaspb_2eproto}, {
+      &scc_info_Waypoint_uuaspb_2eproto.base,
+      &scc_info_CylinderObstacle_uuaspb_2eproto.base,
+      &scc_info_Flyzone_uuaspb_2eproto.base,}};
+
+static void InitDefaultsscc_info_OrderedRouteResponse_uuaspb_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::uuaspb::_OrderedRouteResponse_default_instance_;
+    new (ptr) ::uuaspb::OrderedRouteResponse();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::uuaspb::OrderedRouteResponse::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_OrderedRouteResponse_uuaspb_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_OrderedRouteResponse_uuaspb_2eproto}, {
+      &scc_info_Waypoint_uuaspb_2eproto.base,}};
+
 static void InitDefaultsscc_info_Telemetry_uuaspb_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -79,6 +169,20 @@ static void InitDefaultsscc_info_Telemetry_uuaspb_2eproto() {
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Telemetry_uuaspb_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Telemetry_uuaspb_2eproto}, {}};
+
+static void InitDefaultsscc_info_UasCoordinate_uuaspb_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::uuaspb::_UasCoordinate_default_instance_;
+    new (ptr) ::uuaspb::UasCoordinate();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::uuaspb::UasCoordinate::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_UasCoordinate_uuaspb_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_UasCoordinate_uuaspb_2eproto}, {}};
 
 static void InitDefaultsscc_info_UnGeoTagRequest_uuaspb_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -109,8 +213,23 @@ static void InitDefaultsscc_info_UnGeoTagResponse_uuaspb_2eproto() {
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_UnGeoTagResponse_uuaspb_2eproto}, {
       &scc_info_Telemetry_uuaspb_2eproto.base,}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_uuaspb_2eproto[5];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_uuaspb_2eproto[1];
+static void InitDefaultsscc_info_Waypoint_uuaspb_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::uuaspb::_Waypoint_default_instance_;
+    new (ptr) ::uuaspb::Waypoint();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::uuaspb::Waypoint::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Waypoint_uuaspb_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_Waypoint_uuaspb_2eproto}, {
+      &scc_info_UasCoordinate_uuaspb_2eproto.base,}};
+
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_uuaspb_2eproto[11];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_uuaspb_2eproto[2];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_uuaspb_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_uuaspb_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -161,6 +280,52 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_uuaspb_2eproto::offsets[] PROT
   PROTOBUF_FIELD_OFFSET(::uuaspb::Telemetry, yawspeed_rad_s_),
   PROTOBUF_FIELD_OFFSET(::uuaspb::Telemetry, timestamp_pixhawk_ms_),
   PROTOBUF_FIELD_OFFSET(::uuaspb::Telemetry, timestamp_msg_ms_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::uuaspb::OrderedRouteRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::uuaspb::OrderedRouteRequest, waypoints_),
+  PROTOBUF_FIELD_OFFSET(::uuaspb::OrderedRouteRequest, obstacles_),
+  PROTOBUF_FIELD_OFFSET(::uuaspb::OrderedRouteRequest, flyzone_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::uuaspb::OrderedRouteResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::uuaspb::OrderedRouteResponse, result_),
+  PROTOBUF_FIELD_OFFSET(::uuaspb::OrderedRouteResponse, waypoints_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::uuaspb::Flyzone, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::uuaspb::Flyzone, max_altitude_msl_m_),
+  PROTOBUF_FIELD_OFFSET(::uuaspb::Flyzone, min_altitude_msl_m_),
+  PROTOBUF_FIELD_OFFSET(::uuaspb::Flyzone, bounds_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::uuaspb::UasCoordinate, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::uuaspb::UasCoordinate, latitude_),
+  PROTOBUF_FIELD_OFFSET(::uuaspb::UasCoordinate, longitude_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::uuaspb::Waypoint, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::uuaspb::Waypoint, coordinate_),
+  PROTOBUF_FIELD_OFFSET(::uuaspb::Waypoint, altitude_msl_m_),
+  PROTOBUF_FIELD_OFFSET(::uuaspb::Waypoint, waypoint_type_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::uuaspb::CylinderObstacle, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::uuaspb::CylinderObstacle, coordinate_),
+  PROTOBUF_FIELD_OFFSET(::uuaspb::CylinderObstacle, radius_m_),
+  PROTOBUF_FIELD_OFFSET(::uuaspb::CylinderObstacle, height_m_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::uuaspb::GeoTagRequest)},
@@ -168,6 +333,12 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 13, -1, sizeof(::uuaspb::UnGeoTagRequest)},
   { 19, -1, sizeof(::uuaspb::UnGeoTagResponse)},
   { 26, -1, sizeof(::uuaspb::Telemetry)},
+  { 47, -1, sizeof(::uuaspb::OrderedRouteRequest)},
+  { 55, -1, sizeof(::uuaspb::OrderedRouteResponse)},
+  { 62, -1, sizeof(::uuaspb::Flyzone)},
+  { 70, -1, sizeof(::uuaspb::UasCoordinate)},
+  { 77, -1, sizeof(::uuaspb::Waypoint)},
+  { 85, -1, sizeof(::uuaspb::CylinderObstacle)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -176,6 +347,12 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::uuaspb::_UnGeoTagRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::uuaspb::_UnGeoTagResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::uuaspb::_Telemetry_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::uuaspb::_OrderedRouteRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::uuaspb::_OrderedRouteResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::uuaspb::_Flyzone_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::uuaspb::_UasCoordinate_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::uuaspb::_Waypoint_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::uuaspb::_CylinderObstacle_default_instance_),
 };
 
 const char descriptor_table_protodef_uuaspb_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -195,24 +372,48 @@ const char descriptor_table_protodef_uuaspb_2eproto[] PROTOBUF_SECTION_VARIABLE(
   "d\030\013 \001(\001\022\027\n\017rollspeed_rad_s\030\014 \001(\001\022\030\n\020pitc"
   "hspeed_rad_s\030\r \001(\001\022\026\n\016yawspeed_rad_s\030\016 \001"
   "(\001\022\034\n\024timestamp_pixhawk_ms\030\017 \001(\004\022\030\n\020time"
-  "stamp_msg_ms\030\020 \001(\004*\037\n\014ResultStatus\022\006\n\002OK"
-  "\020\000\022\007\n\003ERR\020\001b\006proto3"
+  "stamp_msg_ms\030\020 \001(\004\"\211\001\n\023OrderedRouteReque"
+  "st\022#\n\twaypoints\030\001 \003(\0132\020.uuaspb.Waypoint\022"
+  "+\n\tobstacles\030\002 \003(\0132\030.uuaspb.CylinderObst"
+  "acle\022 \n\007flyzone\030\003 \001(\0132\017.uuaspb.Flyzone\"a"
+  "\n\024OrderedRouteResponse\022$\n\006result\030\001 \001(\0162\024"
+  ".uuaspb.ResultStatus\022#\n\twaypoints\030\002 \003(\0132"
+  "\020.uuaspb.Waypoint\"h\n\007Flyzone\022\032\n\022max_alti"
+  "tude_msl_m\030\001 \001(\001\022\032\n\022min_altitude_msl_m\030\002"
+  " \001(\001\022%\n\006bounds\030\003 \003(\0132\025.uuaspb.UasCoordin"
+  "ate\"4\n\rUasCoordinate\022\020\n\010latitude\030\001 \001(\001\022\021"
+  "\n\tlongitude\030\002 \001(\001\"z\n\010Waypoint\022)\n\ncoordin"
+  "ate\030\001 \001(\0132\025.uuaspb.UasCoordinate\022\026\n\016alti"
+  "tude_msl_m\030\002 \001(\001\022+\n\rwaypoint_type\030\003 \001(\0162"
+  "\024.uuaspb.WaypointType\"a\n\020CylinderObstacl"
+  "e\022)\n\ncoordinate\030\001 \001(\0132\025.uuaspb.UasCoordi"
+  "nate\022\020\n\010radius_m\030\002 \001(\001\022\020\n\010height_m\030\003 \001(\001"
+  "*\037\n\014ResultStatus\022\006\n\002OK\020\000\022\007\n\003ERR\020\001*t\n\014Way"
+  "pointType\022\010\n\004NONE\020\000\022\016\n\nCOORDINATE\020\001\022\r\n\tG"
+  "ENERATED\020\002\022\017\n\013AUTO_FLIGHT\020\003\022\013\n\007AIRDROP\020\004"
+  "\022\014\n\010OFF_AXIS\020\005\022\017\n\013SEARCH_GRID\020\006b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_uuaspb_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_uuaspb_2eproto_sccs[5] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_uuaspb_2eproto_sccs[11] = {
+  &scc_info_CylinderObstacle_uuaspb_2eproto.base,
+  &scc_info_Flyzone_uuaspb_2eproto.base,
   &scc_info_GeoTagRequest_uuaspb_2eproto.base,
   &scc_info_GeoTagResponse_uuaspb_2eproto.base,
+  &scc_info_OrderedRouteRequest_uuaspb_2eproto.base,
+  &scc_info_OrderedRouteResponse_uuaspb_2eproto.base,
   &scc_info_Telemetry_uuaspb_2eproto.base,
+  &scc_info_UasCoordinate_uuaspb_2eproto.base,
   &scc_info_UnGeoTagRequest_uuaspb_2eproto.base,
   &scc_info_UnGeoTagResponse_uuaspb_2eproto.base,
+  &scc_info_Waypoint_uuaspb_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_uuaspb_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_uuaspb_2eproto = {
-  false, false, descriptor_table_protodef_uuaspb_2eproto, "uuaspb.proto", 699,
-  &descriptor_table_uuaspb_2eproto_once, descriptor_table_uuaspb_2eproto_sccs, descriptor_table_uuaspb_2eproto_deps, 5, 0,
+  false, false, descriptor_table_protodef_uuaspb_2eproto, "uuaspb.proto", 1439,
+  &descriptor_table_uuaspb_2eproto_once, descriptor_table_uuaspb_2eproto_sccs, descriptor_table_uuaspb_2eproto_deps, 11, 0,
   schemas, file_default_instances, TableStruct_uuaspb_2eproto::offsets,
-  file_level_metadata_uuaspb_2eproto, 5, file_level_enum_descriptors_uuaspb_2eproto, file_level_service_descriptors_uuaspb_2eproto,
+  file_level_metadata_uuaspb_2eproto, 11, file_level_enum_descriptors_uuaspb_2eproto, file_level_service_descriptors_uuaspb_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -226,6 +427,25 @@ bool ResultStatus_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* WaypointType_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_uuaspb_2eproto);
+  return file_level_enum_descriptors_uuaspb_2eproto[1];
+}
+bool WaypointType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
       return true;
     default:
       return false;
@@ -1666,6 +1886,1546 @@ void Telemetry::InternalSwap(Telemetry* other) {
 }
 
 
+// ===================================================================
+
+void OrderedRouteRequest::InitAsDefaultInstance() {
+  ::uuaspb::_OrderedRouteRequest_default_instance_._instance.get_mutable()->flyzone_ = const_cast< ::uuaspb::Flyzone*>(
+      ::uuaspb::Flyzone::internal_default_instance());
+}
+class OrderedRouteRequest::_Internal {
+ public:
+  static const ::uuaspb::Flyzone& flyzone(const OrderedRouteRequest* msg);
+};
+
+const ::uuaspb::Flyzone&
+OrderedRouteRequest::_Internal::flyzone(const OrderedRouteRequest* msg) {
+  return *msg->flyzone_;
+}
+OrderedRouteRequest::OrderedRouteRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  waypoints_(arena),
+  obstacles_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:uuaspb.OrderedRouteRequest)
+}
+OrderedRouteRequest::OrderedRouteRequest(const OrderedRouteRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      waypoints_(from.waypoints_),
+      obstacles_(from.obstacles_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_flyzone()) {
+    flyzone_ = new ::uuaspb::Flyzone(*from.flyzone_);
+  } else {
+    flyzone_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:uuaspb.OrderedRouteRequest)
+}
+
+void OrderedRouteRequest::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_OrderedRouteRequest_uuaspb_2eproto.base);
+  flyzone_ = nullptr;
+}
+
+OrderedRouteRequest::~OrderedRouteRequest() {
+  // @@protoc_insertion_point(destructor:uuaspb.OrderedRouteRequest)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void OrderedRouteRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete flyzone_;
+}
+
+void OrderedRouteRequest::ArenaDtor(void* object) {
+  OrderedRouteRequest* _this = reinterpret_cast< OrderedRouteRequest* >(object);
+  (void)_this;
+}
+void OrderedRouteRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void OrderedRouteRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const OrderedRouteRequest& OrderedRouteRequest::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_OrderedRouteRequest_uuaspb_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void OrderedRouteRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:uuaspb.OrderedRouteRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  waypoints_.Clear();
+  obstacles_.Clear();
+  if (GetArena() == nullptr && flyzone_ != nullptr) {
+    delete flyzone_;
+  }
+  flyzone_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* OrderedRouteRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // repeated .uuaspb.Waypoint waypoints = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_waypoints(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else goto handle_unusual;
+        continue;
+      // repeated .uuaspb.CylinderObstacle obstacles = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_obstacles(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else goto handle_unusual;
+        continue;
+      // .uuaspb.Flyzone flyzone = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_flyzone(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* OrderedRouteRequest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:uuaspb.OrderedRouteRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .uuaspb.Waypoint waypoints = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_waypoints_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, this->_internal_waypoints(i), target, stream);
+  }
+
+  // repeated .uuaspb.CylinderObstacle obstacles = 2;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_obstacles_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, this->_internal_obstacles(i), target, stream);
+  }
+
+  // .uuaspb.Flyzone flyzone = 3;
+  if (this->has_flyzone()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        3, _Internal::flyzone(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:uuaspb.OrderedRouteRequest)
+  return target;
+}
+
+size_t OrderedRouteRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:uuaspb.OrderedRouteRequest)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .uuaspb.Waypoint waypoints = 1;
+  total_size += 1UL * this->_internal_waypoints_size();
+  for (const auto& msg : this->waypoints_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .uuaspb.CylinderObstacle obstacles = 2;
+  total_size += 1UL * this->_internal_obstacles_size();
+  for (const auto& msg : this->obstacles_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // .uuaspb.Flyzone flyzone = 3;
+  if (this->has_flyzone()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *flyzone_);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void OrderedRouteRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:uuaspb.OrderedRouteRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const OrderedRouteRequest* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<OrderedRouteRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:uuaspb.OrderedRouteRequest)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:uuaspb.OrderedRouteRequest)
+    MergeFrom(*source);
+  }
+}
+
+void OrderedRouteRequest::MergeFrom(const OrderedRouteRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:uuaspb.OrderedRouteRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  waypoints_.MergeFrom(from.waypoints_);
+  obstacles_.MergeFrom(from.obstacles_);
+  if (from.has_flyzone()) {
+    _internal_mutable_flyzone()->::uuaspb::Flyzone::MergeFrom(from._internal_flyzone());
+  }
+}
+
+void OrderedRouteRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:uuaspb.OrderedRouteRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void OrderedRouteRequest::CopyFrom(const OrderedRouteRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:uuaspb.OrderedRouteRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool OrderedRouteRequest::IsInitialized() const {
+  return true;
+}
+
+void OrderedRouteRequest::InternalSwap(OrderedRouteRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  waypoints_.InternalSwap(&other->waypoints_);
+  obstacles_.InternalSwap(&other->obstacles_);
+  swap(flyzone_, other->flyzone_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata OrderedRouteRequest::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void OrderedRouteResponse::InitAsDefaultInstance() {
+}
+class OrderedRouteResponse::_Internal {
+ public:
+};
+
+OrderedRouteResponse::OrderedRouteResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  waypoints_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:uuaspb.OrderedRouteResponse)
+}
+OrderedRouteResponse::OrderedRouteResponse(const OrderedRouteResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      waypoints_(from.waypoints_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  result_ = from.result_;
+  // @@protoc_insertion_point(copy_constructor:uuaspb.OrderedRouteResponse)
+}
+
+void OrderedRouteResponse::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_OrderedRouteResponse_uuaspb_2eproto.base);
+  result_ = 0;
+}
+
+OrderedRouteResponse::~OrderedRouteResponse() {
+  // @@protoc_insertion_point(destructor:uuaspb.OrderedRouteResponse)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void OrderedRouteResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void OrderedRouteResponse::ArenaDtor(void* object) {
+  OrderedRouteResponse* _this = reinterpret_cast< OrderedRouteResponse* >(object);
+  (void)_this;
+}
+void OrderedRouteResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void OrderedRouteResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const OrderedRouteResponse& OrderedRouteResponse::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_OrderedRouteResponse_uuaspb_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void OrderedRouteResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:uuaspb.OrderedRouteResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  waypoints_.Clear();
+  result_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* OrderedRouteResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .uuaspb.ResultStatus result = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_result(static_cast<::uuaspb::ResultStatus>(val));
+        } else goto handle_unusual;
+        continue;
+      // repeated .uuaspb.Waypoint waypoints = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_waypoints(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* OrderedRouteResponse::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:uuaspb.OrderedRouteResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .uuaspb.ResultStatus result = 1;
+  if (this->result() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      1, this->_internal_result(), target);
+  }
+
+  // repeated .uuaspb.Waypoint waypoints = 2;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_waypoints_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, this->_internal_waypoints(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:uuaspb.OrderedRouteResponse)
+  return target;
+}
+
+size_t OrderedRouteResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:uuaspb.OrderedRouteResponse)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .uuaspb.Waypoint waypoints = 2;
+  total_size += 1UL * this->_internal_waypoints_size();
+  for (const auto& msg : this->waypoints_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // .uuaspb.ResultStatus result = 1;
+  if (this->result() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_result());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void OrderedRouteResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:uuaspb.OrderedRouteResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const OrderedRouteResponse* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<OrderedRouteResponse>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:uuaspb.OrderedRouteResponse)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:uuaspb.OrderedRouteResponse)
+    MergeFrom(*source);
+  }
+}
+
+void OrderedRouteResponse::MergeFrom(const OrderedRouteResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:uuaspb.OrderedRouteResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  waypoints_.MergeFrom(from.waypoints_);
+  if (from.result() != 0) {
+    _internal_set_result(from._internal_result());
+  }
+}
+
+void OrderedRouteResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:uuaspb.OrderedRouteResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void OrderedRouteResponse::CopyFrom(const OrderedRouteResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:uuaspb.OrderedRouteResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool OrderedRouteResponse::IsInitialized() const {
+  return true;
+}
+
+void OrderedRouteResponse::InternalSwap(OrderedRouteResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  waypoints_.InternalSwap(&other->waypoints_);
+  swap(result_, other->result_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata OrderedRouteResponse::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void Flyzone::InitAsDefaultInstance() {
+}
+class Flyzone::_Internal {
+ public:
+};
+
+Flyzone::Flyzone(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  bounds_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:uuaspb.Flyzone)
+}
+Flyzone::Flyzone(const Flyzone& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      bounds_(from.bounds_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&max_altitude_msl_m_, &from.max_altitude_msl_m_,
+    static_cast<size_t>(reinterpret_cast<char*>(&min_altitude_msl_m_) -
+    reinterpret_cast<char*>(&max_altitude_msl_m_)) + sizeof(min_altitude_msl_m_));
+  // @@protoc_insertion_point(copy_constructor:uuaspb.Flyzone)
+}
+
+void Flyzone::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Flyzone_uuaspb_2eproto.base);
+  ::memset(&max_altitude_msl_m_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&min_altitude_msl_m_) -
+      reinterpret_cast<char*>(&max_altitude_msl_m_)) + sizeof(min_altitude_msl_m_));
+}
+
+Flyzone::~Flyzone() {
+  // @@protoc_insertion_point(destructor:uuaspb.Flyzone)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void Flyzone::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void Flyzone::ArenaDtor(void* object) {
+  Flyzone* _this = reinterpret_cast< Flyzone* >(object);
+  (void)_this;
+}
+void Flyzone::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void Flyzone::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const Flyzone& Flyzone::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Flyzone_uuaspb_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void Flyzone::Clear() {
+// @@protoc_insertion_point(message_clear_start:uuaspb.Flyzone)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  bounds_.Clear();
+  ::memset(&max_altitude_msl_m_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&min_altitude_msl_m_) -
+      reinterpret_cast<char*>(&max_altitude_msl_m_)) + sizeof(min_altitude_msl_m_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Flyzone::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // double max_altitude_msl_m = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
+          max_altitude_msl_m_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double min_altitude_msl_m = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
+          min_altitude_msl_m_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // repeated .uuaspb.UasCoordinate bounds = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_bounds(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* Flyzone::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:uuaspb.Flyzone)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // double max_altitude_msl_m = 1;
+  if (!(this->max_altitude_msl_m() <= 0 && this->max_altitude_msl_m() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(1, this->_internal_max_altitude_msl_m(), target);
+  }
+
+  // double min_altitude_msl_m = 2;
+  if (!(this->min_altitude_msl_m() <= 0 && this->min_altitude_msl_m() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(2, this->_internal_min_altitude_msl_m(), target);
+  }
+
+  // repeated .uuaspb.UasCoordinate bounds = 3;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_bounds_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(3, this->_internal_bounds(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:uuaspb.Flyzone)
+  return target;
+}
+
+size_t Flyzone::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:uuaspb.Flyzone)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .uuaspb.UasCoordinate bounds = 3;
+  total_size += 1UL * this->_internal_bounds_size();
+  for (const auto& msg : this->bounds_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // double max_altitude_msl_m = 1;
+  if (!(this->max_altitude_msl_m() <= 0 && this->max_altitude_msl_m() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double min_altitude_msl_m = 2;
+  if (!(this->min_altitude_msl_m() <= 0 && this->min_altitude_msl_m() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void Flyzone::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:uuaspb.Flyzone)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Flyzone* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Flyzone>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:uuaspb.Flyzone)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:uuaspb.Flyzone)
+    MergeFrom(*source);
+  }
+}
+
+void Flyzone::MergeFrom(const Flyzone& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:uuaspb.Flyzone)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  bounds_.MergeFrom(from.bounds_);
+  if (!(from.max_altitude_msl_m() <= 0 && from.max_altitude_msl_m() >= 0)) {
+    _internal_set_max_altitude_msl_m(from._internal_max_altitude_msl_m());
+  }
+  if (!(from.min_altitude_msl_m() <= 0 && from.min_altitude_msl_m() >= 0)) {
+    _internal_set_min_altitude_msl_m(from._internal_min_altitude_msl_m());
+  }
+}
+
+void Flyzone::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:uuaspb.Flyzone)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Flyzone::CopyFrom(const Flyzone& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:uuaspb.Flyzone)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Flyzone::IsInitialized() const {
+  return true;
+}
+
+void Flyzone::InternalSwap(Flyzone* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  bounds_.InternalSwap(&other->bounds_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Flyzone, min_altitude_msl_m_)
+      + sizeof(Flyzone::min_altitude_msl_m_)
+      - PROTOBUF_FIELD_OFFSET(Flyzone, max_altitude_msl_m_)>(
+          reinterpret_cast<char*>(&max_altitude_msl_m_),
+          reinterpret_cast<char*>(&other->max_altitude_msl_m_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Flyzone::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void UasCoordinate::InitAsDefaultInstance() {
+}
+class UasCoordinate::_Internal {
+ public:
+};
+
+UasCoordinate::UasCoordinate(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:uuaspb.UasCoordinate)
+}
+UasCoordinate::UasCoordinate(const UasCoordinate& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&latitude_, &from.latitude_,
+    static_cast<size_t>(reinterpret_cast<char*>(&longitude_) -
+    reinterpret_cast<char*>(&latitude_)) + sizeof(longitude_));
+  // @@protoc_insertion_point(copy_constructor:uuaspb.UasCoordinate)
+}
+
+void UasCoordinate::SharedCtor() {
+  ::memset(&latitude_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&longitude_) -
+      reinterpret_cast<char*>(&latitude_)) + sizeof(longitude_));
+}
+
+UasCoordinate::~UasCoordinate() {
+  // @@protoc_insertion_point(destructor:uuaspb.UasCoordinate)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void UasCoordinate::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void UasCoordinate::ArenaDtor(void* object) {
+  UasCoordinate* _this = reinterpret_cast< UasCoordinate* >(object);
+  (void)_this;
+}
+void UasCoordinate::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void UasCoordinate::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const UasCoordinate& UasCoordinate::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_UasCoordinate_uuaspb_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void UasCoordinate::Clear() {
+// @@protoc_insertion_point(message_clear_start:uuaspb.UasCoordinate)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&latitude_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&longitude_) -
+      reinterpret_cast<char*>(&latitude_)) + sizeof(longitude_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* UasCoordinate::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // double latitude = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
+          latitude_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double longitude = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
+          longitude_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* UasCoordinate::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:uuaspb.UasCoordinate)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // double latitude = 1;
+  if (!(this->latitude() <= 0 && this->latitude() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(1, this->_internal_latitude(), target);
+  }
+
+  // double longitude = 2;
+  if (!(this->longitude() <= 0 && this->longitude() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(2, this->_internal_longitude(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:uuaspb.UasCoordinate)
+  return target;
+}
+
+size_t UasCoordinate::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:uuaspb.UasCoordinate)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // double latitude = 1;
+  if (!(this->latitude() <= 0 && this->latitude() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double longitude = 2;
+  if (!(this->longitude() <= 0 && this->longitude() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void UasCoordinate::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:uuaspb.UasCoordinate)
+  GOOGLE_DCHECK_NE(&from, this);
+  const UasCoordinate* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<UasCoordinate>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:uuaspb.UasCoordinate)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:uuaspb.UasCoordinate)
+    MergeFrom(*source);
+  }
+}
+
+void UasCoordinate::MergeFrom(const UasCoordinate& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:uuaspb.UasCoordinate)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!(from.latitude() <= 0 && from.latitude() >= 0)) {
+    _internal_set_latitude(from._internal_latitude());
+  }
+  if (!(from.longitude() <= 0 && from.longitude() >= 0)) {
+    _internal_set_longitude(from._internal_longitude());
+  }
+}
+
+void UasCoordinate::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:uuaspb.UasCoordinate)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void UasCoordinate::CopyFrom(const UasCoordinate& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:uuaspb.UasCoordinate)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool UasCoordinate::IsInitialized() const {
+  return true;
+}
+
+void UasCoordinate::InternalSwap(UasCoordinate* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(UasCoordinate, longitude_)
+      + sizeof(UasCoordinate::longitude_)
+      - PROTOBUF_FIELD_OFFSET(UasCoordinate, latitude_)>(
+          reinterpret_cast<char*>(&latitude_),
+          reinterpret_cast<char*>(&other->latitude_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata UasCoordinate::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void Waypoint::InitAsDefaultInstance() {
+  ::uuaspb::_Waypoint_default_instance_._instance.get_mutable()->coordinate_ = const_cast< ::uuaspb::UasCoordinate*>(
+      ::uuaspb::UasCoordinate::internal_default_instance());
+}
+class Waypoint::_Internal {
+ public:
+  static const ::uuaspb::UasCoordinate& coordinate(const Waypoint* msg);
+};
+
+const ::uuaspb::UasCoordinate&
+Waypoint::_Internal::coordinate(const Waypoint* msg) {
+  return *msg->coordinate_;
+}
+Waypoint::Waypoint(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:uuaspb.Waypoint)
+}
+Waypoint::Waypoint(const Waypoint& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_coordinate()) {
+    coordinate_ = new ::uuaspb::UasCoordinate(*from.coordinate_);
+  } else {
+    coordinate_ = nullptr;
+  }
+  ::memcpy(&altitude_msl_m_, &from.altitude_msl_m_,
+    static_cast<size_t>(reinterpret_cast<char*>(&waypoint_type_) -
+    reinterpret_cast<char*>(&altitude_msl_m_)) + sizeof(waypoint_type_));
+  // @@protoc_insertion_point(copy_constructor:uuaspb.Waypoint)
+}
+
+void Waypoint::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Waypoint_uuaspb_2eproto.base);
+  ::memset(&coordinate_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&waypoint_type_) -
+      reinterpret_cast<char*>(&coordinate_)) + sizeof(waypoint_type_));
+}
+
+Waypoint::~Waypoint() {
+  // @@protoc_insertion_point(destructor:uuaspb.Waypoint)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void Waypoint::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete coordinate_;
+}
+
+void Waypoint::ArenaDtor(void* object) {
+  Waypoint* _this = reinterpret_cast< Waypoint* >(object);
+  (void)_this;
+}
+void Waypoint::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void Waypoint::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const Waypoint& Waypoint::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Waypoint_uuaspb_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void Waypoint::Clear() {
+// @@protoc_insertion_point(message_clear_start:uuaspb.Waypoint)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArena() == nullptr && coordinate_ != nullptr) {
+    delete coordinate_;
+  }
+  coordinate_ = nullptr;
+  ::memset(&altitude_msl_m_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&waypoint_type_) -
+      reinterpret_cast<char*>(&altitude_msl_m_)) + sizeof(waypoint_type_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Waypoint::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .uuaspb.UasCoordinate coordinate = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_coordinate(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // double altitude_msl_m = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
+          altitude_msl_m_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // .uuaspb.WaypointType waypoint_type = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_waypoint_type(static_cast<::uuaspb::WaypointType>(val));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* Waypoint::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:uuaspb.Waypoint)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .uuaspb.UasCoordinate coordinate = 1;
+  if (this->has_coordinate()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::coordinate(this), target, stream);
+  }
+
+  // double altitude_msl_m = 2;
+  if (!(this->altitude_msl_m() <= 0 && this->altitude_msl_m() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(2, this->_internal_altitude_msl_m(), target);
+  }
+
+  // .uuaspb.WaypointType waypoint_type = 3;
+  if (this->waypoint_type() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      3, this->_internal_waypoint_type(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:uuaspb.Waypoint)
+  return target;
+}
+
+size_t Waypoint::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:uuaspb.Waypoint)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .uuaspb.UasCoordinate coordinate = 1;
+  if (this->has_coordinate()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *coordinate_);
+  }
+
+  // double altitude_msl_m = 2;
+  if (!(this->altitude_msl_m() <= 0 && this->altitude_msl_m() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // .uuaspb.WaypointType waypoint_type = 3;
+  if (this->waypoint_type() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_waypoint_type());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void Waypoint::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:uuaspb.Waypoint)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Waypoint* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Waypoint>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:uuaspb.Waypoint)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:uuaspb.Waypoint)
+    MergeFrom(*source);
+  }
+}
+
+void Waypoint::MergeFrom(const Waypoint& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:uuaspb.Waypoint)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_coordinate()) {
+    _internal_mutable_coordinate()->::uuaspb::UasCoordinate::MergeFrom(from._internal_coordinate());
+  }
+  if (!(from.altitude_msl_m() <= 0 && from.altitude_msl_m() >= 0)) {
+    _internal_set_altitude_msl_m(from._internal_altitude_msl_m());
+  }
+  if (from.waypoint_type() != 0) {
+    _internal_set_waypoint_type(from._internal_waypoint_type());
+  }
+}
+
+void Waypoint::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:uuaspb.Waypoint)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Waypoint::CopyFrom(const Waypoint& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:uuaspb.Waypoint)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Waypoint::IsInitialized() const {
+  return true;
+}
+
+void Waypoint::InternalSwap(Waypoint* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Waypoint, waypoint_type_)
+      + sizeof(Waypoint::waypoint_type_)
+      - PROTOBUF_FIELD_OFFSET(Waypoint, coordinate_)>(
+          reinterpret_cast<char*>(&coordinate_),
+          reinterpret_cast<char*>(&other->coordinate_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Waypoint::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void CylinderObstacle::InitAsDefaultInstance() {
+  ::uuaspb::_CylinderObstacle_default_instance_._instance.get_mutable()->coordinate_ = const_cast< ::uuaspb::UasCoordinate*>(
+      ::uuaspb::UasCoordinate::internal_default_instance());
+}
+class CylinderObstacle::_Internal {
+ public:
+  static const ::uuaspb::UasCoordinate& coordinate(const CylinderObstacle* msg);
+};
+
+const ::uuaspb::UasCoordinate&
+CylinderObstacle::_Internal::coordinate(const CylinderObstacle* msg) {
+  return *msg->coordinate_;
+}
+CylinderObstacle::CylinderObstacle(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:uuaspb.CylinderObstacle)
+}
+CylinderObstacle::CylinderObstacle(const CylinderObstacle& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_coordinate()) {
+    coordinate_ = new ::uuaspb::UasCoordinate(*from.coordinate_);
+  } else {
+    coordinate_ = nullptr;
+  }
+  ::memcpy(&radius_m_, &from.radius_m_,
+    static_cast<size_t>(reinterpret_cast<char*>(&height_m_) -
+    reinterpret_cast<char*>(&radius_m_)) + sizeof(height_m_));
+  // @@protoc_insertion_point(copy_constructor:uuaspb.CylinderObstacle)
+}
+
+void CylinderObstacle::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_CylinderObstacle_uuaspb_2eproto.base);
+  ::memset(&coordinate_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&height_m_) -
+      reinterpret_cast<char*>(&coordinate_)) + sizeof(height_m_));
+}
+
+CylinderObstacle::~CylinderObstacle() {
+  // @@protoc_insertion_point(destructor:uuaspb.CylinderObstacle)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CylinderObstacle::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete coordinate_;
+}
+
+void CylinderObstacle::ArenaDtor(void* object) {
+  CylinderObstacle* _this = reinterpret_cast< CylinderObstacle* >(object);
+  (void)_this;
+}
+void CylinderObstacle::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CylinderObstacle::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const CylinderObstacle& CylinderObstacle::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_CylinderObstacle_uuaspb_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void CylinderObstacle::Clear() {
+// @@protoc_insertion_point(message_clear_start:uuaspb.CylinderObstacle)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArena() == nullptr && coordinate_ != nullptr) {
+    delete coordinate_;
+  }
+  coordinate_ = nullptr;
+  ::memset(&radius_m_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&height_m_) -
+      reinterpret_cast<char*>(&radius_m_)) + sizeof(height_m_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CylinderObstacle::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .uuaspb.UasCoordinate coordinate = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_coordinate(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // double radius_m = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
+          radius_m_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double height_m = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 25)) {
+          height_m_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CylinderObstacle::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:uuaspb.CylinderObstacle)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .uuaspb.UasCoordinate coordinate = 1;
+  if (this->has_coordinate()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::coordinate(this), target, stream);
+  }
+
+  // double radius_m = 2;
+  if (!(this->radius_m() <= 0 && this->radius_m() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(2, this->_internal_radius_m(), target);
+  }
+
+  // double height_m = 3;
+  if (!(this->height_m() <= 0 && this->height_m() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(3, this->_internal_height_m(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:uuaspb.CylinderObstacle)
+  return target;
+}
+
+size_t CylinderObstacle::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:uuaspb.CylinderObstacle)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .uuaspb.UasCoordinate coordinate = 1;
+  if (this->has_coordinate()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *coordinate_);
+  }
+
+  // double radius_m = 2;
+  if (!(this->radius_m() <= 0 && this->radius_m() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double height_m = 3;
+  if (!(this->height_m() <= 0 && this->height_m() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CylinderObstacle::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:uuaspb.CylinderObstacle)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CylinderObstacle* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CylinderObstacle>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:uuaspb.CylinderObstacle)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:uuaspb.CylinderObstacle)
+    MergeFrom(*source);
+  }
+}
+
+void CylinderObstacle::MergeFrom(const CylinderObstacle& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:uuaspb.CylinderObstacle)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_coordinate()) {
+    _internal_mutable_coordinate()->::uuaspb::UasCoordinate::MergeFrom(from._internal_coordinate());
+  }
+  if (!(from.radius_m() <= 0 && from.radius_m() >= 0)) {
+    _internal_set_radius_m(from._internal_radius_m());
+  }
+  if (!(from.height_m() <= 0 && from.height_m() >= 0)) {
+    _internal_set_height_m(from._internal_height_m());
+  }
+}
+
+void CylinderObstacle::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:uuaspb.CylinderObstacle)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CylinderObstacle::CopyFrom(const CylinderObstacle& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:uuaspb.CylinderObstacle)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CylinderObstacle::IsInitialized() const {
+  return true;
+}
+
+void CylinderObstacle::InternalSwap(CylinderObstacle* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CylinderObstacle, height_m_)
+      + sizeof(CylinderObstacle::height_m_)
+      - PROTOBUF_FIELD_OFFSET(CylinderObstacle, coordinate_)>(
+          reinterpret_cast<char*>(&coordinate_),
+          reinterpret_cast<char*>(&other->coordinate_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CylinderObstacle::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace uuaspb
 PROTOBUF_NAMESPACE_OPEN
@@ -1683,6 +3443,24 @@ template<> PROTOBUF_NOINLINE ::uuaspb::UnGeoTagResponse* Arena::CreateMaybeMessa
 }
 template<> PROTOBUF_NOINLINE ::uuaspb::Telemetry* Arena::CreateMaybeMessage< ::uuaspb::Telemetry >(Arena* arena) {
   return Arena::CreateMessageInternal< ::uuaspb::Telemetry >(arena);
+}
+template<> PROTOBUF_NOINLINE ::uuaspb::OrderedRouteRequest* Arena::CreateMaybeMessage< ::uuaspb::OrderedRouteRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::uuaspb::OrderedRouteRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::uuaspb::OrderedRouteResponse* Arena::CreateMaybeMessage< ::uuaspb::OrderedRouteResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::uuaspb::OrderedRouteResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::uuaspb::Flyzone* Arena::CreateMaybeMessage< ::uuaspb::Flyzone >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::uuaspb::Flyzone >(arena);
+}
+template<> PROTOBUF_NOINLINE ::uuaspb::UasCoordinate* Arena::CreateMaybeMessage< ::uuaspb::UasCoordinate >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::uuaspb::UasCoordinate >(arena);
+}
+template<> PROTOBUF_NOINLINE ::uuaspb::Waypoint* Arena::CreateMaybeMessage< ::uuaspb::Waypoint >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::uuaspb::Waypoint >(arena);
+}
+template<> PROTOBUF_NOINLINE ::uuaspb::CylinderObstacle* Arena::CreateMaybeMessage< ::uuaspb::CylinderObstacle >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::uuaspb::CylinderObstacle >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

@@ -38,3 +38,20 @@ def geotagImageRequest(request: pylibuuaspb.GeoTagRequest) -> pylibuuaspb.GeoTag
     response = pylibuuaspb.GeoTagResponse()
     response.ParseFromString(resppbbufferStr)
     return response
+
+
+def orderedRouteRequest(request: pylibuuaspb.OrderedRouteRequest) -> pylibuuaspb.OrderedRouteResponse:
+    pbbufferStr = request.SerializeToString()
+    pbbuffer = array('B', [b for b in pbbufferStr])
+    length = len(pbbuffer)
+
+    resppbbuffer = array('B', [0 for _ in range(2048)])
+    resplength = len(resppbbuffer)
+
+    respBytes = cppyy.gbl.orderedRouteRequest(
+        pbbuffer, length, resppbbuffer, resplength)
+
+    resppbbufferStr = resppbbuffer.tobytes()[:respBytes]
+    response = pylibuuaspb.OrderedRouteResponse()
+    response.ParseFromString(resppbbufferStr)
+    return response

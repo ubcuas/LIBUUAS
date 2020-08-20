@@ -1428,6 +1428,1382 @@ impl ::protobuf::reflect::ProtobufValue for Telemetry {
     }
 }
 
+#[derive(PartialEq,Clone,Default)]
+pub struct OrderedRouteRequest {
+    // message fields
+    pub waypoints: ::protobuf::RepeatedField<Waypoint>,
+    pub obstacles: ::protobuf::RepeatedField<CylinderObstacle>,
+    pub flyzone: ::protobuf::SingularPtrField<Flyzone>,
+    // special fields
+    pub unknown_fields: ::protobuf::UnknownFields,
+    pub cached_size: ::protobuf::CachedSize,
+}
+
+impl<'a> ::std::default::Default for &'a OrderedRouteRequest {
+    fn default() -> &'a OrderedRouteRequest {
+        <OrderedRouteRequest as ::protobuf::Message>::default_instance()
+    }
+}
+
+impl OrderedRouteRequest {
+    pub fn new() -> OrderedRouteRequest {
+        ::std::default::Default::default()
+    }
+
+    // repeated .uuaspb.Waypoint waypoints = 1;
+
+
+    pub fn get_waypoints(&self) -> &[Waypoint] {
+        &self.waypoints
+    }
+    pub fn clear_waypoints(&mut self) {
+        self.waypoints.clear();
+    }
+
+    // Param is passed by value, moved
+    pub fn set_waypoints(&mut self, v: ::protobuf::RepeatedField<Waypoint>) {
+        self.waypoints = v;
+    }
+
+    // Mutable pointer to the field.
+    pub fn mut_waypoints(&mut self) -> &mut ::protobuf::RepeatedField<Waypoint> {
+        &mut self.waypoints
+    }
+
+    // Take field
+    pub fn take_waypoints(&mut self) -> ::protobuf::RepeatedField<Waypoint> {
+        ::std::mem::replace(&mut self.waypoints, ::protobuf::RepeatedField::new())
+    }
+
+    // repeated .uuaspb.CylinderObstacle obstacles = 2;
+
+
+    pub fn get_obstacles(&self) -> &[CylinderObstacle] {
+        &self.obstacles
+    }
+    pub fn clear_obstacles(&mut self) {
+        self.obstacles.clear();
+    }
+
+    // Param is passed by value, moved
+    pub fn set_obstacles(&mut self, v: ::protobuf::RepeatedField<CylinderObstacle>) {
+        self.obstacles = v;
+    }
+
+    // Mutable pointer to the field.
+    pub fn mut_obstacles(&mut self) -> &mut ::protobuf::RepeatedField<CylinderObstacle> {
+        &mut self.obstacles
+    }
+
+    // Take field
+    pub fn take_obstacles(&mut self) -> ::protobuf::RepeatedField<CylinderObstacle> {
+        ::std::mem::replace(&mut self.obstacles, ::protobuf::RepeatedField::new())
+    }
+
+    // .uuaspb.Flyzone flyzone = 3;
+
+
+    pub fn get_flyzone(&self) -> &Flyzone {
+        self.flyzone.as_ref().unwrap_or_else(|| <Flyzone as ::protobuf::Message>::default_instance())
+    }
+    pub fn clear_flyzone(&mut self) {
+        self.flyzone.clear();
+    }
+
+    pub fn has_flyzone(&self) -> bool {
+        self.flyzone.is_some()
+    }
+
+    // Param is passed by value, moved
+    pub fn set_flyzone(&mut self, v: Flyzone) {
+        self.flyzone = ::protobuf::SingularPtrField::some(v);
+    }
+
+    // Mutable pointer to the field.
+    // If field is not initialized, it is initialized with default value first.
+    pub fn mut_flyzone(&mut self) -> &mut Flyzone {
+        if self.flyzone.is_none() {
+            self.flyzone.set_default();
+        }
+        self.flyzone.as_mut().unwrap()
+    }
+
+    // Take field
+    pub fn take_flyzone(&mut self) -> Flyzone {
+        self.flyzone.take().unwrap_or_else(|| Flyzone::new())
+    }
+}
+
+impl ::protobuf::Message for OrderedRouteRequest {
+    fn is_initialized(&self) -> bool {
+        for v in &self.waypoints {
+            if !v.is_initialized() {
+                return false;
+            }
+        };
+        for v in &self.obstacles {
+            if !v.is_initialized() {
+                return false;
+            }
+        };
+        for v in &self.flyzone {
+            if !v.is_initialized() {
+                return false;
+            }
+        };
+        true
+    }
+
+    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::ProtobufResult<()> {
+        while !is.eof()? {
+            let (field_number, wire_type) = is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.waypoints)?;
+                },
+                2 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.obstacles)?;
+                },
+                3 => {
+                    ::protobuf::rt::read_singular_message_into(wire_type, is, &mut self.flyzone)?;
+                },
+                _ => {
+                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                },
+            };
+        }
+        ::std::result::Result::Ok(())
+    }
+
+    // Compute sizes of nested messages
+    #[allow(unused_variables)]
+    fn compute_size(&self) -> u32 {
+        let mut my_size = 0;
+        for value in &self.waypoints {
+            let len = value.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
+        };
+        for value in &self.obstacles {
+            let len = value.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
+        };
+        if let Some(ref v) = self.flyzone.as_ref() {
+            let len = v.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
+        }
+        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
+        self.cached_size.set(my_size);
+        my_size
+    }
+
+    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::ProtobufResult<()> {
+        for v in &self.waypoints {
+            os.write_tag(1, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            os.write_raw_varint32(v.get_cached_size())?;
+            v.write_to_with_cached_sizes(os)?;
+        };
+        for v in &self.obstacles {
+            os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            os.write_raw_varint32(v.get_cached_size())?;
+            v.write_to_with_cached_sizes(os)?;
+        };
+        if let Some(ref v) = self.flyzone.as_ref() {
+            os.write_tag(3, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            os.write_raw_varint32(v.get_cached_size())?;
+            v.write_to_with_cached_sizes(os)?;
+        }
+        os.write_unknown_fields(self.get_unknown_fields())?;
+        ::std::result::Result::Ok(())
+    }
+
+    fn get_cached_size(&self) -> u32 {
+        self.cached_size.get()
+    }
+
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
+        &self.unknown_fields
+    }
+
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
+        &mut self.unknown_fields
+    }
+
+    fn as_any(&self) -> &dyn (::std::any::Any) {
+        self as &dyn (::std::any::Any)
+    }
+    fn as_any_mut(&mut self) -> &mut dyn (::std::any::Any) {
+        self as &mut dyn (::std::any::Any)
+    }
+    fn into_any(self: ::std::boxed::Box<Self>) -> ::std::boxed::Box<dyn (::std::any::Any)> {
+        self
+    }
+
+    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+        Self::descriptor_static()
+    }
+
+    fn new() -> OrderedRouteRequest {
+        OrderedRouteRequest::new()
+    }
+
+    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
+        static descriptor: ::protobuf::rt::LazyV2<::protobuf::reflect::MessageDescriptor> = ::protobuf::rt::LazyV2::INIT;
+        descriptor.get(|| {
+            let mut fields = ::std::vec::Vec::new();
+            fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<Waypoint>>(
+                "waypoints",
+                |m: &OrderedRouteRequest| { &m.waypoints },
+                |m: &mut OrderedRouteRequest| { &mut m.waypoints },
+            ));
+            fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<CylinderObstacle>>(
+                "obstacles",
+                |m: &OrderedRouteRequest| { &m.obstacles },
+                |m: &mut OrderedRouteRequest| { &mut m.obstacles },
+            ));
+            fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<Flyzone>>(
+                "flyzone",
+                |m: &OrderedRouteRequest| { &m.flyzone },
+                |m: &mut OrderedRouteRequest| { &mut m.flyzone },
+            ));
+            ::protobuf::reflect::MessageDescriptor::new_pb_name::<OrderedRouteRequest>(
+                "OrderedRouteRequest",
+                fields,
+                file_descriptor_proto()
+            )
+        })
+    }
+
+    fn default_instance() -> &'static OrderedRouteRequest {
+        static instance: ::protobuf::rt::LazyV2<OrderedRouteRequest> = ::protobuf::rt::LazyV2::INIT;
+        instance.get(OrderedRouteRequest::new)
+    }
+}
+
+impl ::protobuf::Clear for OrderedRouteRequest {
+    fn clear(&mut self) {
+        self.waypoints.clear();
+        self.obstacles.clear();
+        self.flyzone.clear();
+        self.unknown_fields.clear();
+    }
+}
+
+impl ::std::fmt::Debug for OrderedRouteRequest {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
+impl ::protobuf::reflect::ProtobufValue for OrderedRouteRequest {
+    fn as_ref(&self) -> ::protobuf::reflect::ReflectValueRef {
+        ::protobuf::reflect::ReflectValueRef::Message(self)
+    }
+}
+
+#[derive(PartialEq,Clone,Default)]
+pub struct OrderedRouteResponse {
+    // message fields
+    pub result: ResultStatus,
+    pub waypoints: ::protobuf::RepeatedField<Waypoint>,
+    // special fields
+    pub unknown_fields: ::protobuf::UnknownFields,
+    pub cached_size: ::protobuf::CachedSize,
+}
+
+impl<'a> ::std::default::Default for &'a OrderedRouteResponse {
+    fn default() -> &'a OrderedRouteResponse {
+        <OrderedRouteResponse as ::protobuf::Message>::default_instance()
+    }
+}
+
+impl OrderedRouteResponse {
+    pub fn new() -> OrderedRouteResponse {
+        ::std::default::Default::default()
+    }
+
+    // .uuaspb.ResultStatus result = 1;
+
+
+    pub fn get_result(&self) -> ResultStatus {
+        self.result
+    }
+    pub fn clear_result(&mut self) {
+        self.result = ResultStatus::OK;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_result(&mut self, v: ResultStatus) {
+        self.result = v;
+    }
+
+    // repeated .uuaspb.Waypoint waypoints = 2;
+
+
+    pub fn get_waypoints(&self) -> &[Waypoint] {
+        &self.waypoints
+    }
+    pub fn clear_waypoints(&mut self) {
+        self.waypoints.clear();
+    }
+
+    // Param is passed by value, moved
+    pub fn set_waypoints(&mut self, v: ::protobuf::RepeatedField<Waypoint>) {
+        self.waypoints = v;
+    }
+
+    // Mutable pointer to the field.
+    pub fn mut_waypoints(&mut self) -> &mut ::protobuf::RepeatedField<Waypoint> {
+        &mut self.waypoints
+    }
+
+    // Take field
+    pub fn take_waypoints(&mut self) -> ::protobuf::RepeatedField<Waypoint> {
+        ::std::mem::replace(&mut self.waypoints, ::protobuf::RepeatedField::new())
+    }
+}
+
+impl ::protobuf::Message for OrderedRouteResponse {
+    fn is_initialized(&self) -> bool {
+        for v in &self.waypoints {
+            if !v.is_initialized() {
+                return false;
+            }
+        };
+        true
+    }
+
+    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::ProtobufResult<()> {
+        while !is.eof()? {
+            let (field_number, wire_type) = is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    ::protobuf::rt::read_proto3_enum_with_unknown_fields_into(wire_type, is, &mut self.result, 1, &mut self.unknown_fields)?
+                },
+                2 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.waypoints)?;
+                },
+                _ => {
+                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                },
+            };
+        }
+        ::std::result::Result::Ok(())
+    }
+
+    // Compute sizes of nested messages
+    #[allow(unused_variables)]
+    fn compute_size(&self) -> u32 {
+        let mut my_size = 0;
+        if self.result != ResultStatus::OK {
+            my_size += ::protobuf::rt::enum_size(1, self.result);
+        }
+        for value in &self.waypoints {
+            let len = value.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
+        };
+        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
+        self.cached_size.set(my_size);
+        my_size
+    }
+
+    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::ProtobufResult<()> {
+        if self.result != ResultStatus::OK {
+            os.write_enum(1, ::protobuf::ProtobufEnum::value(&self.result))?;
+        }
+        for v in &self.waypoints {
+            os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            os.write_raw_varint32(v.get_cached_size())?;
+            v.write_to_with_cached_sizes(os)?;
+        };
+        os.write_unknown_fields(self.get_unknown_fields())?;
+        ::std::result::Result::Ok(())
+    }
+
+    fn get_cached_size(&self) -> u32 {
+        self.cached_size.get()
+    }
+
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
+        &self.unknown_fields
+    }
+
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
+        &mut self.unknown_fields
+    }
+
+    fn as_any(&self) -> &dyn (::std::any::Any) {
+        self as &dyn (::std::any::Any)
+    }
+    fn as_any_mut(&mut self) -> &mut dyn (::std::any::Any) {
+        self as &mut dyn (::std::any::Any)
+    }
+    fn into_any(self: ::std::boxed::Box<Self>) -> ::std::boxed::Box<dyn (::std::any::Any)> {
+        self
+    }
+
+    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+        Self::descriptor_static()
+    }
+
+    fn new() -> OrderedRouteResponse {
+        OrderedRouteResponse::new()
+    }
+
+    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
+        static descriptor: ::protobuf::rt::LazyV2<::protobuf::reflect::MessageDescriptor> = ::protobuf::rt::LazyV2::INIT;
+        descriptor.get(|| {
+            let mut fields = ::std::vec::Vec::new();
+            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeEnum<ResultStatus>>(
+                "result",
+                |m: &OrderedRouteResponse| { &m.result },
+                |m: &mut OrderedRouteResponse| { &mut m.result },
+            ));
+            fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<Waypoint>>(
+                "waypoints",
+                |m: &OrderedRouteResponse| { &m.waypoints },
+                |m: &mut OrderedRouteResponse| { &mut m.waypoints },
+            ));
+            ::protobuf::reflect::MessageDescriptor::new_pb_name::<OrderedRouteResponse>(
+                "OrderedRouteResponse",
+                fields,
+                file_descriptor_proto()
+            )
+        })
+    }
+
+    fn default_instance() -> &'static OrderedRouteResponse {
+        static instance: ::protobuf::rt::LazyV2<OrderedRouteResponse> = ::protobuf::rt::LazyV2::INIT;
+        instance.get(OrderedRouteResponse::new)
+    }
+}
+
+impl ::protobuf::Clear for OrderedRouteResponse {
+    fn clear(&mut self) {
+        self.result = ResultStatus::OK;
+        self.waypoints.clear();
+        self.unknown_fields.clear();
+    }
+}
+
+impl ::std::fmt::Debug for OrderedRouteResponse {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
+impl ::protobuf::reflect::ProtobufValue for OrderedRouteResponse {
+    fn as_ref(&self) -> ::protobuf::reflect::ReflectValueRef {
+        ::protobuf::reflect::ReflectValueRef::Message(self)
+    }
+}
+
+#[derive(PartialEq,Clone,Default)]
+pub struct Flyzone {
+    // message fields
+    pub max_altitude_msl_m: f64,
+    pub min_altitude_msl_m: f64,
+    pub bounds: ::protobuf::RepeatedField<UasCoordinate>,
+    // special fields
+    pub unknown_fields: ::protobuf::UnknownFields,
+    pub cached_size: ::protobuf::CachedSize,
+}
+
+impl<'a> ::std::default::Default for &'a Flyzone {
+    fn default() -> &'a Flyzone {
+        <Flyzone as ::protobuf::Message>::default_instance()
+    }
+}
+
+impl Flyzone {
+    pub fn new() -> Flyzone {
+        ::std::default::Default::default()
+    }
+
+    // double max_altitude_msl_m = 1;
+
+
+    pub fn get_max_altitude_msl_m(&self) -> f64 {
+        self.max_altitude_msl_m
+    }
+    pub fn clear_max_altitude_msl_m(&mut self) {
+        self.max_altitude_msl_m = 0.;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_max_altitude_msl_m(&mut self, v: f64) {
+        self.max_altitude_msl_m = v;
+    }
+
+    // double min_altitude_msl_m = 2;
+
+
+    pub fn get_min_altitude_msl_m(&self) -> f64 {
+        self.min_altitude_msl_m
+    }
+    pub fn clear_min_altitude_msl_m(&mut self) {
+        self.min_altitude_msl_m = 0.;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_min_altitude_msl_m(&mut self, v: f64) {
+        self.min_altitude_msl_m = v;
+    }
+
+    // repeated .uuaspb.UasCoordinate bounds = 3;
+
+
+    pub fn get_bounds(&self) -> &[UasCoordinate] {
+        &self.bounds
+    }
+    pub fn clear_bounds(&mut self) {
+        self.bounds.clear();
+    }
+
+    // Param is passed by value, moved
+    pub fn set_bounds(&mut self, v: ::protobuf::RepeatedField<UasCoordinate>) {
+        self.bounds = v;
+    }
+
+    // Mutable pointer to the field.
+    pub fn mut_bounds(&mut self) -> &mut ::protobuf::RepeatedField<UasCoordinate> {
+        &mut self.bounds
+    }
+
+    // Take field
+    pub fn take_bounds(&mut self) -> ::protobuf::RepeatedField<UasCoordinate> {
+        ::std::mem::replace(&mut self.bounds, ::protobuf::RepeatedField::new())
+    }
+}
+
+impl ::protobuf::Message for Flyzone {
+    fn is_initialized(&self) -> bool {
+        for v in &self.bounds {
+            if !v.is_initialized() {
+                return false;
+            }
+        };
+        true
+    }
+
+    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::ProtobufResult<()> {
+        while !is.eof()? {
+            let (field_number, wire_type) = is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeFixed64 {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_double()?;
+                    self.max_altitude_msl_m = tmp;
+                },
+                2 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeFixed64 {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_double()?;
+                    self.min_altitude_msl_m = tmp;
+                },
+                3 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.bounds)?;
+                },
+                _ => {
+                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                },
+            };
+        }
+        ::std::result::Result::Ok(())
+    }
+
+    // Compute sizes of nested messages
+    #[allow(unused_variables)]
+    fn compute_size(&self) -> u32 {
+        let mut my_size = 0;
+        if self.max_altitude_msl_m != 0. {
+            my_size += 9;
+        }
+        if self.min_altitude_msl_m != 0. {
+            my_size += 9;
+        }
+        for value in &self.bounds {
+            let len = value.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
+        };
+        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
+        self.cached_size.set(my_size);
+        my_size
+    }
+
+    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::ProtobufResult<()> {
+        if self.max_altitude_msl_m != 0. {
+            os.write_double(1, self.max_altitude_msl_m)?;
+        }
+        if self.min_altitude_msl_m != 0. {
+            os.write_double(2, self.min_altitude_msl_m)?;
+        }
+        for v in &self.bounds {
+            os.write_tag(3, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            os.write_raw_varint32(v.get_cached_size())?;
+            v.write_to_with_cached_sizes(os)?;
+        };
+        os.write_unknown_fields(self.get_unknown_fields())?;
+        ::std::result::Result::Ok(())
+    }
+
+    fn get_cached_size(&self) -> u32 {
+        self.cached_size.get()
+    }
+
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
+        &self.unknown_fields
+    }
+
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
+        &mut self.unknown_fields
+    }
+
+    fn as_any(&self) -> &dyn (::std::any::Any) {
+        self as &dyn (::std::any::Any)
+    }
+    fn as_any_mut(&mut self) -> &mut dyn (::std::any::Any) {
+        self as &mut dyn (::std::any::Any)
+    }
+    fn into_any(self: ::std::boxed::Box<Self>) -> ::std::boxed::Box<dyn (::std::any::Any)> {
+        self
+    }
+
+    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+        Self::descriptor_static()
+    }
+
+    fn new() -> Flyzone {
+        Flyzone::new()
+    }
+
+    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
+        static descriptor: ::protobuf::rt::LazyV2<::protobuf::reflect::MessageDescriptor> = ::protobuf::rt::LazyV2::INIT;
+        descriptor.get(|| {
+            let mut fields = ::std::vec::Vec::new();
+            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeDouble>(
+                "max_altitude_msl_m",
+                |m: &Flyzone| { &m.max_altitude_msl_m },
+                |m: &mut Flyzone| { &mut m.max_altitude_msl_m },
+            ));
+            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeDouble>(
+                "min_altitude_msl_m",
+                |m: &Flyzone| { &m.min_altitude_msl_m },
+                |m: &mut Flyzone| { &mut m.min_altitude_msl_m },
+            ));
+            fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<UasCoordinate>>(
+                "bounds",
+                |m: &Flyzone| { &m.bounds },
+                |m: &mut Flyzone| { &mut m.bounds },
+            ));
+            ::protobuf::reflect::MessageDescriptor::new_pb_name::<Flyzone>(
+                "Flyzone",
+                fields,
+                file_descriptor_proto()
+            )
+        })
+    }
+
+    fn default_instance() -> &'static Flyzone {
+        static instance: ::protobuf::rt::LazyV2<Flyzone> = ::protobuf::rt::LazyV2::INIT;
+        instance.get(Flyzone::new)
+    }
+}
+
+impl ::protobuf::Clear for Flyzone {
+    fn clear(&mut self) {
+        self.max_altitude_msl_m = 0.;
+        self.min_altitude_msl_m = 0.;
+        self.bounds.clear();
+        self.unknown_fields.clear();
+    }
+}
+
+impl ::std::fmt::Debug for Flyzone {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
+impl ::protobuf::reflect::ProtobufValue for Flyzone {
+    fn as_ref(&self) -> ::protobuf::reflect::ReflectValueRef {
+        ::protobuf::reflect::ReflectValueRef::Message(self)
+    }
+}
+
+#[derive(PartialEq,Clone,Default)]
+pub struct UasCoordinate {
+    // message fields
+    pub latitude: f64,
+    pub longitude: f64,
+    // special fields
+    pub unknown_fields: ::protobuf::UnknownFields,
+    pub cached_size: ::protobuf::CachedSize,
+}
+
+impl<'a> ::std::default::Default for &'a UasCoordinate {
+    fn default() -> &'a UasCoordinate {
+        <UasCoordinate as ::protobuf::Message>::default_instance()
+    }
+}
+
+impl UasCoordinate {
+    pub fn new() -> UasCoordinate {
+        ::std::default::Default::default()
+    }
+
+    // double latitude = 1;
+
+
+    pub fn get_latitude(&self) -> f64 {
+        self.latitude
+    }
+    pub fn clear_latitude(&mut self) {
+        self.latitude = 0.;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_latitude(&mut self, v: f64) {
+        self.latitude = v;
+    }
+
+    // double longitude = 2;
+
+
+    pub fn get_longitude(&self) -> f64 {
+        self.longitude
+    }
+    pub fn clear_longitude(&mut self) {
+        self.longitude = 0.;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_longitude(&mut self, v: f64) {
+        self.longitude = v;
+    }
+}
+
+impl ::protobuf::Message for UasCoordinate {
+    fn is_initialized(&self) -> bool {
+        true
+    }
+
+    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::ProtobufResult<()> {
+        while !is.eof()? {
+            let (field_number, wire_type) = is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeFixed64 {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_double()?;
+                    self.latitude = tmp;
+                },
+                2 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeFixed64 {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_double()?;
+                    self.longitude = tmp;
+                },
+                _ => {
+                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                },
+            };
+        }
+        ::std::result::Result::Ok(())
+    }
+
+    // Compute sizes of nested messages
+    #[allow(unused_variables)]
+    fn compute_size(&self) -> u32 {
+        let mut my_size = 0;
+        if self.latitude != 0. {
+            my_size += 9;
+        }
+        if self.longitude != 0. {
+            my_size += 9;
+        }
+        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
+        self.cached_size.set(my_size);
+        my_size
+    }
+
+    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::ProtobufResult<()> {
+        if self.latitude != 0. {
+            os.write_double(1, self.latitude)?;
+        }
+        if self.longitude != 0. {
+            os.write_double(2, self.longitude)?;
+        }
+        os.write_unknown_fields(self.get_unknown_fields())?;
+        ::std::result::Result::Ok(())
+    }
+
+    fn get_cached_size(&self) -> u32 {
+        self.cached_size.get()
+    }
+
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
+        &self.unknown_fields
+    }
+
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
+        &mut self.unknown_fields
+    }
+
+    fn as_any(&self) -> &dyn (::std::any::Any) {
+        self as &dyn (::std::any::Any)
+    }
+    fn as_any_mut(&mut self) -> &mut dyn (::std::any::Any) {
+        self as &mut dyn (::std::any::Any)
+    }
+    fn into_any(self: ::std::boxed::Box<Self>) -> ::std::boxed::Box<dyn (::std::any::Any)> {
+        self
+    }
+
+    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+        Self::descriptor_static()
+    }
+
+    fn new() -> UasCoordinate {
+        UasCoordinate::new()
+    }
+
+    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
+        static descriptor: ::protobuf::rt::LazyV2<::protobuf::reflect::MessageDescriptor> = ::protobuf::rt::LazyV2::INIT;
+        descriptor.get(|| {
+            let mut fields = ::std::vec::Vec::new();
+            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeDouble>(
+                "latitude",
+                |m: &UasCoordinate| { &m.latitude },
+                |m: &mut UasCoordinate| { &mut m.latitude },
+            ));
+            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeDouble>(
+                "longitude",
+                |m: &UasCoordinate| { &m.longitude },
+                |m: &mut UasCoordinate| { &mut m.longitude },
+            ));
+            ::protobuf::reflect::MessageDescriptor::new_pb_name::<UasCoordinate>(
+                "UasCoordinate",
+                fields,
+                file_descriptor_proto()
+            )
+        })
+    }
+
+    fn default_instance() -> &'static UasCoordinate {
+        static instance: ::protobuf::rt::LazyV2<UasCoordinate> = ::protobuf::rt::LazyV2::INIT;
+        instance.get(UasCoordinate::new)
+    }
+}
+
+impl ::protobuf::Clear for UasCoordinate {
+    fn clear(&mut self) {
+        self.latitude = 0.;
+        self.longitude = 0.;
+        self.unknown_fields.clear();
+    }
+}
+
+impl ::std::fmt::Debug for UasCoordinate {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
+impl ::protobuf::reflect::ProtobufValue for UasCoordinate {
+    fn as_ref(&self) -> ::protobuf::reflect::ReflectValueRef {
+        ::protobuf::reflect::ReflectValueRef::Message(self)
+    }
+}
+
+#[derive(PartialEq,Clone,Default)]
+pub struct Waypoint {
+    // message fields
+    pub coordinate: ::protobuf::SingularPtrField<UasCoordinate>,
+    pub altitude_msl_m: f64,
+    pub waypoint_type: WaypointType,
+    // special fields
+    pub unknown_fields: ::protobuf::UnknownFields,
+    pub cached_size: ::protobuf::CachedSize,
+}
+
+impl<'a> ::std::default::Default for &'a Waypoint {
+    fn default() -> &'a Waypoint {
+        <Waypoint as ::protobuf::Message>::default_instance()
+    }
+}
+
+impl Waypoint {
+    pub fn new() -> Waypoint {
+        ::std::default::Default::default()
+    }
+
+    // .uuaspb.UasCoordinate coordinate = 1;
+
+
+    pub fn get_coordinate(&self) -> &UasCoordinate {
+        self.coordinate.as_ref().unwrap_or_else(|| <UasCoordinate as ::protobuf::Message>::default_instance())
+    }
+    pub fn clear_coordinate(&mut self) {
+        self.coordinate.clear();
+    }
+
+    pub fn has_coordinate(&self) -> bool {
+        self.coordinate.is_some()
+    }
+
+    // Param is passed by value, moved
+    pub fn set_coordinate(&mut self, v: UasCoordinate) {
+        self.coordinate = ::protobuf::SingularPtrField::some(v);
+    }
+
+    // Mutable pointer to the field.
+    // If field is not initialized, it is initialized with default value first.
+    pub fn mut_coordinate(&mut self) -> &mut UasCoordinate {
+        if self.coordinate.is_none() {
+            self.coordinate.set_default();
+        }
+        self.coordinate.as_mut().unwrap()
+    }
+
+    // Take field
+    pub fn take_coordinate(&mut self) -> UasCoordinate {
+        self.coordinate.take().unwrap_or_else(|| UasCoordinate::new())
+    }
+
+    // double altitude_msl_m = 2;
+
+
+    pub fn get_altitude_msl_m(&self) -> f64 {
+        self.altitude_msl_m
+    }
+    pub fn clear_altitude_msl_m(&mut self) {
+        self.altitude_msl_m = 0.;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_altitude_msl_m(&mut self, v: f64) {
+        self.altitude_msl_m = v;
+    }
+
+    // .uuaspb.WaypointType waypoint_type = 3;
+
+
+    pub fn get_waypoint_type(&self) -> WaypointType {
+        self.waypoint_type
+    }
+    pub fn clear_waypoint_type(&mut self) {
+        self.waypoint_type = WaypointType::NONE;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_waypoint_type(&mut self, v: WaypointType) {
+        self.waypoint_type = v;
+    }
+}
+
+impl ::protobuf::Message for Waypoint {
+    fn is_initialized(&self) -> bool {
+        for v in &self.coordinate {
+            if !v.is_initialized() {
+                return false;
+            }
+        };
+        true
+    }
+
+    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::ProtobufResult<()> {
+        while !is.eof()? {
+            let (field_number, wire_type) = is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    ::protobuf::rt::read_singular_message_into(wire_type, is, &mut self.coordinate)?;
+                },
+                2 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeFixed64 {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_double()?;
+                    self.altitude_msl_m = tmp;
+                },
+                3 => {
+                    ::protobuf::rt::read_proto3_enum_with_unknown_fields_into(wire_type, is, &mut self.waypoint_type, 3, &mut self.unknown_fields)?
+                },
+                _ => {
+                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                },
+            };
+        }
+        ::std::result::Result::Ok(())
+    }
+
+    // Compute sizes of nested messages
+    #[allow(unused_variables)]
+    fn compute_size(&self) -> u32 {
+        let mut my_size = 0;
+        if let Some(ref v) = self.coordinate.as_ref() {
+            let len = v.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
+        }
+        if self.altitude_msl_m != 0. {
+            my_size += 9;
+        }
+        if self.waypoint_type != WaypointType::NONE {
+            my_size += ::protobuf::rt::enum_size(3, self.waypoint_type);
+        }
+        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
+        self.cached_size.set(my_size);
+        my_size
+    }
+
+    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::ProtobufResult<()> {
+        if let Some(ref v) = self.coordinate.as_ref() {
+            os.write_tag(1, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            os.write_raw_varint32(v.get_cached_size())?;
+            v.write_to_with_cached_sizes(os)?;
+        }
+        if self.altitude_msl_m != 0. {
+            os.write_double(2, self.altitude_msl_m)?;
+        }
+        if self.waypoint_type != WaypointType::NONE {
+            os.write_enum(3, ::protobuf::ProtobufEnum::value(&self.waypoint_type))?;
+        }
+        os.write_unknown_fields(self.get_unknown_fields())?;
+        ::std::result::Result::Ok(())
+    }
+
+    fn get_cached_size(&self) -> u32 {
+        self.cached_size.get()
+    }
+
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
+        &self.unknown_fields
+    }
+
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
+        &mut self.unknown_fields
+    }
+
+    fn as_any(&self) -> &dyn (::std::any::Any) {
+        self as &dyn (::std::any::Any)
+    }
+    fn as_any_mut(&mut self) -> &mut dyn (::std::any::Any) {
+        self as &mut dyn (::std::any::Any)
+    }
+    fn into_any(self: ::std::boxed::Box<Self>) -> ::std::boxed::Box<dyn (::std::any::Any)> {
+        self
+    }
+
+    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+        Self::descriptor_static()
+    }
+
+    fn new() -> Waypoint {
+        Waypoint::new()
+    }
+
+    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
+        static descriptor: ::protobuf::rt::LazyV2<::protobuf::reflect::MessageDescriptor> = ::protobuf::rt::LazyV2::INIT;
+        descriptor.get(|| {
+            let mut fields = ::std::vec::Vec::new();
+            fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<UasCoordinate>>(
+                "coordinate",
+                |m: &Waypoint| { &m.coordinate },
+                |m: &mut Waypoint| { &mut m.coordinate },
+            ));
+            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeDouble>(
+                "altitude_msl_m",
+                |m: &Waypoint| { &m.altitude_msl_m },
+                |m: &mut Waypoint| { &mut m.altitude_msl_m },
+            ));
+            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeEnum<WaypointType>>(
+                "waypoint_type",
+                |m: &Waypoint| { &m.waypoint_type },
+                |m: &mut Waypoint| { &mut m.waypoint_type },
+            ));
+            ::protobuf::reflect::MessageDescriptor::new_pb_name::<Waypoint>(
+                "Waypoint",
+                fields,
+                file_descriptor_proto()
+            )
+        })
+    }
+
+    fn default_instance() -> &'static Waypoint {
+        static instance: ::protobuf::rt::LazyV2<Waypoint> = ::protobuf::rt::LazyV2::INIT;
+        instance.get(Waypoint::new)
+    }
+}
+
+impl ::protobuf::Clear for Waypoint {
+    fn clear(&mut self) {
+        self.coordinate.clear();
+        self.altitude_msl_m = 0.;
+        self.waypoint_type = WaypointType::NONE;
+        self.unknown_fields.clear();
+    }
+}
+
+impl ::std::fmt::Debug for Waypoint {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
+impl ::protobuf::reflect::ProtobufValue for Waypoint {
+    fn as_ref(&self) -> ::protobuf::reflect::ReflectValueRef {
+        ::protobuf::reflect::ReflectValueRef::Message(self)
+    }
+}
+
+#[derive(PartialEq,Clone,Default)]
+pub struct CylinderObstacle {
+    // message fields
+    pub coordinate: ::protobuf::SingularPtrField<UasCoordinate>,
+    pub radius_m: f64,
+    pub height_m: f64,
+    // special fields
+    pub unknown_fields: ::protobuf::UnknownFields,
+    pub cached_size: ::protobuf::CachedSize,
+}
+
+impl<'a> ::std::default::Default for &'a CylinderObstacle {
+    fn default() -> &'a CylinderObstacle {
+        <CylinderObstacle as ::protobuf::Message>::default_instance()
+    }
+}
+
+impl CylinderObstacle {
+    pub fn new() -> CylinderObstacle {
+        ::std::default::Default::default()
+    }
+
+    // .uuaspb.UasCoordinate coordinate = 1;
+
+
+    pub fn get_coordinate(&self) -> &UasCoordinate {
+        self.coordinate.as_ref().unwrap_or_else(|| <UasCoordinate as ::protobuf::Message>::default_instance())
+    }
+    pub fn clear_coordinate(&mut self) {
+        self.coordinate.clear();
+    }
+
+    pub fn has_coordinate(&self) -> bool {
+        self.coordinate.is_some()
+    }
+
+    // Param is passed by value, moved
+    pub fn set_coordinate(&mut self, v: UasCoordinate) {
+        self.coordinate = ::protobuf::SingularPtrField::some(v);
+    }
+
+    // Mutable pointer to the field.
+    // If field is not initialized, it is initialized with default value first.
+    pub fn mut_coordinate(&mut self) -> &mut UasCoordinate {
+        if self.coordinate.is_none() {
+            self.coordinate.set_default();
+        }
+        self.coordinate.as_mut().unwrap()
+    }
+
+    // Take field
+    pub fn take_coordinate(&mut self) -> UasCoordinate {
+        self.coordinate.take().unwrap_or_else(|| UasCoordinate::new())
+    }
+
+    // double radius_m = 2;
+
+
+    pub fn get_radius_m(&self) -> f64 {
+        self.radius_m
+    }
+    pub fn clear_radius_m(&mut self) {
+        self.radius_m = 0.;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_radius_m(&mut self, v: f64) {
+        self.radius_m = v;
+    }
+
+    // double height_m = 3;
+
+
+    pub fn get_height_m(&self) -> f64 {
+        self.height_m
+    }
+    pub fn clear_height_m(&mut self) {
+        self.height_m = 0.;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_height_m(&mut self, v: f64) {
+        self.height_m = v;
+    }
+}
+
+impl ::protobuf::Message for CylinderObstacle {
+    fn is_initialized(&self) -> bool {
+        for v in &self.coordinate {
+            if !v.is_initialized() {
+                return false;
+            }
+        };
+        true
+    }
+
+    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::ProtobufResult<()> {
+        while !is.eof()? {
+            let (field_number, wire_type) = is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    ::protobuf::rt::read_singular_message_into(wire_type, is, &mut self.coordinate)?;
+                },
+                2 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeFixed64 {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_double()?;
+                    self.radius_m = tmp;
+                },
+                3 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeFixed64 {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_double()?;
+                    self.height_m = tmp;
+                },
+                _ => {
+                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                },
+            };
+        }
+        ::std::result::Result::Ok(())
+    }
+
+    // Compute sizes of nested messages
+    #[allow(unused_variables)]
+    fn compute_size(&self) -> u32 {
+        let mut my_size = 0;
+        if let Some(ref v) = self.coordinate.as_ref() {
+            let len = v.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
+        }
+        if self.radius_m != 0. {
+            my_size += 9;
+        }
+        if self.height_m != 0. {
+            my_size += 9;
+        }
+        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
+        self.cached_size.set(my_size);
+        my_size
+    }
+
+    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::ProtobufResult<()> {
+        if let Some(ref v) = self.coordinate.as_ref() {
+            os.write_tag(1, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            os.write_raw_varint32(v.get_cached_size())?;
+            v.write_to_with_cached_sizes(os)?;
+        }
+        if self.radius_m != 0. {
+            os.write_double(2, self.radius_m)?;
+        }
+        if self.height_m != 0. {
+            os.write_double(3, self.height_m)?;
+        }
+        os.write_unknown_fields(self.get_unknown_fields())?;
+        ::std::result::Result::Ok(())
+    }
+
+    fn get_cached_size(&self) -> u32 {
+        self.cached_size.get()
+    }
+
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
+        &self.unknown_fields
+    }
+
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
+        &mut self.unknown_fields
+    }
+
+    fn as_any(&self) -> &dyn (::std::any::Any) {
+        self as &dyn (::std::any::Any)
+    }
+    fn as_any_mut(&mut self) -> &mut dyn (::std::any::Any) {
+        self as &mut dyn (::std::any::Any)
+    }
+    fn into_any(self: ::std::boxed::Box<Self>) -> ::std::boxed::Box<dyn (::std::any::Any)> {
+        self
+    }
+
+    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+        Self::descriptor_static()
+    }
+
+    fn new() -> CylinderObstacle {
+        CylinderObstacle::new()
+    }
+
+    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
+        static descriptor: ::protobuf::rt::LazyV2<::protobuf::reflect::MessageDescriptor> = ::protobuf::rt::LazyV2::INIT;
+        descriptor.get(|| {
+            let mut fields = ::std::vec::Vec::new();
+            fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<UasCoordinate>>(
+                "coordinate",
+                |m: &CylinderObstacle| { &m.coordinate },
+                |m: &mut CylinderObstacle| { &mut m.coordinate },
+            ));
+            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeDouble>(
+                "radius_m",
+                |m: &CylinderObstacle| { &m.radius_m },
+                |m: &mut CylinderObstacle| { &mut m.radius_m },
+            ));
+            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeDouble>(
+                "height_m",
+                |m: &CylinderObstacle| { &m.height_m },
+                |m: &mut CylinderObstacle| { &mut m.height_m },
+            ));
+            ::protobuf::reflect::MessageDescriptor::new_pb_name::<CylinderObstacle>(
+                "CylinderObstacle",
+                fields,
+                file_descriptor_proto()
+            )
+        })
+    }
+
+    fn default_instance() -> &'static CylinderObstacle {
+        static instance: ::protobuf::rt::LazyV2<CylinderObstacle> = ::protobuf::rt::LazyV2::INIT;
+        instance.get(CylinderObstacle::new)
+    }
+}
+
+impl ::protobuf::Clear for CylinderObstacle {
+    fn clear(&mut self) {
+        self.coordinate.clear();
+        self.radius_m = 0.;
+        self.height_m = 0.;
+        self.unknown_fields.clear();
+    }
+}
+
+impl ::std::fmt::Debug for CylinderObstacle {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
+impl ::protobuf::reflect::ProtobufValue for CylinderObstacle {
+    fn as_ref(&self) -> ::protobuf::reflect::ReflectValueRef {
+        ::protobuf::reflect::ReflectValueRef::Message(self)
+    }
+}
+
 #[derive(Clone,PartialEq,Eq,Debug,Hash)]
 pub enum ResultStatus {
     OK = 0,
@@ -1478,6 +2854,71 @@ impl ::protobuf::reflect::ProtobufValue for ResultStatus {
     }
 }
 
+#[derive(Clone,PartialEq,Eq,Debug,Hash)]
+pub enum WaypointType {
+    NONE = 0,
+    COORDINATE = 1,
+    GENERATED = 2,
+    AUTO_FLIGHT = 3,
+    AIRDROP = 4,
+    OFF_AXIS = 5,
+    SEARCH_GRID = 6,
+}
+
+impl ::protobuf::ProtobufEnum for WaypointType {
+    fn value(&self) -> i32 {
+        *self as i32
+    }
+
+    fn from_i32(value: i32) -> ::std::option::Option<WaypointType> {
+        match value {
+            0 => ::std::option::Option::Some(WaypointType::NONE),
+            1 => ::std::option::Option::Some(WaypointType::COORDINATE),
+            2 => ::std::option::Option::Some(WaypointType::GENERATED),
+            3 => ::std::option::Option::Some(WaypointType::AUTO_FLIGHT),
+            4 => ::std::option::Option::Some(WaypointType::AIRDROP),
+            5 => ::std::option::Option::Some(WaypointType::OFF_AXIS),
+            6 => ::std::option::Option::Some(WaypointType::SEARCH_GRID),
+            _ => ::std::option::Option::None
+        }
+    }
+
+    fn values() -> &'static [Self] {
+        static values: &'static [WaypointType] = &[
+            WaypointType::NONE,
+            WaypointType::COORDINATE,
+            WaypointType::GENERATED,
+            WaypointType::AUTO_FLIGHT,
+            WaypointType::AIRDROP,
+            WaypointType::OFF_AXIS,
+            WaypointType::SEARCH_GRID,
+        ];
+        values
+    }
+
+    fn enum_descriptor_static() -> &'static ::protobuf::reflect::EnumDescriptor {
+        static descriptor: ::protobuf::rt::LazyV2<::protobuf::reflect::EnumDescriptor> = ::protobuf::rt::LazyV2::INIT;
+        descriptor.get(|| {
+            ::protobuf::reflect::EnumDescriptor::new_pb_name::<WaypointType>("WaypointType", file_descriptor_proto())
+        })
+    }
+}
+
+impl ::std::marker::Copy for WaypointType {
+}
+
+impl ::std::default::Default for WaypointType {
+    fn default() -> Self {
+        WaypointType::NONE
+    }
+}
+
+impl ::protobuf::reflect::ProtobufValue for WaypointType {
+    fn as_ref(&self) -> ::protobuf::reflect::ReflectValueRef {
+        ::protobuf::reflect::ReflectValueRef::Enum(::protobuf::ProtobufEnum::descriptor(self))
+    }
+}
+
 static file_descriptor_proto_data: &'static [u8] = b"\
     \n\x0cuuaspb.proto\x12\x06uuaspb\"\\\n\rGeoTagRequest\x12\x1a\n\x08filen\
     ame\x18\x01\x20\x01(\tR\x08filename\x12/\n\ttelemetry\x18\x02\x20\x01(\
@@ -1500,80 +2941,166 @@ static file_descriptor_proto_data: &'static [u8] = b"\
     \x20\x01(\x01R\x0epitchspeedRadS\x12$\n\x0eyawspeed_rad_s\x18\x0e\x20\
     \x01(\x01R\x0cyawspeedRadS\x120\n\x14timestamp_pixhawk_ms\x18\x0f\x20\
     \x01(\x04R\x12timestampPixhawkMs\x12(\n\x10timestamp_msg_ms\x18\x10\x20\
-    \x01(\x04R\x0etimestampMsgMs*\x1f\n\x0cResultStatus\x12\x06\n\x02OK\x10\
-    \0\x12\x07\n\x03ERR\x10\x01J\xb8\x0b\n\x06\x12\x04\0\01\x01\n\x08\n\x01\
-    \x0c\x12\x03\0\0\x12\n\x08\n\x01\x02\x12\x03\x02\0\x0f\n\n\n\x02\x05\0\
-    \x12\x04\x04\0\x07\x01\n\n\n\x03\x05\0\x01\x12\x03\x04\x05\x11\n\x0b\n\
-    \x04\x05\0\x02\0\x12\x03\x05\x04\x0b\n\x0c\n\x05\x05\0\x02\0\x01\x12\x03\
-    \x05\x04\x06\n\x0c\n\x05\x05\0\x02\0\x02\x12\x03\x05\t\n\n\x0b\n\x04\x05\
-    \0\x02\x01\x12\x03\x06\x04\x0c\n\x0c\n\x05\x05\0\x02\x01\x01\x12\x03\x06\
-    \x04\x07\n\x0c\n\x05\x05\0\x02\x01\x02\x12\x03\x06\n\x0b\n\n\n\x02\x04\0\
-    \x12\x04\t\0\x0c\x01\n\n\n\x03\x04\0\x01\x12\x03\t\x08\x15\n\x0b\n\x04\
-    \x04\0\x02\0\x12\x03\n\x04\x18\n\x0c\n\x05\x04\0\x02\0\x05\x12\x03\n\x04\
-    \n\n\x0c\n\x05\x04\0\x02\0\x01\x12\x03\n\x0b\x13\n\x0c\n\x05\x04\0\x02\0\
-    \x03\x12\x03\n\x16\x17\n\x0b\n\x04\x04\0\x02\x01\x12\x03\x0b\x04\x1c\n\
-    \x0c\n\x05\x04\0\x02\x01\x06\x12\x03\x0b\x04\r\n\x0c\n\x05\x04\0\x02\x01\
-    \x01\x12\x03\x0b\x0e\x17\n\x0c\n\x05\x04\0\x02\x01\x03\x12\x03\x0b\x1a\
-    \x1b\n\n\n\x02\x04\x01\x12\x04\x0e\0\x10\x01\n\n\n\x03\x04\x01\x01\x12\
-    \x03\x0e\x08\x16\n\x0b\n\x04\x04\x01\x02\0\x12\x03\x0f\x04\x1c\n\x0c\n\
-    \x05\x04\x01\x02\0\x06\x12\x03\x0f\x04\x10\n\x0c\n\x05\x04\x01\x02\0\x01\
-    \x12\x03\x0f\x11\x17\n\x0c\n\x05\x04\x01\x02\0\x03\x12\x03\x0f\x1a\x1b\n\
-    \n\n\x02\x04\x02\x12\x04\x12\0\x14\x01\n\n\n\x03\x04\x02\x01\x12\x03\x12\
-    \x08\x17\n\x0b\n\x04\x04\x02\x02\0\x12\x03\x13\x04\x18\n\x0c\n\x05\x04\
-    \x02\x02\0\x05\x12\x03\x13\x04\n\n\x0c\n\x05\x04\x02\x02\0\x01\x12\x03\
-    \x13\x0b\x13\n\x0c\n\x05\x04\x02\x02\0\x03\x12\x03\x13\x16\x17\n\n\n\x02\
-    \x04\x03\x12\x04\x16\0\x19\x01\n\n\n\x03\x04\x03\x01\x12\x03\x16\x08\x18\
-    \n\x0b\n\x04\x04\x03\x02\0\x12\x03\x17\x04\x1c\n\x0c\n\x05\x04\x03\x02\0\
-    \x06\x12\x03\x17\x04\x10\n\x0c\n\x05\x04\x03\x02\0\x01\x12\x03\x17\x11\
-    \x17\n\x0c\n\x05\x04\x03\x02\0\x03\x12\x03\x17\x1a\x1b\n\x0b\n\x04\x04\
-    \x03\x02\x01\x12\x03\x18\x04\x1c\n\x0c\n\x05\x04\x03\x02\x01\x06\x12\x03\
-    \x18\x04\r\n\x0c\n\x05\x04\x03\x02\x01\x01\x12\x03\x18\x0e\x17\n\x0c\n\
-    \x05\x04\x03\x02\x01\x03\x12\x03\x18\x1a\x1b\n\n\n\x02\x04\x04\x12\x04\
-    \x1b\01\x01\n\n\n\x03\x04\x04\x01\x12\x03\x1b\x08\x11\n\x0b\n\x04\x04\
-    \x04\x02\0\x12\x03\x1c\x04\x18\n\x0c\n\x05\x04\x04\x02\0\x05\x12\x03\x1c\
-    \x04\n\n\x0c\n\x05\x04\x04\x02\0\x01\x12\x03\x1c\x0b\x13\n\x0c\n\x05\x04\
-    \x04\x02\0\x03\x12\x03\x1c\x16\x17\n\x0b\n\x04\x04\x04\x02\x01\x12\x03\
-    \x1d\x04\x19\n\x0c\n\x05\x04\x04\x02\x01\x05\x12\x03\x1d\x04\n\n\x0c\n\
-    \x05\x04\x04\x02\x01\x01\x12\x03\x1d\x0b\x14\n\x0c\n\x05\x04\x04\x02\x01\
-    \x03\x12\x03\x1d\x17\x18\n\x0b\n\x04\x04\x04\x02\x02\x12\x03\x1f\x04\x1e\
-    \n\x0c\n\x05\x04\x04\x02\x02\x05\x12\x03\x1f\x04\n\n\x0c\n\x05\x04\x04\
-    \x02\x02\x01\x12\x03\x1f\x0b\x19\n\x0c\n\x05\x04\x04\x02\x02\x03\x12\x03\
-    \x1f\x1c\x1d\n\x0b\n\x04\x04\x04\x02\x03\x12\x03\x20\x04\x1e\n\x0c\n\x05\
-    \x04\x04\x02\x03\x05\x12\x03\x20\x04\n\n\x0c\n\x05\x04\x04\x02\x03\x01\
-    \x12\x03\x20\x0b\x19\n\x0c\n\x05\x04\x04\x02\x03\x03\x12\x03\x20\x1c\x1d\
-    \n\x0b\n\x04\x04\x04\x02\x04\x12\x03!\x04\x1b\n\x0c\n\x05\x04\x04\x02\
-    \x04\x05\x12\x03!\x04\n\n\x0c\n\x05\x04\x04\x02\x04\x01\x12\x03!\x0b\x16\
-    \n\x0c\n\x05\x04\x04\x02\x04\x03\x12\x03!\x19\x1a\n\x0b\n\x04\x04\x04\
-    \x02\x05\x12\x03#\x04\x1d\n\x0c\n\x05\x04\x04\x02\x05\x05\x12\x03#\x04\n\
-    \n\x0c\n\x05\x04\x04\x02\x05\x01\x12\x03#\x0b\x18\n\x0c\n\x05\x04\x04\
-    \x02\x05\x03\x12\x03#\x1b\x1c\n\x0b\n\x04\x04\x04\x02\x06\x12\x03$\x04\
-    \x1d\n\x0c\n\x05\x04\x04\x02\x06\x05\x12\x03$\x04\n\n\x0c\n\x05\x04\x04\
-    \x02\x06\x01\x12\x03$\x0b\x18\n\x0c\n\x05\x04\x04\x02\x06\x03\x12\x03$\
-    \x1b\x1c\n\x0b\n\x04\x04\x04\x02\x07\x12\x03%\x04\x1d\n\x0c\n\x05\x04\
-    \x04\x02\x07\x05\x12\x03%\x04\n\n\x0c\n\x05\x04\x04\x02\x07\x01\x12\x03%\
-    \x0b\x18\n\x0c\n\x05\x04\x04\x02\x07\x03\x12\x03%\x1b\x1c\n\x0b\n\x04\
-    \x04\x04\x02\x08\x12\x03'\x04\x18\n\x0c\n\x05\x04\x04\x02\x08\x05\x12\
-    \x03'\x04\n\n\x0c\n\x05\x04\x04\x02\x08\x01\x12\x03'\x0b\x13\n\x0c\n\x05\
-    \x04\x04\x02\x08\x03\x12\x03'\x16\x17\n\x0b\n\x04\x04\x04\x02\t\x12\x03(\
-    \x04\x1a\n\x0c\n\x05\x04\x04\x02\t\x05\x12\x03(\x04\n\n\x0c\n\x05\x04\
-    \x04\x02\t\x01\x12\x03(\x0b\x14\n\x0c\n\x05\x04\x04\x02\t\x03\x12\x03(\
-    \x17\x19\n\x0b\n\x04\x04\x04\x02\n\x12\x03)\x04\x18\n\x0c\n\x05\x04\x04\
-    \x02\n\x05\x12\x03)\x04\n\n\x0c\n\x05\x04\x04\x02\n\x01\x12\x03)\x0b\x12\
-    \n\x0c\n\x05\x04\x04\x02\n\x03\x12\x03)\x15\x17\n\x0b\n\x04\x04\x04\x02\
-    \x0b\x12\x03+\x04\x20\n\x0c\n\x05\x04\x04\x02\x0b\x05\x12\x03+\x04\n\n\
-    \x0c\n\x05\x04\x04\x02\x0b\x01\x12\x03+\x0b\x1a\n\x0c\n\x05\x04\x04\x02\
-    \x0b\x03\x12\x03+\x1d\x1f\n\x0b\n\x04\x04\x04\x02\x0c\x12\x03,\x04!\n\
-    \x0c\n\x05\x04\x04\x02\x0c\x05\x12\x03,\x04\n\n\x0c\n\x05\x04\x04\x02\
-    \x0c\x01\x12\x03,\x0b\x1b\n\x0c\n\x05\x04\x04\x02\x0c\x03\x12\x03,\x1e\
-    \x20\n\x0b\n\x04\x04\x04\x02\r\x12\x03-\x04\x1f\n\x0c\n\x05\x04\x04\x02\
-    \r\x05\x12\x03-\x04\n\n\x0c\n\x05\x04\x04\x02\r\x01\x12\x03-\x0b\x19\n\
-    \x0c\n\x05\x04\x04\x02\r\x03\x12\x03-\x1c\x1e\n\x0b\n\x04\x04\x04\x02\
-    \x0e\x12\x03/\x04%\n\x0c\n\x05\x04\x04\x02\x0e\x05\x12\x03/\x04\n\n\x0c\
-    \n\x05\x04\x04\x02\x0e\x01\x12\x03/\x0b\x1f\n\x0c\n\x05\x04\x04\x02\x0e\
-    \x03\x12\x03/\"$\n\x0b\n\x04\x04\x04\x02\x0f\x12\x030\x04!\n\x0c\n\x05\
-    \x04\x04\x02\x0f\x05\x12\x030\x04\n\n\x0c\n\x05\x04\x04\x02\x0f\x01\x12\
-    \x030\x0b\x1b\n\x0c\n\x05\x04\x04\x02\x0f\x03\x12\x030\x1e\x20b\x06proto\
-    3\
+    \x01(\x04R\x0etimestampMsgMs\"\xa8\x01\n\x13OrderedRouteRequest\x12.\n\t\
+    waypoints\x18\x01\x20\x03(\x0b2\x10.uuaspb.WaypointR\twaypoints\x126\n\t\
+    obstacles\x18\x02\x20\x03(\x0b2\x18.uuaspb.CylinderObstacleR\tobstacles\
+    \x12)\n\x07flyzone\x18\x03\x20\x01(\x0b2\x0f.uuaspb.FlyzoneR\x07flyzone\
+    \"t\n\x14OrderedRouteResponse\x12,\n\x06result\x18\x01\x20\x01(\x0e2\x14\
+    .uuaspb.ResultStatusR\x06result\x12.\n\twaypoints\x18\x02\x20\x03(\x0b2\
+    \x10.uuaspb.WaypointR\twaypoints\"\x92\x01\n\x07Flyzone\x12+\n\x12max_al\
+    titude_msl_m\x18\x01\x20\x01(\x01R\x0fmaxAltitudeMslM\x12+\n\x12min_alti\
+    tude_msl_m\x18\x02\x20\x01(\x01R\x0fminAltitudeMslM\x12-\n\x06bounds\x18\
+    \x03\x20\x03(\x0b2\x15.uuaspb.UasCoordinateR\x06bounds\"I\n\rUasCoordina\
+    te\x12\x1a\n\x08latitude\x18\x01\x20\x01(\x01R\x08latitude\x12\x1c\n\tlo\
+    ngitude\x18\x02\x20\x01(\x01R\tlongitude\"\xa2\x01\n\x08Waypoint\x125\n\
+    \ncoordinate\x18\x01\x20\x01(\x0b2\x15.uuaspb.UasCoordinateR\ncoordinate\
+    \x12$\n\x0ealtitude_msl_m\x18\x02\x20\x01(\x01R\x0caltitudeMslM\x129\n\r\
+    waypoint_type\x18\x03\x20\x01(\x0e2\x14.uuaspb.WaypointTypeR\x0cwaypoint\
+    Type\"\x7f\n\x10CylinderObstacle\x125\n\ncoordinate\x18\x01\x20\x01(\x0b\
+    2\x15.uuaspb.UasCoordinateR\ncoordinate\x12\x19\n\x08radius_m\x18\x02\
+    \x20\x01(\x01R\x07radiusM\x12\x19\n\x08height_m\x18\x03\x20\x01(\x01R\
+    \x07heightM*\x1f\n\x0cResultStatus\x12\x06\n\x02OK\x10\0\x12\x07\n\x03ER\
+    R\x10\x01*t\n\x0cWaypointType\x12\x08\n\x04NONE\x10\0\x12\x0e\n\nCOORDIN\
+    ATE\x10\x01\x12\r\n\tGENERATED\x10\x02\x12\x0f\n\x0bAUTO_FLIGHT\x10\x03\
+    \x12\x0b\n\x07AIRDROP\x10\x04\x12\x0c\n\x08OFF_AXIS\x10\x05\x12\x0f\n\
+    \x0bSEARCH_GRID\x10\x06J\xdf\x16\n\x06\x12\x04\0\0a\x01\n\x08\n\x01\x0c\
+    \x12\x03\0\0\x12\n\x08\n\x01\x02\x12\x03\x02\0\x0f\n\n\n\x02\x05\0\x12\
+    \x04\x04\0\x07\x01\n\n\n\x03\x05\0\x01\x12\x03\x04\x05\x11\n\x0b\n\x04\
+    \x05\0\x02\0\x12\x03\x05\x04\x0b\n\x0c\n\x05\x05\0\x02\0\x01\x12\x03\x05\
+    \x04\x06\n\x0c\n\x05\x05\0\x02\0\x02\x12\x03\x05\t\n\n\x0b\n\x04\x05\0\
+    \x02\x01\x12\x03\x06\x04\x0c\n\x0c\n\x05\x05\0\x02\x01\x01\x12\x03\x06\
+    \x04\x07\n\x0c\n\x05\x05\0\x02\x01\x02\x12\x03\x06\n\x0b\n%\n\x02\x04\0\
+    \x12\x04\x0b\0\x0e\x012\x19\x20Geotag\x20related\x20messages\x20\n\n\n\
+    \x03\x04\0\x01\x12\x03\x0b\x08\x15\n\x0b\n\x04\x04\0\x02\0\x12\x03\x0c\
+    \x04\x18\n\x0c\n\x05\x04\0\x02\0\x05\x12\x03\x0c\x04\n\n\x0c\n\x05\x04\0\
+    \x02\0\x01\x12\x03\x0c\x0b\x13\n\x0c\n\x05\x04\0\x02\0\x03\x12\x03\x0c\
+    \x16\x17\n\x0b\n\x04\x04\0\x02\x01\x12\x03\r\x04\x1c\n\x0c\n\x05\x04\0\
+    \x02\x01\x06\x12\x03\r\x04\r\n\x0c\n\x05\x04\0\x02\x01\x01\x12\x03\r\x0e\
+    \x17\n\x0c\n\x05\x04\0\x02\x01\x03\x12\x03\r\x1a\x1b\n\n\n\x02\x04\x01\
+    \x12\x04\x10\0\x12\x01\n\n\n\x03\x04\x01\x01\x12\x03\x10\x08\x16\n\x0b\n\
+    \x04\x04\x01\x02\0\x12\x03\x11\x04\x1c\n\x0c\n\x05\x04\x01\x02\0\x06\x12\
+    \x03\x11\x04\x10\n\x0c\n\x05\x04\x01\x02\0\x01\x12\x03\x11\x11\x17\n\x0c\
+    \n\x05\x04\x01\x02\0\x03\x12\x03\x11\x1a\x1b\n\n\n\x02\x04\x02\x12\x04\
+    \x14\0\x16\x01\n\n\n\x03\x04\x02\x01\x12\x03\x14\x08\x17\n\x0b\n\x04\x04\
+    \x02\x02\0\x12\x03\x15\x04\x18\n\x0c\n\x05\x04\x02\x02\0\x05\x12\x03\x15\
+    \x04\n\n\x0c\n\x05\x04\x02\x02\0\x01\x12\x03\x15\x0b\x13\n\x0c\n\x05\x04\
+    \x02\x02\0\x03\x12\x03\x15\x16\x17\n\n\n\x02\x04\x03\x12\x04\x18\0\x1b\
+    \x01\n\n\n\x03\x04\x03\x01\x12\x03\x18\x08\x18\n\x0b\n\x04\x04\x03\x02\0\
+    \x12\x03\x19\x04\x1c\n\x0c\n\x05\x04\x03\x02\0\x06\x12\x03\x19\x04\x10\n\
+    \x0c\n\x05\x04\x03\x02\0\x01\x12\x03\x19\x11\x17\n\x0c\n\x05\x04\x03\x02\
+    \0\x03\x12\x03\x19\x1a\x1b\n\x0b\n\x04\x04\x03\x02\x01\x12\x03\x1a\x04\
+    \x1c\n\x0c\n\x05\x04\x03\x02\x01\x06\x12\x03\x1a\x04\r\n\x0c\n\x05\x04\
+    \x03\x02\x01\x01\x12\x03\x1a\x0e\x17\n\x0c\n\x05\x04\x03\x02\x01\x03\x12\
+    \x03\x1a\x1a\x1b\n\n\n\x02\x04\x04\x12\x04\x1d\03\x01\n\n\n\x03\x04\x04\
+    \x01\x12\x03\x1d\x08\x11\n\x0b\n\x04\x04\x04\x02\0\x12\x03\x1e\x04\x18\n\
+    \x0c\n\x05\x04\x04\x02\0\x05\x12\x03\x1e\x04\n\n\x0c\n\x05\x04\x04\x02\0\
+    \x01\x12\x03\x1e\x0b\x13\n\x0c\n\x05\x04\x04\x02\0\x03\x12\x03\x1e\x16\
+    \x17\n\x0b\n\x04\x04\x04\x02\x01\x12\x03\x1f\x04\x19\n\x0c\n\x05\x04\x04\
+    \x02\x01\x05\x12\x03\x1f\x04\n\n\x0c\n\x05\x04\x04\x02\x01\x01\x12\x03\
+    \x1f\x0b\x14\n\x0c\n\x05\x04\x04\x02\x01\x03\x12\x03\x1f\x17\x18\n\x0b\n\
+    \x04\x04\x04\x02\x02\x12\x03!\x04\x1e\n\x0c\n\x05\x04\x04\x02\x02\x05\
+    \x12\x03!\x04\n\n\x0c\n\x05\x04\x04\x02\x02\x01\x12\x03!\x0b\x19\n\x0c\n\
+    \x05\x04\x04\x02\x02\x03\x12\x03!\x1c\x1d\n\x0b\n\x04\x04\x04\x02\x03\
+    \x12\x03\"\x04\x1e\n\x0c\n\x05\x04\x04\x02\x03\x05\x12\x03\"\x04\n\n\x0c\
+    \n\x05\x04\x04\x02\x03\x01\x12\x03\"\x0b\x19\n\x0c\n\x05\x04\x04\x02\x03\
+    \x03\x12\x03\"\x1c\x1d\n\x0b\n\x04\x04\x04\x02\x04\x12\x03#\x04\x1b\n\
+    \x0c\n\x05\x04\x04\x02\x04\x05\x12\x03#\x04\n\n\x0c\n\x05\x04\x04\x02\
+    \x04\x01\x12\x03#\x0b\x16\n\x0c\n\x05\x04\x04\x02\x04\x03\x12\x03#\x19\
+    \x1a\n\x0b\n\x04\x04\x04\x02\x05\x12\x03%\x04\x1d\n\x0c\n\x05\x04\x04\
+    \x02\x05\x05\x12\x03%\x04\n\n\x0c\n\x05\x04\x04\x02\x05\x01\x12\x03%\x0b\
+    \x18\n\x0c\n\x05\x04\x04\x02\x05\x03\x12\x03%\x1b\x1c\n\x0b\n\x04\x04\
+    \x04\x02\x06\x12\x03&\x04\x1d\n\x0c\n\x05\x04\x04\x02\x06\x05\x12\x03&\
+    \x04\n\n\x0c\n\x05\x04\x04\x02\x06\x01\x12\x03&\x0b\x18\n\x0c\n\x05\x04\
+    \x04\x02\x06\x03\x12\x03&\x1b\x1c\n\x0b\n\x04\x04\x04\x02\x07\x12\x03'\
+    \x04\x1d\n\x0c\n\x05\x04\x04\x02\x07\x05\x12\x03'\x04\n\n\x0c\n\x05\x04\
+    \x04\x02\x07\x01\x12\x03'\x0b\x18\n\x0c\n\x05\x04\x04\x02\x07\x03\x12\
+    \x03'\x1b\x1c\n\x0b\n\x04\x04\x04\x02\x08\x12\x03)\x04\x18\n\x0c\n\x05\
+    \x04\x04\x02\x08\x05\x12\x03)\x04\n\n\x0c\n\x05\x04\x04\x02\x08\x01\x12\
+    \x03)\x0b\x13\n\x0c\n\x05\x04\x04\x02\x08\x03\x12\x03)\x16\x17\n\x0b\n\
+    \x04\x04\x04\x02\t\x12\x03*\x04\x1a\n\x0c\n\x05\x04\x04\x02\t\x05\x12\
+    \x03*\x04\n\n\x0c\n\x05\x04\x04\x02\t\x01\x12\x03*\x0b\x14\n\x0c\n\x05\
+    \x04\x04\x02\t\x03\x12\x03*\x17\x19\n\x0b\n\x04\x04\x04\x02\n\x12\x03+\
+    \x04\x18\n\x0c\n\x05\x04\x04\x02\n\x05\x12\x03+\x04\n\n\x0c\n\x05\x04\
+    \x04\x02\n\x01\x12\x03+\x0b\x12\n\x0c\n\x05\x04\x04\x02\n\x03\x12\x03+\
+    \x15\x17\n\x0b\n\x04\x04\x04\x02\x0b\x12\x03-\x04\x20\n\x0c\n\x05\x04\
+    \x04\x02\x0b\x05\x12\x03-\x04\n\n\x0c\n\x05\x04\x04\x02\x0b\x01\x12\x03-\
+    \x0b\x1a\n\x0c\n\x05\x04\x04\x02\x0b\x03\x12\x03-\x1d\x1f\n\x0b\n\x04\
+    \x04\x04\x02\x0c\x12\x03.\x04!\n\x0c\n\x05\x04\x04\x02\x0c\x05\x12\x03.\
+    \x04\n\n\x0c\n\x05\x04\x04\x02\x0c\x01\x12\x03.\x0b\x1b\n\x0c\n\x05\x04\
+    \x04\x02\x0c\x03\x12\x03.\x1e\x20\n\x0b\n\x04\x04\x04\x02\r\x12\x03/\x04\
+    \x1f\n\x0c\n\x05\x04\x04\x02\r\x05\x12\x03/\x04\n\n\x0c\n\x05\x04\x04\
+    \x02\r\x01\x12\x03/\x0b\x19\n\x0c\n\x05\x04\x04\x02\r\x03\x12\x03/\x1c\
+    \x1e\n\x0b\n\x04\x04\x04\x02\x0e\x12\x031\x04%\n\x0c\n\x05\x04\x04\x02\
+    \x0e\x05\x12\x031\x04\n\n\x0c\n\x05\x04\x04\x02\x0e\x01\x12\x031\x0b\x1f\
+    \n\x0c\n\x05\x04\x04\x02\x0e\x03\x12\x031\"$\n\x0b\n\x04\x04\x04\x02\x0f\
+    \x12\x032\x04!\n\x0c\n\x05\x04\x04\x02\x0f\x05\x12\x032\x04\n\n\x0c\n\
+    \x05\x04\x04\x02\x0f\x01\x12\x032\x0b\x1b\n\x0c\n\x05\x04\x04\x02\x0f\
+    \x03\x12\x032\x1e\x20\n'\n\x02\x04\x05\x12\x047\0;\x012\x1b\x20Waypoint\
+    \x20related\x20messages\x20\n\n\n\x03\x04\x05\x01\x12\x037\x08\x1b\n\x0b\
+    \n\x04\x04\x05\x02\0\x12\x038\x04$\n\x0c\n\x05\x04\x05\x02\0\x04\x12\x03\
+    8\x04\x0c\n\x0c\n\x05\x04\x05\x02\0\x06\x12\x038\r\x15\n\x0c\n\x05\x04\
+    \x05\x02\0\x01\x12\x038\x16\x1f\n\x0c\n\x05\x04\x05\x02\0\x03\x12\x038\"\
+    #\n\x0b\n\x04\x04\x05\x02\x01\x12\x039\x04,\n\x0c\n\x05\x04\x05\x02\x01\
+    \x04\x12\x039\x04\x0c\n\x0c\n\x05\x04\x05\x02\x01\x06\x12\x039\r\x1d\n\
+    \x0c\n\x05\x04\x05\x02\x01\x01\x12\x039\x1e'\n\x0c\n\x05\x04\x05\x02\x01\
+    \x03\x12\x039*+\n\x0b\n\x04\x04\x05\x02\x02\x12\x03:\x04\x18\n\x0c\n\x05\
+    \x04\x05\x02\x02\x06\x12\x03:\x04\x0b\n\x0c\n\x05\x04\x05\x02\x02\x01\
+    \x12\x03:\x0c\x13\n\x0c\n\x05\x04\x05\x02\x02\x03\x12\x03:\x16\x17\n\n\n\
+    \x02\x04\x06\x12\x04=\0@\x01\n\n\n\x03\x04\x06\x01\x12\x03=\x08\x1c\n\
+    \x0b\n\x04\x04\x06\x02\0\x12\x03>\x04\x1c\n\x0c\n\x05\x04\x06\x02\0\x06\
+    \x12\x03>\x04\x10\n\x0c\n\x05\x04\x06\x02\0\x01\x12\x03>\x11\x17\n\x0c\n\
+    \x05\x04\x06\x02\0\x03\x12\x03>\x1a\x1b\n\x0b\n\x04\x04\x06\x02\x01\x12\
+    \x03?\x04$\n\x0c\n\x05\x04\x06\x02\x01\x04\x12\x03?\x04\x0c\n\x0c\n\x05\
+    \x04\x06\x02\x01\x06\x12\x03?\r\x15\n\x0c\n\x05\x04\x06\x02\x01\x01\x12\
+    \x03?\x16\x1f\n\x0c\n\x05\x04\x06\x02\x01\x03\x12\x03?\"#\n\n\n\x02\x04\
+    \x07\x12\x04B\0F\x01\n\n\n\x03\x04\x07\x01\x12\x03B\x08\x0f\n\x0b\n\x04\
+    \x04\x07\x02\0\x12\x03C\x04\"\n\x0c\n\x05\x04\x07\x02\0\x05\x12\x03C\x04\
+    \n\n\x0c\n\x05\x04\x07\x02\0\x01\x12\x03C\x0b\x1d\n\x0c\n\x05\x04\x07\
+    \x02\0\x03\x12\x03C\x20!\n\x0b\n\x04\x04\x07\x02\x01\x12\x03D\x04\"\n\
+    \x0c\n\x05\x04\x07\x02\x01\x05\x12\x03D\x04\n\n\x0c\n\x05\x04\x07\x02\
+    \x01\x01\x12\x03D\x0b\x1d\n\x0c\n\x05\x04\x07\x02\x01\x03\x12\x03D\x20!\
+    \n\x0b\n\x04\x04\x07\x02\x02\x12\x03E\x04&\n\x0c\n\x05\x04\x07\x02\x02\
+    \x04\x12\x03E\x04\x0c\n\x0c\n\x05\x04\x07\x02\x02\x06\x12\x03E\r\x1a\n\
+    \x0c\n\x05\x04\x07\x02\x02\x01\x12\x03E\x1b!\n\x0c\n\x05\x04\x07\x02\x02\
+    \x03\x12\x03E$%\n\n\n\x02\x04\x08\x12\x04H\0K\x01\n\n\n\x03\x04\x08\x01\
+    \x12\x03H\x08\x15\n\x0b\n\x04\x04\x08\x02\0\x12\x03I\x04\x18\n\x0c\n\x05\
+    \x04\x08\x02\0\x05\x12\x03I\x04\n\n\x0c\n\x05\x04\x08\x02\0\x01\x12\x03I\
+    \x0b\x13\n\x0c\n\x05\x04\x08\x02\0\x03\x12\x03I\x16\x17\n\x0b\n\x04\x04\
+    \x08\x02\x01\x12\x03J\x04\x19\n\x0c\n\x05\x04\x08\x02\x01\x05\x12\x03J\
+    \x04\n\n\x0c\n\x05\x04\x08\x02\x01\x01\x12\x03J\x0b\x14\n\x0c\n\x05\x04\
+    \x08\x02\x01\x03\x12\x03J\x17\x18\n\n\n\x02\x05\x01\x12\x04M\0U\x01\n\n\
+    \n\x03\x05\x01\x01\x12\x03M\x05\x11\n\x0b\n\x04\x05\x01\x02\0\x12\x03N\
+    \x04\r\n\x0c\n\x05\x05\x01\x02\0\x01\x12\x03N\x04\x08\n\x0c\n\x05\x05\
+    \x01\x02\0\x02\x12\x03N\x0b\x0c\n\x0b\n\x04\x05\x01\x02\x01\x12\x03O\x04\
+    \x13\n\x0c\n\x05\x05\x01\x02\x01\x01\x12\x03O\x04\x0e\n\x0c\n\x05\x05\
+    \x01\x02\x01\x02\x12\x03O\x11\x12\n\x0b\n\x04\x05\x01\x02\x02\x12\x03P\
+    \x04\x12\n\x0c\n\x05\x05\x01\x02\x02\x01\x12\x03P\x04\r\n\x0c\n\x05\x05\
+    \x01\x02\x02\x02\x12\x03P\x10\x11\n\x0b\n\x04\x05\x01\x02\x03\x12\x03Q\
+    \x04\x14\n\x0c\n\x05\x05\x01\x02\x03\x01\x12\x03Q\x04\x0f\n\x0c\n\x05\
+    \x05\x01\x02\x03\x02\x12\x03Q\x12\x13\n\x0b\n\x04\x05\x01\x02\x04\x12\
+    \x03R\x04\x10\n\x0c\n\x05\x05\x01\x02\x04\x01\x12\x03R\x04\x0b\n\x0c\n\
+    \x05\x05\x01\x02\x04\x02\x12\x03R\x0e\x0f\n\x0b\n\x04\x05\x01\x02\x05\
+    \x12\x03S\x04\x11\n\x0c\n\x05\x05\x01\x02\x05\x01\x12\x03S\x04\x0c\n\x0c\
+    \n\x05\x05\x01\x02\x05\x02\x12\x03S\x0f\x10\n\x0b\n\x04\x05\x01\x02\x06\
+    \x12\x03T\x04\x14\n\x0c\n\x05\x05\x01\x02\x06\x01\x12\x03T\x04\x0f\n\x0c\
+    \n\x05\x05\x01\x02\x06\x02\x12\x03T\x12\x13\n\n\n\x02\x04\t\x12\x04W\0[\
+    \x01\n\n\n\x03\x04\t\x01\x12\x03W\x08\x10\n\x0b\n\x04\x04\t\x02\0\x12\
+    \x03X\x04!\n\x0c\n\x05\x04\t\x02\0\x06\x12\x03X\x04\x11\n\x0c\n\x05\x04\
+    \t\x02\0\x01\x12\x03X\x12\x1c\n\x0c\n\x05\x04\t\x02\0\x03\x12\x03X\x1f\
+    \x20\n\x0b\n\x04\x04\t\x02\x01\x12\x03Y\x04\x1e\n\x0c\n\x05\x04\t\x02\
+    \x01\x05\x12\x03Y\x04\n\n\x0c\n\x05\x04\t\x02\x01\x01\x12\x03Y\x0b\x19\n\
+    \x0c\n\x05\x04\t\x02\x01\x03\x12\x03Y\x1c\x1d\n\x0b\n\x04\x04\t\x02\x02\
+    \x12\x03Z\x04#\n\x0c\n\x05\x04\t\x02\x02\x06\x12\x03Z\x04\x10\n\x0c\n\
+    \x05\x04\t\x02\x02\x01\x12\x03Z\x11\x1e\n\x0c\n\x05\x04\t\x02\x02\x03\
+    \x12\x03Z!\"\n\n\n\x02\x04\n\x12\x04]\0a\x01\n\n\n\x03\x04\n\x01\x12\x03\
+    ]\x08\x18\n\x0b\n\x04\x04\n\x02\0\x12\x03^\x04!\n\x0c\n\x05\x04\n\x02\0\
+    \x06\x12\x03^\x04\x11\n\x0c\n\x05\x04\n\x02\0\x01\x12\x03^\x12\x1c\n\x0c\
+    \n\x05\x04\n\x02\0\x03\x12\x03^\x1f\x20\n\x0b\n\x04\x04\n\x02\x01\x12\
+    \x03_\x04\x18\n\x0c\n\x05\x04\n\x02\x01\x05\x12\x03_\x04\n\n\x0c\n\x05\
+    \x04\n\x02\x01\x01\x12\x03_\x0b\x13\n\x0c\n\x05\x04\n\x02\x01\x03\x12\
+    \x03_\x16\x17\n\x0b\n\x04\x04\n\x02\x02\x12\x03`\x04\x18\n\x0c\n\x05\x04\
+    \n\x02\x02\x05\x12\x03`\x04\n\n\x0c\n\x05\x04\n\x02\x02\x01\x12\x03`\x0b\
+    \x13\n\x0c\n\x05\x04\n\x02\x02\x03\x12\x03`\x16\x17b\x06proto3\
 ";
 
 static file_descriptor_proto_lazy: ::protobuf::rt::LazyV2<::protobuf::descriptor::FileDescriptorProto> = ::protobuf::rt::LazyV2::INIT;

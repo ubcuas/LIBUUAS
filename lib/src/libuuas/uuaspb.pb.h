@@ -48,7 +48,7 @@ struct TableStruct_uuaspb_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[5]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[11]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -56,28 +56,52 @@ struct TableStruct_uuaspb_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_uuaspb_2eproto;
 namespace uuaspb {
+class CylinderObstacle;
+class CylinderObstacleDefaultTypeInternal;
+extern CylinderObstacleDefaultTypeInternal _CylinderObstacle_default_instance_;
+class Flyzone;
+class FlyzoneDefaultTypeInternal;
+extern FlyzoneDefaultTypeInternal _Flyzone_default_instance_;
 class GeoTagRequest;
 class GeoTagRequestDefaultTypeInternal;
 extern GeoTagRequestDefaultTypeInternal _GeoTagRequest_default_instance_;
 class GeoTagResponse;
 class GeoTagResponseDefaultTypeInternal;
 extern GeoTagResponseDefaultTypeInternal _GeoTagResponse_default_instance_;
+class OrderedRouteRequest;
+class OrderedRouteRequestDefaultTypeInternal;
+extern OrderedRouteRequestDefaultTypeInternal _OrderedRouteRequest_default_instance_;
+class OrderedRouteResponse;
+class OrderedRouteResponseDefaultTypeInternal;
+extern OrderedRouteResponseDefaultTypeInternal _OrderedRouteResponse_default_instance_;
 class Telemetry;
 class TelemetryDefaultTypeInternal;
 extern TelemetryDefaultTypeInternal _Telemetry_default_instance_;
+class UasCoordinate;
+class UasCoordinateDefaultTypeInternal;
+extern UasCoordinateDefaultTypeInternal _UasCoordinate_default_instance_;
 class UnGeoTagRequest;
 class UnGeoTagRequestDefaultTypeInternal;
 extern UnGeoTagRequestDefaultTypeInternal _UnGeoTagRequest_default_instance_;
 class UnGeoTagResponse;
 class UnGeoTagResponseDefaultTypeInternal;
 extern UnGeoTagResponseDefaultTypeInternal _UnGeoTagResponse_default_instance_;
+class Waypoint;
+class WaypointDefaultTypeInternal;
+extern WaypointDefaultTypeInternal _Waypoint_default_instance_;
 }  // namespace uuaspb
 PROTOBUF_NAMESPACE_OPEN
+template<> ::uuaspb::CylinderObstacle* Arena::CreateMaybeMessage<::uuaspb::CylinderObstacle>(Arena*);
+template<> ::uuaspb::Flyzone* Arena::CreateMaybeMessage<::uuaspb::Flyzone>(Arena*);
 template<> ::uuaspb::GeoTagRequest* Arena::CreateMaybeMessage<::uuaspb::GeoTagRequest>(Arena*);
 template<> ::uuaspb::GeoTagResponse* Arena::CreateMaybeMessage<::uuaspb::GeoTagResponse>(Arena*);
+template<> ::uuaspb::OrderedRouteRequest* Arena::CreateMaybeMessage<::uuaspb::OrderedRouteRequest>(Arena*);
+template<> ::uuaspb::OrderedRouteResponse* Arena::CreateMaybeMessage<::uuaspb::OrderedRouteResponse>(Arena*);
 template<> ::uuaspb::Telemetry* Arena::CreateMaybeMessage<::uuaspb::Telemetry>(Arena*);
+template<> ::uuaspb::UasCoordinate* Arena::CreateMaybeMessage<::uuaspb::UasCoordinate>(Arena*);
 template<> ::uuaspb::UnGeoTagRequest* Arena::CreateMaybeMessage<::uuaspb::UnGeoTagRequest>(Arena*);
 template<> ::uuaspb::UnGeoTagResponse* Arena::CreateMaybeMessage<::uuaspb::UnGeoTagResponse>(Arena*);
+template<> ::uuaspb::Waypoint* Arena::CreateMaybeMessage<::uuaspb::Waypoint>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace uuaspb {
 
@@ -105,6 +129,36 @@ inline bool ResultStatus_Parse(
     const std::string& name, ResultStatus* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ResultStatus>(
     ResultStatus_descriptor(), name, value);
+}
+enum WaypointType : int {
+  NONE = 0,
+  COORDINATE = 1,
+  GENERATED = 2,
+  AUTO_FLIGHT = 3,
+  AIRDROP = 4,
+  OFF_AXIS = 5,
+  SEARCH_GRID = 6,
+  WaypointType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  WaypointType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool WaypointType_IsValid(int value);
+constexpr WaypointType WaypointType_MIN = NONE;
+constexpr WaypointType WaypointType_MAX = SEARCH_GRID;
+constexpr int WaypointType_ARRAYSIZE = WaypointType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* WaypointType_descriptor();
+template<typename T>
+inline const std::string& WaypointType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, WaypointType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function WaypointType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    WaypointType_descriptor(), enum_t_value);
+}
+inline bool WaypointType_Parse(
+    const std::string& name, WaypointType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<WaypointType>(
+    WaypointType_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -1028,6 +1082,1001 @@ class Telemetry PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_uuaspb_2eproto;
 };
+// -------------------------------------------------------------------
+
+class OrderedRouteRequest PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:uuaspb.OrderedRouteRequest) */ {
+ public:
+  inline OrderedRouteRequest() : OrderedRouteRequest(nullptr) {};
+  virtual ~OrderedRouteRequest();
+
+  OrderedRouteRequest(const OrderedRouteRequest& from);
+  OrderedRouteRequest(OrderedRouteRequest&& from) noexcept
+    : OrderedRouteRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline OrderedRouteRequest& operator=(const OrderedRouteRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline OrderedRouteRequest& operator=(OrderedRouteRequest&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const OrderedRouteRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const OrderedRouteRequest* internal_default_instance() {
+    return reinterpret_cast<const OrderedRouteRequest*>(
+               &_OrderedRouteRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  friend void swap(OrderedRouteRequest& a, OrderedRouteRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(OrderedRouteRequest* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(OrderedRouteRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline OrderedRouteRequest* New() const final {
+    return CreateMaybeMessage<OrderedRouteRequest>(nullptr);
+  }
+
+  OrderedRouteRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<OrderedRouteRequest>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const OrderedRouteRequest& from);
+  void MergeFrom(const OrderedRouteRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(OrderedRouteRequest* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "uuaspb.OrderedRouteRequest";
+  }
+  protected:
+  explicit OrderedRouteRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_uuaspb_2eproto);
+    return ::descriptor_table_uuaspb_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kWaypointsFieldNumber = 1,
+    kObstaclesFieldNumber = 2,
+    kFlyzoneFieldNumber = 3,
+  };
+  // repeated .uuaspb.Waypoint waypoints = 1;
+  int waypoints_size() const;
+  private:
+  int _internal_waypoints_size() const;
+  public:
+  void clear_waypoints();
+  ::uuaspb::Waypoint* mutable_waypoints(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::uuaspb::Waypoint >*
+      mutable_waypoints();
+  private:
+  const ::uuaspb::Waypoint& _internal_waypoints(int index) const;
+  ::uuaspb::Waypoint* _internal_add_waypoints();
+  public:
+  const ::uuaspb::Waypoint& waypoints(int index) const;
+  ::uuaspb::Waypoint* add_waypoints();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::uuaspb::Waypoint >&
+      waypoints() const;
+
+  // repeated .uuaspb.CylinderObstacle obstacles = 2;
+  int obstacles_size() const;
+  private:
+  int _internal_obstacles_size() const;
+  public:
+  void clear_obstacles();
+  ::uuaspb::CylinderObstacle* mutable_obstacles(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::uuaspb::CylinderObstacle >*
+      mutable_obstacles();
+  private:
+  const ::uuaspb::CylinderObstacle& _internal_obstacles(int index) const;
+  ::uuaspb::CylinderObstacle* _internal_add_obstacles();
+  public:
+  const ::uuaspb::CylinderObstacle& obstacles(int index) const;
+  ::uuaspb::CylinderObstacle* add_obstacles();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::uuaspb::CylinderObstacle >&
+      obstacles() const;
+
+  // .uuaspb.Flyzone flyzone = 3;
+  bool has_flyzone() const;
+  private:
+  bool _internal_has_flyzone() const;
+  public:
+  void clear_flyzone();
+  const ::uuaspb::Flyzone& flyzone() const;
+  ::uuaspb::Flyzone* release_flyzone();
+  ::uuaspb::Flyzone* mutable_flyzone();
+  void set_allocated_flyzone(::uuaspb::Flyzone* flyzone);
+  private:
+  const ::uuaspb::Flyzone& _internal_flyzone() const;
+  ::uuaspb::Flyzone* _internal_mutable_flyzone();
+  public:
+  void unsafe_arena_set_allocated_flyzone(
+      ::uuaspb::Flyzone* flyzone);
+  ::uuaspb::Flyzone* unsafe_arena_release_flyzone();
+
+  // @@protoc_insertion_point(class_scope:uuaspb.OrderedRouteRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::uuaspb::Waypoint > waypoints_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::uuaspb::CylinderObstacle > obstacles_;
+  ::uuaspb::Flyzone* flyzone_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_uuaspb_2eproto;
+};
+// -------------------------------------------------------------------
+
+class OrderedRouteResponse PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:uuaspb.OrderedRouteResponse) */ {
+ public:
+  inline OrderedRouteResponse() : OrderedRouteResponse(nullptr) {};
+  virtual ~OrderedRouteResponse();
+
+  OrderedRouteResponse(const OrderedRouteResponse& from);
+  OrderedRouteResponse(OrderedRouteResponse&& from) noexcept
+    : OrderedRouteResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline OrderedRouteResponse& operator=(const OrderedRouteResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline OrderedRouteResponse& operator=(OrderedRouteResponse&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const OrderedRouteResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const OrderedRouteResponse* internal_default_instance() {
+    return reinterpret_cast<const OrderedRouteResponse*>(
+               &_OrderedRouteResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  friend void swap(OrderedRouteResponse& a, OrderedRouteResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(OrderedRouteResponse* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(OrderedRouteResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline OrderedRouteResponse* New() const final {
+    return CreateMaybeMessage<OrderedRouteResponse>(nullptr);
+  }
+
+  OrderedRouteResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<OrderedRouteResponse>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const OrderedRouteResponse& from);
+  void MergeFrom(const OrderedRouteResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(OrderedRouteResponse* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "uuaspb.OrderedRouteResponse";
+  }
+  protected:
+  explicit OrderedRouteResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_uuaspb_2eproto);
+    return ::descriptor_table_uuaspb_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kWaypointsFieldNumber = 2,
+    kResultFieldNumber = 1,
+  };
+  // repeated .uuaspb.Waypoint waypoints = 2;
+  int waypoints_size() const;
+  private:
+  int _internal_waypoints_size() const;
+  public:
+  void clear_waypoints();
+  ::uuaspb::Waypoint* mutable_waypoints(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::uuaspb::Waypoint >*
+      mutable_waypoints();
+  private:
+  const ::uuaspb::Waypoint& _internal_waypoints(int index) const;
+  ::uuaspb::Waypoint* _internal_add_waypoints();
+  public:
+  const ::uuaspb::Waypoint& waypoints(int index) const;
+  ::uuaspb::Waypoint* add_waypoints();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::uuaspb::Waypoint >&
+      waypoints() const;
+
+  // .uuaspb.ResultStatus result = 1;
+  void clear_result();
+  ::uuaspb::ResultStatus result() const;
+  void set_result(::uuaspb::ResultStatus value);
+  private:
+  ::uuaspb::ResultStatus _internal_result() const;
+  void _internal_set_result(::uuaspb::ResultStatus value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:uuaspb.OrderedRouteResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::uuaspb::Waypoint > waypoints_;
+  int result_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_uuaspb_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Flyzone PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:uuaspb.Flyzone) */ {
+ public:
+  inline Flyzone() : Flyzone(nullptr) {};
+  virtual ~Flyzone();
+
+  Flyzone(const Flyzone& from);
+  Flyzone(Flyzone&& from) noexcept
+    : Flyzone() {
+    *this = ::std::move(from);
+  }
+
+  inline Flyzone& operator=(const Flyzone& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Flyzone& operator=(Flyzone&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Flyzone& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Flyzone* internal_default_instance() {
+    return reinterpret_cast<const Flyzone*>(
+               &_Flyzone_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  friend void swap(Flyzone& a, Flyzone& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Flyzone* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Flyzone* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Flyzone* New() const final {
+    return CreateMaybeMessage<Flyzone>(nullptr);
+  }
+
+  Flyzone* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Flyzone>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Flyzone& from);
+  void MergeFrom(const Flyzone& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Flyzone* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "uuaspb.Flyzone";
+  }
+  protected:
+  explicit Flyzone(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_uuaspb_2eproto);
+    return ::descriptor_table_uuaspb_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kBoundsFieldNumber = 3,
+    kMaxAltitudeMslMFieldNumber = 1,
+    kMinAltitudeMslMFieldNumber = 2,
+  };
+  // repeated .uuaspb.UasCoordinate bounds = 3;
+  int bounds_size() const;
+  private:
+  int _internal_bounds_size() const;
+  public:
+  void clear_bounds();
+  ::uuaspb::UasCoordinate* mutable_bounds(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::uuaspb::UasCoordinate >*
+      mutable_bounds();
+  private:
+  const ::uuaspb::UasCoordinate& _internal_bounds(int index) const;
+  ::uuaspb::UasCoordinate* _internal_add_bounds();
+  public:
+  const ::uuaspb::UasCoordinate& bounds(int index) const;
+  ::uuaspb::UasCoordinate* add_bounds();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::uuaspb::UasCoordinate >&
+      bounds() const;
+
+  // double max_altitude_msl_m = 1;
+  void clear_max_altitude_msl_m();
+  double max_altitude_msl_m() const;
+  void set_max_altitude_msl_m(double value);
+  private:
+  double _internal_max_altitude_msl_m() const;
+  void _internal_set_max_altitude_msl_m(double value);
+  public:
+
+  // double min_altitude_msl_m = 2;
+  void clear_min_altitude_msl_m();
+  double min_altitude_msl_m() const;
+  void set_min_altitude_msl_m(double value);
+  private:
+  double _internal_min_altitude_msl_m() const;
+  void _internal_set_min_altitude_msl_m(double value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:uuaspb.Flyzone)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::uuaspb::UasCoordinate > bounds_;
+  double max_altitude_msl_m_;
+  double min_altitude_msl_m_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_uuaspb_2eproto;
+};
+// -------------------------------------------------------------------
+
+class UasCoordinate PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:uuaspb.UasCoordinate) */ {
+ public:
+  inline UasCoordinate() : UasCoordinate(nullptr) {};
+  virtual ~UasCoordinate();
+
+  UasCoordinate(const UasCoordinate& from);
+  UasCoordinate(UasCoordinate&& from) noexcept
+    : UasCoordinate() {
+    *this = ::std::move(from);
+  }
+
+  inline UasCoordinate& operator=(const UasCoordinate& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline UasCoordinate& operator=(UasCoordinate&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const UasCoordinate& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const UasCoordinate* internal_default_instance() {
+    return reinterpret_cast<const UasCoordinate*>(
+               &_UasCoordinate_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  friend void swap(UasCoordinate& a, UasCoordinate& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(UasCoordinate* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(UasCoordinate* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline UasCoordinate* New() const final {
+    return CreateMaybeMessage<UasCoordinate>(nullptr);
+  }
+
+  UasCoordinate* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<UasCoordinate>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const UasCoordinate& from);
+  void MergeFrom(const UasCoordinate& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(UasCoordinate* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "uuaspb.UasCoordinate";
+  }
+  protected:
+  explicit UasCoordinate(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_uuaspb_2eproto);
+    return ::descriptor_table_uuaspb_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kLatitudeFieldNumber = 1,
+    kLongitudeFieldNumber = 2,
+  };
+  // double latitude = 1;
+  void clear_latitude();
+  double latitude() const;
+  void set_latitude(double value);
+  private:
+  double _internal_latitude() const;
+  void _internal_set_latitude(double value);
+  public:
+
+  // double longitude = 2;
+  void clear_longitude();
+  double longitude() const;
+  void set_longitude(double value);
+  private:
+  double _internal_longitude() const;
+  void _internal_set_longitude(double value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:uuaspb.UasCoordinate)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  double latitude_;
+  double longitude_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_uuaspb_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Waypoint PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:uuaspb.Waypoint) */ {
+ public:
+  inline Waypoint() : Waypoint(nullptr) {};
+  virtual ~Waypoint();
+
+  Waypoint(const Waypoint& from);
+  Waypoint(Waypoint&& from) noexcept
+    : Waypoint() {
+    *this = ::std::move(from);
+  }
+
+  inline Waypoint& operator=(const Waypoint& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Waypoint& operator=(Waypoint&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Waypoint& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Waypoint* internal_default_instance() {
+    return reinterpret_cast<const Waypoint*>(
+               &_Waypoint_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  friend void swap(Waypoint& a, Waypoint& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Waypoint* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Waypoint* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Waypoint* New() const final {
+    return CreateMaybeMessage<Waypoint>(nullptr);
+  }
+
+  Waypoint* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Waypoint>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Waypoint& from);
+  void MergeFrom(const Waypoint& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Waypoint* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "uuaspb.Waypoint";
+  }
+  protected:
+  explicit Waypoint(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_uuaspb_2eproto);
+    return ::descriptor_table_uuaspb_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCoordinateFieldNumber = 1,
+    kAltitudeMslMFieldNumber = 2,
+    kWaypointTypeFieldNumber = 3,
+  };
+  // .uuaspb.UasCoordinate coordinate = 1;
+  bool has_coordinate() const;
+  private:
+  bool _internal_has_coordinate() const;
+  public:
+  void clear_coordinate();
+  const ::uuaspb::UasCoordinate& coordinate() const;
+  ::uuaspb::UasCoordinate* release_coordinate();
+  ::uuaspb::UasCoordinate* mutable_coordinate();
+  void set_allocated_coordinate(::uuaspb::UasCoordinate* coordinate);
+  private:
+  const ::uuaspb::UasCoordinate& _internal_coordinate() const;
+  ::uuaspb::UasCoordinate* _internal_mutable_coordinate();
+  public:
+  void unsafe_arena_set_allocated_coordinate(
+      ::uuaspb::UasCoordinate* coordinate);
+  ::uuaspb::UasCoordinate* unsafe_arena_release_coordinate();
+
+  // double altitude_msl_m = 2;
+  void clear_altitude_msl_m();
+  double altitude_msl_m() const;
+  void set_altitude_msl_m(double value);
+  private:
+  double _internal_altitude_msl_m() const;
+  void _internal_set_altitude_msl_m(double value);
+  public:
+
+  // .uuaspb.WaypointType waypoint_type = 3;
+  void clear_waypoint_type();
+  ::uuaspb::WaypointType waypoint_type() const;
+  void set_waypoint_type(::uuaspb::WaypointType value);
+  private:
+  ::uuaspb::WaypointType _internal_waypoint_type() const;
+  void _internal_set_waypoint_type(::uuaspb::WaypointType value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:uuaspb.Waypoint)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::uuaspb::UasCoordinate* coordinate_;
+  double altitude_msl_m_;
+  int waypoint_type_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_uuaspb_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CylinderObstacle PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:uuaspb.CylinderObstacle) */ {
+ public:
+  inline CylinderObstacle() : CylinderObstacle(nullptr) {};
+  virtual ~CylinderObstacle();
+
+  CylinderObstacle(const CylinderObstacle& from);
+  CylinderObstacle(CylinderObstacle&& from) noexcept
+    : CylinderObstacle() {
+    *this = ::std::move(from);
+  }
+
+  inline CylinderObstacle& operator=(const CylinderObstacle& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CylinderObstacle& operator=(CylinderObstacle&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CylinderObstacle& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const CylinderObstacle* internal_default_instance() {
+    return reinterpret_cast<const CylinderObstacle*>(
+               &_CylinderObstacle_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    10;
+
+  friend void swap(CylinderObstacle& a, CylinderObstacle& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CylinderObstacle* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CylinderObstacle* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CylinderObstacle* New() const final {
+    return CreateMaybeMessage<CylinderObstacle>(nullptr);
+  }
+
+  CylinderObstacle* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CylinderObstacle>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CylinderObstacle& from);
+  void MergeFrom(const CylinderObstacle& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CylinderObstacle* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "uuaspb.CylinderObstacle";
+  }
+  protected:
+  explicit CylinderObstacle(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_uuaspb_2eproto);
+    return ::descriptor_table_uuaspb_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCoordinateFieldNumber = 1,
+    kRadiusMFieldNumber = 2,
+    kHeightMFieldNumber = 3,
+  };
+  // .uuaspb.UasCoordinate coordinate = 1;
+  bool has_coordinate() const;
+  private:
+  bool _internal_has_coordinate() const;
+  public:
+  void clear_coordinate();
+  const ::uuaspb::UasCoordinate& coordinate() const;
+  ::uuaspb::UasCoordinate* release_coordinate();
+  ::uuaspb::UasCoordinate* mutable_coordinate();
+  void set_allocated_coordinate(::uuaspb::UasCoordinate* coordinate);
+  private:
+  const ::uuaspb::UasCoordinate& _internal_coordinate() const;
+  ::uuaspb::UasCoordinate* _internal_mutable_coordinate();
+  public:
+  void unsafe_arena_set_allocated_coordinate(
+      ::uuaspb::UasCoordinate* coordinate);
+  ::uuaspb::UasCoordinate* unsafe_arena_release_coordinate();
+
+  // double radius_m = 2;
+  void clear_radius_m();
+  double radius_m() const;
+  void set_radius_m(double value);
+  private:
+  double _internal_radius_m() const;
+  void _internal_set_radius_m(double value);
+  public:
+
+  // double height_m = 3;
+  void clear_height_m();
+  double height_m() const;
+  void set_height_m(double value);
+  private:
+  double _internal_height_m() const;
+  void _internal_set_height_m(double value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:uuaspb.CylinderObstacle)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::uuaspb::UasCoordinate* coordinate_;
+  double radius_m_;
+  double height_m_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_uuaspb_2eproto;
+};
 // ===================================================================
 
 
@@ -1739,9 +2788,624 @@ inline void Telemetry::set_timestamp_msg_ms(::PROTOBUF_NAMESPACE_ID::uint64 valu
   // @@protoc_insertion_point(field_set:uuaspb.Telemetry.timestamp_msg_ms)
 }
 
+// -------------------------------------------------------------------
+
+// OrderedRouteRequest
+
+// repeated .uuaspb.Waypoint waypoints = 1;
+inline int OrderedRouteRequest::_internal_waypoints_size() const {
+  return waypoints_.size();
+}
+inline int OrderedRouteRequest::waypoints_size() const {
+  return _internal_waypoints_size();
+}
+inline void OrderedRouteRequest::clear_waypoints() {
+  waypoints_.Clear();
+}
+inline ::uuaspb::Waypoint* OrderedRouteRequest::mutable_waypoints(int index) {
+  // @@protoc_insertion_point(field_mutable:uuaspb.OrderedRouteRequest.waypoints)
+  return waypoints_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::uuaspb::Waypoint >*
+OrderedRouteRequest::mutable_waypoints() {
+  // @@protoc_insertion_point(field_mutable_list:uuaspb.OrderedRouteRequest.waypoints)
+  return &waypoints_;
+}
+inline const ::uuaspb::Waypoint& OrderedRouteRequest::_internal_waypoints(int index) const {
+  return waypoints_.Get(index);
+}
+inline const ::uuaspb::Waypoint& OrderedRouteRequest::waypoints(int index) const {
+  // @@protoc_insertion_point(field_get:uuaspb.OrderedRouteRequest.waypoints)
+  return _internal_waypoints(index);
+}
+inline ::uuaspb::Waypoint* OrderedRouteRequest::_internal_add_waypoints() {
+  return waypoints_.Add();
+}
+inline ::uuaspb::Waypoint* OrderedRouteRequest::add_waypoints() {
+  // @@protoc_insertion_point(field_add:uuaspb.OrderedRouteRequest.waypoints)
+  return _internal_add_waypoints();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::uuaspb::Waypoint >&
+OrderedRouteRequest::waypoints() const {
+  // @@protoc_insertion_point(field_list:uuaspb.OrderedRouteRequest.waypoints)
+  return waypoints_;
+}
+
+// repeated .uuaspb.CylinderObstacle obstacles = 2;
+inline int OrderedRouteRequest::_internal_obstacles_size() const {
+  return obstacles_.size();
+}
+inline int OrderedRouteRequest::obstacles_size() const {
+  return _internal_obstacles_size();
+}
+inline void OrderedRouteRequest::clear_obstacles() {
+  obstacles_.Clear();
+}
+inline ::uuaspb::CylinderObstacle* OrderedRouteRequest::mutable_obstacles(int index) {
+  // @@protoc_insertion_point(field_mutable:uuaspb.OrderedRouteRequest.obstacles)
+  return obstacles_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::uuaspb::CylinderObstacle >*
+OrderedRouteRequest::mutable_obstacles() {
+  // @@protoc_insertion_point(field_mutable_list:uuaspb.OrderedRouteRequest.obstacles)
+  return &obstacles_;
+}
+inline const ::uuaspb::CylinderObstacle& OrderedRouteRequest::_internal_obstacles(int index) const {
+  return obstacles_.Get(index);
+}
+inline const ::uuaspb::CylinderObstacle& OrderedRouteRequest::obstacles(int index) const {
+  // @@protoc_insertion_point(field_get:uuaspb.OrderedRouteRequest.obstacles)
+  return _internal_obstacles(index);
+}
+inline ::uuaspb::CylinderObstacle* OrderedRouteRequest::_internal_add_obstacles() {
+  return obstacles_.Add();
+}
+inline ::uuaspb::CylinderObstacle* OrderedRouteRequest::add_obstacles() {
+  // @@protoc_insertion_point(field_add:uuaspb.OrderedRouteRequest.obstacles)
+  return _internal_add_obstacles();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::uuaspb::CylinderObstacle >&
+OrderedRouteRequest::obstacles() const {
+  // @@protoc_insertion_point(field_list:uuaspb.OrderedRouteRequest.obstacles)
+  return obstacles_;
+}
+
+// .uuaspb.Flyzone flyzone = 3;
+inline bool OrderedRouteRequest::_internal_has_flyzone() const {
+  return this != internal_default_instance() && flyzone_ != nullptr;
+}
+inline bool OrderedRouteRequest::has_flyzone() const {
+  return _internal_has_flyzone();
+}
+inline void OrderedRouteRequest::clear_flyzone() {
+  if (GetArena() == nullptr && flyzone_ != nullptr) {
+    delete flyzone_;
+  }
+  flyzone_ = nullptr;
+}
+inline const ::uuaspb::Flyzone& OrderedRouteRequest::_internal_flyzone() const {
+  const ::uuaspb::Flyzone* p = flyzone_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::uuaspb::Flyzone*>(
+      &::uuaspb::_Flyzone_default_instance_);
+}
+inline const ::uuaspb::Flyzone& OrderedRouteRequest::flyzone() const {
+  // @@protoc_insertion_point(field_get:uuaspb.OrderedRouteRequest.flyzone)
+  return _internal_flyzone();
+}
+inline void OrderedRouteRequest::unsafe_arena_set_allocated_flyzone(
+    ::uuaspb::Flyzone* flyzone) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(flyzone_);
+  }
+  flyzone_ = flyzone;
+  if (flyzone) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:uuaspb.OrderedRouteRequest.flyzone)
+}
+inline ::uuaspb::Flyzone* OrderedRouteRequest::release_flyzone() {
+  auto temp = unsafe_arena_release_flyzone();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::uuaspb::Flyzone* OrderedRouteRequest::unsafe_arena_release_flyzone() {
+  // @@protoc_insertion_point(field_release:uuaspb.OrderedRouteRequest.flyzone)
+  
+  ::uuaspb::Flyzone* temp = flyzone_;
+  flyzone_ = nullptr;
+  return temp;
+}
+inline ::uuaspb::Flyzone* OrderedRouteRequest::_internal_mutable_flyzone() {
+  
+  if (flyzone_ == nullptr) {
+    auto* p = CreateMaybeMessage<::uuaspb::Flyzone>(GetArena());
+    flyzone_ = p;
+  }
+  return flyzone_;
+}
+inline ::uuaspb::Flyzone* OrderedRouteRequest::mutable_flyzone() {
+  // @@protoc_insertion_point(field_mutable:uuaspb.OrderedRouteRequest.flyzone)
+  return _internal_mutable_flyzone();
+}
+inline void OrderedRouteRequest::set_allocated_flyzone(::uuaspb::Flyzone* flyzone) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete flyzone_;
+  }
+  if (flyzone) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(flyzone);
+    if (message_arena != submessage_arena) {
+      flyzone = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, flyzone, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  flyzone_ = flyzone;
+  // @@protoc_insertion_point(field_set_allocated:uuaspb.OrderedRouteRequest.flyzone)
+}
+
+// -------------------------------------------------------------------
+
+// OrderedRouteResponse
+
+// .uuaspb.ResultStatus result = 1;
+inline void OrderedRouteResponse::clear_result() {
+  result_ = 0;
+}
+inline ::uuaspb::ResultStatus OrderedRouteResponse::_internal_result() const {
+  return static_cast< ::uuaspb::ResultStatus >(result_);
+}
+inline ::uuaspb::ResultStatus OrderedRouteResponse::result() const {
+  // @@protoc_insertion_point(field_get:uuaspb.OrderedRouteResponse.result)
+  return _internal_result();
+}
+inline void OrderedRouteResponse::_internal_set_result(::uuaspb::ResultStatus value) {
+  
+  result_ = value;
+}
+inline void OrderedRouteResponse::set_result(::uuaspb::ResultStatus value) {
+  _internal_set_result(value);
+  // @@protoc_insertion_point(field_set:uuaspb.OrderedRouteResponse.result)
+}
+
+// repeated .uuaspb.Waypoint waypoints = 2;
+inline int OrderedRouteResponse::_internal_waypoints_size() const {
+  return waypoints_.size();
+}
+inline int OrderedRouteResponse::waypoints_size() const {
+  return _internal_waypoints_size();
+}
+inline void OrderedRouteResponse::clear_waypoints() {
+  waypoints_.Clear();
+}
+inline ::uuaspb::Waypoint* OrderedRouteResponse::mutable_waypoints(int index) {
+  // @@protoc_insertion_point(field_mutable:uuaspb.OrderedRouteResponse.waypoints)
+  return waypoints_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::uuaspb::Waypoint >*
+OrderedRouteResponse::mutable_waypoints() {
+  // @@protoc_insertion_point(field_mutable_list:uuaspb.OrderedRouteResponse.waypoints)
+  return &waypoints_;
+}
+inline const ::uuaspb::Waypoint& OrderedRouteResponse::_internal_waypoints(int index) const {
+  return waypoints_.Get(index);
+}
+inline const ::uuaspb::Waypoint& OrderedRouteResponse::waypoints(int index) const {
+  // @@protoc_insertion_point(field_get:uuaspb.OrderedRouteResponse.waypoints)
+  return _internal_waypoints(index);
+}
+inline ::uuaspb::Waypoint* OrderedRouteResponse::_internal_add_waypoints() {
+  return waypoints_.Add();
+}
+inline ::uuaspb::Waypoint* OrderedRouteResponse::add_waypoints() {
+  // @@protoc_insertion_point(field_add:uuaspb.OrderedRouteResponse.waypoints)
+  return _internal_add_waypoints();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::uuaspb::Waypoint >&
+OrderedRouteResponse::waypoints() const {
+  // @@protoc_insertion_point(field_list:uuaspb.OrderedRouteResponse.waypoints)
+  return waypoints_;
+}
+
+// -------------------------------------------------------------------
+
+// Flyzone
+
+// double max_altitude_msl_m = 1;
+inline void Flyzone::clear_max_altitude_msl_m() {
+  max_altitude_msl_m_ = 0;
+}
+inline double Flyzone::_internal_max_altitude_msl_m() const {
+  return max_altitude_msl_m_;
+}
+inline double Flyzone::max_altitude_msl_m() const {
+  // @@protoc_insertion_point(field_get:uuaspb.Flyzone.max_altitude_msl_m)
+  return _internal_max_altitude_msl_m();
+}
+inline void Flyzone::_internal_set_max_altitude_msl_m(double value) {
+  
+  max_altitude_msl_m_ = value;
+}
+inline void Flyzone::set_max_altitude_msl_m(double value) {
+  _internal_set_max_altitude_msl_m(value);
+  // @@protoc_insertion_point(field_set:uuaspb.Flyzone.max_altitude_msl_m)
+}
+
+// double min_altitude_msl_m = 2;
+inline void Flyzone::clear_min_altitude_msl_m() {
+  min_altitude_msl_m_ = 0;
+}
+inline double Flyzone::_internal_min_altitude_msl_m() const {
+  return min_altitude_msl_m_;
+}
+inline double Flyzone::min_altitude_msl_m() const {
+  // @@protoc_insertion_point(field_get:uuaspb.Flyzone.min_altitude_msl_m)
+  return _internal_min_altitude_msl_m();
+}
+inline void Flyzone::_internal_set_min_altitude_msl_m(double value) {
+  
+  min_altitude_msl_m_ = value;
+}
+inline void Flyzone::set_min_altitude_msl_m(double value) {
+  _internal_set_min_altitude_msl_m(value);
+  // @@protoc_insertion_point(field_set:uuaspb.Flyzone.min_altitude_msl_m)
+}
+
+// repeated .uuaspb.UasCoordinate bounds = 3;
+inline int Flyzone::_internal_bounds_size() const {
+  return bounds_.size();
+}
+inline int Flyzone::bounds_size() const {
+  return _internal_bounds_size();
+}
+inline void Flyzone::clear_bounds() {
+  bounds_.Clear();
+}
+inline ::uuaspb::UasCoordinate* Flyzone::mutable_bounds(int index) {
+  // @@protoc_insertion_point(field_mutable:uuaspb.Flyzone.bounds)
+  return bounds_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::uuaspb::UasCoordinate >*
+Flyzone::mutable_bounds() {
+  // @@protoc_insertion_point(field_mutable_list:uuaspb.Flyzone.bounds)
+  return &bounds_;
+}
+inline const ::uuaspb::UasCoordinate& Flyzone::_internal_bounds(int index) const {
+  return bounds_.Get(index);
+}
+inline const ::uuaspb::UasCoordinate& Flyzone::bounds(int index) const {
+  // @@protoc_insertion_point(field_get:uuaspb.Flyzone.bounds)
+  return _internal_bounds(index);
+}
+inline ::uuaspb::UasCoordinate* Flyzone::_internal_add_bounds() {
+  return bounds_.Add();
+}
+inline ::uuaspb::UasCoordinate* Flyzone::add_bounds() {
+  // @@protoc_insertion_point(field_add:uuaspb.Flyzone.bounds)
+  return _internal_add_bounds();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::uuaspb::UasCoordinate >&
+Flyzone::bounds() const {
+  // @@protoc_insertion_point(field_list:uuaspb.Flyzone.bounds)
+  return bounds_;
+}
+
+// -------------------------------------------------------------------
+
+// UasCoordinate
+
+// double latitude = 1;
+inline void UasCoordinate::clear_latitude() {
+  latitude_ = 0;
+}
+inline double UasCoordinate::_internal_latitude() const {
+  return latitude_;
+}
+inline double UasCoordinate::latitude() const {
+  // @@protoc_insertion_point(field_get:uuaspb.UasCoordinate.latitude)
+  return _internal_latitude();
+}
+inline void UasCoordinate::_internal_set_latitude(double value) {
+  
+  latitude_ = value;
+}
+inline void UasCoordinate::set_latitude(double value) {
+  _internal_set_latitude(value);
+  // @@protoc_insertion_point(field_set:uuaspb.UasCoordinate.latitude)
+}
+
+// double longitude = 2;
+inline void UasCoordinate::clear_longitude() {
+  longitude_ = 0;
+}
+inline double UasCoordinate::_internal_longitude() const {
+  return longitude_;
+}
+inline double UasCoordinate::longitude() const {
+  // @@protoc_insertion_point(field_get:uuaspb.UasCoordinate.longitude)
+  return _internal_longitude();
+}
+inline void UasCoordinate::_internal_set_longitude(double value) {
+  
+  longitude_ = value;
+}
+inline void UasCoordinate::set_longitude(double value) {
+  _internal_set_longitude(value);
+  // @@protoc_insertion_point(field_set:uuaspb.UasCoordinate.longitude)
+}
+
+// -------------------------------------------------------------------
+
+// Waypoint
+
+// .uuaspb.UasCoordinate coordinate = 1;
+inline bool Waypoint::_internal_has_coordinate() const {
+  return this != internal_default_instance() && coordinate_ != nullptr;
+}
+inline bool Waypoint::has_coordinate() const {
+  return _internal_has_coordinate();
+}
+inline void Waypoint::clear_coordinate() {
+  if (GetArena() == nullptr && coordinate_ != nullptr) {
+    delete coordinate_;
+  }
+  coordinate_ = nullptr;
+}
+inline const ::uuaspb::UasCoordinate& Waypoint::_internal_coordinate() const {
+  const ::uuaspb::UasCoordinate* p = coordinate_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::uuaspb::UasCoordinate*>(
+      &::uuaspb::_UasCoordinate_default_instance_);
+}
+inline const ::uuaspb::UasCoordinate& Waypoint::coordinate() const {
+  // @@protoc_insertion_point(field_get:uuaspb.Waypoint.coordinate)
+  return _internal_coordinate();
+}
+inline void Waypoint::unsafe_arena_set_allocated_coordinate(
+    ::uuaspb::UasCoordinate* coordinate) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(coordinate_);
+  }
+  coordinate_ = coordinate;
+  if (coordinate) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:uuaspb.Waypoint.coordinate)
+}
+inline ::uuaspb::UasCoordinate* Waypoint::release_coordinate() {
+  auto temp = unsafe_arena_release_coordinate();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::uuaspb::UasCoordinate* Waypoint::unsafe_arena_release_coordinate() {
+  // @@protoc_insertion_point(field_release:uuaspb.Waypoint.coordinate)
+  
+  ::uuaspb::UasCoordinate* temp = coordinate_;
+  coordinate_ = nullptr;
+  return temp;
+}
+inline ::uuaspb::UasCoordinate* Waypoint::_internal_mutable_coordinate() {
+  
+  if (coordinate_ == nullptr) {
+    auto* p = CreateMaybeMessage<::uuaspb::UasCoordinate>(GetArena());
+    coordinate_ = p;
+  }
+  return coordinate_;
+}
+inline ::uuaspb::UasCoordinate* Waypoint::mutable_coordinate() {
+  // @@protoc_insertion_point(field_mutable:uuaspb.Waypoint.coordinate)
+  return _internal_mutable_coordinate();
+}
+inline void Waypoint::set_allocated_coordinate(::uuaspb::UasCoordinate* coordinate) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete coordinate_;
+  }
+  if (coordinate) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(coordinate);
+    if (message_arena != submessage_arena) {
+      coordinate = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, coordinate, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  coordinate_ = coordinate;
+  // @@protoc_insertion_point(field_set_allocated:uuaspb.Waypoint.coordinate)
+}
+
+// double altitude_msl_m = 2;
+inline void Waypoint::clear_altitude_msl_m() {
+  altitude_msl_m_ = 0;
+}
+inline double Waypoint::_internal_altitude_msl_m() const {
+  return altitude_msl_m_;
+}
+inline double Waypoint::altitude_msl_m() const {
+  // @@protoc_insertion_point(field_get:uuaspb.Waypoint.altitude_msl_m)
+  return _internal_altitude_msl_m();
+}
+inline void Waypoint::_internal_set_altitude_msl_m(double value) {
+  
+  altitude_msl_m_ = value;
+}
+inline void Waypoint::set_altitude_msl_m(double value) {
+  _internal_set_altitude_msl_m(value);
+  // @@protoc_insertion_point(field_set:uuaspb.Waypoint.altitude_msl_m)
+}
+
+// .uuaspb.WaypointType waypoint_type = 3;
+inline void Waypoint::clear_waypoint_type() {
+  waypoint_type_ = 0;
+}
+inline ::uuaspb::WaypointType Waypoint::_internal_waypoint_type() const {
+  return static_cast< ::uuaspb::WaypointType >(waypoint_type_);
+}
+inline ::uuaspb::WaypointType Waypoint::waypoint_type() const {
+  // @@protoc_insertion_point(field_get:uuaspb.Waypoint.waypoint_type)
+  return _internal_waypoint_type();
+}
+inline void Waypoint::_internal_set_waypoint_type(::uuaspb::WaypointType value) {
+  
+  waypoint_type_ = value;
+}
+inline void Waypoint::set_waypoint_type(::uuaspb::WaypointType value) {
+  _internal_set_waypoint_type(value);
+  // @@protoc_insertion_point(field_set:uuaspb.Waypoint.waypoint_type)
+}
+
+// -------------------------------------------------------------------
+
+// CylinderObstacle
+
+// .uuaspb.UasCoordinate coordinate = 1;
+inline bool CylinderObstacle::_internal_has_coordinate() const {
+  return this != internal_default_instance() && coordinate_ != nullptr;
+}
+inline bool CylinderObstacle::has_coordinate() const {
+  return _internal_has_coordinate();
+}
+inline void CylinderObstacle::clear_coordinate() {
+  if (GetArena() == nullptr && coordinate_ != nullptr) {
+    delete coordinate_;
+  }
+  coordinate_ = nullptr;
+}
+inline const ::uuaspb::UasCoordinate& CylinderObstacle::_internal_coordinate() const {
+  const ::uuaspb::UasCoordinate* p = coordinate_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::uuaspb::UasCoordinate*>(
+      &::uuaspb::_UasCoordinate_default_instance_);
+}
+inline const ::uuaspb::UasCoordinate& CylinderObstacle::coordinate() const {
+  // @@protoc_insertion_point(field_get:uuaspb.CylinderObstacle.coordinate)
+  return _internal_coordinate();
+}
+inline void CylinderObstacle::unsafe_arena_set_allocated_coordinate(
+    ::uuaspb::UasCoordinate* coordinate) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(coordinate_);
+  }
+  coordinate_ = coordinate;
+  if (coordinate) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:uuaspb.CylinderObstacle.coordinate)
+}
+inline ::uuaspb::UasCoordinate* CylinderObstacle::release_coordinate() {
+  auto temp = unsafe_arena_release_coordinate();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::uuaspb::UasCoordinate* CylinderObstacle::unsafe_arena_release_coordinate() {
+  // @@protoc_insertion_point(field_release:uuaspb.CylinderObstacle.coordinate)
+  
+  ::uuaspb::UasCoordinate* temp = coordinate_;
+  coordinate_ = nullptr;
+  return temp;
+}
+inline ::uuaspb::UasCoordinate* CylinderObstacle::_internal_mutable_coordinate() {
+  
+  if (coordinate_ == nullptr) {
+    auto* p = CreateMaybeMessage<::uuaspb::UasCoordinate>(GetArena());
+    coordinate_ = p;
+  }
+  return coordinate_;
+}
+inline ::uuaspb::UasCoordinate* CylinderObstacle::mutable_coordinate() {
+  // @@protoc_insertion_point(field_mutable:uuaspb.CylinderObstacle.coordinate)
+  return _internal_mutable_coordinate();
+}
+inline void CylinderObstacle::set_allocated_coordinate(::uuaspb::UasCoordinate* coordinate) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete coordinate_;
+  }
+  if (coordinate) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(coordinate);
+    if (message_arena != submessage_arena) {
+      coordinate = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, coordinate, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  coordinate_ = coordinate;
+  // @@protoc_insertion_point(field_set_allocated:uuaspb.CylinderObstacle.coordinate)
+}
+
+// double radius_m = 2;
+inline void CylinderObstacle::clear_radius_m() {
+  radius_m_ = 0;
+}
+inline double CylinderObstacle::_internal_radius_m() const {
+  return radius_m_;
+}
+inline double CylinderObstacle::radius_m() const {
+  // @@protoc_insertion_point(field_get:uuaspb.CylinderObstacle.radius_m)
+  return _internal_radius_m();
+}
+inline void CylinderObstacle::_internal_set_radius_m(double value) {
+  
+  radius_m_ = value;
+}
+inline void CylinderObstacle::set_radius_m(double value) {
+  _internal_set_radius_m(value);
+  // @@protoc_insertion_point(field_set:uuaspb.CylinderObstacle.radius_m)
+}
+
+// double height_m = 3;
+inline void CylinderObstacle::clear_height_m() {
+  height_m_ = 0;
+}
+inline double CylinderObstacle::_internal_height_m() const {
+  return height_m_;
+}
+inline double CylinderObstacle::height_m() const {
+  // @@protoc_insertion_point(field_get:uuaspb.CylinderObstacle.height_m)
+  return _internal_height_m();
+}
+inline void CylinderObstacle::_internal_set_height_m(double value) {
+  
+  height_m_ = value;
+}
+inline void CylinderObstacle::set_height_m(double value) {
+  _internal_set_height_m(value);
+  // @@protoc_insertion_point(field_set:uuaspb.CylinderObstacle.height_m)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -1761,6 +3425,11 @@ template <> struct is_proto_enum< ::uuaspb::ResultStatus> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::uuaspb::ResultStatus>() {
   return ::uuaspb::ResultStatus_descriptor();
+}
+template <> struct is_proto_enum< ::uuaspb::WaypointType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::uuaspb::WaypointType>() {
+  return ::uuaspb::WaypointType_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

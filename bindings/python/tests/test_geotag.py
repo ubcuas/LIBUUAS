@@ -71,6 +71,7 @@ def test_geotagImage(untagged_image_filename, test_telemetryArgs):
     result = geotagImage(untagged_image_filename, test_telemetryArgs)
     assert result == True
 
+
 def test_imageGeotagThenGetImageGeotag(untagged_image_filename, test_telemetryArgs):
     result = geotagImage(untagged_image_filename, test_telemetryArgs)
     assert result == True

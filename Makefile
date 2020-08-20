@@ -24,7 +24,7 @@ test-rust:
 
 test-py: install-py
 	pip3 install --user pytest
-	cd bindings/python/; pytest
+	cd bindings/python/; pytest -s
 
 test: test-cpp test-rust test-py
 
@@ -40,7 +40,7 @@ lint-py:
 	cd bindings/python/; find . -name '*.py' | grep -v uuaspb_pb2.py | xargs autopep8 --in-place
 # 	cd bindings/python/; find pylibuuas/ -name '*.py' | grep -v uuaspb_pb2.py | xargs mypy
 
-lint: lint-cpp lint-rust
+lint: lint-cpp lint-rust lint-py
 
 ## Cleanup ##
 clean-cpp:

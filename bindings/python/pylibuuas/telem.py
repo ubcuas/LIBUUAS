@@ -4,8 +4,8 @@ import collections
 TelemetryArgs = collections.namedtuple(
     'TelemetryArgs',
     [
-        'latitude',
-        'longitude',
+        'latitude_dege7',
+        'longitude_dege7',
         'altitude_agl_m',
         'altitude_msl_m',
         'heading_deg',
@@ -26,8 +26,8 @@ TelemetryArgs = collections.namedtuple(
 
 def new_telem_msg(args: TelemetryArgs) -> pylibuuaspb.Telemetry:
     msg = pylibuuaspb.Telemetry()
-    msg.latitude = args.latitude
-    msg.longitude = args.longitude
+    msg.latitude_dege7 = args.latitude_dege7
+    msg.longitude_dege7 = args.longitude_dege7
     msg.altitude_agl_m = args.altitude_agl_m
     msg.altitude_msl_m = args.altitude_msl_m
     msg.heading_deg = args.heading_deg

@@ -22,8 +22,8 @@ namespace geotag {
         image->readMetadata();
         Exiv2::XmpData& XMPData = image->xmpData();
 
-        XMPData["Xmp.UAS.latitude"] = dtos(geotagRequest.telemetry().latitude());
-        XMPData["Xmp.UAS.longitude"] = dtos(geotagRequest.telemetry().longitude());
+        XMPData["Xmp.UAS.latitude_dege7"] = dtos(geotagRequest.telemetry().latitude_dege7());
+        XMPData["Xmp.UAS.longitude_dege7"] = dtos(geotagRequest.telemetry().longitude_dege7());
         XMPData["Xmp.UAS.altitude_agl_m"] = dtos(geotagRequest.telemetry().altitude_agl_m());
         XMPData["Xmp.UAS.altitude_msl_m"] = dtos(geotagRequest.telemetry().altitude_msl_m());
         XMPData["Xmp.UAS.heading_deg"] = dtos(geotagRequest.telemetry().heading_deg());
@@ -60,10 +60,10 @@ namespace geotag {
         std::cout << "Reading XMP data from " << unGeotagRequest.filename() << std::endl;
         uuaspb::UnGeoTagResponse unGeotag_response;
 
-        const Exiv2::Value& latitude = XMPData["Xmp.UAS.latitude"].value();
-        unGeotag_response.mutable_telemetry()->set_latitude(std::stod(latitude.toString()));
-        const Exiv2::Value& longitude = XMPData["Xmp.UAS.longitude"].value();
-        unGeotag_response.mutable_telemetry()->set_longitude(std::stod(longitude.toString()));
+        const Exiv2::Value& latitude_dege7 = XMPData["Xmp.UAS.latitude_dege7"].value();
+        unGeotag_response.mutable_telemetry()->set_latitude_dege7(std::stod(latitude_dege7.toString()));
+        const Exiv2::Value& longitude_dege7 = XMPData["Xmp.UAS.longitude_dege7"].value();
+        unGeotag_response.mutable_telemetry()->set_longitude_dege7(std::stod(longitude_dege7.toString()));
         const Exiv2::Value& altitude_agl_m = XMPData["Xmp.UAS.altitude_agl_m"].value();
         unGeotag_response.mutable_telemetry()->set_altitude_agl_m(std::stod(altitude_agl_m.toString()));
         const Exiv2::Value& altitude_msl_m = XMPData["Xmp.UAS.altitude_msl_m"].value();

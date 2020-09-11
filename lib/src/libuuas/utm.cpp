@@ -35,11 +35,11 @@ namespace utm {
     constexpr char ZONE_LETTERS[] = "CDEFGHJKLMNPQRSTUVWXX";
 
     long double degToRad(long double degrees) {
-        return (degrees * M_PI) / 180;
+        return (degrees * M_PI) / 180.0;
     }
 
     long double radToDeg(long double radians) {
-        return (radians * 180) / M_PI;
+        return (radians * 180.0) / M_PI;
     }
 
     bool in_range(long double input, long double min, long double max) {
@@ -64,7 +64,7 @@ namespace utm {
             return 32;
         }
 
-        if (72.0 <= latitude <= 84.0 && longitude >= 0) {
+        if (72.0 <= latitude && latitude <= 84.0 && longitude >= 0) {
             if (longitude < 9) {
                 return 31;
             } else if (longitude < 21) {
@@ -79,12 +79,12 @@ namespace utm {
         return static_cast<int>((longitude + 180) / 6) + 1;
     }
 
-    long double zone_number_to_central_longitude(int zone_number) {
-        long double zone_number_int = static_cast<long double>(zone_number);
-        return (zone_number_int - 1.0) * 6.0 - 180.0 + 3.0;
+    long double zone_number_to_central_longitude(int zone_number_int) {
+        long double zone_number = static_cast<long double>(zone_number_int);
+        return (zone_number - 1.0) * 6.0 - 180.0 + 3.0;
     }
 
-    LatLonData to_latlon(long double easting, long double northing, int zone_number, char zone_letter) {
+    LatLonData to_latlon(double easting, double northing, int zone_number, char zone_letter) {
         if (!in_range(easting, 100000, 1000000)) {
             // throw error
         }
@@ -104,7 +104,7 @@ namespace utm {
         const long double m = y / K0;
         const long double mu = m / (R * M1);
 
-        const long double p_rad = (mu + P2 * sin(2 * mu) + P3 * sin(4 * mu) + P4 * sin(6 * mu) + P5 * sin(8 * mu));
+        const long double p_rad = (mu + P2 * sin(2.0 * mu) + P3 * sin(4.0 * mu) + P4 * sin(6.0 * mu) + P5 * sin(8.0 * mu));
 
         const long double p_sin = sin(p_rad);
         const long double p_sin2 = p_sin * p_sin;
@@ -131,19 +131,26 @@ namespace utm {
         const long double d5 = d4 * d;
         const long double d6 = d5 * d;
 
-        const long double latitude_rad = (p_rad - (p_tan / r) * (d2 / 2 - d4 / 24 * (5 + 3 * p_tan2 + 10 * c - 4 * c2 - 9 * E_P2)) + d6 / 720 * (61 + 90 * p_tan2 + 298 * c + 45 * p_tan4 - 252 * E_P2 - 3 * c2));
+        const long double latitude_rad = (p_rad - (p_tan / r) * (d2 / 2.0 - d4 / 24.0 * (5.0 + 3.0 * p_tan2 + 10.0 * c - 4.0 * c2 - 9.0 * E_P2)) + d6 / 720.0 * (61.0 + 90.0 * p_tan2 + 298.0 * c + 45.0 * p_tan4 - 252.0 * E_P2 - 3.0 * c2));
+        const long double longitude_rad = (d - d3 / 6.0 * (1.0 + 2.0 * p_tan2 + c) + d5 / 120.0 * (5.0 - 2.0 * c + 28.0 * p_tan2 - 3.0 * c2 + 8.0 * E_P2 + 24.0 * p_tan4)) / p_cos;
 
-        const long double longitude_rad = (d - d3 / 6 * (1 + 2 * p_tan2 + c) + d5 / 120 * (5 - 2 * c + 28 * p_tan2 - 3 * c2 + 8 * E_P2 + 24 * p_tan4)) / p_cos;
+        const long double latitude_deg = radToDeg(latitude_rad);
+        const long double longitude_deg = radToDeg(longitude_rad) + zone_number_to_central_longitude(zone_number);
 
-        return {radToDeg(latitude_rad),
-            radToDeg(longitude_rad) + zone_number_to_central_longitude(zone_number)};
+        const int32_t latitude_degE7 = latitude_deg * 1.0E7;
+        const int32_t longitude_degE7 = longitude_deg * 1.0E7;
+
+        return {latitude_degE7, longitude_degE7};
     }
 
-    LatLonData to_latlon(long double easting, long double northing) {
+    LatLonData to_latlon(double easting, double northing) {
         return to_latlon(easting, northing, cache::zone_number, cache::zone_letter);
     }
 
-    UTMData from_latlon(long double latitude, long double longitude) {
+    UTMData from_latlon(int32_t latitude_dege7, int32_t longitude_dege7) {
+        long double latitude = latitude_dege7 / 1.0E7;
+        long double longitude = longitude_dege7 / 1.0E7;
+
         if (!in_range(latitude, -80.0, 84.0)) {
             // TODO: RAISE ERROR
         }
@@ -178,8 +185,8 @@ namespace utm {
 
         const long double m = R * (M1 * lat_rad - M2 * sin(2 * lat_rad) + M3 * sin(4 * lat_rad) - M4 * sin(6 * lat_rad));
 
-        long double easting = K0 * n * (a + a3 / 6 * (1 - lat_tan2 + c) + a5 / 120 * (5 - 18 * lat_tan2 + lat_tan4 + 72 * c - 58 * E_P2)) + 500000;
-        long double northing = K0 * (m + n * lat_tan * (a2 / 2 + a4 / 24 * (5 - lat_tan2 + 9 * c + 4 * pow(c, 2)) + a6 / 720 * (61 - 58 * lat_tan2 + lat_tan4 + 600 * c - 330 * E_P2)));
+        double easting = K0 * n * (a + a3 / 6 * (1 - lat_tan2 + c) + a5 / 120 * (5 - 18 * lat_tan2 + lat_tan4 + 72 * c - 58 * E_P2)) + 500000;
+        double northing = K0 * (m + n * lat_tan * (a2 / 2 + a4 / 24 * (5 - lat_tan2 + 9 * c + 4 * pow(c, 2)) + a6 / 720 * (61 - 58 * lat_tan2 + lat_tan4 + 600 * c - 330 * E_P2)));
 
         if (latitude < 0) {
             northing += 10000000;
@@ -190,5 +197,5 @@ namespace utm {
         return {easting, northing, zone_number, zone_letter};
     }
 
-} // utm
-} // libuuas
+} // namespace utm
+} // namespace libuuas

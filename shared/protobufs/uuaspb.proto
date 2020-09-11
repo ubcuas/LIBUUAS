@@ -28,8 +28,8 @@ message UnGeoTagResponse {
 }
 
 message Telemetry {
-    double latitude = 1;
-    double longitude = 2;
+    int32 latitude_dege7 = 1;
+    int32 longitude_dege7 = 2;
 
     double altitude_agl_m = 3;
     double altitude_msl_m = 4;
@@ -71,8 +71,8 @@ message Flyzone {
 }
 
 message UasCoordinate {
-    double latitude = 1;
-    double longitude = 2;
+    int32 latitude_dege7 = 1;
+    int32 longitude_dege7 = 2;
 }
 
 enum WaypointType {

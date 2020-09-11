@@ -13,8 +13,8 @@ constexpr char testImageFilenameWEBP[] = "test/resources/images/image1.webp";
 TEST_CASE("Geotag should successfully tag telemetry data", "[geotag]") {
     uuaspb::GeoTagRequest request;
     request.set_filename(testImageFilenameJPEG);
-    request.mutable_telemetry()->set_latitude(1);
-    request.mutable_telemetry()->set_longitude(2);
+    request.mutable_telemetry()->set_latitude_dege7(1);
+    request.mutable_telemetry()->set_longitude_dege7(2);
     request.mutable_telemetry()->set_altitude_agl_m(3);
     request.mutable_telemetry()->set_altitude_msl_m(4);
     request.mutable_telemetry()->set_heading_deg(5);
@@ -36,8 +36,8 @@ TEST_CASE("Geotag should successfully tag telemetry data", "[geotag]") {
     getRequest.set_filename(testImageFilenameJPEG);
     uuaspb::UnGeoTagResponse getResponse = getImageGeotag(getRequest);
     REQUIRE(getResponse.result() == uuaspb::ResultStatus::OK);
-    REQUIRE(getResponse.telemetry().latitude() == request.telemetry().latitude());
-    REQUIRE(getResponse.telemetry().longitude() == request.telemetry().longitude());
+    REQUIRE(getResponse.telemetry().latitude_dege7() == request.telemetry().latitude_dege7());
+    REQUIRE(getResponse.telemetry().longitude_dege7() == request.telemetry().longitude_dege7());
     REQUIRE(getResponse.telemetry().altitude_agl_m() == request.telemetry().altitude_agl_m());
     REQUIRE(getResponse.telemetry().altitude_msl_m() == request.telemetry().altitude_msl_m());
     REQUIRE(getResponse.telemetry().heading_deg() == request.telemetry().heading_deg());

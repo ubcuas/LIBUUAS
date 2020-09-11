@@ -50,7 +50,7 @@ namespace waypointing {
         _latitude(pbCoord.latitude()), _longitude(pbCoord.longitude()) {
     }
 
-    UasCoordinate::UasCoordinate(double latitude, double longitude) :
+    UasCoordinate::UasCoordinate(int32_t latitude, int32_t longitude) :
         _latitude(latitude), _longitude(longitude) {
         utm::UTMData utmData = utm::from_latlon(latitude, longitude);
         this->_easting_m = utmData.easting_m;
@@ -62,8 +62,8 @@ namespace waypointing {
     UasCoordinate::UasCoordinate(geos::geom::Coordinate geosCoord, int zoneNumber, char zoneLetter) :
         _easting_m(geosCoord.x), _northing_m(geosCoord.y), _zone_number(zoneNumber), _zone_letter(zoneLetter) {
         utm::LatLonData latlonData = utm::to_latlon(geosCoord.x, geosCoord.y, zoneNumber, zoneLetter);
-        this->_latitude = latlonData.latitude;
-        this->_longitude = latlonData.longitude;
+        this->_latitude = latlonData.latitude_dege7;
+        this->_longitude = latlonData.longitude_dege7;
     }
 
     UasCoordinate::UasCoordinate(geos::geom::Coordinate geosCoord) :
@@ -71,8 +71,8 @@ namespace waypointing {
         this->_zone_number = utm::cache::zone_number;
         this->_zone_letter = utm::cache::zone_letter;
         utm::LatLonData latlonData = utm::to_latlon(geosCoord.x, geosCoord.y);
-        this->_latitude = latlonData.latitude;
-        this->_longitude = latlonData.longitude;
+        this->_latitude = latlonData.latitude_dege7;
+        this->_longitude = latlonData.longitude_dege7;
     }
 
     uuaspb::UasCoordinate UasCoordinate::asProtobuf() const {
@@ -93,11 +93,11 @@ namespace waypointing {
         return geoPointPtr;
     }
 
-    double UasCoordinate::latitude() const {
+    int32_t UasCoordinate::latitude() const {
         return this->_latitude;
     }
 
-    double UasCoordinate::longitude() const {
+    int32_t UasCoordinate::longitude() const {
         return this->_longitude;
     }
 
@@ -117,7 +117,7 @@ namespace waypointing {
         UasCoordinate(pbObstacle.coordinate()), _radius_m(pbObstacle.radius_m()), _height_m(pbObstacle.height_m()) {
     }
 
-    CylinderObstacle::CylinderObstacle(double latitude, double longitude, double radius_m, double height_m) :
+    CylinderObstacle::CylinderObstacle(int32_t latitude, int32_t longitude, double radius_m, double height_m) :
         UasCoordinate(latitude, longitude), _radius_m(radius_m), _height_m(height_m) {
     }
 
@@ -218,7 +218,7 @@ namespace waypointing {
     Waypoint::Waypoint(UasCoordinate coord, double altitude_msl_m, WaypointType waypoint_type) :
         UasCoordinate(coord.latitude(), coord.longitude()), _altitude_msl_m(altitude_msl_m), _waypoint_type(waypoint_type) { }
 
-    Waypoint::Waypoint(double latitude, double longitude, double altitude_msl_m, WaypointType waypoint_type) :
+    Waypoint::Waypoint(int32_t latitude, int32_t longitude, double altitude_msl_m, WaypointType waypoint_type) :
         UasCoordinate(latitude, longitude), _altitude_msl_m(altitude_msl_m), _waypoint_type(waypoint_type) { }
 
     uuaspb::Waypoint Waypoint::asProtobuf() const {

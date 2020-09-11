@@ -43,8 +43,8 @@ Flyzone = collections.namedtuple(
 UasCoordinate = collections.namedtuple(
     'UasCoordinate',
     [
-        'latitude',
-        'longitude',
+        'latitude_dege7',
+        'longitude_dege7',
     ]
 )
 
@@ -71,15 +71,15 @@ def orderedRoute(waypoints: [Waypoint], obstacles: [CylinderObstacle], flyzone: 
     request = pylibuuaspb.OrderedRouteRequest()
     for waypoint in waypoints:
         pbWaypoint = request.waypoints.add()
-        pbWaypoint.coordinate.latitude = waypoint.coordinate.latitude
-        pbWaypoint.coordinate.longitude = waypoint.coordinate.longitude
+        pbWaypoint.coordinate.latitude_dege7 = waypoint.coordinate.latitude_dege7
+        pbWaypoint.coordinate.longitude_dege7 = waypoint.coordinate.longitude_dege7
         pbWaypoint.altitude_msl_m = waypoint.altitude_msl_m
         pbWaypoint.waypoint_type = waypoint.waypoint_type.toProtobuf()
 
     for obstacle in obstacles:
         pbObstacle = request.obstacles.add()
-        pbObstacle.coordinate.latitude = obstacle.coordinate.latitude
-        pbObstacle.coordinate.longitude = obstacle.coordinate.longitude
+        pbObstacle.coordinate.latitude_dege7 = obstacle.coordinate.latitude_dege7
+        pbObstacle.coordinate.longitude_dege7 = obstacle.coordinate.longitude_dege7
         pbObstacle.radius_m = obstacle.radius_m
         pbObstacle.height_m = obstacle.height_m
 
@@ -87,15 +87,15 @@ def orderedRoute(waypoints: [Waypoint], obstacles: [CylinderObstacle], flyzone: 
     request.flyzone.min_altitude_msl_m = flyzone.min_altitude_msl_m
     for bound in flyzone.bounds:
         pbBound = request.flyzone.bounds.add()
-        pbBound.latitude = bound.latitude
-        pbBound.longitude = bound.longitude
+        pbBound.latitude_dege7 = bound.latitude_dege7
+        pbBound.longitude_dege7 = bound.longitude_dege7
 
     response = libuuas.orderedRouteRequest(request)
     if response.result == pylibuuaspb.ResultStatus.OK:
         outputWaypoints = []
         for pbWaypoint in response.waypoints:
-            coordinate = UasCoordinate(latitude=pbWaypoint.coordinate.latitude,
-                                       longitude=pbWaypoint.coordinate.longitude)
+            coordinate = UasCoordinate(latitude=pbWaypoint.coordinate.latitude_dege7,
+                                       longitude=pbWaypoint.coordinate.longitude_dege7)
             outputWaypoints.append(Waypoint(
                 coordinate=coordinate, altitude_msl_m=pbWaypoint.altitude_msl_m, waypoint_type=pbWaypoint.waypoint_type))
         return outputWaypoints

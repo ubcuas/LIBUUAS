@@ -1,5 +1,7 @@
 #pragma once
 
+#include <stdint.h>
+
 namespace libuuas {
 namespace utm {
     namespace cache {
@@ -12,20 +14,20 @@ namespace utm {
 namespace libuuas {
 namespace utm {
     struct LatLonData {
-        long double latitude;
-        long double longitude;
+        int32_t latitude_dege7;
+        int32_t longitude_dege7;
     };
 
     struct UTMData {
-        long double easting_m;
-        long double northing_m;
+        double easting_m;
+        double northing_m;
         int zone_number;
         char zone_letter;
     };
 
-    LatLonData to_latlon(long double easting, long double northing, int zone_number, char zone_letter);
-    LatLonData to_latlon(long double easting, long double northing);
-    UTMData from_latlon(long double latitude, long double longitude);
+    LatLonData to_latlon(double easting, double northing, int zone_number, char zone_letter);
+    LatLonData to_latlon(double easting, double northing);
+    UTMData from_latlon(int32_t latitude_dege7, int32_t longitude_dege7);
 
 } // utm
 } // libuuas

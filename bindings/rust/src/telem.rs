@@ -5,8 +5,8 @@ use super::uuaspb;
 
 #[derive(Debug, Default, Clone)]
 pub struct MavlinkTelemetryArgs {
-    pub latitude: i32,
-    pub longitude: i32,
+    pub latitude_dege7: i32,
+    pub longitude_dege7: i32,
     pub altitude_agl_mm: i32,
     pub altitude_msl_mm: i32,
     pub heading_cdeg: u16,
@@ -25,8 +25,8 @@ pub struct MavlinkTelemetryArgs {
 
 #[derive(Debug, Default, Clone)]
 pub struct TelemetryArgs {
-    pub latitude: f64,
-    pub longitude: f64,
+    pub latitude_dege7: i32,
+    pub longitude_dege7: i32,
     pub altitude_agl_m: f64,
     pub altitude_msl_m: f64,
     pub heading_deg: f64,
@@ -46,8 +46,8 @@ pub struct TelemetryArgs {
 impl TelemetryArgs {
     pub fn from_mavlinkargs(mav_args: MavlinkTelemetryArgs) -> TelemetryArgs {
         return TelemetryArgs {
-            latitude: mav_args.latitude as f64 / 1.0E7,
-            longitude: mav_args.longitude as f64 / 1.0E7,
+            latitude_dege7: mav_args.latitude_dege7,
+            longitude_dege7: mav_args.longitude_dege7,
             altitude_agl_m: mav_args.altitude_agl_mm as f64 / 1000.0,
             altitude_msl_m: mav_args.altitude_msl_mm as f64 / 1000.0,
             heading_deg: mav_args.heading_cdeg as f64 / 100.0,
@@ -68,8 +68,8 @@ impl TelemetryArgs {
 
 pub fn new_telem_msg(args: TelemetryArgs) -> uuaspb::Telemetry {
     let mut msg = uuaspb::Telemetry::new();
-    msg.latitude = args.latitude;
-    msg.longitude = args.longitude;
+    msg.latitude_dege7 = args.latitude_dege7;
+    msg.longitude_dege7 = args.longitude_dege7;
     msg.altitude_agl_m = args.altitude_agl_m;
     msg.altitude_msl_m = args.altitude_msl_m;
     msg.heading_deg = args.heading_deg;
@@ -88,8 +88,8 @@ pub fn new_telem_msg(args: TelemetryArgs) -> uuaspb::Telemetry {
 }
 
 pub fn write_msg_to_args(args: &mut TelemetryArgs, msg: uuaspb::Telemetry) {
-    args.latitude = msg.latitude;
-    args.longitude = msg.longitude;
+    args.latitude_dege7 = msg.latitude_dege7;
+    args.longitude_dege7 = msg.longitude_dege7;
     args.altitude_agl_m = msg.altitude_agl_m;
     args.altitude_msl_m = msg.altitude_msl_m;
     args.heading_deg = msg.heading_deg;

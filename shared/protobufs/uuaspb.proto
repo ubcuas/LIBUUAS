@@ -1,11 +1,13 @@
 syntax = "proto3";
 
-package uuas;
+package uuaspb;
 
 enum ResultStatus {
     OK = 0;
     ERR = 1;
 }
+
+/* Geotag related messages */
 
 message GeoTagRequest {
     string filename = 1;
@@ -26,8 +28,8 @@ message UnGeoTagResponse {
 }
 
 message Telemetry {
-    double latitude = 1;
-    double longitude = 2;
+    int32 latitude_dege7 = 1;
+    int32 longitude_dege7 = 2;
 
     double altitude_agl_m = 3;
     double altitude_msl_m = 4;
@@ -47,4 +49,50 @@ message Telemetry {
 
     uint64 timestamp_pixhawk_ms = 15;
     uint64 timestamp_msg_ms = 16;
+}
+
+/* Waypoint related messages */
+
+message OrderedRouteRequest{
+    repeated Waypoint waypoints = 1;
+    repeated CylinderObstacle obstacles = 2;
+    Flyzone flyzone = 3;
+}
+
+message OrderedRouteResponse{
+    ResultStatus result = 1;
+    repeated Waypoint waypoints = 2;
+}
+
+message Flyzone {
+    double max_altitude_msl_m = 1;
+    double min_altitude_msl_m = 2;
+    repeated UasCoordinate bounds = 3;
+}
+
+message UasCoordinate {
+    int32 latitude_dege7 = 1;
+    int32 longitude_dege7 = 2;
+}
+
+enum WaypointType {
+    NONE = 0;
+    COORDINATE = 1;
+    GENERATED = 2;
+    AUTO_FLIGHT = 3;
+    AIRDROP = 4;
+    OFF_AXIS = 5;
+    SEARCH_GRID = 6;
+}
+
+message Waypoint {
+    UasCoordinate coordinate = 1;
+    double altitude_msl_m = 2;
+    WaypointType waypoint_type = 3;
+}
+
+message CylinderObstacle {
+    UasCoordinate coordinate = 1;
+    double radius_m = 2;
+    double height_m = 3;
 }

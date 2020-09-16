@@ -41,7 +41,7 @@ namespace waypointing {
     public:
         UasCoordinate();
         UasCoordinate(uuaspb::UasCoordinate pbCoord);
-        UasCoordinate(int32_t latitude, int32_t longitude);
+        UasCoordinate(int32_t latitude_dege7, int32_t longitude_dege7);
         UasCoordinate(geos::geom::Coordinate geosCoord);
         UasCoordinate(geos::geom::Coordinate geosCoord, int zoneNumber, char zoneLetter);
 
@@ -49,14 +49,14 @@ namespace waypointing {
         geos::geom::Coordinate asGeosCoordinate() const;
         std::unique_ptr<geos::geom::Point> asGeosPoint() const;
 
-        int32_t latitude() const;
-        int32_t longitude() const;
+        int32_t latitude_dege7() const;
+        int32_t longitude_dege7() const;
         double easting_m() const;
         double northing_m() const;
 
     private:
-        int32_t _latitude;
-        int32_t _longitude;
+        int32_t _latitude_dege7;
+        int32_t _longitude_dege7;
         double _easting_m;
         double _northing_m;
         int _zone_number;
@@ -69,7 +69,7 @@ namespace waypointing {
     class CylinderObstacle : public UasCoordinate {
     public:
         CylinderObstacle(uuaspb::CylinderObstacle pbObstacle);
-        CylinderObstacle(int32_t latitude, int32_t longitude, double radius_m, double height_m);
+        CylinderObstacle(int32_t latitude_dege7, int32_t longitude_dege7, double radius_m, double height_m);
 
         std::vector<UasCoordinate> pointsOfInterest();
         std::unique_ptr<geos::geom::Geometry> asGeosGeom();
@@ -97,7 +97,7 @@ namespace waypointing {
         Waypoint();
         Waypoint(uuaspb::Waypoint pbWaypoint);
         Waypoint(UasCoordinate coord, double altitude_msl_m, WaypointType waypoint_type);
-        Waypoint(int32_t latitude, int32_t longitude, double altitude_msl_m, WaypointType waypoint_type);
+        Waypoint(int32_t latitude_dege7, int32_t longitude_dege7, double altitude_msl_m, WaypointType waypoint_type);
 
         uuaspb::Waypoint asProtobuf() const;
         UasCoordinate asUasCoordinate() const;

@@ -308,8 +308,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_uuaspb_2eproto::offsets[] PROT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::uuaspb::UasCoordinate, latitude_),
-  PROTOBUF_FIELD_OFFSET(::uuaspb::UasCoordinate, longitude_),
+  PROTOBUF_FIELD_OFFSET(::uuaspb::UasCoordinate, latitude_dege7_),
+  PROTOBUF_FIELD_OFFSET(::uuaspb::UasCoordinate, longitude_dege7_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::uuaspb::Waypoint, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -381,18 +381,18 @@ const char descriptor_table_protodef_uuaspb_2eproto[] PROTOBUF_SECTION_VARIABLE(
   "oints\030\002 \003(\0132\020.uuaspb.Waypoint\"h\n\007Flyzone"
   "\022\032\n\022max_altitude_msl_m\030\001 \001(\001\022\032\n\022min_alti"
   "tude_msl_m\030\002 \001(\001\022%\n\006bounds\030\003 \003(\0132\025.uuasp"
-  "b.UasCoordinate\"4\n\rUasCoordinate\022\020\n\010lati"
-  "tude\030\001 \001(\001\022\021\n\tlongitude\030\002 \001(\001\"z\n\010Waypoin"
-  "t\022)\n\ncoordinate\030\001 \001(\0132\025.uuaspb.UasCoordi"
-  "nate\022\026\n\016altitude_msl_m\030\002 \001(\001\022+\n\rwaypoint"
-  "_type\030\003 \001(\0162\024.uuaspb.WaypointType\"a\n\020Cyl"
-  "inderObstacle\022)\n\ncoordinate\030\001 \001(\0132\025.uuas"
-  "pb.UasCoordinate\022\020\n\010radius_m\030\002 \001(\001\022\020\n\010he"
-  "ight_m\030\003 \001(\001*\037\n\014ResultStatus\022\006\n\002OK\020\000\022\007\n\003"
-  "ERR\020\001*t\n\014WaypointType\022\010\n\004NONE\020\000\022\016\n\nCOORD"
-  "INATE\020\001\022\r\n\tGENERATED\020\002\022\017\n\013AUTO_FLIGHT\020\003\022"
-  "\013\n\007AIRDROP\020\004\022\014\n\010OFF_AXIS\020\005\022\017\n\013SEARCH_GRI"
-  "D\020\006b\006proto3"
+  "b.UasCoordinate\"@\n\rUasCoordinate\022\026\n\016lati"
+  "tude_dege7\030\001 \001(\005\022\027\n\017longitude_dege7\030\002 \001("
+  "\005\"z\n\010Waypoint\022)\n\ncoordinate\030\001 \001(\0132\025.uuas"
+  "pb.UasCoordinate\022\026\n\016altitude_msl_m\030\002 \001(\001"
+  "\022+\n\rwaypoint_type\030\003 \001(\0162\024.uuaspb.Waypoin"
+  "tType\"a\n\020CylinderObstacle\022)\n\ncoordinate\030"
+  "\001 \001(\0132\025.uuaspb.UasCoordinate\022\020\n\010radius_m"
+  "\030\002 \001(\001\022\020\n\010height_m\030\003 \001(\001*\037\n\014ResultStatus"
+  "\022\006\n\002OK\020\000\022\007\n\003ERR\020\001*t\n\014WaypointType\022\010\n\004NON"
+  "E\020\000\022\016\n\nCOORDINATE\020\001\022\r\n\tGENERATED\020\002\022\017\n\013AU"
+  "TO_FLIGHT\020\003\022\013\n\007AIRDROP\020\004\022\014\n\010OFF_AXIS\020\005\022\017"
+  "\n\013SEARCH_GRID\020\006b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_uuaspb_2eproto_deps[1] = {
 };
@@ -411,7 +411,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_uua
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_uuaspb_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_uuaspb_2eproto = {
-  false, false, descriptor_table_protodef_uuaspb_2eproto, "uuaspb.proto", 1451,
+  false, false, descriptor_table_protodef_uuaspb_2eproto, "uuaspb.proto", 1463,
   &descriptor_table_uuaspb_2eproto_once, descriptor_table_uuaspb_2eproto_sccs, descriptor_table_uuaspb_2eproto_deps, 11, 0,
   schemas, file_default_instances, TableStruct_uuaspb_2eproto::offsets,
   file_level_metadata_uuaspb_2eproto, 11, file_level_enum_descriptors_uuaspb_2eproto, file_level_service_descriptors_uuaspb_2eproto,
@@ -2678,16 +2678,16 @@ UasCoordinate::UasCoordinate(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 UasCoordinate::UasCoordinate(const UasCoordinate& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&latitude_, &from.latitude_,
-    static_cast<size_t>(reinterpret_cast<char*>(&longitude_) -
-    reinterpret_cast<char*>(&latitude_)) + sizeof(longitude_));
+  ::memcpy(&latitude_dege7_, &from.latitude_dege7_,
+    static_cast<size_t>(reinterpret_cast<char*>(&longitude_dege7_) -
+    reinterpret_cast<char*>(&latitude_dege7_)) + sizeof(longitude_dege7_));
   // @@protoc_insertion_point(copy_constructor:uuaspb.UasCoordinate)
 }
 
 void UasCoordinate::SharedCtor() {
-  ::memset(&latitude_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&longitude_) -
-      reinterpret_cast<char*>(&latitude_)) + sizeof(longitude_));
+  ::memset(&latitude_dege7_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&longitude_dege7_) -
+      reinterpret_cast<char*>(&latitude_dege7_)) + sizeof(longitude_dege7_));
 }
 
 UasCoordinate::~UasCoordinate() {
@@ -2721,9 +2721,9 @@ void UasCoordinate::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&latitude_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&longitude_) -
-      reinterpret_cast<char*>(&latitude_)) + sizeof(longitude_));
+  ::memset(&latitude_dege7_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&longitude_dege7_) -
+      reinterpret_cast<char*>(&latitude_dege7_)) + sizeof(longitude_dege7_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2735,18 +2735,18 @@ const char* UasCoordinate::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // double latitude = 1;
+      // int32 latitude_dege7 = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
-          latitude_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
-          ptr += sizeof(double);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          latitude_dege7_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // double longitude = 2;
+      // int32 longitude_dege7 = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
-          longitude_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
-          ptr += sizeof(double);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          longitude_dege7_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
       default: {
@@ -2777,16 +2777,16 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // double latitude = 1;
-  if (!(this->latitude() <= 0 && this->latitude() >= 0)) {
+  // int32 latitude_dege7 = 1;
+  if (this->latitude_dege7() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(1, this->_internal_latitude(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_latitude_dege7(), target);
   }
 
-  // double longitude = 2;
-  if (!(this->longitude() <= 0 && this->longitude() >= 0)) {
+  // int32 longitude_dege7 = 2;
+  if (this->longitude_dege7() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(2, this->_internal_longitude(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_longitude_dege7(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2805,14 +2805,18 @@ size_t UasCoordinate::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // double latitude = 1;
-  if (!(this->latitude() <= 0 && this->latitude() >= 0)) {
-    total_size += 1 + 8;
+  // int32 latitude_dege7 = 1;
+  if (this->latitude_dege7() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_latitude_dege7());
   }
 
-  // double longitude = 2;
-  if (!(this->longitude() <= 0 && this->longitude() >= 0)) {
-    total_size += 1 + 8;
+  // int32 longitude_dege7 = 2;
+  if (this->longitude_dege7() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_longitude_dege7());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2846,11 +2850,11 @@ void UasCoordinate::MergeFrom(const UasCoordinate& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!(from.latitude() <= 0 && from.latitude() >= 0)) {
-    _internal_set_latitude(from._internal_latitude());
+  if (from.latitude_dege7() != 0) {
+    _internal_set_latitude_dege7(from._internal_latitude_dege7());
   }
-  if (!(from.longitude() <= 0 && from.longitude() >= 0)) {
-    _internal_set_longitude(from._internal_longitude());
+  if (from.longitude_dege7() != 0) {
+    _internal_set_longitude_dege7(from._internal_longitude_dege7());
   }
 }
 
@@ -2876,11 +2880,11 @@ void UasCoordinate::InternalSwap(UasCoordinate* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(UasCoordinate, longitude_)
-      + sizeof(UasCoordinate::longitude_)
-      - PROTOBUF_FIELD_OFFSET(UasCoordinate, latitude_)>(
-          reinterpret_cast<char*>(&latitude_),
-          reinterpret_cast<char*>(&other->latitude_));
+      PROTOBUF_FIELD_OFFSET(UasCoordinate, longitude_dege7_)
+      + sizeof(UasCoordinate::longitude_dege7_)
+      - PROTOBUF_FIELD_OFFSET(UasCoordinate, latitude_dege7_)>(
+          reinterpret_cast<char*>(&latitude_dege7_),
+          reinterpret_cast<char*>(&other->latitude_dege7_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata UasCoordinate::GetMetadata() const {

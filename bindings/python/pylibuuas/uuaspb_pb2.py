@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0cuuaspb.proto\x12\x06uuaspb\"G\n\rGeoTagRequest\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t\x12$\n\ttelemetry\x18\x02 \x01(\x0b\x32\x11.uuaspb.Telemetry\"6\n\x0eGeoTagResponse\x12$\n\x06result\x18\x01 \x01(\x0e\x32\x14.uuaspb.ResultStatus\"#\n\x0fUnGeoTagRequest\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t\"^\n\x10UnGeoTagResponse\x12$\n\x06result\x18\x01 \x01(\x0e\x32\x14.uuaspb.ResultStatus\x12$\n\ttelemetry\x18\x02 \x01(\x0b\x32\x11.uuaspb.Telemetry\"\xff\x02\n\tTelemetry\x12\x16\n\x0elatitude_dege7\x18\x01 \x01(\x05\x12\x17\n\x0flongitude_dege7\x18\x02 \x01(\x05\x12\x16\n\x0e\x61ltitude_agl_m\x18\x03 \x01(\x01\x12\x16\n\x0e\x61ltitude_msl_m\x18\x04 \x01(\x01\x12\x13\n\x0bheading_deg\x18\x05 \x01(\x01\x12\x15\n\rvelocityx_m_s\x18\x06 \x01(\x01\x12\x15\n\rvelocityy_m_s\x18\x07 \x01(\x01\x12\x15\n\rvelocityz_m_s\x18\x08 \x01(\x01\x12\x10\n\x08roll_rad\x18\t \x01(\x01\x12\x11\n\tpitch_rad\x18\n \x01(\x01\x12\x0f\n\x07yaw_rad\x18\x0b \x01(\x01\x12\x17\n\x0frollspeed_rad_s\x18\x0c \x01(\x01\x12\x18\n\x10pitchspeed_rad_s\x18\r \x01(\x01\x12\x16\n\x0eyawspeed_rad_s\x18\x0e \x01(\x01\x12\x1c\n\x14timestamp_pixhawk_ms\x18\x0f \x01(\x04\x12\x18\n\x10timestamp_msg_ms\x18\x10 \x01(\x04\"\x89\x01\n\x13OrderedRouteRequest\x12#\n\twaypoints\x18\x01 \x03(\x0b\x32\x10.uuaspb.Waypoint\x12+\n\tobstacles\x18\x02 \x03(\x0b\x32\x18.uuaspb.CylinderObstacle\x12 \n\x07\x66lyzone\x18\x03 \x01(\x0b\x32\x0f.uuaspb.Flyzone\"a\n\x14OrderedRouteResponse\x12$\n\x06result\x18\x01 \x01(\x0e\x32\x14.uuaspb.ResultStatus\x12#\n\twaypoints\x18\x02 \x03(\x0b\x32\x10.uuaspb.Waypoint\"h\n\x07\x46lyzone\x12\x1a\n\x12max_altitude_msl_m\x18\x01 \x01(\x01\x12\x1a\n\x12min_altitude_msl_m\x18\x02 \x01(\x01\x12%\n\x06\x62ounds\x18\x03 \x03(\x0b\x32\x15.uuaspb.UasCoordinate\"4\n\rUasCoordinate\x12\x10\n\x08latitude\x18\x01 \x01(\x01\x12\x11\n\tlongitude\x18\x02 \x01(\x01\"z\n\x08Waypoint\x12)\n\ncoordinate\x18\x01 \x01(\x0b\x32\x15.uuaspb.UasCoordinate\x12\x16\n\x0e\x61ltitude_msl_m\x18\x02 \x01(\x01\x12+\n\rwaypoint_type\x18\x03 \x01(\x0e\x32\x14.uuaspb.WaypointType\"a\n\x10\x43ylinderObstacle\x12)\n\ncoordinate\x18\x01 \x01(\x0b\x32\x15.uuaspb.UasCoordinate\x12\x10\n\x08radius_m\x18\x02 \x01(\x01\x12\x10\n\x08height_m\x18\x03 \x01(\x01*\x1f\n\x0cResultStatus\x12\x06\n\x02OK\x10\x00\x12\x07\n\x03\x45RR\x10\x01*t\n\x0cWaypointType\x12\x08\n\x04NONE\x10\x00\x12\x0e\n\nCOORDINATE\x10\x01\x12\r\n\tGENERATED\x10\x02\x12\x0f\n\x0b\x41UTO_FLIGHT\x10\x03\x12\x0b\n\x07\x41IRDROP\x10\x04\x12\x0c\n\x08OFF_AXIS\x10\x05\x12\x0f\n\x0bSEARCH_GRID\x10\x06\x62\x06proto3'
+  serialized_pb=b'\n\x0cuuaspb.proto\x12\x06uuaspb\"G\n\rGeoTagRequest\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t\x12$\n\ttelemetry\x18\x02 \x01(\x0b\x32\x11.uuaspb.Telemetry\"6\n\x0eGeoTagResponse\x12$\n\x06result\x18\x01 \x01(\x0e\x32\x14.uuaspb.ResultStatus\"#\n\x0fUnGeoTagRequest\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t\"^\n\x10UnGeoTagResponse\x12$\n\x06result\x18\x01 \x01(\x0e\x32\x14.uuaspb.ResultStatus\x12$\n\ttelemetry\x18\x02 \x01(\x0b\x32\x11.uuaspb.Telemetry\"\xff\x02\n\tTelemetry\x12\x16\n\x0elatitude_dege7\x18\x01 \x01(\x05\x12\x17\n\x0flongitude_dege7\x18\x02 \x01(\x05\x12\x16\n\x0e\x61ltitude_agl_m\x18\x03 \x01(\x01\x12\x16\n\x0e\x61ltitude_msl_m\x18\x04 \x01(\x01\x12\x13\n\x0bheading_deg\x18\x05 \x01(\x01\x12\x15\n\rvelocityx_m_s\x18\x06 \x01(\x01\x12\x15\n\rvelocityy_m_s\x18\x07 \x01(\x01\x12\x15\n\rvelocityz_m_s\x18\x08 \x01(\x01\x12\x10\n\x08roll_rad\x18\t \x01(\x01\x12\x11\n\tpitch_rad\x18\n \x01(\x01\x12\x0f\n\x07yaw_rad\x18\x0b \x01(\x01\x12\x17\n\x0frollspeed_rad_s\x18\x0c \x01(\x01\x12\x18\n\x10pitchspeed_rad_s\x18\r \x01(\x01\x12\x16\n\x0eyawspeed_rad_s\x18\x0e \x01(\x01\x12\x1c\n\x14timestamp_pixhawk_ms\x18\x0f \x01(\x04\x12\x18\n\x10timestamp_msg_ms\x18\x10 \x01(\x04\"\x89\x01\n\x13OrderedRouteRequest\x12#\n\twaypoints\x18\x01 \x03(\x0b\x32\x10.uuaspb.Waypoint\x12+\n\tobstacles\x18\x02 \x03(\x0b\x32\x18.uuaspb.CylinderObstacle\x12 \n\x07\x66lyzone\x18\x03 \x01(\x0b\x32\x0f.uuaspb.Flyzone\"a\n\x14OrderedRouteResponse\x12$\n\x06result\x18\x01 \x01(\x0e\x32\x14.uuaspb.ResultStatus\x12#\n\twaypoints\x18\x02 \x03(\x0b\x32\x10.uuaspb.Waypoint\"h\n\x07\x46lyzone\x12\x1a\n\x12max_altitude_msl_m\x18\x01 \x01(\x01\x12\x1a\n\x12min_altitude_msl_m\x18\x02 \x01(\x01\x12%\n\x06\x62ounds\x18\x03 \x03(\x0b\x32\x15.uuaspb.UasCoordinate\"@\n\rUasCoordinate\x12\x16\n\x0elatitude_dege7\x18\x01 \x01(\x05\x12\x17\n\x0flongitude_dege7\x18\x02 \x01(\x05\"z\n\x08Waypoint\x12)\n\ncoordinate\x18\x01 \x01(\x0b\x32\x15.uuaspb.UasCoordinate\x12\x16\n\x0e\x61ltitude_msl_m\x18\x02 \x01(\x01\x12+\n\rwaypoint_type\x18\x03 \x01(\x0e\x32\x14.uuaspb.WaypointType\"a\n\x10\x43ylinderObstacle\x12)\n\ncoordinate\x18\x01 \x01(\x0b\x32\x15.uuaspb.UasCoordinate\x12\x10\n\x08radius_m\x18\x02 \x01(\x01\x12\x10\n\x08height_m\x18\x03 \x01(\x01*\x1f\n\x0cResultStatus\x12\x06\n\x02OK\x10\x00\x12\x07\n\x03\x45RR\x10\x01*t\n\x0cWaypointType\x12\x08\n\x04NONE\x10\x00\x12\x0e\n\nCOORDINATE\x10\x01\x12\r\n\tGENERATED\x10\x02\x12\x0f\n\x0b\x41UTO_FLIGHT\x10\x03\x12\x0b\n\x07\x41IRDROP\x10\x04\x12\x0c\n\x08OFF_AXIS\x10\x05\x12\x0f\n\x0bSEARCH_GRID\x10\x06\x62\x06proto3'
 )
 
 _RESULTSTATUS = _descriptor.EnumDescriptor(
@@ -43,8 +43,8 @@ _RESULTSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1294,
-  serialized_end=1325,
+  serialized_start=1306,
+  serialized_end=1337,
 )
 _sym_db.RegisterEnumDescriptor(_RESULTSTATUS)
 
@@ -94,8 +94,8 @@ _WAYPOINTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1327,
-  serialized_end=1443,
+  serialized_start=1339,
+  serialized_end=1455,
 )
 _sym_db.RegisterEnumDescriptor(_WAYPOINTTYPE)
 
@@ -531,16 +531,16 @@ _UASCOORDINATE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='latitude', full_name='uuaspb.UasCoordinate.latitude', index=0,
-      number=1, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=float(0),
+      name='latitude_dege7', full_name='uuaspb.UasCoordinate.latitude_dege7', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='longitude', full_name='uuaspb.UasCoordinate.longitude', index=1,
-      number=2, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=float(0),
+      name='longitude_dege7', full_name='uuaspb.UasCoordinate.longitude_dege7', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -557,7 +557,7 @@ _UASCOORDINATE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1017,
-  serialized_end=1069,
+  serialized_end=1081,
 )
 
 
@@ -602,8 +602,8 @@ _WAYPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1071,
-  serialized_end=1193,
+  serialized_start=1083,
+  serialized_end=1205,
 )
 
 
@@ -648,8 +648,8 @@ _CYLINDEROBSTACLE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1195,
-  serialized_end=1292,
+  serialized_start=1207,
+  serialized_end=1304,
 )
 
 _GEOTAGREQUEST.fields_by_name['telemetry'].message_type = _TELEMETRY

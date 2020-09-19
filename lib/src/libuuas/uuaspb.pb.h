@@ -1708,25 +1708,25 @@ class UasCoordinate PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kLatitudeFieldNumber = 1,
-    kLongitudeFieldNumber = 2,
+    kLatitudeDege7FieldNumber = 1,
+    kLongitudeDege7FieldNumber = 2,
   };
-  // double latitude = 1;
-  void clear_latitude();
-  double latitude() const;
-  void set_latitude(double value);
+  // int32 latitude_dege7 = 1;
+  void clear_latitude_dege7();
+  ::PROTOBUF_NAMESPACE_ID::int32 latitude_dege7() const;
+  void set_latitude_dege7(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  double _internal_latitude() const;
-  void _internal_set_latitude(double value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_latitude_dege7() const;
+  void _internal_set_latitude_dege7(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // double longitude = 2;
-  void clear_longitude();
-  double longitude() const;
-  void set_longitude(double value);
+  // int32 longitude_dege7 = 2;
+  void clear_longitude_dege7();
+  ::PROTOBUF_NAMESPACE_ID::int32 longitude_dege7() const;
+  void set_longitude_dege7(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  double _internal_longitude() const;
-  void _internal_set_longitude(double value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_longitude_dege7() const;
+  void _internal_set_longitude_dege7(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // @@protoc_insertion_point(class_scope:uuaspb.UasCoordinate)
@@ -1736,8 +1736,8 @@ class UasCoordinate PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  double latitude_;
-  double longitude_;
+  ::PROTOBUF_NAMESPACE_ID::int32 latitude_dege7_;
+  ::PROTOBUF_NAMESPACE_ID::int32 longitude_dege7_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_uuaspb_2eproto;
 };
@@ -3101,44 +3101,44 @@ Flyzone::bounds() const {
 
 // UasCoordinate
 
-// double latitude = 1;
-inline void UasCoordinate::clear_latitude() {
-  latitude_ = 0;
+// int32 latitude_dege7 = 1;
+inline void UasCoordinate::clear_latitude_dege7() {
+  latitude_dege7_ = 0;
 }
-inline double UasCoordinate::_internal_latitude() const {
-  return latitude_;
+inline ::PROTOBUF_NAMESPACE_ID::int32 UasCoordinate::_internal_latitude_dege7() const {
+  return latitude_dege7_;
 }
-inline double UasCoordinate::latitude() const {
-  // @@protoc_insertion_point(field_get:uuaspb.UasCoordinate.latitude)
-  return _internal_latitude();
+inline ::PROTOBUF_NAMESPACE_ID::int32 UasCoordinate::latitude_dege7() const {
+  // @@protoc_insertion_point(field_get:uuaspb.UasCoordinate.latitude_dege7)
+  return _internal_latitude_dege7();
 }
-inline void UasCoordinate::_internal_set_latitude(double value) {
+inline void UasCoordinate::_internal_set_latitude_dege7(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
-  latitude_ = value;
+  latitude_dege7_ = value;
 }
-inline void UasCoordinate::set_latitude(double value) {
-  _internal_set_latitude(value);
-  // @@protoc_insertion_point(field_set:uuaspb.UasCoordinate.latitude)
+inline void UasCoordinate::set_latitude_dege7(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_latitude_dege7(value);
+  // @@protoc_insertion_point(field_set:uuaspb.UasCoordinate.latitude_dege7)
 }
 
-// double longitude = 2;
-inline void UasCoordinate::clear_longitude() {
-  longitude_ = 0;
+// int32 longitude_dege7 = 2;
+inline void UasCoordinate::clear_longitude_dege7() {
+  longitude_dege7_ = 0;
 }
-inline double UasCoordinate::_internal_longitude() const {
-  return longitude_;
+inline ::PROTOBUF_NAMESPACE_ID::int32 UasCoordinate::_internal_longitude_dege7() const {
+  return longitude_dege7_;
 }
-inline double UasCoordinate::longitude() const {
-  // @@protoc_insertion_point(field_get:uuaspb.UasCoordinate.longitude)
-  return _internal_longitude();
+inline ::PROTOBUF_NAMESPACE_ID::int32 UasCoordinate::longitude_dege7() const {
+  // @@protoc_insertion_point(field_get:uuaspb.UasCoordinate.longitude_dege7)
+  return _internal_longitude_dege7();
 }
-inline void UasCoordinate::_internal_set_longitude(double value) {
+inline void UasCoordinate::_internal_set_longitude_dege7(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
-  longitude_ = value;
+  longitude_dege7_ = value;
 }
-inline void UasCoordinate::set_longitude(double value) {
-  _internal_set_longitude(value);
-  // @@protoc_insertion_point(field_set:uuaspb.UasCoordinate.longitude)
+inline void UasCoordinate::set_longitude_dege7(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_longitude_dege7(value);
+  // @@protoc_insertion_point(field_set:uuaspb.UasCoordinate.longitude_dege7)
 }
 
 // -------------------------------------------------------------------

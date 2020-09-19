@@ -15,7 +15,7 @@ namespace waypointing {
             switch (ordered_route_request.waypoints(i).waypoint_type()) {
             case uuaspb::WaypointType::AUTO_FLIGHT:
                 auto_flight_wps.emplace_back(ordered_route_request.waypoints(i));
-                std::cout << "afwp " << auto_flight_wps.rbegin()->latitude() << " " << auto_flight_wps.rbegin()->longitude() << std::endl;
+                std::cout << "afwp " << auto_flight_wps.rbegin()->latitude_dege7() << " " << auto_flight_wps.rbegin()->longitude_dege7() << std::endl;
                 break;
             default:
                 break;
@@ -43,16 +43,16 @@ namespace waypointing {
     }
 
     UasCoordinate::UasCoordinate() :
-        _latitude(0), _longitude(0) {
+        _latitude_dege7(0), _longitude_dege7(0) {
     }
 
     UasCoordinate::UasCoordinate(uuaspb::UasCoordinate pbCoord) :
-        _latitude(pbCoord.latitude()), _longitude(pbCoord.longitude()) {
+        _latitude_dege7(pbCoord.latitude_dege7()), _longitude_dege7(pbCoord.longitude_dege7()) {
     }
 
-    UasCoordinate::UasCoordinate(int32_t latitude, int32_t longitude) :
-        _latitude(latitude), _longitude(longitude) {
-        utm::UTMData utmData = utm::from_latlon(latitude, longitude);
+    UasCoordinate::UasCoordinate(int32_t latitude_dege7, int32_t longitude_dege7) :
+        _latitude_dege7(latitude_dege7), _longitude_dege7(longitude_dege7) {
+        utm::UTMData utmData = utm::from_latlon(latitude_dege7, longitude_dege7);
         this->_easting_m = utmData.easting_m;
         this->_northing_m = utmData.northing_m;
         this->_zone_number = utmData.zone_number;
@@ -62,8 +62,8 @@ namespace waypointing {
     UasCoordinate::UasCoordinate(geos::geom::Coordinate geosCoord, int zoneNumber, char zoneLetter) :
         _easting_m(geosCoord.x), _northing_m(geosCoord.y), _zone_number(zoneNumber), _zone_letter(zoneLetter) {
         utm::LatLonData latlonData = utm::to_latlon(geosCoord.x, geosCoord.y, zoneNumber, zoneLetter);
-        this->_latitude = latlonData.latitude_dege7;
-        this->_longitude = latlonData.longitude_dege7;
+        this->_latitude_dege7 = latlonData.latitude_dege7;
+        this->_longitude_dege7 = latlonData.longitude_dege7;
     }
 
     UasCoordinate::UasCoordinate(geos::geom::Coordinate geosCoord) :
@@ -71,14 +71,14 @@ namespace waypointing {
         this->_zone_number = utm::cache::zone_number;
         this->_zone_letter = utm::cache::zone_letter;
         utm::LatLonData latlonData = utm::to_latlon(geosCoord.x, geosCoord.y);
-        this->_latitude = latlonData.latitude_dege7;
-        this->_longitude = latlonData.longitude_dege7;
+        this->_latitude_dege7 = latlonData.latitude_dege7;
+        this->_longitude_dege7 = latlonData.longitude_dege7;
     }
 
     uuaspb::UasCoordinate UasCoordinate::asProtobuf() const {
         uuaspb::UasCoordinate pbUasCoord;
-        pbUasCoord.set_latitude(this->latitude());
-        pbUasCoord.set_longitude(this->longitude());
+        pbUasCoord.set_latitude_dege7(this->latitude_dege7());
+        pbUasCoord.set_longitude_dege7(this->longitude_dege7());
         return pbUasCoord;
     }
 
@@ -93,12 +93,12 @@ namespace waypointing {
         return geoPointPtr;
     }
 
-    int32_t UasCoordinate::latitude() const {
-        return this->_latitude;
+    int32_t UasCoordinate::latitude_dege7() const {
+        return this->_latitude_dege7;
     }
 
-    int32_t UasCoordinate::longitude() const {
-        return this->_longitude;
+    int32_t UasCoordinate::longitude_dege7() const {
+        return this->_longitude_dege7;
     }
 
     double UasCoordinate::easting_m() const {
@@ -110,15 +110,15 @@ namespace waypointing {
     }
 
     bool operator!=(const UasCoordinate& a, const UasCoordinate& b) {
-        return a.latitude() != b.latitude() || a.longitude() != b.longitude();
+        return a.latitude_dege7() != b.latitude_dege7() || a.longitude_dege7() != b.longitude_dege7();
     }
 
     CylinderObstacle::CylinderObstacle(uuaspb::CylinderObstacle pbObstacle) :
         UasCoordinate(pbObstacle.coordinate()), _radius_m(pbObstacle.radius_m()), _height_m(pbObstacle.height_m()) {
     }
 
-    CylinderObstacle::CylinderObstacle(int32_t latitude, int32_t longitude, double radius_m, double height_m) :
-        UasCoordinate(latitude, longitude), _radius_m(radius_m), _height_m(height_m) {
+    CylinderObstacle::CylinderObstacle(int32_t latitude_dege7, int32_t longitude_dege7, double radius_m, double height_m) :
+        UasCoordinate(latitude_dege7, longitude_dege7), _radius_m(radius_m), _height_m(height_m) {
     }
 
     std::vector<UasCoordinate> CylinderObstacle::pointsOfInterest() {
@@ -216,10 +216,10 @@ namespace waypointing {
     }
 
     Waypoint::Waypoint(UasCoordinate coord, double altitude_msl_m, WaypointType waypoint_type) :
-        UasCoordinate(coord.latitude(), coord.longitude()), _altitude_msl_m(altitude_msl_m), _waypoint_type(waypoint_type) { }
+        UasCoordinate(coord.latitude_dege7(), coord.longitude_dege7()), _altitude_msl_m(altitude_msl_m), _waypoint_type(waypoint_type) { }
 
-    Waypoint::Waypoint(int32_t latitude, int32_t longitude, double altitude_msl_m, WaypointType waypoint_type) :
-        UasCoordinate(latitude, longitude), _altitude_msl_m(altitude_msl_m), _waypoint_type(waypoint_type) { }
+    Waypoint::Waypoint(int32_t latitude_dege7, int32_t longitude_dege7, double altitude_msl_m, WaypointType waypoint_type) :
+        UasCoordinate(latitude_dege7, longitude_dege7), _altitude_msl_m(altitude_msl_m), _waypoint_type(waypoint_type) { }
 
     uuaspb::Waypoint Waypoint::asProtobuf() const {
         uuaspb::Waypoint pbWaypoint;
@@ -230,7 +230,7 @@ namespace waypointing {
     }
 
     UasCoordinate Waypoint::asUasCoordinate() const {
-        return {this->latitude(), this->longitude()};
+        return {this->latitude_dege7(), this->longitude_dege7()};
     }
 
     double Waypoint::altitude_msl_m() const {
@@ -242,11 +242,11 @@ namespace waypointing {
     }
 
     bool operator==(const Waypoint& a, const Waypoint& b) {
-        return a.latitude() == b.latitude() && a.longitude() == b.longitude() && a.altitude_msl_m() == b.altitude_msl_m() && a.waypoint_type() == b.waypoint_type();
+        return a.latitude_dege7() == b.latitude_dege7() && a.longitude_dege7() == b.longitude_dege7() && a.altitude_msl_m() == b.altitude_msl_m() && a.waypoint_type() == b.waypoint_type();
     }
 
     bool operator!=(const Waypoint& a, const Waypoint& b) {
-        return a.latitude() != b.latitude() || a.longitude() != b.longitude() || a.altitude_msl_m() != b.altitude_msl_m() || a.waypoint_type() != b.waypoint_type();
+        return a.latitude_dege7() != b.latitude_dege7() || a.longitude_dege7() != b.longitude_dege7() || a.altitude_msl_m() != b.altitude_msl_m() || a.waypoint_type() != b.waypoint_type();
     }
 
     Flyzone::Flyzone(uuaspb::Flyzone pbFlyzone) :
@@ -254,7 +254,6 @@ namespace waypointing {
         _max_altitude_msl_m(pbFlyzone.max_altitude_msl_m()),
         _min_altitude_msl_m(pbFlyzone.min_altitude_msl_m()) {
         for (int i = 0; i < pbFlyzone.bounds_size(); ++i) {
-            std::cout << "fzb " << pbFlyzone.bounds(i).latitude() << " " << pbFlyzone.bounds(i).longitude() << std::endl;
             this->_bounds.emplace_back(pbFlyzone.bounds(i));
         }
         if (*this->_bounds.begin() != *this->_bounds.rbegin()) {
@@ -347,8 +346,8 @@ namespace waypointing {
     }
 
     std::vector<Waypoint> Map::shortestRoute(Waypoint start, Waypoint end) {
-        std::cout << "smstart " << start.latitude() << " " << start.longitude() << std::endl;
-        std::cout << "smend " << end.latitude() << " " << end.longitude() << std::endl;
+        std::cout << "smstart " << start.latitude_dege7() << " " << start.longitude_dege7() << std::endl;
+        std::cout << "smend " << end.latitude_dege7() << " " << end.longitude_dege7() << std::endl;
 
         auto wpoi_connections = this->_wpoi_connections;
         auto flyable_wpoi = this->_flyable_wpoi;
@@ -391,16 +390,16 @@ namespace waypointing {
 
             current_wp_idx = std::get<1>(current_wp_pair);
             UasCoordinate current_wp = flyable_wpoi[current_wp_idx];
-            std::cout << "curr " << current_wp.latitude() << " " << current_wp.longitude() << std::endl;
+            std::cout << "curr " << current_wp.latitude_dege7() << " " << current_wp.longitude_dege7() << std::endl;
 
-            if (current_wp.latitude() == end.latitude() && current_wp.longitude() == end.longitude()) {
+            if (current_wp.latitude_dege7() == end.latitude_dege7() && current_wp.longitude_dege7() == end.longitude_dege7()) {
                 std::cout << "A* section done" << std::endl;
                 goal_reached = true;
                 break;
             }
 
             for (auto next_idx : wpoi_connections[current_wp_idx]) {
-                std::cout << "next " << flyable_wpoi[next_idx].latitude() << " " << flyable_wpoi[next_idx].longitude() << std::endl;
+                std::cout << "next " << flyable_wpoi[next_idx].latitude_dege7() << " " << flyable_wpoi[next_idx].longitude_dege7() << std::endl;
                 int new_cost = cost_so_far[current_wp_idx] + this->distance(flyable_wpoi[current_wp_idx], flyable_wpoi[next_idx]);
                 if (cost_so_far.count(next_idx) == 0 || new_cost < cost_so_far[next_idx]) {
                     cost_so_far[next_idx] = new_cost;

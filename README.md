@@ -13,7 +13,7 @@
 - Make
 
 ## Building the Library
-The docker images can all be built using the following make commands:
+The libraries and binding docker images can all be built using the following make commands:
 ```
 make docker
 ```
@@ -29,6 +29,7 @@ A full list of make commands can be shown:
 ```
 make list
 ```
+
 ## Usage
 Since the library has no executable of it's own, it's only usage is to act as a dependency for other services. By building the docker images, docker will tag them as the latest. Any docker based service can then be rebuilt, and will use the newly built docker images as the base.
 

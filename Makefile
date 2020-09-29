@@ -93,10 +93,15 @@ docker-cpp:
 docker-cpp-publish: docker-cpp
 	docker push ubcuas/cppuuas:latest
 
+docker-cpp-multiarch: docker-multiarch-deps
+	DOCKER_CLI_EXPERIMENTAL=enabled \
+	DOCKER_BUILDKIT=enabled \
+	docker buildx build . --pull=true --target cpprun -t ubcuas/cppuuas:latest --platform "linux/amd64,linux/arm64,linux/arm/v7"
+
 docker-cpp-multiarch-publish: docker-multiarch-deps
 	DOCKER_CLI_EXPERIMENTAL=enabled \
 	DOCKER_BUILDKIT=enabled \
-	docker buildx build . --pull=true --target cpprun -t ubcuas/cppuuas:multiarch --push --platform "linux/amd64,linux/arm64,linux/arm/v7"
+	docker buildx build . --pull=true --target cpprun -t ubcuas/cppuuas:latest --push --platform "linux/amd64,linux/arm64,linux/arm/v7"
 
 docker-rust:
 	docker build . --pull=true --target rustrun -t ubcuas/rustuuas:latest
@@ -104,10 +109,15 @@ docker-rust:
 docker-rust-publish: docker-rust
 	docker push ubcuas/rustuuas:latest
 
+docker-rust-multiarch: docker-multiarch-deps
+	DOCKER_CLI_EXPERIMENTAL=enabled \
+	DOCKER_BUILDKIT=enabled \
+	docker buildx build . --pull=true --target rustrun -t ubcuas/rustuuas:latest --platform "linux/amd64,linux/arm64,linux/arm/v7"
+
 docker-rust-multiarch-publish: docker-multiarch-deps
 	DOCKER_CLI_EXPERIMENTAL=enabled \
 	DOCKER_BUILDKIT=enabled \
-	docker buildx build . --pull=true --target rustrun -t ubcuas/rustuuas:multiarch --push --platform "linux/amd64,linux/arm64,linux/arm/v7"
+	docker buildx build . --pull=true --target rustrun -t ubcuas/rustuuas:latest --push --platform "linux/amd64,linux/arm64,linux/arm/v7"
 
 docker-py:
 	docker build . --pull=true --target pyrun -t ubcuas/pyuuas:latest
@@ -117,14 +127,23 @@ docker-py-publish: docker-py
 	docker push ubcuas/pyuuas:latest
 	docker push ubcuas/pypyuuas:latest
 
+docker-py-multiarch: docker-multiarch-deps
+	DOCKER_CLI_EXPERIMENTAL=enabled \
+	DOCKER_BUILDKIT=enabled \
+	docker buildx build . --pull=true --target pyrun -t ubcuas/pyuuas:latest  --platform "linux/amd64"
+	DOCKER_CLI_EXPERIMENTAL=enabled \
+	DOCKER_BUILDKIT=enabled \
+	docker buildx build . --pull=true --target pypyrun -t ubcuas/pypyuuas:latest  --platform "linux/amd64"
+
 docker-py-multiarch-publish: docker-multiarch-deps
 	DOCKER_CLI_EXPERIMENTAL=enabled \
 	DOCKER_BUILDKIT=enabled \
-	docker buildx build . --pull=true --target pyrun -t ubcuas/pyuuas:multiarch --push --platform "linux/amd64,linux/arm64,linux/arm/v7"
+	docker buildx build . --pull=true --target pyrun -t ubcuas/pyuuas:latest --push --platform "linux/amd64"
 	DOCKER_CLI_EXPERIMENTAL=enabled \
 	DOCKER_BUILDKIT=enabled \
-	docker buildx build . --pull=true --target pypyrun -t ubcuas/pypyuuas:multiarch --push --platform "linux/amd64,linux/arm64,linux/arm/v7"
+	docker buildx build . --pull=true --target pypyrun -t ubcuas/pypyuuas:latest --push --platform "linux/amd64"
 
 docker-multiarch-publish: docker-cpp-multiarch-publish docker-rust-multiarch-publish docker-py-multiarch-publish
+docker-multiarch: docker-cpp-multiarch docker-rust-multiarch docker-py-multiarch
 docker-publish: docker-cpp-publish docker-rust-publish docker-py-publish
 docker: docker-cpp docker-rust docker-py

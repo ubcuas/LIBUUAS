@@ -55,7 +55,7 @@ COPY bindings/rust/ /opt/ruuas/
 
 
 #### Python bindings build image ####
-FROM python:latest AS pybuild
+FROM python:3.8 AS pybuild
 RUN mkdir -p /libuuas/
 WORKDIR /libuuas/
 
@@ -75,7 +75,7 @@ RUN python3 setup.py bdist_wheel
 
 
 #### Python runtime image ####
-FROM python:latest AS pyrun
+FROM python:3.8 AS pyrun
 
 RUN apt-get update -y && apt-get install -y cmake
 RUN pip install --verbose cppyy

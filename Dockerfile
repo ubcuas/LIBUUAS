@@ -3,7 +3,7 @@ FROM itseris/cmake:latest AS libbuild
 RUN mkdir -p /libuuas/
 WORKDIR /libuuas/
 
-RUN apt-get update -y && apt-get install -y build-essential zlib1g-dev libexpat1-dev libwebp-dev
+RUN apt-get --allow-releaseinfo-change-suite update -y && apt-get install -y build-essential zlib1g-dev libexpat1-dev libwebp-dev
 
 RUN mkdir -p /libuuas/build/
 WORKDIR /libuuas/build/

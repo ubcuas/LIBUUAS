@@ -17,7 +17,7 @@ RUN make install
 
 
 #### C++ runtime image ####
-FROM debian:latest AS cpprun
+FROM debian:bullseye AS cpprun
 
 COPY --from=libbuild /usr/local/lib/ /usr/local/lib/
 COPY --from=libbuild /usr/local/include/ /usr/local/include/
@@ -25,7 +25,7 @@ RUN ldconfig /usr/local/lib/
 
 
 #### Rust bindings build image ####
-FROM rust:latest AS rustbuild
+FROM rust:1.56.0-bullseye AS rustbuild
 RUN mkdir -p /libuuas/
 WORKDIR /libuuas/
 
@@ -41,7 +41,7 @@ RUN cargo build --release
 
 
 #### Rust runtime image ####
-FROM rust:latest AS rustrun
+FROM rust:1.56.0-bullseye AS rustrun
 RUN mkdir -p /libuuas/
 RUN mkdir -p /opt/ruuas/
 
@@ -90,7 +90,7 @@ RUN rm -rf *.whl
 
 
 #### Pypy runtime image ####
-FROM pypy:latest AS pypyrun
+FROM pypy:3.8-bullseye AS pypyrun
 
 RUN apt-get update -y && apt-get install -y cmake
 RUN pip install --verbose cppyy

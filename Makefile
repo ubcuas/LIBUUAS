@@ -22,9 +22,8 @@ test-cpp: build-cpp
 test-rust:
 	cd bindings/rust/; cargo test --release
 
-test-py: install-py
-	pip3 install --user pytest
-	cd bindings/python/; pytest -s
+test-py:
+	docker run -it ubcuas/pyuuas bash /home/python-tests/tests/run-tests.sh;
 
 test: test-cpp test-rust test-py
 

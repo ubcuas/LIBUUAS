@@ -60,7 +60,7 @@ RUN mkdir -p /libuuas/
 WORKDIR /libuuas/
 
 RUN apt-get update -y && apt-get install -y cmake
-RUN pip install --verbose cppyy
+RUN pip install --verbose cppyy utm
 
 COPY bindings/python/build_requirements.txt ./
 RUN pip install -r build_requirements.txt
@@ -78,7 +78,7 @@ RUN python3 setup.py bdist_wheel
 FROM python:3.8 AS pyrun
 
 RUN apt-get update -y && apt-get install -y cmake
-RUN pip install --verbose cppyy
+RUN pip install --verbose cppyy utm
 
 COPY --from=libbuild /usr/local/lib/ /usr/local/lib/
 COPY --from=libbuild /usr/local/include/ /usr/local/include/
@@ -88,6 +88,9 @@ COPY --from=pybuild /libuuas/build/dist/*.whl ./
 RUN pip install *.whl
 RUN rm -rf *.whl
 
+# Incorporate tests into image
+COPY bindings/python/tests /home/python-tests/tests/
+RUN chmod +x /home/python-tests/tests/run-tests.sh
 
 #### Pypy runtime image ####
 FROM pypy:3.8-bullseye AS pypyrun
